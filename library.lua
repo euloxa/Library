@@ -8381,6 +8381,10 @@ pcall(function() GameName = game:GetService("MarketplaceService"):GetProductInfo
 			L2Hub.PlayAnimate(CloseButton , SlowyTween , {
 				TextTransparency = 0.450
 			})
+			
+			L2Hub.PlayAnimate(MinimizeButton , SlowyTween , {
+				TextTransparency = 0.450
+			})
 
 			Window.Shadow:Render(false);
 		else
@@ -8473,6 +8477,11 @@ pcall(function() GameName = game:GetService("MarketplaceService"):GetProductInfo
 			L2Hub.PlayAnimate(CloseButton , SlowyTween , {
 				TextTransparency = 1
 			})
+			
+			L2Hub.PlayAnimate(MinimizeButton , SlowyTween , {
+				TextTransparency = 1
+			})
+
 
 			Window.Shadow:Render(false);
 		end;
@@ -8968,7 +8977,7 @@ pcall(function() GameName = game:GetService("MarketplaceService"):GetProductInfo
 	SearchFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	SearchFrame.BorderSizePixel = 0
 	SearchFrame.ClipsDescendants = true
-	SearchFrame.Position = UDim2.new(1, -45, 0.5, 0)
+	SearchFrame.Position = UDim2.new(1, -80, 0.5, 0)
 	SearchFrame.Size = UDim2.new(0, 30, 0, 30)
 	SearchFrame.ZIndex = 12
 
@@ -9005,6 +9014,22 @@ pcall(function() GameName = game:GetService("MarketplaceService"):GetProductInfo
 	SearchBox.TextSize = 13.000
 	SearchBox.TextTransparency = 1
 	SearchBox.TextXAlignment = Enum.TextXAlignment.Left
+	
+    local MinimizeButton = Instance.new("ImageLabel")
+	MinimizeButton.Name = L2Hub.RandomString();
+	MinimizeButton.Parent = RightHeader
+	MinimizeButton.AnchorPoint = Vector2.new(1, 0.5)
+	MinimizeButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	MinimizeButton.BackgroundTransparency = 1.000
+	MinimizeButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	MinimizeButton.BorderSizePixel = 0
+	MinimizeButton.Position = UDim2.new(1, -45, 0.5, 0)
+	MinimizeButton.Size = UDim2.new(0, 30, 0, 30)
+	MinimizeButton.ZIndex = 12
+	L2Hub:SetIconMode(MinimizeButton, "minus")
+	MinimizeButton.ImageColor3 = Color3.fromRGB(223, 223, 223)
+	MinimizeButton.ImageTransparency = 0.45
+	MinimizeButton.ScaleType = Enum.ScaleType.Fit
 
 	CloseButton.Name = L2Hub.RandomString();
 	CloseButton.Parent = RightHeader
@@ -9125,6 +9150,27 @@ pcall(function() GameName = game:GetService("MarketplaceService"):GetProductInfo
 		end)));
 	else
 		SearchFrame.Visible = false;
+	end;
+	
+		do
+		local Input = L2Hub:CreateInput(MinimizeButton , LPH_NO_VIRTUALIZE(function()
+			Window:SetRender(false);
+			if Window._MenuIcon then
+				Window._MenuIcon:SetVisible(true);
+			end;
+		end));
+
+		L2Hub:AddSignal(Input.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
+			L2Hub.PlayAnimate(MinimizeButton , SlowyTween , {
+				TextTransparency = 0.150
+			})
+		end)))
+
+		L2Hub:AddSignal(Input.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
+			L2Hub.PlayAnimate(MinimizeButton , SlowyTween , {
+				TextTransparency = Window.Signal:GetValue() and 0.450 or 1
+			})
+		end)))
 	end;
 
 	do
