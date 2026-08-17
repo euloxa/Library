@@ -8095,7 +8095,8 @@ pcall(function() GameName = game:GetService("MarketplaceService"):GetProductInfo
 		Loadingscreen = Config.Loadingscreen == true or Config.LoadingScreen == true or Config.Loading == true,
 		OnDestroyCallbacks = {},
 		Keybind = Config.Keybind,
-		Enable3DRenderer = Config.Enable3DRenderer
+		Enable3DRenderer = Config.Enable3DRenderer,
+		IconLocked = false
 	};
 
 	if type(Config.OnDestroy) == "function" then
@@ -9163,7 +9164,7 @@ pcall(function() GameName = game:GetService("MarketplaceService"):GetProductInfo
 				Window._MenuIcon = L2Hub:CreateMenuIcon({
 					Image = Window.Logo,
 					Size = 48,
-					Draggable = true
+					Draggable = not Window.IconLocked
 				})
 			end;
 			Window._MenuIcon:OnWindowToggle(false)
@@ -12746,6 +12747,16 @@ pcall(function() GameName = game:GetService("MarketplaceService"):GetProductInfo
 		Default = L2Hub.TextGradientEnabled,
 		Callback = function(value)
 			L2Hub:SetTextGradientEnabled(value);
+		end,
+	});
+	
+	UserSettings:AddLabel("Lock Icon"):AddToggle({
+		Default = Window.IconLocked,
+		Callback = function(value)
+			Window.IconLocked = value;
+			if Window._MenuIcon then
+				Window._MenuIcon:SetDraggable(not value);
+			end
 		end,
 	});
 
