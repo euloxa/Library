@@ -2876,7 +2876,13 @@ function L2Hub:CreateColorPicker(HandleFrame: Frame)
 
 	ColorPickerLib.SetRender = LPH_NO_VIRTUALIZE(function(value)
 		if value then
-			ColorPickerHandler.Position = UDim2.new(0,HandleFrame.AbsolutePosition.X + 20 , 0 ,HandleFrame.AbsolutePosition.Y + 75);
+			if L2Hub:MoreThanHalfY(HandleFrame.AbsolutePosition.Y + 150) then
+			ColorPickerHandler.AnchorPoint = Vector2.new(0, 1)
+	        ColorPickerHandler.Position = UDim2.new(0, HandleFrame.AbsolutePosition.X + 20, 0, HandleFrame.AbsolutePosition.Y - 5)
+			else
+			ColorPickerHandler.AnchorPoint = Vector2.new(0, 0)
+			ColorPickerHandler.Position = UDim2.new(0, HandleFrame.AbsolutePosition.X + 20, 0, HandleFrame.AbsolutePosition.Y + 25)
+			end;
 
 			L2Hub.PlayAnimate(ColorPickerHandler,SlowyTween , {
 				BackgroundTransparency = 0.035
