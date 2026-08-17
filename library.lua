@@ -815,9 +815,12 @@ function L2Hub:CreateMenuIcon(Config)
 					endConn:Disconnect();
 					dragging = false;
 
-					-- Pure tap (no drag movement) → fire the real-time keybind
+					-- Pure tap (no drag movement) → Munculin Menu, Hilangin Logo
 					if not moved then
-						L2Hub:FireKeybind();
+						if L2Hub.ActiveWindow then
+							L2Hub.ActiveWindow.Signal:SetValue(true)
+							MenuIconLib:SetVisible(false)
+						end
 					end;
 				end);
 			end));
@@ -8067,7 +8070,9 @@ pcall(function() GameName = game:GetService("MarketplaceService"):GetProductInfo
 	end;
 
 	Config.ConfigFolder = tostring(Config.ConfigFolder):gsub("[/\\]+$","");
-
+	
+	
+	-- Registrasi Active Window
 	local Window = {
 		Logo = Config.Logo,
 		Name = Config.Name,
@@ -8102,6 +8107,7 @@ pcall(function() GameName = game:GetService("MarketplaceService"):GetProductInfo
 	end;
 
 	L2Hub.GlobalLogo = Window.Logo;
+	L2Hub.ActiveWindow = Window;
 
 	local Logging = L2Hub:CreateLogger();
 	if not isfolder(Window.ConfigFolder) then
@@ -9152,9 +9158,9 @@ pcall(function() GameName = game:GetService("MarketplaceService"):GetProductInfo
 		SearchFrame.Visible = false;
 	end;
 	
-		do
+	do
 		local Input = L2Hub:CreateInput(MinimizeButton , LPH_NO_VIRTUALIZE(function()
-			Window:SetRender(false);
+			Window.Signal:SetValue(false);
 			if Window._MenuIcon then
 				Window._MenuIcon:SetVisible(true);
 			end;
