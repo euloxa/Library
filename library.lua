@@ -204,7 +204,7 @@ L2Hub.TextGradientAnimationTime = 0;
 L2Hub.TextGradientAccumulator = 0;
 L2Hub.TextGradientLabels = {};
 L2Hub.TextGradientObjects = {};
-L2Hub.GlobalLogo = "rbxassetid://120358385035996";
+L2Hub.GlobalLogo = "rbxassetid://120932910004936";
 L2Hub.ImageColorMapping = "rbxassetid://4155801252";
 L2Hub.IconBase = "https://raw.githubusercontent.com/nhfudzfsrzggt/brigida/refs/heads/main/";
 L2Hub.Icons = {};
@@ -8039,13 +8039,16 @@ function L2Hub:CreateWindow(Config)
 		Config.Size = L2Hub.IsMobile and L2Hub.Scales.Mobile or L2Hub.Scales.Large;
 	end;
 
-	Config = L2Hub:ProcessParams(Config , {
-		Logo = L2Hub.GlobalLogo,
-		Name = "L2Hub",
-		Content = "Counter-Strike 2",
-		Size = L2Hub.IsMobile and L2Hub.Scales.Mobile or L2Hub.Scales.Large,
-		Font = nil,
-		ConfigFolder = "ModernV2Configs",
+	local GameName = "Premium Script"
+pcall(function() GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name end)
+
+    Config = L2Hub:ProcessParams(Config , {
+	Logo = "rbxassetid://120932910004936",
+	Name = "L2-HUB",
+	Content = GameName,
+	    Size = L2Hub.IsMobile and L2Hub.Scales.Mobile or L2Hub.  Scales.Large,
+	    Font = nil,
+	    ConfigFolder = "L2Hub_Configs",
 		Uitransparent = nil,
 		ShowUser = true,
 		Search = true,
