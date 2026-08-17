@@ -627,11 +627,9 @@ function L2Hub:CreateMenuIcon(Config)
 		local IconFallbackText = IconImage:FindFirstChild("ModernIconFallbackText");
 
 		if val then
-			-- Bounce-in from left
-			IconRoot.Position = UDim2.new(0, -iconSize, 0.5, 0);
+			-- IconRoot.Position = UDim2.new(0, -iconSize, 0.5, 0); 
 			L2Hub.PlayAnimate(IconRoot, VSlowTween, {
-				BackgroundTransparency = 0,
-				Position = UDim2.new(0, 15, 0.5, 0),
+			BackgroundTransparency = 0,
 			});
 			L2Hub.PlayAnimate(UIStrokeIcon, SlowyTween, {
 				Transparency = 0.25,
@@ -9159,9 +9157,10 @@ pcall(function() GameName = game:GetService("MarketplaceService"):GetProductInfo
 		SearchFrame.Visible = false;
 	end;
 	
-		do
+	do
 		local Input = L2Hub:CreateInput(MinimizeButton , LPH_NO_VIRTUALIZE(function()
 			Window.Signal:SetValue(false);
+			
 			if not Window._MenuIcon then
 				Window._MenuIcon = L2Hub:CreateMenuIcon({
 					Image = Window.Logo,
@@ -9169,6 +9168,7 @@ pcall(function() GameName = game:GetService("MarketplaceService"):GetProductInfo
 					Draggable = true
 				})
 			end;
+			Window._MenuIcon:OnWindowToggle(false)
 			Window._MenuIcon:SetVisible(true);
 		end));
 
