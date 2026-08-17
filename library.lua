@@ -8145,10 +8145,12 @@ pcall(function() GameName = game:GetService("MarketplaceService"):GetProductInfo
 	local ConfigName = Instance.new("TextLabel")
 	local ConfigBthIcon = Instance.new("ImageLabel")
 	local SearchFrame = Instance.new("Frame")
-	local SearchIcon = Instance.new("ImageLabel")
-	local SearchBox = Instance.new("TextBox")
-	local CloseButton = Instance.new("ImageLabel")
-	local TabContainer = Instance.new("Frame")
+    local SearchIcon = Instance.new("ImageLabel")
+    local SearchBox = Instance.new("TextBox")
+    local CloseButton = Instance.new("ImageLabel")
+    local MinimizeButton = Instance.new("ImageLabel")
+    local TabContainer = Instance.new("Frame")
+
 
 	WindowFrame.Name = L2Hub.RandomString();
 	WindowFrame.Parent = L2Hub.ScreenGui;
@@ -9021,7 +9023,6 @@ pcall(function() GameName = game:GetService("MarketplaceService"):GetProductInfo
 	SearchBox.TextTransparency = 1
 	SearchBox.TextXAlignment = Enum.TextXAlignment.Left
 	
-    local MinimizeButton = Instance.new("ImageLabel")
 	MinimizeButton.Name = L2Hub.RandomString();
 	MinimizeButton.Parent = RightHeader
 	MinimizeButton.AnchorPoint = Vector2.new(1, 0.5)
