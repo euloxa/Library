@@ -1,4 +1,4 @@
--- [ModernV2] | [Modified By L2-Hub] | [Version : 0.1] 
+-- [L2Hub] | [Modified By L2Hub] | [Version : 0.1] 
 do
 	local Constant = 'L'..'P'..'H'..'_NO_VIRTUALIZE';
 	getfenv()[Constant] = getfenv()[Constant] or function(f) return f end;
@@ -142,12 +142,12 @@ listfiles = listfiles or getgenv().listfiles;
 isfolder = isfolder or getgenv().isfolder;
 isfile = isfile or getgenv().isfile;
 
-local ModernV2 = {};
+local L2Hub = {};
 
-ModernV2.BuiltInRegular = Font.new('rbxasset://LuaPackages/Packages/_Index/BuilderIcons/BuilderIcons/BuilderIcons.json',Enum.FontWeight.Regular,Enum.FontStyle.Normal);
-ModernV2.BuiltInBold = Font.new('rbxasset://LuaPackages/Packages/_Index/BuilderIcons/BuilderIcons/BuilderIcons.json',Enum.FontWeight.Bold,Enum.FontStyle.Normal);
-ModernV2.GlobalSignals = {};
-ModernV2.UnloadEnabled = false;
+L2Hub.BuiltInRegular = Font.new('rbxasset://LuaPackages/Packages/_Index/BuilderIcons/BuilderIcons/BuilderIcons.json',Enum.FontWeight.Regular,Enum.FontStyle.Normal);
+L2Hub.BuiltInBold = Font.new('rbxasset://LuaPackages/Packages/_Index/BuilderIcons/BuilderIcons/BuilderIcons.json',Enum.FontWeight.Bold,Enum.FontStyle.Normal);
+L2Hub.GlobalSignals = {};
+L2Hub.UnloadEnabled = false;
 
 local cloneref: cloneref = cloneref or function(f) return f end;
 local TweenService: TweenService = cloneref(game:GetService('TweenService'));
@@ -165,23 +165,23 @@ local GlobalWindow = Instance.new('ScreenGui');
 local ManualTween = TweenInfo.new(0.1);
 local SlowyTween = TweenInfo.new(0.175);
 local FastTween = TweenInfo.new(0.05);
-local VSlowTween = TweenInfo.new(0.5,Enum.EasingStyle.Quint);
+local VSlowTween = TweenInfo.new(0.2,Enum.EasingStyle.Quint);
 local Encryption = {};
 
-ModernV2.UserProfile = Players:GetUserThumbnailAsync(LocalPlayer.UserId , Enum.ThumbnailType.HeadShot , Enum.ThumbnailSize.Size150x150)
-ModernV2.RandomString = LPH_NO_VIRTUALIZE(function()
+L2Hub.UserProfile = Players:GetUserThumbnailAsync(LocalPlayer.UserId , Enum.ThumbnailType.HeadShot , Enum.ThumbnailSize.Size150x150)
+L2Hub.RandomString = LPH_NO_VIRTUALIZE(function()
 	return string.rep(string.char(math.random(1,7)),math.random(1,4))..string.rep(string.char(math.random(1,7)),math.random(1,4))..string.rep(string.char(math.random(1,7)),math.random(1,4))..string.rep(string.char(math.random(1,7)),math.random(1,4))..string.rep(string.char(math.random(1,7)),math.random(1,4))..string.rep(string.char(math.random(1,7)),math.random(1,4))..string.rep(string.char(math.random(1,7)),math.random(1,4))..string.rep(string.char(math.random(1,7)),math.random(1,4))..string.rep(string.char(math.random(1,7)),math.random(1,4))..string.rep(string.char(math.random(1,7)),math.random(1,4))..string.rep(string.char(math.random(1,7)),math.random(1,4));
 end);
 
 ProtectGui(GlobalWindow);
 
-GlobalWindow.Name = ModernV2.RandomString();
+GlobalWindow.Name = L2Hub.RandomString();
 GlobalWindow.IgnoreGuiInset = true;
 GlobalWindow.ZIndexBehavior = Enum.ZIndexBehavior.Global;
 GlobalWindow.ResetOnSpawn = false;
 GlobalWindow.Parent = CoreGui;
 
-ModernV2.Scales = {
+L2Hub.Scales = {
 	Small = UDim2.fromOffset(540,380),
 	Compact = UDim2.fromOffset(600,380),
 	Mobile = UDim2.fromOffset(640,385),
@@ -189,29 +189,29 @@ ModernV2.Scales = {
 	Large = UDim2.fromOffset(800 , 600)
 };
 
-ModernV2.IconColor = Color3.fromRGB(255, 255, 255);
-ModernV2.ScreenGui = GlobalWindow;
-ModernV2.Flags = {};
-ModernV2.PendingFlagValues = {};
-ModernV2.AccentColor = Color3.fromRGB(78, 127, 252);
-ModernV2.MainColor = Color3.fromRGB(8, 8, 13);
-ModernV2.RegisiteryColor = {};
-ModernV2.NameRegisitry = {};
-ModernV2.SectionOwners = {};
-ModernV2.IsMosueOverOtherFrame = false;
-ModernV2.TextGradientEnabled = true;
-ModernV2.TextGradientAnimationTime = 0;
-ModernV2.TextGradientAccumulator = 0;
-ModernV2.TextGradientLabels = {};
-ModernV2.TextGradientObjects = {};
-ModernV2.GlobalLogo = "rbxassetid://120358385035996";
-ModernV2.ImageColorMapping = "rbxassetid://4155801252";
-ModernV2.IconBase = "https://raw.githubusercontent.com/nhfudzfsrzggt/brigida/refs/heads/main/";
-ModernV2.Icons = {};
-ModernV2.IconScale = 0.82;
-ModernV2.Font = nil;
-ModernV2.FontFace = nil;
-ModernV2.IconAliases = {
+L2Hub.IconColor = Color3.fromRGB(255, 255, 255);
+L2Hub.ScreenGui = GlobalWindow;
+L2Hub.Flags = {};
+L2Hub.PendingFlagValues = {};
+L2Hub.AccentColor = Color3.fromRGB(0, 255, 100);
+L2Hub.MainColor = Color3.fromRGB(12, 12, 12);
+L2Hub.RegisiteryColor = {};
+L2Hub.NameRegisitry = {};
+L2Hub.SectionOwners = {};
+L2Hub.IsMosueOverOtherFrame = false;
+L2Hub.TextGradientEnabled = true;
+L2Hub.TextGradientAnimationTime = 0;
+L2Hub.TextGradientAccumulator = 0;
+L2Hub.TextGradientLabels = {};
+L2Hub.TextGradientObjects = {};
+L2Hub.GlobalLogo = "rbxassetid://120358385035996";
+L2Hub.ImageColorMapping = "rbxassetid://4155801252";
+L2Hub.IconBase = "https://raw.githubusercontent.com/nhfudzfsrzggt/brigida/refs/heads/main/";
+L2Hub.Icons = {};
+L2Hub.IconScale = 0.82;
+L2Hub.Font = nil;
+L2Hub.FontFace = nil;
+L2Hub.IconAliases = {
 	["lucide:table-of-contents"] = "list-bulleted",
 	["lucide:toggle-right"] = "two-switches-horizontal",
 	["lucide:mouse"] = "mouse-button-left",
@@ -228,11 +228,11 @@ ModernV2.IconAliases = {
 	["lucide:circle-alert"] = "triangle-exclamation",
 	["lucide:house"] = "house",
 };
-ModernV2.IconLibraryLoaded = false;
-ModernV2.IconLibraryLoading = false;
-ModernV2.IconSystem = nil;
+L2Hub.IconLibraryLoaded = false;
+L2Hub.IconLibraryLoading = false;
+L2Hub.IconSystem = nil;
 
-function ModernV2:NormalizeIconId(iconId)
+function L2Hub:NormalizeIconId(iconId)
 	if not iconId or iconId == "" then
 		return "";
 	end;
@@ -258,21 +258,21 @@ end;
 --   "lucide:search"   -> icon id from external lucide library
 --   "solar:user"      -> icon id from external solar library
 --   "https://..."     -> direct image URL
-function ModernV2:LoadIconLibrary()
-	if ModernV2.IconLibraryLoaded then
-		return ModernV2.Icons;
+function L2Hub:LoadIconLibrary()
+	if L2Hub.IconLibraryLoaded then
+		return L2Hub.Icons;
 	end;
 
-	if ModernV2.IconLibraryLoading then
-		repeat task.wait() until not ModernV2.IconLibraryLoading;
-		return ModernV2.Icons;
+	if L2Hub.IconLibraryLoading then
+		repeat task.wait() until not L2Hub.IconLibraryLoading;
+		return L2Hub.Icons;
 	end;
 
-	ModernV2.IconLibraryLoading = true;
+	L2Hub.IconLibraryLoading = true;
 
 	local function Load(path)
 		local success, result = pcall(function()
-			return loadstring(game:HttpGet(ModernV2.IconBase .. path))();
+			return loadstring(game:HttpGet(L2Hub.IconBase .. path))();
 		end);
 
 		if success and typeof(result) == "table" then
@@ -287,37 +287,37 @@ function ModernV2:LoadIconLibrary()
 	local solarIcons = Load("src/elements/icon/solar.lua");
 
 	for name, id in pairs(defaultIcons) do
-		ModernV2.Icons[name] = ModernV2:NormalizeIconId(id);
+		L2Hub.Icons[name] = L2Hub:NormalizeIconId(id);
 	end;
 
 	for name, id in pairs(lucideIcons) do
-		ModernV2.Icons["lucide:" .. name] = ModernV2:NormalizeIconId(id);
+		L2Hub.Icons["lucide:" .. name] = L2Hub:NormalizeIconId(id);
 	end;
 
 	for name, id in pairs(solarIcons) do
-		ModernV2.Icons["solar:" .. name] = ModernV2:NormalizeIconId(id);
+		L2Hub.Icons["solar:" .. name] = L2Hub:NormalizeIconId(id);
 	end;
 
-	ModernV2.IconLibraryLoaded = true;
-	ModernV2.IconLibraryLoading = false;
-	ModernV2.IconSystem = {
-		Icons = ModernV2.Icons,
+	L2Hub.IconLibraryLoaded = true;
+	L2Hub.IconLibraryLoading = false;
+	L2Hub.IconSystem = {
+		Icons = L2Hub.Icons,
 		getIconId = function(iconName)
-			return ModernV2:GetIconId(iconName);
+			return L2Hub:GetIconId(iconName);
 		end,
 	};
 
-	return ModernV2.Icons;
+	return L2Hub.Icons;
 end;
 
-function ModernV2:GetIconId(iconName)
+function L2Hub:GetIconId(iconName)
 	if not iconName or iconName == "" then
 		return "";
 	end;
 
 	iconName = tostring(iconName);
 
-	local DirectIcon = ModernV2:NormalizeIconId(iconName);
+	local DirectIcon = L2Hub:NormalizeIconId(iconName);
 	if DirectIcon ~= iconName
 	or string.find(DirectIcon, "rbxassetid://", 1, true)
 	or string.find(DirectIcon, "rbxasset://", 1, true)
@@ -325,18 +325,18 @@ function ModernV2:GetIconId(iconName)
 		return DirectIcon;
 	end;
 
-	if not ModernV2.IconLibraryLoaded then
-		ModernV2:LoadIconLibrary();
+	if not L2Hub.IconLibraryLoaded then
+		L2Hub:LoadIconLibrary();
 	end;
 
-	if ModernV2.Icons[iconName] then
-		return ModernV2:NormalizeIconId(ModernV2.Icons[iconName]);
+	if L2Hub.Icons[iconName] then
+		return L2Hub:NormalizeIconId(L2Hub.Icons[iconName]);
 	end;
 
 	return "";
 end;
 
-function ModernV2:IsWebmIcon(iconName)
+function L2Hub:IsWebmIcon(iconName)
 	if not iconName or iconName == "" then
 		return false;
 	end;
@@ -349,17 +349,17 @@ function ModernV2:IsWebmIcon(iconName)
 		or string.match(iconName, "%.webm#") ~= nil;
 end;
 
-function ModernV2:NormalizeVideoIcon(iconName)
+function L2Hub:NormalizeVideoIcon(iconName)
 	iconName = tostring(iconName or "");
 
 	if string.sub(string.lower(iconName), 1, 5) == "webm:" then
 		iconName = string.sub(iconName, 6);
 	end;
 
-	return ModernV2:NormalizeIconId(iconName);
+	return L2Hub:NormalizeIconId(iconName);
 end;
 
-function ModernV2:ClearIconVideo(IconObject)
+function L2Hub:ClearIconVideo(IconObject)
 	local VideoIcon = IconObject and IconObject:FindFirstChild("ModernIconVideo");
 
 	if VideoIcon then
@@ -372,7 +372,7 @@ function ModernV2:ClearIconVideo(IconObject)
 	end;
 end;
 
-function ModernV2:ApplyIconVideo(IconObject, IconSource)
+function L2Hub:ApplyIconVideo(IconObject, IconSource)
 	if not IconObject then
 		return nil;
 	end;
@@ -389,10 +389,10 @@ function ModernV2:ApplyIconVideo(IconObject, IconSource)
 		VideoIcon.Position = UDim2.fromScale(0.5, 0.5);
 		VideoIcon.Size = UDim2.fromScale(1, 1);
 		VideoIcon.ZIndex = IconObject.ZIndex + 1;
-		VideoIcon.Volume = ModernV2.IconVideoVolume or 0;
+		VideoIcon.Volume = L2Hub.IconVideoVolume or 0;
 		VideoIcon.Visible = true;
 
-		ModernV2:AddSignal(VideoIcon.Ended:Connect(function()
+		L2Hub:AddSignal(VideoIcon.Ended:Connect(function()
 			VideoIcon.TimePosition = 0;
 			VideoIcon:Play();
 		end));
@@ -401,7 +401,7 @@ function ModernV2:ApplyIconVideo(IconObject, IconSource)
 	if not IconObject:GetAttribute("ModernIconVideoBound") then
 		IconObject:SetAttribute("ModernIconVideoBound", true);
 
-		ModernV2:AddSignal(IconObject:GetPropertyChangedSignal("ZIndex"):Connect(function()
+		L2Hub:AddSignal(IconObject:GetPropertyChangedSignal("ZIndex"):Connect(function()
 			local ChildVideo = IconObject:FindFirstChild("ModernIconVideo");
 			if ChildVideo then
 				ChildVideo.ZIndex = IconObject.ZIndex + 1;
@@ -409,7 +409,7 @@ function ModernV2:ApplyIconVideo(IconObject, IconSource)
 		end));
 
 		if IconObject:IsA("ImageLabel") or IconObject:IsA("ImageButton") then
-			ModernV2:AddSignal(IconObject:GetPropertyChangedSignal("ImageTransparency"):Connect(function()
+			L2Hub:AddSignal(IconObject:GetPropertyChangedSignal("ImageTransparency"):Connect(function()
 				local ChildVideo = IconObject:FindFirstChild("ModernIconVideo");
 				if ChildVideo then
 					ChildVideo.Visible = IconObject.ImageTransparency < 0.99;
@@ -418,8 +418,8 @@ function ModernV2:ApplyIconVideo(IconObject, IconSource)
 		end;
 	end;
 
-	VideoIcon.Video = ModernV2:NormalizeVideoIcon(IconSource);
-	VideoIcon.Volume = ModernV2.IconVideoVolume or 0;
+	VideoIcon.Video = L2Hub:NormalizeVideoIcon(IconSource);
+	VideoIcon.Volume = L2Hub.IconVideoVolume or 0;
 	VideoIcon.Visible = true;
 	VideoIcon:SetAttribute("_isWebm", true);
 
@@ -430,16 +430,16 @@ function ModernV2:ApplyIconVideo(IconObject, IconSource)
 	return VideoIcon;
 end;
 
-ModernV2.IconSystem = {
-	Icons = ModernV2.Icons,
+L2Hub.IconSystem = {
+	Icons = L2Hub.Icons,
 	getIconId = function(iconName)
-		return ModernV2:GetIconId(iconName);
+		return L2Hub:GetIconId(iconName);
 	end,
 };
 
 task.spawn(function()
 	pcall(function()
-		ModernV2:LoadIconLibrary();
+		L2Hub:LoadIconLibrary();
 	end);
 end);
 
@@ -447,32 +447,32 @@ end);
 -- │                   THEME SYSTEM (AddTheme)                       │
 -- └─────────────────────────────────────────────────────────────────┘
 
-ModernV2.Themes = {};
-ModernV2.ThemeCallbacks = {};   -- list of callbacks to update live UI
+L2Hub.Themes = {};
+L2Hub.ThemeCallbacks = {};   -- list of callbacks to update live UI
 
 -- Register a theme update listener (internal use)
-function ModernV2:OnThemeChanged(fn)
-	table.insert(ModernV2.ThemeCallbacks, fn);
+function L2Hub:OnThemeChanged(fn)
+	table.insert(L2Hub.ThemeCallbacks, fn);
 end;
 
 -- Apply all registered theme callbacks
 local function _ApplyTheme(theme)
-	ModernV2.AccentColor  = theme.Accent      or ModernV2.AccentColor;
-	ModernV2.MainColor    = theme.Background  or ModernV2.MainColor;
-	ModernV2.IconColor    = theme.Icon        or ModernV2.IconColor;
+	L2Hub.AccentColor  = theme.Accent      or L2Hub.AccentColor;
+	L2Hub.MainColor    = theme.Background  or L2Hub.MainColor;
+	L2Hub.IconColor    = theme.Icon        or L2Hub.IconColor;
 
 	-- fire every live-update listener
-	for _, fn in next, ModernV2.ThemeCallbacks do
+	for _, fn in next, L2Hub.ThemeCallbacks do
 		pcall(fn, theme);
 	end;
 
-	if ModernV2.SetTextGradientEnabled then
-		ModernV2:SetTextGradientEnabled(ModernV2.TextGradientEnabled);
+	if L2Hub.SetTextGradientEnabled then
+		L2Hub:SetTextGradientEnabled(L2Hub.TextGradientEnabled);
 	end;
 end;
 
 --[[
-	ModernV2:AddTheme({
+	L2Hub:AddTheme({
 		Name        = "Lumi Sakura",
 		Accent      = Color3.fromRGB(255,120,180),
 		Background  = Color3.fromRGB(35,20,30),
@@ -484,24 +484,24 @@ end;
 		Icon        = Color3.fromRGB(255,180,210),
 	})
 ]]
-function ModernV2:AddTheme(Config)
+function L2Hub:AddTheme(Config)
 	Config = Config or {};
 	Config.Name = Config.Name or "Custom Theme";
 
 	-- defaults fall back to current values
 	local theme = {
 		Name        = Config.Name,
-		Accent      = Config.Accent      or ModernV2.AccentColor,
-		Background  = Config.Background  or ModernV2.MainColor,
+		Accent      = Config.Accent      or L2Hub.AccentColor,
+		Background  = Config.Background  or L2Hub.MainColor,
 		Surface     = Config.Surface     or Color3.fromRGB(20,22,27),
 		Outline     = Config.Outline     or Color3.fromRGB(45,48,58),
 		Text        = Config.Text        or Color3.fromRGB(255,255,255),
 		Placeholder = Config.Placeholder or Color3.fromRGB(140,140,155),
-		Button      = Config.Button      or ModernV2.AccentColor,
-		Icon        = Config.Icon        or ModernV2.IconColor,
+		Button      = Config.Button      or L2Hub.AccentColor,
+		Icon        = Config.Icon        or L2Hub.IconColor,
 	};
 
-	table.insert(ModernV2.Themes, theme);
+	table.insert(L2Hub.Themes, theme);
 	_ApplyTheme(theme);
 
 	return theme;
@@ -518,7 +518,7 @@ end;
 -- │  • Cannot be dragged off screen (optional drag entirely)        │
 -- └─────────────────────────────────────────────────────────────────┘
 
-function ModernV2:CreateMenuIcon(Config)
+function L2Hub:CreateMenuIcon(Config)
 	Config = Config or {};
 
 	-- ── Defaults ──────────────────────────────────────────────────
@@ -527,15 +527,15 @@ function ModernV2:CreateMenuIcon(Config)
 	local iconScale      = tonumber(Config.IconScale or Config.Scale) or 1;
 	local iconColor      = Config.IconColor    or Color3.fromRGB(255,255,255);
 	local bgColor        = Config.BGColor      or Color3.fromRGB(20,22,27);
-	local strokeColor    = Config.StrokeColor  or ModernV2.AccentColor;
+	local strokeColor    = Config.StrokeColor  or L2Hub.AccentColor;
 	local strokeThick    = Config.StrokeThick  or 1.5;
 	local draggable      = (Config.Draggable ~= false);       -- default true, but clamped
 	local cornerRadius   = UDim.new(0, math.floor(iconSize * 0.28)); -- ~28 % → round-square
 
 	-- ── Container ─────────────────────────────────────────────────
 	local IconRoot = Instance.new("Frame");
-	IconRoot.Name             = ModernV2.RandomString();
-	IconRoot.Parent           = ModernV2.ScreenGui;
+	IconRoot.Name             = L2Hub.RandomString();
+	IconRoot.Parent           = L2Hub.ScreenGui;
 	-- center-left: X = 15px from left, Y = 50 % of screen
 	IconRoot.AnchorPoint      = Vector2.new(0, 0.5);
 	IconRoot.BackgroundColor3 = bgColor;
@@ -560,7 +560,7 @@ function ModernV2:CreateMenuIcon(Config)
 	-- ── Icon display (TextLabel for built-in / ImageLabel for image) ──
 	-- We keep both and show the relevant one.
 	local IconLabel = Instance.new("TextLabel");
-	IconLabel.Name                = ModernV2.RandomString();
+	IconLabel.Name                = L2Hub.RandomString();
 	IconLabel.Parent              = IconRoot;
 	IconLabel.AnchorPoint         = Vector2.new(0.5, 0.5);
 	IconLabel.BackgroundTransparency = 1;
@@ -568,7 +568,7 @@ function ModernV2:CreateMenuIcon(Config)
 	IconLabel.Position            = UDim2.fromScale(0.5, 0.5);
 	IconLabel.Size                = UDim2.fromScale(0.65, 0.65);
 	IconLabel.ZIndex              = 21;
-	IconLabel.FontFace            = ModernV2.BuiltInBold;
+	IconLabel.FontFace            = L2Hub.BuiltInBold;
 	IconLabel.Text                = "";
 	IconLabel.TextColor3          = iconColor;
 	IconLabel.TextScaled          = true;
@@ -576,7 +576,7 @@ function ModernV2:CreateMenuIcon(Config)
 	IconLabel.TextWrapped         = true;
 
 	local IconImage = Instance.new("ImageLabel");
-	IconImage.Name                = ModernV2.RandomString();
+	IconImage.Name                = L2Hub.RandomString();
 	IconImage.Parent              = IconRoot;
 	IconImage.AnchorPoint         = Vector2.new(0.5, 0.5);
 	IconImage.BackgroundTransparency = 1;
@@ -594,7 +594,7 @@ function ModernV2:CreateMenuIcon(Config)
 	UICornerImg.Parent       = IconImage;
 
 	-- Shadow behind icon
-	local IconShadow = ModernV2:CreateShadow(IconRoot, true);
+	local IconShadow = L2Hub:CreateShadow(IconRoot, true);
 
 	-- ── Internal state ────────────────────────────────────────────
 	local MenuIconLib = {
@@ -614,7 +614,7 @@ function ModernV2:CreateMenuIcon(Config)
 			return;
 		end;
 
-		ModernV2:SetIconMode(IconImage, src);
+		L2Hub:SetIconMode(IconImage, src);
 		IconImage.Visible = true;
 		IconLabel.Visible = false;
 	end;
@@ -629,42 +629,42 @@ function ModernV2:CreateMenuIcon(Config)
 		if val then
 			-- Bounce-in from left
 			IconRoot.Position = UDim2.new(0, -iconSize, 0.5, 0);
-			ModernV2.PlayAnimate(IconRoot, VSlowTween, {
+			L2Hub.PlayAnimate(IconRoot, VSlowTween, {
 				BackgroundTransparency = 0,
 				Position = UDim2.new(0, 15, 0.5, 0),
 			});
-			ModernV2.PlayAnimate(UIStrokeIcon, SlowyTween, {
+			L2Hub.PlayAnimate(UIStrokeIcon, SlowyTween, {
 				Transparency = 0.25,
 			});
-			ModernV2.PlayAnimate(IconLabel, VSlowTween, {
+			L2Hub.PlayAnimate(IconLabel, VSlowTween, {
 				TextTransparency = 0,
 			});
-			ModernV2.PlayAnimate(IconImage, VSlowTween, {
+			L2Hub.PlayAnimate(IconImage, VSlowTween, {
 				ImageTransparency = 0,
 			});
 			if IconFallbackText then
-				ModernV2.PlayAnimate(IconFallbackText, VSlowTween, {
+				L2Hub.PlayAnimate(IconFallbackText, VSlowTween, {
 					TextTransparency = 0,
 				});
 			end;
-			IconShadow:Render(true);
+			IconShadow:Render(false);
 		else
 			-- Slide out to the left
-			ModernV2.PlayAnimate(IconRoot, VSlowTween, {
+			L2Hub.PlayAnimate(IconRoot, VSlowTween, {
 				BackgroundTransparency = 1,
 				Position = UDim2.new(0, -iconSize - 10, 0.5, 0),
 			});
-			ModernV2.PlayAnimate(UIStrokeIcon, SlowyTween, {
+			L2Hub.PlayAnimate(UIStrokeIcon, SlowyTween, {
 				Transparency = 1,
 			});
-			ModernV2.PlayAnimate(IconLabel, SlowyTween, {
+			L2Hub.PlayAnimate(IconLabel, SlowyTween, {
 				TextTransparency = 1,
 			});
-			ModernV2.PlayAnimate(IconImage, SlowyTween, {
+			L2Hub.PlayAnimate(IconImage, SlowyTween, {
 				ImageTransparency = 1,
 			});
 			if IconFallbackText then
-				ModernV2.PlayAnimate(IconFallbackText, SlowyTween, {
+				L2Hub.PlayAnimate(IconFallbackText, SlowyTween, {
 					TextTransparency = 1,
 				});
 			end;
@@ -740,21 +740,21 @@ function ModernV2:CreateMenuIcon(Config)
 		local sz = MenuIconLib._size;
 		if windowVisible then
 			-- shrink slightly
-			ModernV2.PlayAnimate(IconRoot, TweenInfo.new(0.1), {
+			L2Hub.PlayAnimate(IconRoot, TweenInfo.new(0.1), {
 				Size = UDim2.fromOffset(sz * 0.85, sz * 0.85),
 			});
 			task.delay(0.12, function()
-				ModernV2.PlayAnimate(IconRoot, TweenInfo.new(0.18, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {
+				L2Hub.PlayAnimate(IconRoot, TweenInfo.new(0.18, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {
 					Size = UDim2.fromOffset(sz, sz),
 				});
 			end);
 		else
 			-- expand slightly
-			ModernV2.PlayAnimate(IconRoot, TweenInfo.new(0.1), {
+			L2Hub.PlayAnimate(IconRoot, TweenInfo.new(0.1), {
 				Size = UDim2.fromOffset(sz * 1.15, sz * 1.15),
 			});
 			task.delay(0.12, function()
-				ModernV2.PlayAnimate(IconRoot, TweenInfo.new(0.2, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {
+				L2Hub.PlayAnimate(IconRoot, TweenInfo.new(0.2, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {
 					Size = UDim2.fromOffset(sz, sz),
 				});
 			end);
@@ -767,7 +767,7 @@ function ModernV2:CreateMenuIcon(Config)
 		local dragStart, startPos;
 
 		local function clampPosition(pos)
-			local screenSize = ModernV2.ScreenGui.AbsoluteSize;
+			local screenSize = L2Hub.ScreenGui.AbsoluteSize;
 			local sz2 = MenuIconLib._size;
 			local nx = math.clamp(pos.X.Offset, 0, screenSize.X - sz2);
 			local ny = math.clamp(pos.Y.Scale * screenSize.Y + pos.Y.Offset, sz2/2, screenSize.Y - sz2/2);
@@ -780,7 +780,7 @@ function ModernV2:CreateMenuIcon(Config)
 			local dragStart, startPos;
 			local DRAG_THRESHOLD = 6; -- pixels of movement before it counts as a drag
 
-			ModernV2:AddSignal(IconRoot.InputBegan:Connect(function(input)
+			L2Hub:AddSignal(IconRoot.InputBegan:Connect(function(input)
 				if input.UserInputType ~= Enum.UserInputType.MouseButton1
 				and input.UserInputType ~= Enum.UserInputType.Touch then
 					return;
@@ -817,14 +817,14 @@ function ModernV2:CreateMenuIcon(Config)
 
 					-- Pure tap (no drag movement) → fire the real-time keybind
 					if not moved then
-						ModernV2:FireKeybind();
+						L2Hub:FireKeybind();
 					end;
 				end);
 			end));
 		end;
 
 	-- ── Theme live-update ─────────────────────────────────────────
-	ModernV2:OnThemeChanged(function(theme)
+	L2Hub:OnThemeChanged(function(theme)
 		if theme.Icon then
 			MenuIconLib:SetIconColor(theme.Icon);
 		end;
@@ -844,7 +844,7 @@ function ModernV2:CreateMenuIcon(Config)
 end;
 
 if getcustomasset then
-	local link = "https://github.com/4lpaca-pin/ModernV2/blob/main/assets/%s?raw=true";
+	local link = "https://github.com/4lpaca-pin/L2Hub/blob/main/assets/%s?raw=true";
 	local dir = 'NLAssets';
 
 	if not isfolder(dir) then
@@ -860,7 +860,7 @@ if getcustomasset then
 		end;
 
 		if isfile(dir..'/'..'logo.png') then
-			ModernV2.GlobalLogo = getcustomasset(dir..'/'..'logo.png')
+			L2Hub.GlobalLogo = getcustomasset(dir..'/'..'logo.png')
 		end;
 	end);
 
@@ -873,46 +873,46 @@ if getcustomasset then
 		end;
 
 		if isfile(dir..'/'..'saturation_value_gradient.png') then
-			ModernV2.ImageColorMapping = getcustomasset(dir..'/'..'saturation_value_gradient.png')
+			L2Hub.ImageColorMapping = getcustomasset(dir..'/'..'saturation_value_gradient.png')
 		end;
 	end);
 end;
 
-function ModernV2:AddSignal(RBXSignal)
-	if ModernV2.UnloadEnabled then
-		table.insert(ModernV2.GlobalSignals,RBXSignal);
+function L2Hub:AddSignal(RBXSignal)
+	if L2Hub.UnloadEnabled then
+		table.insert(L2Hub.GlobalSignals,RBXSignal);
 	end;
 
 	return RBXSignal;
 end;
 
-ModernV2:AddSignal(GlobalWindow.DescendantAdded:Connect(function(Object)
+L2Hub:AddSignal(GlobalWindow.DescendantAdded:Connect(function(Object)
 	task.defer(function()
-		ModernV2:ApplyFont(Object);
+		L2Hub:ApplyFont(Object);
 	end);
 end));
 
-function ModernV2:AddQuery(ItemRoot: Frame , Name : string)
+function L2Hub:AddQuery(ItemRoot: Frame , Name : string)
 	local SectionOwner = nil;
 	local Parent = ItemRoot;
 
 	while Parent do
-		if ModernV2.SectionOwners[Parent] then
-			SectionOwner = ModernV2.SectionOwners[Parent];
+		if L2Hub.SectionOwners[Parent] then
+			SectionOwner = L2Hub.SectionOwners[Parent];
 			break;
 		end;
 
 		Parent = Parent.Parent;
 	end;
 
-	table.insert(ModernV2.NameRegisitry , {
+	table.insert(L2Hub.NameRegisitry , {
 		Root = ItemRoot,
 		Idx = Name,
 		Section = SectionOwner,
 	});
 end;
 
-function ModernV2:RevealQueryItem(Query)
+function L2Hub:RevealQueryItem(Query)
 	if not Query or not Query.Root then
 		return;
 	end;
@@ -948,17 +948,17 @@ function ModernV2:RevealQueryItem(Query)
 	end);
 end;
 
-function ModernV2:RegisterFlag(Flag, Object)
+function L2Hub:RegisterFlag(Flag, Object)
 	if not Flag or not Object then
 		return Object;
 	end;
 
 	Flag = tostring(Flag);
-	ModernV2.Flags[Flag] = Object;
+	L2Hub.Flags[Flag] = Object;
 
-	if ModernV2.PendingFlagValues[Flag] ~= nil and Object.SetValue then
-		local PendingValue = ModernV2.PendingFlagValues[Flag];
-		ModernV2.PendingFlagValues[Flag] = nil;
+	if L2Hub.PendingFlagValues[Flag] ~= nil and Object.SetValue then
+		local PendingValue = L2Hub.PendingFlagValues[Flag];
+		L2Hub.PendingFlagValues[Flag] = nil;
 
 		task.spawn(function()
 			pcall(function()
@@ -970,7 +970,7 @@ function ModernV2:RegisterFlag(Flag, Object)
 	return Object;
 end;
 
-function ModernV2:ResolveConfigFlag(Config)
+function L2Hub:ResolveConfigFlag(Config)
 	if typeof(Config) ~= "table" then
 		return nil;
 	end;
@@ -985,13 +985,13 @@ function ModernV2:ResolveConfigFlag(Config)
 	return Flag;
 end;
 
-function ModernV2:AttachLockMethods(Object, Frame, Config)
+function L2Hub:AttachLockMethods(Object, Frame, Config)
 	if not Object or not Frame then
 		return Object;
 	end;
 
 	Config = Config or {};
-	local LockObject = ModernV2:ApplyLock(Frame, Config.Locked == true, Config.TextLocked or Config.LockMessage or "Locked");
+	local LockObject = L2Hub:ApplyLock(Frame, Config.Locked == true, Config.TextLocked or Config.LockMessage or "Locked");
 	Object.Lock = LockObject;
 
 	function Object:SetLocked(state)
@@ -1051,7 +1051,7 @@ end;
 do
 	local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 
-	ModernV2.Base64Encode = LPH_NO_VIRTUALIZE(function(data)
+	L2Hub.Base64Encode = LPH_NO_VIRTUALIZE(function(data)
 		return ((data:gsub('.', function(x) 
 			local r,b='',x:byte()
 			for i=8,1,-1 do r=r..(b%2^i-b%2^(i-1)>0 and '1' or '0') end
@@ -1064,7 +1064,7 @@ do
 		end)..({ '', '==', '=' })[#data%3+1])
 	end);
 
-	ModernV2.Base64Decode = LPH_NO_VIRTUALIZE(function(data)
+	L2Hub.Base64Decode = LPH_NO_VIRTUALIZE(function(data)
 		data = string.gsub(data, '[^'..b..'=]', '')
 		return (data:gsub('.', function(x)
 			if (x == '=') then return '' end
@@ -1085,14 +1085,14 @@ end;
 -- Reads Window.Keybind at call time, so it always matches whatever
 -- the user has set — even if they changed it via the keybind picker.
 -- Called by Watermark bindable blocks and the MenuIcon click.
-function ModernV2:FireKeybind()
-	if ModernV2.ActiveWindow then
-		ModernV2.ActiveWindow:ToggleInterface();
+function L2Hub:FireKeybind()
+	if L2Hub.ActiveWindow then
+		L2Hub.ActiveWindow:ToggleInterface();
 	end;
 end;
 
-ModernV2.LoadIcon = LPH_NO_VIRTUALIZE(function()
-	ModernV2.RobloxIcon = {
+L2Hub.LoadIcon = LPH_NO_VIRTUALIZE(function()
+	L2Hub.RobloxIcon = {
 		["3d-cube-arrow-left"] = "3d-cube-arrow-left",
 		["amazon"] = "amazon",
 		["arm-left"] = "arm-left",
@@ -1587,12 +1587,12 @@ ModernV2.LoadIcon = LPH_NO_VIRTUALIZE(function()
 	};
 end);
 
-ModernV2.IsMouseOverFrame = LPH_NO_VIRTUALIZE(function(self , Frame)
+L2Hub.IsMouseOverFrame = LPH_NO_VIRTUALIZE(function(self , Frame)
 	if not Frame then
 		return;
 	end;
 
-	if ModernV2.Global3DRenderMode then
+	if L2Hub.Global3DRenderMode then
 		if Frame.GuiState == Enum.GuiState.Hover or Frame.GuiState == Enum.GuiState.Press then
 			return true;
 		end;
@@ -1607,7 +1607,7 @@ ModernV2.IsMouseOverFrame = LPH_NO_VIRTUALIZE(function(self , Frame)
 	end;
 end);
 
-ModernV2.CreateSignal = LPH_NO_VIRTUALIZE(function(self , DefaultValue)
+L2Hub.CreateSignal = LPH_NO_VIRTUALIZE(function(self , DefaultValue)
 	local __cache = Instance.new('BindableEvent');
 	local bind = {
 		Value = DefaultValue,
@@ -1627,7 +1627,7 @@ ModernV2.CreateSignal = LPH_NO_VIRTUALIZE(function(self , DefaultValue)
 	function bind:Connect(f)
 		local signal = __cache.Event:Connect(f);
 
-		ModernV2:AddSignal(signal);
+		L2Hub:AddSignal(signal);
 
 		return signal;
 	end;
@@ -1635,14 +1635,14 @@ ModernV2.CreateSignal = LPH_NO_VIRTUALIZE(function(self , DefaultValue)
 	return bind;
 end);
 
-function ModernV2:_ApplyTextGradient(Label)
+function L2Hub:_ApplyTextGradient(Label)
 	if not Label or not Label.Parent then
 		return;
 	end;
 
 	local Gradient = Label:FindFirstChild("ModernTextGradient");
 
-	if not ModernV2.TextGradientEnabled then
+	if not L2Hub.TextGradientEnabled then
 		if Gradient then
 			Gradient:Destroy();
 		end;
@@ -1656,8 +1656,8 @@ function ModernV2:_ApplyTextGradient(Label)
 		Gradient.Parent = Label;
 	end;
 
-	local Accent = ModernV2.AccentColor or Color3.fromRGB(78, 127, 252);
-	local SweepX = (((ModernV2.TextGradientAnimationTime or 0) * 0.9) % 2) - 1;
+	local Accent = L2Hub.AccentColor or Color3.fromRGB(0, 255, 100);
+	local SweepX = (((L2Hub.TextGradientAnimationTime or 0) * 0.9) % 2) - 1;
 
 	Gradient.Rotation = 0;
 	Gradient.Color = ColorSequence.new({
@@ -1667,98 +1667,98 @@ function ModernV2:_ApplyTextGradient(Label)
 	});
 	Gradient.Offset = Vector2.new(SweepX, 0);
 
-	for _,ExistingGradient in ipairs(ModernV2.TextGradientObjects) do
+	for _,ExistingGradient in ipairs(L2Hub.TextGradientObjects) do
 		if ExistingGradient == Gradient then
 			return Gradient;
 		end;
 	end;
 
-	table.insert(ModernV2.TextGradientObjects, Gradient);
+	table.insert(L2Hub.TextGradientObjects, Gradient);
 
 	return Gradient;
 end;
 
-function ModernV2:AddTextGradient(Label)
+function L2Hub:AddTextGradient(Label)
 	if not Label then
 		return Label;
 	end;
 
-	for _,ExistingLabel in ipairs(ModernV2.TextGradientLabels) do
+	for _,ExistingLabel in ipairs(L2Hub.TextGradientLabels) do
 		if ExistingLabel == Label then
-			ModernV2:_ApplyTextGradient(Label);
+			L2Hub:_ApplyTextGradient(Label);
 			return Label;
 		end;
 	end;
 
-	table.insert(ModernV2.TextGradientLabels, Label);
-	ModernV2:_ApplyTextGradient(Label);
+	table.insert(L2Hub.TextGradientLabels, Label);
+	L2Hub:_ApplyTextGradient(Label);
 
 	return Label;
 end;
 
-function ModernV2:SetTextGradientEnabled(Enabled)
-	ModernV2.TextGradientEnabled = Enabled == true;
+function L2Hub:SetTextGradientEnabled(Enabled)
+	L2Hub.TextGradientEnabled = Enabled == true;
 
-	if not ModernV2.TextGradientEnabled then
-		ModernV2.TextGradientAccumulator = 0;
+	if not L2Hub.TextGradientEnabled then
+		L2Hub.TextGradientAccumulator = 0;
 	end;
 
-	table.clear(ModernV2.TextGradientObjects);
+	table.clear(L2Hub.TextGradientObjects);
 
-	for Index = #ModernV2.TextGradientLabels, 1, -1 do
-		local Label = ModernV2.TextGradientLabels[Index];
+	for Index = #L2Hub.TextGradientLabels, 1, -1 do
+		local Label = L2Hub.TextGradientLabels[Index];
 
 		if Label and Label.Parent then
-			ModernV2:_ApplyTextGradient(Label);
+			L2Hub:_ApplyTextGradient(Label);
 		else
-			table.remove(ModernV2.TextGradientLabels, Index);
+			table.remove(L2Hub.TextGradientLabels, Index);
 		end;
 	end;
 end;
 
-function ModernV2:AnimateTextGradients(dt)
-	if not ModernV2.TextGradientEnabled then
+function L2Hub:AnimateTextGradients(dt)
+	if not L2Hub.TextGradientEnabled then
 		return;
 	end;
 
-	ModernV2.TextGradientAccumulator = (ModernV2.TextGradientAccumulator or 0) + (dt or 0);
+	L2Hub.TextGradientAccumulator = (L2Hub.TextGradientAccumulator or 0) + (dt or 0);
 
-	if ModernV2.TextGradientAccumulator < (1 / 30) then
+	if L2Hub.TextGradientAccumulator < (1 / 30) then
 		return;
 	end;
 
-	local ResolvedDt = ModernV2.TextGradientAccumulator;
-	ModernV2.TextGradientAccumulator = 0;
-	ModernV2.TextGradientAnimationTime = (ModernV2.TextGradientAnimationTime or 0) + ResolvedDt;
+	local ResolvedDt = L2Hub.TextGradientAccumulator;
+	L2Hub.TextGradientAccumulator = 0;
+	L2Hub.TextGradientAnimationTime = (L2Hub.TextGradientAnimationTime or 0) + ResolvedDt;
 
-	local SweepX = ((ModernV2.TextGradientAnimationTime * 0.9) % 2) - 1;
+	local SweepX = ((L2Hub.TextGradientAnimationTime * 0.9) % 2) - 1;
 	local Offset = Vector2.new(SweepX, 0);
 
-	for Index = #ModernV2.TextGradientObjects, 1, -1 do
-		local Gradient = ModernV2.TextGradientObjects[Index];
+	for Index = #L2Hub.TextGradientObjects, 1, -1 do
+		local Gradient = L2Hub.TextGradientObjects[Index];
 
 		if Gradient and Gradient.Parent then
 			Gradient.Rotation = 0;
 			Gradient.Offset = Offset;
 		else
-			table.remove(ModernV2.TextGradientObjects, Index);
+			table.remove(L2Hub.TextGradientObjects, Index);
 		end;
 	end;
 end;
 
-ModernV2:AddSignal(RunService.RenderStepped:Connect(function(dt)
-	ModernV2:AnimateTextGradients(dt);
+L2Hub:AddSignal(RunService.RenderStepped:Connect(function(dt)
+	L2Hub:AnimateTextGradients(dt);
 end));
 
-ModernV2.SetIconMode = LPH_NO_VIRTUALIZE(function(self , Label: TextLabel , Icon: string)
+L2Hub.SetIconMode = LPH_NO_VIRTUALIZE(function(self , Label: TextLabel , Icon: string)
 	Icon = tostring(Icon or "");
 	local OriginalIcon = Icon;
-	local FallbackIcon = ModernV2.IconAliases[OriginalIcon] or OriginalIcon;
-	local IsVideoIcon = ModernV2:IsWebmIcon(OriginalIcon) or ModernV2:IsWebmIcon(FallbackIcon);
-	local ResolvedIcon = ModernV2:GetIconId(OriginalIcon);
+	local FallbackIcon = L2Hub.IconAliases[OriginalIcon] or OriginalIcon;
+	local IsVideoIcon = L2Hub:IsWebmIcon(OriginalIcon) or L2Hub:IsWebmIcon(FallbackIcon);
+	local ResolvedIcon = L2Hub:GetIconId(OriginalIcon);
 
 	if ResolvedIcon == "" and FallbackIcon ~= OriginalIcon then
-		ResolvedIcon = ModernV2:GetIconId(FallbackIcon);
+		ResolvedIcon = L2Hub:GetIconId(FallbackIcon);
 	end;
 
 	if Label:IsA("ImageLabel") then
@@ -1766,7 +1766,7 @@ ModernV2.SetIconMode = LPH_NO_VIRTUALIZE(function(self , Label: TextLabel , Icon
 			Label.Image = "";
 			Label.ImageTransparency = 1;
 			Label.ScaleType = Enum.ScaleType.Fit;
-			ModernV2:ApplyIconVideo(Label, OriginalIcon);
+			L2Hub:ApplyIconVideo(Label, OriginalIcon);
 
 			local FallbackText = Label:FindFirstChild("ModernIconFallbackText");
 			if FallbackText then
@@ -1776,7 +1776,7 @@ ModernV2.SetIconMode = LPH_NO_VIRTUALIZE(function(self , Label: TextLabel , Icon
 			return;
 		end;
 
-		ModernV2:ClearIconVideo(Label);
+		L2Hub:ClearIconVideo(Label);
 		Label.Image = ResolvedIcon;
 		Label.ScaleType = Enum.ScaleType.Fit;
 
@@ -1786,7 +1786,7 @@ ModernV2.SetIconMode = LPH_NO_VIRTUALIZE(function(self , Label: TextLabel , Icon
 			IconScale.Name = "ModernIconScale";
 			IconScale.Parent = Label;
 		end;
-		IconScale.Scale = tonumber(Label:GetAttribute("ModernIconScaleValue")) or ModernV2.IconScale or 0.82;
+		IconScale.Scale = tonumber(Label:GetAttribute("ModernIconScaleValue")) or L2Hub.IconScale or 0.82;
 
 		local FallbackText = Label:FindFirstChild("ModernIconFallbackText");
 
@@ -1812,21 +1812,21 @@ ModernV2.SetIconMode = LPH_NO_VIRTUALIZE(function(self , Label: TextLabel , Icon
 					FallbackText.TextWrapped = true;
 					FallbackText:SetAttribute("ModernV2IconFont", true);
 
-					ModernV2:AddSignal(Label:GetPropertyChangedSignal("ImageTransparency"):Connect(function()
+					L2Hub:AddSignal(Label:GetPropertyChangedSignal("ImageTransparency"):Connect(function()
 						local ChildIcon = Label:FindFirstChild("ModernIconFallbackText");
 						if ChildIcon then
 							ChildIcon.TextTransparency = Label.ImageTransparency;
 						end;
 					end));
 
-					ModernV2:AddSignal(Label:GetPropertyChangedSignal("ImageColor3"):Connect(function()
+					L2Hub:AddSignal(Label:GetPropertyChangedSignal("ImageColor3"):Connect(function()
 						local ChildIcon = Label:FindFirstChild("ModernIconFallbackText");
 						if ChildIcon then
 							ChildIcon.TextColor3 = Label.ImageColor3;
 						end;
 					end));
 
-					ModernV2:AddSignal(Label:GetPropertyChangedSignal("ZIndex"):Connect(function()
+					L2Hub:AddSignal(Label:GetPropertyChangedSignal("ZIndex"):Connect(function()
 						local ChildIcon = Label:FindFirstChild("ModernIconFallbackText");
 						if ChildIcon then
 							ChildIcon.ZIndex = Label.ZIndex + 1;
@@ -1836,7 +1836,7 @@ ModernV2.SetIconMode = LPH_NO_VIRTUALIZE(function(self , Label: TextLabel , Icon
 
 				local useBold = string.lower(string.sub(FallbackIcon , -5)) == '-bold';
 				FallbackText.Text = useBold and FallbackIcon:sub(1,-6) or FallbackIcon;
-				FallbackText.FontFace = useBold and ModernV2.BuiltInBold or ModernV2.BuiltInRegular;
+				FallbackText.FontFace = useBold and L2Hub.BuiltInBold or L2Hub.BuiltInRegular;
 				FallbackText.TextColor3 = Label.ImageColor3;
 				FallbackText.TextTransparency = Label.ImageTransparency;
 				FallbackText.Visible = true;
@@ -1867,12 +1867,12 @@ ModernV2.SetIconMode = LPH_NO_VIRTUALIZE(function(self , Label: TextLabel , Icon
 		IconImage.Image = "";
 		IconImage.ImageTransparency = 1;
 		IconImage.Visible = true;
-		ModernV2:ApplyIconVideo(IconImage, OriginalIcon);
+		L2Hub:ApplyIconVideo(IconImage, OriginalIcon);
 		Label.Text = "";
 
 		return;
 	elseif IconImage then
-		ModernV2:ClearIconVideo(IconImage);
+		L2Hub:ClearIconVideo(IconImage);
 	end;
 
 	if ResolvedIcon ~= "" then
@@ -1888,21 +1888,21 @@ ModernV2.SetIconMode = LPH_NO_VIRTUALIZE(function(self , Label: TextLabel , Icon
 			IconImage.ScaleType = Enum.ScaleType.Fit;
 			IconImage.ZIndex = Label.ZIndex;
 
-			ModernV2:AddSignal(Label:GetPropertyChangedSignal("TextTransparency"):Connect(function()
+			L2Hub:AddSignal(Label:GetPropertyChangedSignal("TextTransparency"):Connect(function()
 				local ChildIcon = Label:FindFirstChild("ModernResolvedIcon");
 				if ChildIcon then
 					ChildIcon.ImageTransparency = Label.TextTransparency;
 				end;
 			end));
 
-			ModernV2:AddSignal(Label:GetPropertyChangedSignal("TextColor3"):Connect(function()
+			L2Hub:AddSignal(Label:GetPropertyChangedSignal("TextColor3"):Connect(function()
 				local ChildIcon = Label:FindFirstChild("ModernResolvedIcon");
 				if ChildIcon then
 					ChildIcon.ImageColor3 = Label.TextColor3;
 				end;
 			end));
 
-			ModernV2:AddSignal(Label:GetPropertyChangedSignal("ZIndex"):Connect(function()
+			L2Hub:AddSignal(Label:GetPropertyChangedSignal("ZIndex"):Connect(function()
 				local ChildIcon = Label:FindFirstChild("ModernResolvedIcon");
 				if ChildIcon then
 					ChildIcon.ZIndex = Label.ZIndex;
@@ -1935,25 +1935,25 @@ ModernV2.SetIconMode = LPH_NO_VIRTUALIZE(function(self , Label: TextLabel , Icon
 
 	if useBold then
 		Label.Text = Icon:sub(1,-6);
-		Label.FontFace = ModernV2.BuiltInBold;
+		Label.FontFace = L2Hub.BuiltInBold;
 	else
 		Label.Text = Icon;
-		Label.FontFace = ModernV2.BuiltInRegular;
+		Label.FontFace = L2Hub.BuiltInRegular;
 	end;
 	Label:SetAttribute("ModernV2IconFont", true);
 end);
 
-function ModernV2:GetIconFont(icon: string)
+function L2Hub:GetIconFont(icon: string)
 	local useBold = string.lower(string.sub(icon , -5)) == '-bold';
 
 	if useBold then
-		return ModernV2.BuiltInBold;
+		return L2Hub.BuiltInBold;
 	end;
 
-	return ModernV2.BuiltInRegular;
+	return L2Hub.BuiltInRegular;
 end;
 
-function ModernV2:ResolveFontFace(FontConfig)
+function L2Hub:ResolveFontFace(FontConfig)
 	if typeof(FontConfig) == "Font" then
 		return FontConfig;
 	end;
@@ -1979,8 +1979,8 @@ function ModernV2:ResolveFontFace(FontConfig)
 	end;
 end;
 
-function ModernV2:ApplyFont(Object)
-	if not ModernV2.FontFace then
+function L2Hub:ApplyFont(Object)
+	if not L2Hub.FontFace then
 		return Object;
 	end;
 
@@ -1992,31 +1992,31 @@ function ModernV2:ApplyFont(Object)
 		return Object;
 	end;
 
-	Object.FontFace = ModernV2.FontFace;
+	Object.FontFace = L2Hub.FontFace;
 	return Object;
 end;
 
-function ModernV2:SetFont(FontConfig)
-	ModernV2.Font = FontConfig;
-	ModernV2.FontFace = ModernV2:ResolveFontFace(FontConfig);
+function L2Hub:SetFont(FontConfig)
+	L2Hub.Font = FontConfig;
+	L2Hub.FontFace = L2Hub:ResolveFontFace(FontConfig);
 
-	if ModernV2.FontFace then
-		for _, Object in next, ModernV2.ScreenGui:GetDescendants() do
-			ModernV2:ApplyFont(Object);
+	if L2Hub.FontFace then
+		for _, Object in next, L2Hub.ScreenGui:GetDescendants() do
+			L2Hub:ApplyFont(Object);
 		end;
 	end;
 
-	return ModernV2.FontFace;
+	return L2Hub.FontFace;
 end;
 
-function ModernV2:MoreThanHalfY(Value: number)
-	return (ModernV2.ScreenGui.AbsoluteSize.Y / 2) < Value
+function L2Hub:MoreThanHalfY(Value: number)
+	return (L2Hub.ScreenGui.AbsoluteSize.Y / 2) < Value
 end;
 
-ModernV2.IsStudio = RunService:IsStudio();
-ModernV2.IsMobile = UserInputService.TouchEnabled;
+L2Hub.IsStudio = RunService:IsStudio();
+L2Hub.IsMobile = UserInputService.TouchEnabled;
 
-ModernV2.CreateInput = LPH_NO_VIRTUALIZE(function(self , Frame , Callback)
+L2Hub.CreateInput = LPH_NO_VIRTUALIZE(function(self , Frame , Callback)
 	local Button = Instance.new('ImageButton',Frame);
 
 	Button.ZIndex = Frame.ZIndex + 10;
@@ -2034,7 +2034,7 @@ ModernV2.CreateInput = LPH_NO_VIRTUALIZE(function(self , Frame , Callback)
 	return Button;
 end);
 
-ModernV2.PlayAnimate = LPH_NO_VIRTUALIZE(function(Self , Info , Property)
+L2Hub.PlayAnimate = LPH_NO_VIRTUALIZE(function(Self , Info , Property)
 	if Self and Self:IsA("ImageLabel") then
 		local ImageProperty = {};
 
@@ -2051,14 +2051,14 @@ ModernV2.PlayAnimate = LPH_NO_VIRTUALIZE(function(Self , Info , Property)
 		Property = ImageProperty;
 	end;
 
-	local Tween = TweenService:Create(Self , Info or TweenInfo.new(0.25) , Property);
+	local Tween = TweenService:Create(Self , Info or TweenInfo.new(0.15) , Property);
 
 	Tween:Play();
 
 	return Tween;
 end);
 
-ModernV2.Drag = LPH_NO_VIRTUALIZE(function(InputFrame: Frame, MoveFrame: Frame, Speed : number)
+L2Hub.Drag = LPH_NO_VIRTUALIZE(function(InputFrame: Frame, MoveFrame: Frame, Speed : number)
 	local dragToggle: boolean = false;
 	local dragStart: Vector3 = nil;
 	local startPos: UDim2 = nil;
@@ -2069,18 +2069,18 @@ ModernV2.Drag = LPH_NO_VIRTUALIZE(function(InputFrame: Frame, MoveFrame: Frame, 
 		local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
 			startPos.Y.Scale, startPos.Y.Offset + delta.Y);
 
-		if ModernV2.Global3DRenderMode then
-			ModernV2.PlayAnimate(MoveFrame,Tween,{
+		if L2Hub.Global3DRenderMode then
+			L2Hub.PlayAnimate(MoveFrame,Tween,{
 				Position = UDim2.fromScale(0.5,0.5)
 			});
 		else
-			ModernV2.PlayAnimate(MoveFrame,Tween,{
+			L2Hub.PlayAnimate(MoveFrame,Tween,{
 				Position = position
 			});
 		end;
 	end;
 
-	ModernV2:AddSignal(InputFrame.InputBegan:Connect(function(input)
+	L2Hub:AddSignal(InputFrame.InputBegan:Connect(function(input)
 		if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then 
 			dragToggle = true;
 			dragStart = input.Position;
@@ -2097,7 +2097,7 @@ ModernV2.Drag = LPH_NO_VIRTUALIZE(function(InputFrame: Frame, MoveFrame: Frame, 
 		end
 	end));
 
-	ModernV2:AddSignal(UserInputService.InputChanged:Connect(function(input)
+	L2Hub:AddSignal(UserInputService.InputChanged:Connect(function(input)
 		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
 			if dragToggle then
 				updateInput(input)
@@ -2106,12 +2106,12 @@ ModernV2.Drag = LPH_NO_VIRTUALIZE(function(InputFrame: Frame, MoveFrame: Frame, 
 	end));
 end);
 
-ModernV2.Rounding = LPH_NO_VIRTUALIZE(function(num, numDecimalPlaces)
+L2Hub.Rounding = LPH_NO_VIRTUALIZE(function(num, numDecimalPlaces)
 	local mult = 10 ^ (numDecimalPlaces or 0);
 	return math.floor(num * mult + 0.5) / mult;
 end);
 
-ModernV2.ProcessParams = LPH_NO_VIRTUALIZE(function(self , Params , Fixed)
+L2Hub.ProcessParams = LPH_NO_VIRTUALIZE(function(self , Params , Fixed)
 	Params = Params or {};
 
 	local k = Params or {};
@@ -2127,7 +2127,7 @@ ModernV2.ProcessParams = LPH_NO_VIRTUALIZE(function(self , Params , Fixed)
 	return k;
 end);
 
-function ModernV2:ApplyLock(Frame, isLocked, lockMessage)
+function L2Hub:ApplyLock(Frame, isLocked, lockMessage)
 	local LockFunc = {
 		IsLocked = isLocked == true,
 	};
@@ -2192,7 +2192,7 @@ function ModernV2:ApplyLock(Frame, isLocked, lockMessage)
 		LockIcon.Size = UDim2.new(0, 15, 0, 15);
 		LockIcon.BackgroundTransparency = 1;
 		LockIcon.ScaleType = Enum.ScaleType.Fit;
-		LockIcon.Image = ModernV2:GetIconId("134724289526879");
+		LockIcon.Image = L2Hub:GetIconId("134724289526879");
 		LockIcon.ImageColor3 = Color3.fromRGB(235, 235, 235);
 		LockIcon.ImageTransparency = 0.05;
 		LockIcon.LayoutOrder = 1;
@@ -2235,19 +2235,19 @@ function ModernV2:ApplyLock(Frame, isLocked, lockMessage)
 		RefreshLockSize();
 
 		local FeedbackBusy = false;
-		ModernV2:AddSignal(LockOverlay.MouseButton1Click:Connect(function()
+		L2Hub:AddSignal(LockOverlay.MouseButton1Click:Connect(function()
 			if FeedbackBusy or not LockOverlay.Parent then
 				return;
 			end;
 
 			FeedbackBusy = true;
-			ModernV2.PlayAnimate(LockOverlay, TweenInfo.new(0.08), {
+			L2Hub.PlayAnimate(LockOverlay, TweenInfo.new(0.08), {
 				BackgroundTransparency = 0.18,
 			});
 
 			task.delay(0.12, function()
 				if LockOverlay and LockOverlay.Parent then
-					ModernV2.PlayAnimate(LockOverlay, TweenInfo.new(0.12), {
+					L2Hub.PlayAnimate(LockOverlay, TweenInfo.new(0.12), {
 						BackgroundTransparency = 0.28,
 					});
 				end;
@@ -2259,7 +2259,7 @@ function ModernV2:ApplyLock(Frame, isLocked, lockMessage)
 
 	BuildOverlay();
 
-	ModernV2:AddSignal(Frame.DescendantRemoving:Connect(function(desc)
+	L2Hub:AddSignal(Frame.DescendantRemoving:Connect(function(desc)
 		if desc == LockOverlay and LockFunc.IsLocked and not Destroyed then
 			if Rebuilding then
 				return;
@@ -2273,7 +2273,7 @@ function ModernV2:ApplyLock(Frame, isLocked, lockMessage)
 		end;
 	end));
 
-	ModernV2:AddSignal(Frame.AncestryChanged:Connect(function(_, newParent)
+	L2Hub:AddSignal(Frame.AncestryChanged:Connect(function(_, newParent)
 		if newParent == nil then
 			Destroyed = true;
 		end;
@@ -2317,10 +2317,10 @@ function ModernV2:ApplyLock(Frame, isLocked, lockMessage)
 	return LockFunc;
 end;
 
-ModernV2.EnabledBlur = true;
-ModernV2.BlurModuleParent = workspace.CurrentCamera;
+L2Hub.EnabledBlur = true;
+L2Hub.BlurModuleParent = workspace.CurrentCamera;
 
-ModernV2.GetCalculatePosition = LPH_NO_VIRTUALIZE(function(planePos, planeNormal, rayOrigin, rayDirection)
+L2Hub.GetCalculatePosition = LPH_NO_VIRTUALIZE(function(planePos, planeNormal, rayOrigin, rayDirection)
 	local n = planeNormal;
 	local d = rayDirection;
 	local v = rayOrigin - planePos;
@@ -2332,12 +2332,12 @@ ModernV2.GetCalculatePosition = LPH_NO_VIRTUALIZE(function(planePos, planeNormal
 	return rayOrigin + (a * rayDirection);
 end);
 
-ModernV2.CreateBlurModule = LPH_NO_VIRTUALIZE(function(self , Frame , Signal)
-	if not ModernV2.EnabledBlur then
-		return ModernV2:AddSignal(Instance.new('BindableEvent').Event:Connect(function() return "nl"; end));	
+L2Hub.CreateBlurModule = LPH_NO_VIRTUALIZE(function(self , Frame , Signal)
+	if not L2Hub.EnabledBlur then
+		return L2Hub:AddSignal(Instance.new('BindableEvent').Event:Connect(function() return "nl"; end));	
 	end;
 
-	local Part = Instance.new('Part',ModernV2.BlurModuleParent);
+	local Part = Instance.new('Part',L2Hub.BlurModuleParent);
 	local DepthOfField = Instance.new('DepthOfFieldEffect',cloneref(game:GetService('Lighting')));
 	local BlockMesh = Instance.new("BlockMesh");
 
@@ -2350,7 +2350,7 @@ ModernV2.CreateBlurModule = LPH_NO_VIRTUALIZE(function(self , Frame , Signal)
 	Part.Anchored = true;
 	Part.CanCollide = false;
 	Part.CanQuery = false;
-	Part.CollisionGroup = ModernV2.RandomString();
+	Part.CollisionGroup = L2Hub.RandomString();
 	Part.Size = Vector3.new(1, 1, 1) * 0.01;
 	Part.Color = Color3.fromRGB(0,0,0);
 
@@ -2359,33 +2359,33 @@ ModernV2.CreateBlurModule = LPH_NO_VIRTUALIZE(function(self , Frame , Signal)
 	DepthOfField.FocusDistance = 0;
 	DepthOfField.InFocusRadius = 1000;
 	DepthOfField.NearIntensity = 1;
-	DepthOfField.Name = ModernV2.RandomString();
+	DepthOfField.Name = L2Hub.RandomString();
 
-	Part.Name = ModernV2.RandomString();
+	Part.Name = L2Hub.RandomString();
 
 	local disconnect;
 
 	local UpdateFunction = function()
 		local IsWindowActive = Signal:GetValue();
 
-		if IsWindowActive and not ModernV2.Global3DRenderMode then
+		if IsWindowActive and not L2Hub.Global3DRenderMode then
 
-			ModernV2.PlayAnimate(DepthOfField,TweenInfo.new(0.1),{
+			L2Hub.PlayAnimate(DepthOfField,TweenInfo.new(0.1),{
 				NearIntensity = 1
 			})
 
-			ModernV2.PlayAnimate(Part,TweenInfo.new(0.1),{
+			L2Hub.PlayAnimate(Part,TweenInfo.new(0.1),{
 				Transparency = 0.97,
 				Size = Vector3.new(1, 1, 1) * 0.01;
 			})
 
-			Part.Parent = ModernV2.BlurModuleParent;
+			Part.Parent = L2Hub.BlurModuleParent;
 		else
-			ModernV2.PlayAnimate(DepthOfField,TweenInfo.new(0.1),{
+			L2Hub.PlayAnimate(DepthOfField,TweenInfo.new(0.1),{
 				NearIntensity = 0
 			})
 
-			ModernV2.PlayAnimate(Part,TweenInfo.new(0.1),{
+			L2Hub.PlayAnimate(Part,TweenInfo.new(0.1),{
 				Size = Vector3.zero,
 				Transparency = 1.5,
 			})
@@ -2406,8 +2406,8 @@ ModernV2.CreateBlurModule = LPH_NO_VIRTUALIZE(function(self , Frame , Signal)
 
 			local planeNormal = CurrentCamera.CFrame.LookVector;
 
-			local pos0 = ModernV2.GetCalculatePosition(planeOrigin, planeNormal, ray0.Origin, ray0.Direction);
-			local pos1 = ModernV2.GetCalculatePosition(planeOrigin, planeNormal, ray1.Origin, ray1.Direction);
+			local pos0 = L2Hub.GetCalculatePosition(planeOrigin, planeNormal, ray0.Origin, ray0.Direction);
+			local pos1 = L2Hub.GetCalculatePosition(planeOrigin, planeNormal, ray1.Origin, ray1.Direction);
 
 			pos0 = CurrentCamera.CFrame:PointToObjectSpace(pos0);
 			pos1 = CurrentCamera.CFrame:PointToObjectSpace(pos1);
@@ -2421,8 +2421,8 @@ ModernV2.CreateBlurModule = LPH_NO_VIRTUALIZE(function(self , Frame , Signal)
 		end;
 	end;
 
-	local rbxsignal = ModernV2:AddSignal(CurrentCamera:GetPropertyChangedSignal('CFrame'):Connect(UpdateFunction))
-	local loopThread = ModernV2:AddSignal(UserInputService.InputChanged:Connect(function(Input)
+	local rbxsignal = L2Hub:AddSignal(CurrentCamera:GetPropertyChangedSignal('CFrame'):Connect(UpdateFunction))
+	local loopThread = L2Hub:AddSignal(UserInputService.InputChanged:Connect(function(Input)
 		if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.MouseMovement or Input.UserInputType == Enum.UserInputType.Touch then
 			pcall(UpdateFunction);
 		end;
@@ -2449,19 +2449,19 @@ end);
 
 local EmptyFunction = function() end;
 
-function ModernV2:FireCallback(Callback, Context, ...)
+function L2Hub:FireCallback(Callback, Context, ...)
 	if type(Callback) ~= "function" then
 		return true;
 	end;
 
 	local Args = table.pack(...);
-	local Window = ModernV2.ActiveWindow;
+	local Window = L2Hub.ActiveWindow;
 	local Ok, Result = xpcall(function()
 		return Callback(table.unpack(Args, 1, Args.n));
 	end, (debug and debug.traceback) or tostring);
 
 	if not Ok then
-		warn(("[ModernV2] %s callback error: %s"):format(tostring(Context or "Unknown"), tostring(Result)));
+		warn(("[L2Hub] %s callback error: %s"):format(tostring(Context or "Unknown"), tostring(Result)));
 
 		if Window and Window.NotifyOnCallbackError and Window.Notify then
 			Window:Notify({
@@ -2499,7 +2499,7 @@ local function CaseInsensitive(t)
 	});
 end;
 
-function ModernV2:RollingEffect(parent)
+function L2Hub:RollingEffect(parent)
 	local UIGradient = Instance.new("UIGradient")
 
 	UIGradient.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0.00, 0.4), NumberSequenceKeypoint.new(1.00, 0.00)}
@@ -2508,7 +2508,7 @@ function ModernV2:RollingEffect(parent)
 	return UIGradient;
 end;
 
-function ModernV2:CreateShadow(parent , RollingEffect)
+function L2Hub:CreateShadow(parent , RollingEffect)
 	local Shadow = {};
 
 	local UIShadowSafe85 = Instance.new("UIStroke")
@@ -2536,10 +2536,10 @@ function ModernV2:CreateShadow(parent , RollingEffect)
 	local r1,r2,r3,r4;
 
 	if RollingEffect then
-		r1 = ModernV2:RollingEffect(UIShadowSafe85);
-		r2 = ModernV2:RollingEffect(UIShadowSafe65);
-		r3 = ModernV2:RollingEffect(UIShadowSafe50);
-		r4 = ModernV2:RollingEffect(UIShadowSafe45);
+		r1 = L2Hub:RollingEffect(UIShadowSafe85);
+		r2 = L2Hub:RollingEffect(UIShadowSafe65);
+		r3 = L2Hub:RollingEffect(UIShadowSafe50);
+		r4 = L2Hub:RollingEffect(UIShadowSafe45);
 	end;
 
 	Shadow.Render = LPH_NO_VIRTUALIZE(function(self , value)
@@ -2549,19 +2549,19 @@ function ModernV2:CreateShadow(parent , RollingEffect)
 		end;
 
 		if value then
-			ModernV2.PlayAnimate(UIShadowSafe85 , SlowyTween , {
+			L2Hub.PlayAnimate(UIShadowSafe85 , SlowyTween , {
 				Transparency = 0.900
 			})
 
-			ModernV2.PlayAnimate(UIShadowSafe65 , SlowyTween , {
+			L2Hub.PlayAnimate(UIShadowSafe65 , SlowyTween , {
 				Transparency = 0.900
 			})
 
-			ModernV2.PlayAnimate(UIShadowSafe50 , SlowyTween , {
+			L2Hub.PlayAnimate(UIShadowSafe50 , SlowyTween , {
 				Transparency = 0.900
 			})
 
-			ModernV2.PlayAnimate(UIShadowSafe45 , SlowyTween , {
+			L2Hub.PlayAnimate(UIShadowSafe45 , SlowyTween , {
 				Transparency = 0.900
 			})
 
@@ -2569,38 +2569,38 @@ function ModernV2:CreateShadow(parent , RollingEffect)
 				RollingEffectThread = task.spawn(function()
 					local level = 20;
 					while true do task.wait(0.025)
-						ModernV2.PlayAnimate(r1 , SlowyTween , {
+						L2Hub.PlayAnimate(r1 , SlowyTween , {
 							Rotation = r1.Rotation + level
 						});
 
-						ModernV2.PlayAnimate(r2 , SlowyTween , {
+						L2Hub.PlayAnimate(r2 , SlowyTween , {
 							Rotation = r2.Rotation + level
 						});
 
-						ModernV2.PlayAnimate(r3 , SlowyTween , {
+						L2Hub.PlayAnimate(r3 , SlowyTween , {
 							Rotation = r3.Rotation + level
 						});
 
-						ModernV2.PlayAnimate(r4 , SlowyTween , {
+						L2Hub.PlayAnimate(r4 , SlowyTween , {
 							Rotation = r4.Rotation + level
 						});
 					end;
 				end);
 			end;
 		else
-			ModernV2.PlayAnimate(UIShadowSafe85 , SlowyTween , {
+			L2Hub.PlayAnimate(UIShadowSafe85 , SlowyTween , {
 				Transparency = 1
 			})
 
-			ModernV2.PlayAnimate(UIShadowSafe65 , SlowyTween , {
+			L2Hub.PlayAnimate(UIShadowSafe65 , SlowyTween , {
 				Transparency = 1
 			})
 
-			ModernV2.PlayAnimate(UIShadowSafe50 , SlowyTween , {
+			L2Hub.PlayAnimate(UIShadowSafe50 , SlowyTween , {
 				Transparency = 1
 			})
 
-			ModernV2.PlayAnimate(UIShadowSafe45 , SlowyTween , {
+			L2Hub.PlayAnimate(UIShadowSafe45 , SlowyTween , {
 				Transparency = 1
 			})
 		end;
@@ -2609,23 +2609,23 @@ function ModernV2:CreateShadow(parent , RollingEffect)
 	return Shadow;
 end;
 
-function ModernV2:CreateOptionWindow(Frame: Frame , Zindex)
+function L2Hub:CreateOptionWindow(Frame: Frame , Zindex)
 	Zindex = Zindex or 9;
 
 	local Window = {
-		Signal = ModernV2:CreateSignal(false),
+		Signal = L2Hub:CreateSignal(false),
 	};
 
 	local OptionHandler = Instance.new("Frame")
 	local UICorner = Instance.new("UICorner")
 	local UIListLayout = Instance.new("UIListLayout")
 	local UIStroke = Instance.new("UIStroke")
-	local shadow = ModernV2:CreateShadow(OptionHandler);
+	local shadow = L2Hub:CreateShadow(OptionHandler);
 
-	OptionHandler.Name = ModernV2.RandomString();
-	OptionHandler.Parent = ModernV2.ScreenGui
+	OptionHandler.Name = L2Hub.RandomString();
+	OptionHandler.Parent = L2Hub.ScreenGui
 	OptionHandler.AnchorPoint = Vector2.new(0, 0)
-	OptionHandler.BackgroundColor3 = Color3.fromRGB(20, 22, 27)
+	OptionHandler.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
 	OptionHandler.BackgroundTransparency = 0.035
 	OptionHandler.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	OptionHandler.BorderSizePixel = 0
@@ -2645,13 +2645,13 @@ function ModernV2:CreateOptionWindow(Frame: Frame , Zindex)
 	UIStroke.Color = Color3.fromRGB(45, 48, 58)
 	UIStroke.Parent = OptionHandler
 
-	ModernV2:AddSignal(UIListLayout:GetPropertyChangedSignal('AbsoluteContentSize'):Connect(LPH_NO_VIRTUALIZE(function()
-		ModernV2.PlayAnimate(OptionHandler , SlowyTween , {
+	L2Hub:AddSignal(UIListLayout:GetPropertyChangedSignal('AbsoluteContentSize'):Connect(LPH_NO_VIRTUALIZE(function()
+		L2Hub.PlayAnimate(OptionHandler , SlowyTween , {
 			Size = UDim2.new(0, 220, 0, UIListLayout.AbsoluteContentSize.Y - 1)
 		})
 	end)));
 
-	ModernV2:AddSignal(OptionHandler:GetPropertyChangedSignal('BackgroundTransparency'):Connect(LPH_NO_VIRTUALIZE(function()
+	L2Hub:AddSignal(OptionHandler:GetPropertyChangedSignal('BackgroundTransparency'):Connect(LPH_NO_VIRTUALIZE(function()
 		if OptionHandler.BackgroundTransparency > 0.9 then
 			OptionHandler.Visible = false;
 			UIListLayout.Parent = nil;
@@ -2660,17 +2660,17 @@ function ModernV2:CreateOptionWindow(Frame: Frame , Zindex)
 			OptionHandler.Visible = true;
 			UIListLayout.Parent = OptionHandler
 
-			if ModernV2.Global3DRenderMode then
-				OptionHandler.Parent = ModernV2.GlobalSurfaceGui;
+			if L2Hub.Global3DRenderMode then
+				OptionHandler.Parent = L2Hub.GlobalSurfaceGui;
 			else
-				OptionHandler.Parent = ModernV2.ScreenGui;
+				OptionHandler.Parent = L2Hub.ScreenGui;
 			end;
 		end
 	end)));
 
 	local FollowingThread;
 	local SetPosition = LPH_NO_VIRTUALIZE(function()
-		if ModernV2:MoreThanHalfY(Frame.AbsolutePosition.Y + 65) then
+		if L2Hub:MoreThanHalfY(Frame.AbsolutePosition.Y + 65) then
 			OptionHandler.AnchorPoint = Vector2.new(0,1)
 		else
 			OptionHandler.AnchorPoint = Vector2.new(0,0)
@@ -2688,20 +2688,20 @@ function ModernV2:CreateOptionWindow(Frame: Frame , Zindex)
 		if value then
 			SetPosition();
 
-			ModernV2.PlayAnimate(OptionHandler , SlowyTween , {
+			L2Hub.PlayAnimate(OptionHandler , SlowyTween , {
 				BackgroundTransparency = 0.035
 			})
 
-			ModernV2.PlayAnimate(UIStroke , SlowyTween , {
+			L2Hub.PlayAnimate(UIStroke , SlowyTween , {
 				Transparency = 0.650
 			})
 
-			shadow:Render(true);
+			Shadow:Render(false);
 
-			if ModernV2.Global3DRenderMode then
-				OptionHandler.Parent = ModernV2.GlobalSurfaceGui;
+			if L2Hub.Global3DRenderMode then
+				OptionHandler.Parent = L2Hub.GlobalSurfaceGui;
 			else
-				OptionHandler.Parent = ModernV2.ScreenGui;
+				OptionHandler.Parent = L2Hub.ScreenGui;
 			end;
 
 			FollowingThread = task.spawn(function()
@@ -2710,11 +2710,11 @@ function ModernV2:CreateOptionWindow(Frame: Frame , Zindex)
 				end
 			end)
 		else
-			ModernV2.PlayAnimate(OptionHandler , SlowyTween , {
+			L2Hub.PlayAnimate(OptionHandler , SlowyTween , {
 				BackgroundTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(UIStroke , SlowyTween , {
+			L2Hub.PlayAnimate(UIStroke , SlowyTween , {
 				Transparency = 1
 			})
 
@@ -2725,7 +2725,7 @@ function ModernV2:CreateOptionWindow(Frame: Frame , Zindex)
 	Window.SetRender(false);
 	Window.Signal:Connect(Window.SetRender)
 
-	local Payback = ModernV2:RegisiterItem(OptionHandler , Window.Signal);
+	local Payback = L2Hub:RegisiterItem(OptionHandler , Window.Signal);
 
 	Payback.Winbdow = Window;
 	Payback.Root = OptionHandler;
@@ -2734,7 +2734,7 @@ function ModernV2:CreateOptionWindow(Frame: Frame , Zindex)
 	return Payback;
 end;
 
-function ModernV2:CreateColorPicker(HandleFrame: Frame)
+function L2Hub:CreateColorPicker(HandleFrame: Frame)
 	local ZIndex = HandleFrame.ZIndex;
 
 	local ColorPickerLib = {};
@@ -2755,12 +2755,12 @@ function ModernV2:CreateColorPicker(HandleFrame: Frame)
 	local UICorner_5 = Instance.new("UICorner")
 	local RGBLabel = Instance.new("TextLabel")
 	local UICorner_6 = Instance.new("UICorner")
-	local Shadow = ModernV2:CreateShadow(ColorPickerHandler);
+	local Shadow = L2Hub:CreateShadow(ColorPickerHandler);
 
-	ColorPickerHandler.Name = ModernV2.RandomString();
-	ColorPickerHandler.Parent = ModernV2.ScreenGui
+	ColorPickerHandler.Name = L2Hub.RandomString();
+	ColorPickerHandler.Parent = L2Hub.ScreenGui
 	ColorPickerHandler.AnchorPoint = Vector2.new(0, 0)
-	ColorPickerHandler.BackgroundColor3 = Color3.fromRGB(20, 22, 27)
+	ColorPickerHandler.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
 	ColorPickerHandler.BackgroundTransparency = 0.035
 	ColorPickerHandler.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	ColorPickerHandler.BorderSizePixel = 0
@@ -2769,17 +2769,17 @@ function ModernV2:CreateColorPicker(HandleFrame: Frame)
 	ColorPickerHandler.Size = UDim2.new(0, 200, 0, 240)
 	ColorPickerHandler.ZIndex = ZIndex + 125
 
-	ModernV2:AddSignal(ColorPickerHandler:GetPropertyChangedSignal('BackgroundTransparency'):Connect(LPH_NO_VIRTUALIZE(function()
+	L2Hub:AddSignal(ColorPickerHandler:GetPropertyChangedSignal('BackgroundTransparency'):Connect(LPH_NO_VIRTUALIZE(function()
 		if ColorPickerHandler.BackgroundTransparency > 0.9 then
 			ColorPickerHandler.Visible = false;
 			ColorPickerHandler.Parent = nil
 		else
 			ColorPickerHandler.Visible = true;
 
-			if ModernV2.Global3DRenderMode then
-				ColorPickerHandler.Parent = ModernV2.GlobalSurfaceGui;
+			if L2Hub.Global3DRenderMode then
+				ColorPickerHandler.Parent = L2Hub.GlobalSurfaceGui;
 			else
-				ColorPickerHandler.Parent = ModernV2.ScreenGui;
+				ColorPickerHandler.Parent = L2Hub.ScreenGui;
 			end;
 		end;
 	end)));
@@ -2791,7 +2791,7 @@ function ModernV2:CreateColorPicker(HandleFrame: Frame)
 	UIStroke.Color = Color3.fromRGB(45, 48, 58)
 	UIStroke.Parent = ColorPickerHandler
 
-	SaViMap.Name = ModernV2.RandomString();
+	SaViMap.Name = L2Hub.RandomString();
 	SaViMap.Parent = ColorPickerHandler
 	SaViMap.AnchorPoint = Vector2.new(0.5, 0)
 	SaViMap.BackgroundColor3 = Color3.fromRGB(255, 0, 4)
@@ -2800,12 +2800,12 @@ function ModernV2:CreateColorPicker(HandleFrame: Frame)
 	SaViMap.Position = UDim2.new(0.5, 0, 0, 5)
 	SaViMap.Size = UDim2.new(0, 185, 0, 185)
 	SaViMap.ZIndex = ZIndex + 126
-	SaViMap.Image = ModernV2.ImageColorMapping -- UNSAFE IMAGE
+	SaViMap.Image = L2Hub.ImageColorMapping -- UNSAFE IMAGE
 
 	UICorner_2.CornerRadius = UDim.new(0, 5)
 	UICorner_2.Parent = SaViMap
 
-	ColorZoneSelection.Name = ModernV2.RandomString();
+	ColorZoneSelection.Name = L2Hub.RandomString();
 	ColorZoneSelection.Parent = SaViMap
 	ColorZoneSelection.AnchorPoint = Vector2.new(0.5, 0.5)
 	ColorZoneSelection.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -2822,7 +2822,7 @@ function ModernV2:CreateColorPicker(HandleFrame: Frame)
 	UIStroke_2.Color = Color3.fromRGB(255, 255, 255)
 	UIStroke_2.Parent = ColorZoneSelection
 
-	ColorMap.Name = ModernV2.RandomString();
+	ColorMap.Name = L2Hub.RandomString();
 	ColorMap.Parent = ColorPickerHandler
 	ColorMap.AnchorPoint = Vector2.new(0.5, 0)
 	ColorMap.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -2838,7 +2838,7 @@ function ModernV2:CreateColorPicker(HandleFrame: Frame)
 	UICorner_4.CornerRadius = UDim.new(0, 3)
 	UICorner_4.Parent = ColorMap
 
-	ColorMapSelection.Name = ModernV2.RandomString();
+	ColorMapSelection.Name = L2Hub.RandomString();
 	ColorMapSelection.Parent = ColorMap
 	ColorMapSelection.AnchorPoint = Vector2.new(0.5, 0.5)
 	ColorMapSelection.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -2856,7 +2856,7 @@ function ModernV2:CreateColorPicker(HandleFrame: Frame)
 	UICorner_5.CornerRadius = UDim.new(0, 3)
 	UICorner_5.Parent = ColorMapSelection
 
-	RGBLabel.Name = ModernV2.RandomString();
+	RGBLabel.Name = L2Hub.RandomString();
 	RGBLabel.Parent = ColorPickerHandler
 	RGBLabel.BackgroundColor3 = Color3.fromRGB(26, 28, 36)
 	RGBLabel.BackgroundTransparency = 0.750
@@ -2879,64 +2879,64 @@ function ModernV2:CreateColorPicker(HandleFrame: Frame)
 		if value then
 			ColorPickerHandler.Position = UDim2.new(0,HandleFrame.AbsolutePosition.X + 20 , 0 ,HandleFrame.AbsolutePosition.Y + 75);
 
-			ModernV2.PlayAnimate(ColorPickerHandler,SlowyTween , {
+			L2Hub.PlayAnimate(ColorPickerHandler,SlowyTween , {
 				BackgroundTransparency = 0.035
 			})
 
-			ModernV2.PlayAnimate(UIStroke,SlowyTween , {
+			L2Hub.PlayAnimate(UIStroke,SlowyTween , {
 				Transparency = 0.650
 			})
 
-			ModernV2.PlayAnimate(SaViMap,SlowyTween , {
+			L2Hub.PlayAnimate(SaViMap,SlowyTween , {
 				BackgroundTransparency = 0,
 				ImageTransparency = 0
 			})
 
-			ModernV2.PlayAnimate(UIStroke_2,SlowyTween , {
+			L2Hub.PlayAnimate(UIStroke_2,SlowyTween , {
 				Transparency = 0
 			})
 
-			ModernV2.PlayAnimate(ColorMap,SlowyTween , {
+			L2Hub.PlayAnimate(ColorMap,SlowyTween , {
 				BackgroundTransparency = 0
 			})
 
-			ModernV2.PlayAnimate(UIStroke_3,SlowyTween , {
+			L2Hub.PlayAnimate(UIStroke_3,SlowyTween , {
 				Transparency = 0
 			})
 
-			ModernV2.PlayAnimate(RGBLabel,SlowyTween , {
+			L2Hub.PlayAnimate(RGBLabel,SlowyTween , {
 				BackgroundTransparency = 0.750,
 				TextTransparency = 0.400
 			})
 
 			Shadow:Render(true)
 		else
-			ModernV2.PlayAnimate(ColorPickerHandler,SlowyTween , {
+			L2Hub.PlayAnimate(ColorPickerHandler,SlowyTween , {
 				BackgroundTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(UIStroke,SlowyTween , {
+			L2Hub.PlayAnimate(UIStroke,SlowyTween , {
 				Transparency = 1
 			})
 
-			ModernV2.PlayAnimate(SaViMap,SlowyTween , {
+			L2Hub.PlayAnimate(SaViMap,SlowyTween , {
 				BackgroundTransparency = 1,
 				ImageTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(UIStroke_2,SlowyTween , {
+			L2Hub.PlayAnimate(UIStroke_2,SlowyTween , {
 				Transparency = 1
 			})
 
-			ModernV2.PlayAnimate(ColorMap,SlowyTween , {
+			L2Hub.PlayAnimate(ColorMap,SlowyTween , {
 				BackgroundTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(UIStroke_3,SlowyTween , {
+			L2Hub.PlayAnimate(UIStroke_3,SlowyTween , {
 				Transparency = 1
 			})
 
-			ModernV2.PlayAnimate(RGBLabel,SlowyTween , {
+			L2Hub.PlayAnimate(RGBLabel,SlowyTween , {
 				BackgroundTransparency = 1,
 				TextTransparency = 1
 			})
@@ -2955,15 +2955,15 @@ function ModernV2:CreateColorPicker(HandleFrame: Frame)
 	function ColorPickerLib:Update()
 		local RealColor = Color3.fromHSV(ColorPickerLib.H , ColorPickerLib.S , ColorPickerLib.V);
 
-		ModernV2.PlayAnimate(ColorZoneSelection,ManualTween,{
+		L2Hub.PlayAnimate(ColorZoneSelection,ManualTween,{
 			Position = UDim2.fromScale(ColorPickerLib.S , 1 - ColorPickerLib.V)
 		});
 
-		ModernV2.PlayAnimate(SaViMap,ManualTween,{
+		L2Hub.PlayAnimate(SaViMap,ManualTween,{
 			BackgroundColor3 = Color3.fromHSV(ColorPickerLib.H , 1 , 1)
 		});
 
-		ModernV2.PlayAnimate(ColorMapSelection,ManualTween,{
+		L2Hub.PlayAnimate(ColorMapSelection,ManualTween,{
 			Position = UDim2.fromScale(ColorPickerLib.H,0.5)
 		});
 
@@ -2988,19 +2988,19 @@ function ModernV2:CreateColorPicker(HandleFrame: Frame)
 
 	ColorPickerLib.IsHold = false;
 
-	ModernV2:AddSignal(ColorPickerHandler.InputBegan:Connect(function(Input)
+	L2Hub:AddSignal(ColorPickerHandler.InputBegan:Connect(function(Input)
 		if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
 			ColorPickerLib.IsHold = true;
 		end;
 	end));
 
-	ModernV2:AddSignal(ColorPickerHandler.InputEnded:Connect(function(Input)
+	L2Hub:AddSignal(ColorPickerHandler.InputEnded:Connect(function(Input)
 		if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
 			ColorPickerLib.IsHold = false;
 		end;
 	end));
 
-	ModernV2:AddSignal(ColorMap.InputBegan:Connect(LPH_NO_VIRTUALIZE(function(Input)
+	L2Hub:AddSignal(ColorMap.InputBegan:Connect(LPH_NO_VIRTUALIZE(function(Input)
 		if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
 			ColorPickerLib.IsHold = true;
 
@@ -3016,7 +3016,7 @@ function ModernV2:CreateColorPicker(HandleFrame: Frame)
 		end;
 	end)));
 
-	ModernV2:AddSignal(SaViMap.InputBegan:Connect(LPH_NO_VIRTUALIZE(function(Input)
+	L2Hub:AddSignal(SaViMap.InputBegan:Connect(LPH_NO_VIRTUALIZE(function(Input)
 		if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
 			ColorPickerLib.IsHold = true;
 
@@ -3037,7 +3037,7 @@ function ModernV2:CreateColorPicker(HandleFrame: Frame)
 	return ColorPickerLib;
 end;
 
-ModernV2.KeyEnum = {
+L2Hub.KeyEnum = {
 	One = '1',
 	Two = '2',
 	Three = '3',
@@ -3072,13 +3072,13 @@ ModernV2.KeyEnum = {
 	Escape = "Esc",
 };
 
-ModernV2.EnumReverse = {};
+L2Hub.EnumReverse = {};
 
-for i,v in next , ModernV2.KeyEnum do
-	ModernV2.EnumReverse[v] = i;
+for i,v in next , L2Hub.KeyEnum do
+	L2Hub.EnumReverse[v] = i;
 end;
 
-function ModernV2:NormalizeKeybindValue(K)
+function L2Hub:NormalizeKeybindValue(K)
 	if K == nil then
 		return "None";
 	end;
@@ -3094,32 +3094,32 @@ function ModernV2:NormalizeKeybindValue(K)
 	return tostring(K);
 end;
 
-function ModernV2:KeyCodeToStr(K: Enum.KeyCode)
-	local KeyName = ModernV2:NormalizeKeybindValue(K);
+function L2Hub:KeyCodeToStr(K: Enum.KeyCode)
+	local KeyName = L2Hub:NormalizeKeybindValue(K);
 
-	if ModernV2.KeyEnum[KeyName] then
-		return ModernV2.KeyEnum[KeyName];
+	if L2Hub.KeyEnum[KeyName] then
+		return L2Hub.KeyEnum[KeyName];
 	end;
 
 	return KeyName;
 end;
 
-function ModernV2:StrToKeyCode(str: string)
-	str = ModernV2:NormalizeKeybindValue(str);
+function L2Hub:StrToKeyCode(str: string)
+	str = L2Hub:NormalizeKeybindValue(str);
 
-	if ModernV2.EnumReverse[str] then
-		return Enum.KeyCode[ModernV2.EnumReverse[str]];
+	if L2Hub.EnumReverse[str] then
+		return Enum.KeyCode[L2Hub.EnumReverse[str]];
 	end;
 
 	return Enum.KeyCode[str] or Enum.KeyCode.Unknown;
 end;
 
-function ModernV2:RegisiterHandler(Handler: Frame , Signal)
+function L2Hub:RegisiterHandler(Handler: Frame , Signal)
 	local handle = {};
 	local ZINdex = Handler.ZIndex;
 
 	function handle:AddToggle(Config)
-		Config = ModernV2:ProcessParams(Config , {
+		Config = L2Hub:ProcessParams(Config , {
 			Name = nil,
 			Default = false,
 			Type = "Switch",
@@ -3131,7 +3131,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 			TextLocked = "Locked",
 			Callback = EmptyFunction,
 		});
-		ModernV2:ResolveConfigFlag(Config);
+		L2Hub:ResolveConfigFlag(Config);
 
 		local IsCheckbox = string.lower(tostring(Config.Type)) == "checkbox";
 		local Toggle = Instance.new("Frame")
@@ -3141,7 +3141,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		local CheckboxIcon = Instance.new("ImageLabel")
 		local UIStroke = Instance.new("UIStroke")
 
-		Toggle.Name = ModernV2.RandomString();
+		Toggle.Name = L2Hub.RandomString();
 		Toggle.Parent = Handler
 		Toggle.BackgroundColor3 = Color3.fromRGB(10, 13, 21)
 		Toggle.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -3158,7 +3158,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		UIStroke.Color = Color3.fromRGB(45, 48, 58)
 		UIStroke.Parent = Toggle
 
-		Circle.Name = ModernV2.RandomString();
+		Circle.Name = L2Hub.RandomString();
 		Circle.Parent = Toggle
 		Circle.AnchorPoint = Vector2.new(0.5, 0.5)
 		Circle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -3173,7 +3173,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		UICorner_2.CornerRadius = UDim.new(1, 0)
 		UICorner_2.Parent = Circle
 
-		CheckboxIcon.Name = ModernV2.RandomString();
+		CheckboxIcon.Name = L2Hub.RandomString();
 		CheckboxIcon.Parent = Toggle
 		CheckboxIcon.AnchorPoint = Vector2.new(0.5, 0.5)
 		CheckboxIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -3187,60 +3187,60 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		CheckboxIcon.ImageColor3 = Color3.fromRGB(255, 255, 255)
 		CheckboxIcon.ImageTransparency = 1
 		CheckboxIcon.ScaleType = Enum.ScaleType.Fit
-		ModernV2:SetIconMode(CheckboxIcon, Config.Icon or "check")
+		L2Hub:SetIconMode(CheckboxIcon, Config.Icon or "check")
 
 		local ToggleLib = {
 			Root = Toggle	
 		};
-		ModernV2:AttachLockMethods(ToggleLib, self.Root or Toggle, Config);
+		L2Hub:AttachLockMethods(ToggleLib, self.Root or Toggle, Config);
 
 		ToggleLib.SetUI = LPH_NO_VIRTUALIZE(function(value)
 			if IsCheckbox then
 				if value then
-					ModernV2.PlayAnimate(Toggle,SlowyTween,{
+					L2Hub.PlayAnimate(Toggle,SlowyTween,{
 						BackgroundTransparency = 0,
-						BackgroundColor3 = ModernV2.AccentColor
+						BackgroundColor3 = L2Hub.AccentColor
 					})
 
-					ModernV2.PlayAnimate(UIStroke,SlowyTween,{
+					L2Hub.PlayAnimate(UIStroke,SlowyTween,{
 						Transparency = 1
 					})
 
-					ModernV2.PlayAnimate(CheckboxIcon,SlowyTween,{
+					L2Hub.PlayAnimate(CheckboxIcon,SlowyTween,{
 						TextTransparency = 0
 					})
 				else
-					ModernV2.PlayAnimate(Toggle,SlowyTween,{
+					L2Hub.PlayAnimate(Toggle,SlowyTween,{
 						BackgroundTransparency = 0,
 						BackgroundColor3 = Color3.fromRGB(10, 13, 21)
 					})
 
-					ModernV2.PlayAnimate(UIStroke,SlowyTween,{
+					L2Hub.PlayAnimate(UIStroke,SlowyTween,{
 						Transparency = 0.650
 					})
 
-					ModernV2.PlayAnimate(CheckboxIcon,SlowyTween,{
+					L2Hub.PlayAnimate(CheckboxIcon,SlowyTween,{
 						TextTransparency = 1
 					})
 				end;
 			elseif value then
-				ModernV2.PlayAnimate(Toggle,SlowyTween,{
+				L2Hub.PlayAnimate(Toggle,SlowyTween,{
 					BackgroundTransparency = 0,
-					BackgroundColor3 = ModernV2.AccentColor
+					BackgroundColor3 = L2Hub.AccentColor
 				})
 
-				ModernV2.PlayAnimate(Circle,SlowyTween,{
+				L2Hub.PlayAnimate(Circle,SlowyTween,{
 					BackgroundColor3 = Color3.fromRGB(255, 255, 255),
 					BackgroundTransparency = 0,
 					Position = UDim2.new(0.7, 0, 0.5, 0)
 				})
 			else
-				ModernV2.PlayAnimate(Toggle,SlowyTween,{
+				L2Hub.PlayAnimate(Toggle,SlowyTween,{
 					BackgroundTransparency = 0,
 					BackgroundColor3 = Color3.fromRGB(10, 13, 21)
 				})
 
-				ModernV2.PlayAnimate(Circle,SlowyTween,{
+				L2Hub.PlayAnimate(Circle,SlowyTween,{
 					BackgroundColor3 = Color3.fromRGB(255, 255, 255),
 					BackgroundTransparency = 0.500,
 					Position = UDim2.new(0.300000012, 0, 0.5, 0)
@@ -3252,22 +3252,22 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 			if value then
 				ToggleLib.SetUI(Config.Default);
 			else
-				ModernV2.PlayAnimate(Toggle,SlowyTween,{
+				L2Hub.PlayAnimate(Toggle,SlowyTween,{
 					BackgroundTransparency = 1,
 					BackgroundColor3 = Color3.fromRGB(10, 13, 21)
 				})
 
-				ModernV2.PlayAnimate(Circle,SlowyTween,{
+				L2Hub.PlayAnimate(Circle,SlowyTween,{
 					BackgroundColor3 = Color3.fromRGB(255, 255, 255),
 					BackgroundTransparency = 1,
 					Position = UDim2.new(0.300000012, 0, 0.5, 0)
 				})
 
-				ModernV2.PlayAnimate(UIStroke,SlowyTween,{
+				L2Hub.PlayAnimate(UIStroke,SlowyTween,{
 					Transparency = 1
 				})
 
-				ModernV2.PlayAnimate(CheckboxIcon,SlowyTween,{
+				L2Hub.PlayAnimate(CheckboxIcon,SlowyTween,{
 					TextTransparency = 1
 				})
 			end;
@@ -3276,12 +3276,12 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		ToggleLib.SetUI(Config.Default);
 		ToggleLib.SetVisible(Signal:GetValue());
 
-		ModernV2:CreateInput(Toggle , LPH_NO_VIRTUALIZE(function()
+		L2Hub:CreateInput(Toggle , LPH_NO_VIRTUALIZE(function()
 			Config.Default = not Config.Default;
 
 			ToggleLib.SetUI(Config.Default);
 
-			ModernV2:FireCallback(Config.Callback, Config.Name, Config.Default)
+			L2Hub:FireCallback(Config.Callback, Config.Name, Config.Default)
 		end))
 
 		ToggleLib.Signal = Signal:Connect(ToggleLib.SetVisible);
@@ -3297,7 +3297,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 				ToggleLib.SetUI(Config.Default);
 			end;
 
-			ModernV2:FireCallback(Config.Callback, Config.Name, Config.Default)
+			L2Hub:FireCallback(Config.Callback, Config.Name, Config.Default)
 			return ToggleLib;
 		end;
 
@@ -3324,7 +3324,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		function ToggleLib:SetIcon(icon)
 			Config.Icon = icon or Config.Icon;
 			if IsCheckbox then
-				ModernV2:SetIconMode(CheckboxIcon, Config.Icon);
+				L2Hub:SetIconMode(CheckboxIcon, Config.Icon);
 			end;
 			return ToggleLib;
 		end;
@@ -3335,14 +3335,14 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		end;
 
 		if Config.Flag then
-			ModernV2:RegisterFlag(Config.Flag, ToggleLib);
+			L2Hub:RegisterFlag(Config.Flag, ToggleLib);
 		end;
 
 		return CaseInsensitive(ToggleLib);
 	end;
 
 	function handle:AddSlider(Config)
-		Config = ModernV2:ProcessParams(Config , {
+		Config = L2Hub:ProcessParams(Config , {
 			Name = nil,
 			Default = 50,
 			Min = 0,
@@ -3359,7 +3359,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 			Tooltip = false,
 			Callback = EmptyFunction,
 		});
-		ModernV2:ResolveConfigFlag(Config);
+		L2Hub:ResolveConfigFlag(Config);
 
 		local SliderLib = {};
 
@@ -3408,7 +3408,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		local TooltipStroke;
 		local TooltipLabel;
 
-		Slider.Name = ModernV2.RandomString();
+		Slider.Name = L2Hub.RandomString();
 		Slider.Parent = Handler
 		Slider.BackgroundColor3 = Color3.fromRGB(26, 28, 36)
 		Slider.BackgroundTransparency = 1.000
@@ -3418,12 +3418,12 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		Slider.Size = UDim2.new(0, Config.Size, 0, 18)
 		Slider.ZIndex = ZINdex + 13
 		Slider.LayoutOrder = -(#Handler:GetChildren() + 5);
-		ModernV2:AttachLockMethods(SliderLib, self.Root or Slider, Config);
+		L2Hub:AttachLockMethods(SliderLib, self.Root or Slider, Config);
 
 		UICorner.CornerRadius = UDim.new(0, 4)
 		UICorner.Parent = Slider
 
-		ValueFrame.Name = ModernV2.RandomString();
+		ValueFrame.Name = L2Hub.RandomString();
 		ValueFrame.Parent = Slider
 		ValueFrame.AnchorPoint = Vector2.new(1, 0)
 		ValueFrame.BackgroundColor3 = Color3.fromRGB(26, 28, 36)
@@ -3441,7 +3441,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		UIStroke.Color = Color3.fromRGB(45, 48, 58)
 		UIStroke.Parent = ValueFrame
 
-		ValueLabel.Name = ModernV2.RandomString();
+		ValueLabel.Name = L2Hub.RandomString();
 		ValueLabel.Parent = ValueFrame
 		ValueLabel.AnchorPoint = Vector2.new(0.5, 0.5)
 		ValueLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -3458,7 +3458,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		ValueLabel.ClearTextOnFocus = false;
 		ValueLabel.TextTransparency = 0.350
 
-		SlideMain.Name = ModernV2.RandomString();
+		SlideMain.Name = L2Hub.RandomString();
 		SlideMain.Parent = Slider
 		SlideMain.AnchorPoint = Vector2.new(0, 0.5)
 		SlideMain.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -3469,7 +3469,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		SlideMain.Size = UDim2.new(1, -((SliderLib.MaximumSize + boxSize + valueGap)), 0, 18)
 		SlideMain.ZIndex = ZINdex + 13
 
-		SlideFrame.Name = ModernV2.RandomString();
+		SlideFrame.Name = L2Hub.RandomString();
 		SlideFrame.Parent = SlideMain
 		SlideFrame.AnchorPoint = Vector2.new(0, 0.5)
 		SlideFrame.BackgroundColor3 = Color3.fromRGB(30, 29, 36)
@@ -3482,9 +3482,9 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		UICorner_3.CornerRadius = UDim.new(1, 0)
 		UICorner_3.Parent = SlideFrame
 
-		SlideMoving.Name = ModernV2.RandomString();
+		SlideMoving.Name = L2Hub.RandomString();
 		SlideMoving.Parent = SlideFrame
-		SlideMoving.BackgroundColor3 = ModernV2.AccentColor
+		SlideMoving.BackgroundColor3 = L2Hub.AccentColor
 		SlideMoving.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		SlideMoving.BorderSizePixel = 0
 		SlideMoving.Size = UDim2.new(SliderLib.GetSize(), 0, 1, 0)
@@ -3511,10 +3511,10 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 			end;
 
 			TooltipFrame = Instance.new("Frame");
-			TooltipFrame.Name = ModernV2.RandomString();
-			TooltipFrame.Parent = ModernV2.ScreenGui;
+			TooltipFrame.Name = L2Hub.RandomString();
+			TooltipFrame.Parent = L2Hub.ScreenGui;
 			TooltipFrame.AnchorPoint = Vector2.new(0.5, 1);
-			TooltipFrame.BackgroundColor3 = Color3.fromRGB(20, 22, 27);
+			TooltipFrame.BackgroundColor3 = Color3.fromRGB(18, 18, 18);
 			TooltipFrame.BackgroundTransparency = 1;
 			TooltipFrame.BorderSizePixel = 0;
 			TooltipFrame.ClipsDescendants = true;
@@ -3533,7 +3533,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 			TooltipStroke.Parent = TooltipFrame;
 
 			TooltipLabel = Instance.new("TextLabel");
-			TooltipLabel.Name = ModernV2.RandomString();
+			TooltipLabel.Name = L2Hub.RandomString();
 			TooltipLabel.Parent = TooltipFrame;
 			TooltipLabel.BackgroundTransparency = 1;
 			TooltipLabel.BorderSizePixel = 0;
@@ -3561,13 +3561,13 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		local function SetSliderTooltipRender(value)
 			if not TooltipEnabled or not value then
 				if TooltipFrame then
-					ModernV2.PlayAnimate(TooltipFrame, SlowyTween, {
+					L2Hub.PlayAnimate(TooltipFrame, SlowyTween, {
 						BackgroundTransparency = 1,
 					});
-					ModernV2.PlayAnimate(TooltipStroke, SlowyTween, {
+					L2Hub.PlayAnimate(TooltipStroke, SlowyTween, {
 						Transparency = 1,
 					});
-					ModernV2.PlayAnimate(TooltipLabel, SlowyTween, {
+					L2Hub.PlayAnimate(TooltipLabel, SlowyTween, {
 						TextTransparency = 1,
 					});
 					task.delay(0.18, function()
@@ -3584,13 +3584,13 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 			UpdateSliderTooltip();
 			TooltipFrame.Visible = true;
 
-			ModernV2.PlayAnimate(TooltipFrame, SlowyTween, {
+			L2Hub.PlayAnimate(TooltipFrame, SlowyTween, {
 				BackgroundTransparency = 0.075,
 			});
-			ModernV2.PlayAnimate(TooltipStroke, SlowyTween, {
+			L2Hub.PlayAnimate(TooltipStroke, SlowyTween, {
 				Transparency = 0.650,
 			});
-			ModernV2.PlayAnimate(TooltipLabel, SlowyTween, {
+			L2Hub.PlayAnimate(TooltipLabel, SlowyTween, {
 				TextTransparency = 0.200,
 			});
 		end;
@@ -3608,10 +3608,10 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		end);
 
 		ValueLabel.FocusLost:Connect(LPH_NO_VIRTUALIZE(function()
-			local OutVal = ModernV2:ParseInput(ValueLabel.Text , true);
+			local OutVal = L2Hub:ParseInput(ValueLabel.Text , true);
 			if OutVal then
 				local rx = math.clamp(OutVal , Config.Min , Config.Max);
-				local Value = ModernV2.Rounding(rx,Config.Rounding);
+				local Value = L2Hub.Rounding(rx,Config.Rounding);
 
 				if Value then
 					Config.Default = Value;
@@ -3622,7 +3622,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 
 					LoadText();
 
-					ModernV2:FireCallback(Config.Callback, Config.Name, Config.Default)
+					L2Hub:FireCallback(Config.Callback, Config.Name, Config.Default)
 				else
 					LoadText();
 				end;
@@ -3634,56 +3634,56 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 
 		SliderLib.SetRender = LPH_NO_VIRTUALIZE(function(value)
 			if value then
-				ModernV2.PlayAnimate(ValueFrame,SlowyTween,{
+				L2Hub.PlayAnimate(ValueFrame,SlowyTween,{
 					BackgroundTransparency = 0,
 					Size = UDim2.new(0, SliderLib.MaximumSize + boxSize, 0, 18)
 				});
 
-				ModernV2.PlayAnimate(UIStroke,SlowyTween,{
+				L2Hub.PlayAnimate(UIStroke,SlowyTween,{
 					Transparency = 0.650
 				});
 
-				ModernV2.PlayAnimate(ValueLabel,SlowyTween,{
+				L2Hub.PlayAnimate(ValueLabel,SlowyTween,{
 					TextTransparency = 0.350
 				});
 
-				ModernV2.PlayAnimate(SlideFrame,SlowyTween,{
+				L2Hub.PlayAnimate(SlideFrame,SlowyTween,{
 					BackgroundTransparency = 0
 				});
 
-				ModernV2.PlayAnimate(SlideMoving,SlowyTween,{
+				L2Hub.PlayAnimate(SlideMoving,SlowyTween,{
 					BackgroundTransparency = 0,
 					Size = UDim2.new(SliderLib.GetSize(), 0, 1, 0)
 				});
 
-				ModernV2.PlayAnimate(Frame,SlowyTween,{
+				L2Hub.PlayAnimate(Frame,SlowyTween,{
 					BackgroundTransparency = 0
 				});
 			else
 				SetSliderTooltipRender(false);
 
-				ModernV2.PlayAnimate(ValueFrame,SlowyTween,{
+				L2Hub.PlayAnimate(ValueFrame,SlowyTween,{
 					BackgroundTransparency = 1,
 				});
 
-				ModernV2.PlayAnimate(UIStroke,SlowyTween,{
+				L2Hub.PlayAnimate(UIStroke,SlowyTween,{
 					Transparency = 1
 				});
 
-				ModernV2.PlayAnimate(ValueLabel,SlowyTween,{
+				L2Hub.PlayAnimate(ValueLabel,SlowyTween,{
 					TextTransparency = 1
 				});
 
-				ModernV2.PlayAnimate(SlideFrame,SlowyTween,{
+				L2Hub.PlayAnimate(SlideFrame,SlowyTween,{
 					BackgroundTransparency = 1
 				});
 
-				ModernV2.PlayAnimate(SlideMoving,SlowyTween,{
+				L2Hub.PlayAnimate(SlideMoving,SlowyTween,{
 					BackgroundTransparency = 1,
 					Size = UDim2.new(0, 0, 1, 0)
 				});
 
-				ModernV2.PlayAnimate(Frame,SlowyTween,{
+				L2Hub.PlayAnimate(Frame,SlowyTween,{
 					BackgroundTransparency = 1
 				});
 			end;
@@ -3695,7 +3695,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		local Update = function(Input)
 			local SizeScale = math.clamp((((Input.Position.X) - SlideMain.AbsolutePosition.X) / SlideMain.AbsoluteSize.X), 0, 1);
 			local Main = ((Config.Max - Config.Min) * SizeScale) + Config.Min;
-			local Value = ModernV2.Rounding(Main,Config.Rounding);
+			local Value = L2Hub.Rounding(Main,Config.Rounding);
 			local PositionX = UDim2.fromScale(SizeScale, 1);
 			local Size = ((Value - Config.Min) / (Config.Max - Config.Min)) + 0.02;
 
@@ -3708,17 +3708,17 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 			LoadText()
 
 
-			ModernV2:FireCallback(Config.Callback, Config.Name, Value)
+			L2Hub:FireCallback(Config.Callback, Config.Name, Value)
 		end;
 
 		local IsHold = false;
 
 		do
-			ModernV2:AddSignal(SlideMain.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
+			L2Hub:AddSignal(SlideMain.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
 				SetSliderTooltipRender(true);
 			end)));
 
-			ModernV2:AddSignal(SlideMain.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
+			L2Hub:AddSignal(SlideMain.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
 				if not IsHold then
 					SetSliderTooltipRender(false);
 				end;
@@ -3735,14 +3735,14 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 			SlideMain.InputEnded:Connect(LPH_NO_VIRTUALIZE(function(Input)
 				if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
 					if UserInputService.TouchEnabled then
-						if not ModernV2:IsMouseOverFrame(SlideMain) then
+						if not L2Hub:IsMouseOverFrame(SlideMain) then
 							IsHold = false
 						end;
 					else
 						IsHold = false
 					end;
 
-					if not IsHold and not ModernV2:IsMouseOverFrame(SlideMain) then
+					if not IsHold and not L2Hub:IsMouseOverFrame(SlideMain) then
 						SetSliderTooltipRender(false);
 					end;
 				end
@@ -3752,7 +3752,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 				if IsHold then
 					if (Input.UserInputType == Enum.UserInputType.MouseMovement or Input.UserInputType == Enum.UserInputType.Touch)  then
 						if UserInputService.TouchEnabled then
-							if not ModernV2:IsMouseOverFrame(SlideMain) then
+							if not L2Hub:IsMouseOverFrame(SlideMain) then
 								IsHold = false
 							else
 								Update(Input)
@@ -3777,10 +3777,10 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 				return SliderLib;
 			end;
 
-			Config.Default = ModernV2.Rounding(math.clamp(NumericValue, Config.Min, Config.Max),Config.Rounding);
+			Config.Default = L2Hub.Rounding(math.clamp(NumericValue, Config.Min, Config.Max),Config.Rounding);
 
 			if Signal:GetValue() then
-				ModernV2.PlayAnimate(SlideMoving,SlowyTween,{
+				L2Hub.PlayAnimate(SlideMoving,SlowyTween,{
 					BackgroundTransparency = 0,
 					Size = UDim2.new(SliderLib.GetSize(), 0, 1, 0)
 				});
@@ -3788,7 +3788,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 
 			LoadText()
 
-			ModernV2:FireCallback(Config.Callback, Config.Name, Config.Default);
+			L2Hub:FireCallback(Config.Callback, Config.Name, Config.Default);
 			return SliderLib;
 		end;
 
@@ -3840,7 +3840,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		end;
 
 		if Config.Flag then
-			ModernV2:RegisterFlag(Config.Flag, SliderLib);
+			L2Hub:RegisterFlag(Config.Flag, SliderLib);
 		end;
 
 		return CaseInsensitive(SliderLib);
@@ -3851,7 +3851,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		local Icon = Instance.new("ImageLabel")
 		local UICorner = Instance.new("UICorner")
 
-		Option.Name = ModernV2.RandomString();
+		Option.Name = L2Hub.RandomString();
 		Option.Parent = Handler
 		Option.BackgroundColor3 = Color3.fromRGB(39, 40, 49)
 		Option.BackgroundTransparency = 1.000
@@ -3862,7 +3862,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		Option.ZIndex = ZINdex + 13
 		Option.LayoutOrder = -(#Handler:GetChildren() + 5);
 
-		Icon.Name = ModernV2.RandomString();
+		Icon.Name = L2Hub.RandomString();
 		Icon.Parent = Option
 		Icon.AnchorPoint = Vector2.new(0.5, 0.5)
 		Icon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -3872,7 +3872,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		Icon.Position = UDim2.new(0.5, 0, 0.5, 0)
 		Icon.Size = UDim2.new(1, 0, 1, 0)
 		Icon.ZIndex = ZINdex + 14
-		ModernV2:SetIconMode(Icon, (GearIcon == 1 and 'gear') or (GearIcon == 2 and 'chevron-large-right') or "three-dots-horizontal");
+		L2Hub:SetIconMode(Icon, (GearIcon == 1 and 'gear') or (GearIcon == 2 and 'chevron-large-right') or "three-dots-horizontal");
 		Icon.ImageColor3 = Color3.fromRGB(223, 223, 223)
 		Icon.ImageTransparency = 0.400
 		Icon.ScaleType = Enum.ScaleType.Fit
@@ -3880,16 +3880,16 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		UICorner.CornerRadius = UDim.new(0, 4)
 		UICorner.Parent = Option
 
-		local Window = ModernV2:CreateOptionWindow(Option , ZINdex + 13);
+		local Window = L2Hub:CreateOptionWindow(Option , ZINdex + 13);
 		local reciveSignal;
 
 		Window.SetRender = LPH_NO_VIRTUALIZE(function(value)
 			if value then
-				ModernV2.PlayAnimate(Icon , SlowyTween , {
+				L2Hub.PlayAnimate(Icon , SlowyTween , {
 					TextTransparency = 0.400
 				})
 			else
-				ModernV2.PlayAnimate(Icon , SlowyTween , {
+				L2Hub.PlayAnimate(Icon , SlowyTween , {
 					TextTransparency = 1
 				})
 			end;
@@ -3898,7 +3898,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		Window.SetRender(Signal:GetValue());
 		Signal:Connect(Window.SetRender);
 
-		local bthg = ModernV2:CreateInput(Option , LPH_NO_VIRTUALIZE(function()
+		local bthg = L2Hub:CreateInput(Option , LPH_NO_VIRTUALIZE(function()
 			if reciveSignal then
 				reciveSignal:Disconnect();
 				reciveSignal = nil;	
@@ -3908,7 +3908,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 
 			reciveSignal = UserInputService.InputBegan:Connect(function(Input)
 				if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
-					if not ModernV2:IsMouseOverFrame(Window.Root) and not ModernV2:IsMouseOverFrame(Option) then
+					if not L2Hub:IsMouseOverFrame(Window.Root) and not L2Hub:IsMouseOverFrame(Option) then
 						if reciveSignal then
 							reciveSignal:Disconnect();
 							reciveSignal = nil;	
@@ -3920,22 +3920,22 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 			end)
 		end));
 
-		ModernV2:AddSignal(bthg.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
-			ModernV2.PlayAnimate(Option , SlowyTween , {
+		L2Hub:AddSignal(bthg.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
+			L2Hub.PlayAnimate(Option , SlowyTween , {
 				BackgroundTransparency = 0.5
 			})
 
-			ModernV2.PlayAnimate(Icon , SlowyTween , {
+			L2Hub.PlayAnimate(Icon , SlowyTween , {
 				TextTransparency = 0.25
 			})
 		end)));
 
-		ModernV2:AddSignal(bthg.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
-			ModernV2.PlayAnimate(Option , SlowyTween , {
+		L2Hub:AddSignal(bthg.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
+			L2Hub.PlayAnimate(Option , SlowyTween , {
 				BackgroundTransparency = 1.000
 			})
 
-			ModernV2.PlayAnimate(Icon , SlowyTween , {
+			L2Hub.PlayAnimate(Icon , SlowyTween , {
 				TextTransparency = 0.400
 			})
 		end)));
@@ -3944,7 +3944,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 	end;
 
 	function handle:AddColorPicker(Config)
-		Config = ModernV2:ProcessParams(Config , {
+		Config = L2Hub:ProcessParams(Config , {
 			Name = nil,
 			Default = Color3.fromRGB(255, 255, 255),
 			Flag = nil,
@@ -3954,7 +3954,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 			TextLocked = "Locked",
 			Callback  = EmptyFunction,
 		});
-		ModernV2:ResolveConfigFlag(Config);
+		L2Hub:ResolveConfigFlag(Config);
 
 		if typeof(Config.Default) == 'string' then
 			Config.Default = Color3.fromHex(Config.Default:gsub('#',''));
@@ -3967,7 +3967,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		local ImageLabel = Instance.new("ImageLabel")
 		local UICorner_2 = Instance.new("UICorner")
 
-		ColorPicker.Name = ModernV2.RandomString();
+		ColorPicker.Name = L2Hub.RandomString();
 		ColorPicker.Parent = Handler
 		ColorPicker.BackgroundColor3 = Config.Default;
 		ColorPicker.BackgroundTransparency = 0
@@ -3976,7 +3976,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		ColorPicker.ClipsDescendants = true
 		ColorPicker.Size = UDim2.new(0, 18, 0, 18)
 		ColorPicker.ZIndex = ZINdex + 13
-		ModernV2:AttachLockMethods(ColorPickerLib, self.Root or ColorPicker, Config);
+		L2Hub:AttachLockMethods(ColorPickerLib, self.Root or ColorPicker, Config);
 
 		UICorner.CornerRadius = UDim.new(0, 4)
 		UICorner.Parent = ColorPicker
@@ -3999,17 +3999,17 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		UICorner_2.CornerRadius = UDim.new(0, 4)
 		UICorner_2.Parent = ImageLabel
 
-		local BackendM = ModernV2:CreateColorPicker(ColorPicker);
+		local BackendM = L2Hub:CreateColorPicker(ColorPicker);
 
 		BackendM:SetValue(Config.Default)
 		BackendM.Callback = function(color)
 			ColorPicker.BackgroundColor3 = color;
 			Config.Default = color;
-			ModernV2:FireCallback(Config.Callback, Config.Name, Config.Default);
+			L2Hub:FireCallback(Config.Callback, Config.Name, Config.Default);
 		end;
 
 		local signal;
-		ModernV2:CreateInput(ColorPicker , LPH_NO_VIRTUALIZE(function()
+		L2Hub:CreateInput(ColorPicker , LPH_NO_VIRTUALIZE(function()
 			if signal then
 				signal:Disconnect();
 				signal = nil;
@@ -4019,7 +4019,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 
 			signal = UserInputService.InputBegan:Connect(function(Input)
 				if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
-					if not ModernV2:IsMouseOverFrame(ColorPicker) and not ModernV2:IsMouseOverFrame(BackendM.Root) then
+					if not L2Hub:IsMouseOverFrame(ColorPicker) and not L2Hub:IsMouseOverFrame(BackendM.Root) then
 						if signal then
 							signal:Disconnect();
 							signal = nil;
@@ -4033,27 +4033,27 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 
 		ColorPickerLib.SetRender = LPH_NO_VIRTUALIZE(function(value)
 			if value then
-				ModernV2.PlayAnimate(ColorPicker , SlowyTween , {
+				L2Hub.PlayAnimate(ColorPicker , SlowyTween , {
 					BackgroundTransparency = 0
 				})
 
-				ModernV2.PlayAnimate(UIStroke , SlowyTween , {
+				L2Hub.PlayAnimate(UIStroke , SlowyTween , {
 					Transparency = 0.650
 				})
 
-				ModernV2.PlayAnimate(ImageLabel , SlowyTween , {
+				L2Hub.PlayAnimate(ImageLabel , SlowyTween , {
 					ImageTransparency = 0.9
 				})
 			else
-				ModernV2.PlayAnimate(ColorPicker , SlowyTween , {
+				L2Hub.PlayAnimate(ColorPicker , SlowyTween , {
 					BackgroundTransparency = 1
 				})
 
-				ModernV2.PlayAnimate(UIStroke , SlowyTween , {
+				L2Hub.PlayAnimate(UIStroke , SlowyTween , {
 					Transparency = 1
 				})
 
-				ModernV2.PlayAnimate(ImageLabel , SlowyTween , {
+				L2Hub.PlayAnimate(ImageLabel , SlowyTween , {
 					ImageTransparency = 1
 				})
 			end;
@@ -4086,7 +4086,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 			BackendM.Callback = function(color)
 				ColorPicker.BackgroundColor3 = color;
 				Config.Default = color;
-				ModernV2:FireCallback(Config.Callback, Config.Name, Config.Default);
+				L2Hub:FireCallback(Config.Callback, Config.Name, Config.Default);
 			end;
 			return ColorPickerLib;
 		end;
@@ -4097,14 +4097,14 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		end;
 
 		if Config.Flag then
-			ModernV2:RegisterFlag(Config.Flag, ColorPickerLib);
+			L2Hub:RegisterFlag(Config.Flag, ColorPickerLib);
 		end;
 
 		return CaseInsensitive(ColorPickerLib);
 	end;
 
 	function handle:AddKeybind(Config)
-		Config = ModernV2:ProcessParams(Config,{
+		Config = L2Hub:ProcessParams(Config,{
 			Name = nil,
 			Default = nil,
 			Mode = "Toggle",
@@ -4119,8 +4119,8 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 			Locked = false,
 			TextLocked = "Locked",
 		});
-		ModernV2:ResolveConfigFlag(Config);
-		Config.Default = ModernV2:NormalizeKeybindValue(Config.Default);
+		L2Hub:ResolveConfigFlag(Config);
+		Config.Default = L2Hub:NormalizeKeybindValue(Config.Default);
 		Config.Mode = string.lower(tostring(Config.Mode or "Toggle")) == "hold" and "Hold" or "Toggle";
 		Config.ChangedCallback = Config.ChangedCallback or Config.OnChanged or EmptyFunction;
 		Config.ModeChangedCallback = Config.ModeChangedCallback or Config.OnModeChanged or EmptyFunction;
@@ -4138,7 +4138,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		local UIStroke = Instance.new("UIStroke")
 		local ValueLabel = Instance.new("TextLabel")
 
-		Keybind.Name = ModernV2.RandomString();
+		Keybind.Name = L2Hub.RandomString();
 		Keybind.Parent = Handler
 		Keybind.BackgroundColor3 = Color3.fromRGB(26, 28, 36)
 		Keybind.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -4146,7 +4146,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		Keybind.ClipsDescendants = true
 		Keybind.Size = UDim2.new(0, 45, 0, 18)
 		Keybind.ZIndex = ZINdex + 13
-		ModernV2:AttachLockMethods(KeybindLib, self.Root or Keybind, Config);
+		L2Hub:AttachLockMethods(KeybindLib, self.Root or Keybind, Config);
 
 		UICorner.CornerRadius = UDim.new(0, 4)
 		UICorner.Parent = Keybind
@@ -4155,7 +4155,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		UIStroke.Color = Color3.fromRGB(45, 48, 58)
 		UIStroke.Parent = Keybind
 
-		ValueLabel.Name = ModernV2.RandomString();
+		ValueLabel.Name = L2Hub.RandomString();
 		ValueLabel.Parent = Keybind
 		ValueLabel.AnchorPoint = Vector2.new(0.5, 0.5)
 		ValueLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -4167,34 +4167,34 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		ValueLabel.Size = UDim2.new(1, 0, 1, 0)
 		ValueLabel.ZIndex = ZINdex + 14
 		ValueLabel.Font = Enum.Font.GothamBold
-		ValueLabel.Text = ModernV2:KeyCodeToStr(Config.Default or "None")
+		ValueLabel.Text = L2Hub:KeyCodeToStr(Config.Default or "None")
 		ValueLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 		ValueLabel.TextSize = 10.000
 		ValueLabel.TextTransparency = 0.500
 
 		KeybindLib.SetRender = LPH_NO_VIRTUALIZE(function(value)
 			if value then
-				ModernV2.PlayAnimate(Keybind,SlowyTween, {
+				L2Hub.PlayAnimate(Keybind,SlowyTween, {
 					BackgroundTransparency = 0
 				})
 
-				ModernV2.PlayAnimate(UIStroke,SlowyTween, {
+				L2Hub.PlayAnimate(UIStroke,SlowyTween, {
 					Transparency = 0.650
 				})
 
-				ModernV2.PlayAnimate(ValueLabel,SlowyTween, {
+				L2Hub.PlayAnimate(ValueLabel,SlowyTween, {
 					TextTransparency = 0.500
 				})
 			else
-				ModernV2.PlayAnimate(Keybind,SlowyTween, {
+				L2Hub.PlayAnimate(Keybind,SlowyTween, {
 					BackgroundTransparency = 1
 				})
 
-				ModernV2.PlayAnimate(UIStroke,SlowyTween, {
+				L2Hub.PlayAnimate(UIStroke,SlowyTween, {
 					Transparency = 1
 				})
 
-				ModernV2.PlayAnimate(ValueLabel,SlowyTween, {
+				L2Hub.PlayAnimate(ValueLabel,SlowyTween, {
 					TextTransparency = 1
 				})
 			end;
@@ -4203,7 +4203,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		function KeybindLib:Update()
 			local size = TextService:GetTextSize(ValueLabel.Text,ValueLabel.TextSize,ValueLabel.Font,Vector2.new(math.huge,math.huge));
 
-			ModernV2.PlayAnimate(Keybind , SlowyTween , {
+			L2Hub.PlayAnimate(Keybind , SlowyTween , {
 				Size = UDim2.new(0, size.X + 7, 0, 18)
 			})
 		end;
@@ -4219,7 +4219,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 
 		local IsBinding = false;
 		local function FireAction(state)
-			ModernV2:FireCallback(Config.Callback, Config.Name, state, Config.Default, Config.Mode);
+			L2Hub:FireCallback(Config.Callback, Config.Name, state, Config.Default, Config.Mode);
 		end;
 
 		local function IsSameKey(Input)
@@ -4233,11 +4233,11 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 				return Input.UserInputType == Enum.UserInputType.MouseButton2;
 			end;
 
-			local KeyCode = ModernV2:StrToKeyCode(Config.Default);
+			local KeyCode = L2Hub:StrToKeyCode(Config.Default);
 			return KeyCode and Input.KeyCode == KeyCode;
 		end;
 
-		ModernV2:CreateInput(Keybind , function()
+		L2Hub:CreateInput(Keybind , function()
 			if IsBinding then
 				return;
 			end;
@@ -4266,19 +4266,19 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 
 			IsBinding = false;
 
-			local KeyName = ModernV2:NormalizeKeybindValue(Selected);
+			local KeyName = L2Hub:NormalizeKeybindValue(Selected);
 
 			Config.Default = KeyName;
 
-			ValueLabel.Text = ModernV2:KeyCodeToStr(KeyName);
+			ValueLabel.Text = L2Hub:KeyCodeToStr(KeyName);
 
 			KeybindLib:Update();
 
-			ModernV2:FireCallback(Config.ChangedCallback, Config.Name, KeyName);
-			ModernV2:FireCallback(Config.Callback, Config.Name, KeyName, "Changed", Config.Mode);
+			L2Hub:FireCallback(Config.ChangedCallback, Config.Name, KeyName);
+			L2Hub:FireCallback(Config.Callback, Config.Name, KeyName, "Changed", Config.Mode);
 		end)
 
-		ModernV2:AddSignal(UserInputService.InputBegan:Connect(function(Input, IsTyping)
+		L2Hub:AddSignal(UserInputService.InputBegan:Connect(function(Input, IsTyping)
 			if IsTyping or IsBinding or (KeybindLib.GetLocked and KeybindLib:GetLocked()) then
 				return;
 			end;
@@ -4298,7 +4298,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 			end;
 		end))
 
-		ModernV2:AddSignal(UserInputService.InputEnded:Connect(function(Input)
+		L2Hub:AddSignal(UserInputService.InputEnded:Connect(function(Input)
 			if Config.Mode ~= "Hold" or not HoldState or not IsSameKey(Input) then
 				return;
 			end;
@@ -4312,11 +4312,11 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		end;
 
 		function KeybindLib:SetValue(v)
-			Config.Default = ModernV2:NormalizeKeybindValue(v);
-			ValueLabel.Text = ModernV2:KeyCodeToStr(Config.Default);
+			Config.Default = L2Hub:NormalizeKeybindValue(v);
+			ValueLabel.Text = L2Hub:KeyCodeToStr(Config.Default);
 			KeybindLib:Update();
-			ModernV2:FireCallback(Config.ChangedCallback, Config.Name, Config.Default);
-			ModernV2:FireCallback(Config.Callback, Config.Name, Config.Default, "Changed", Config.Mode);
+			L2Hub:FireCallback(Config.ChangedCallback, Config.Name, Config.Default);
+			L2Hub:FireCallback(Config.Callback, Config.Name, Config.Default, "Changed", Config.Mode);
 			return KeybindLib;
 		end;
 
@@ -4333,7 +4333,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 
 			Config.Mode = NextMode;
 			ToggleState = false;
-			ModernV2:FireCallback(Config.ModeChangedCallback, Config.Name, Config.Mode);
+			L2Hub:FireCallback(Config.ModeChangedCallback, Config.Name, Config.Mode);
 			return KeybindLib;
 		end;
 
@@ -4356,7 +4356,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		end;
 
 		function KeybindLib:GetKeyCode()
-			return ModernV2:StrToKeyCode(Config.Default);
+			return L2Hub:StrToKeyCode(Config.Default);
 		end;
 
 		function KeybindLib:SetEnabled(value)
@@ -4365,11 +4365,11 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		end;
 
 		if Config.Flag then
-			ModernV2:RegisterFlag(Config.Flag, KeybindLib);
+			L2Hub:RegisterFlag(Config.Flag, KeybindLib);
 		end;
 
 		if Config.ModeFlag then
-			ModernV2:RegisterFlag(Config.ModeFlag, {
+			L2Hub:RegisterFlag(Config.ModeFlag, {
 				GetValue = function()
 					return KeybindLib:GetMode();
 				end,
@@ -4383,7 +4383,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 	end;
 
 	function handle:AddTextInput(Config)
-		Config = ModernV2:ProcessParams(Config , {
+		Config = L2Hub:ProcessParams(Config , {
 			Name = nil,
 			Default = "",
 			Placeholder = "Placeholder",
@@ -4399,7 +4399,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 			Numeric = false,
 			FullWidth = false,
 		});
-		ModernV2:ResolveConfigFlag(Config);
+		L2Hub:ResolveConfigFlag(Config);
 		local IsTextarea = string.lower(tostring(Config.Type or "TextInput")) == "textarea";
 		if IsTextarea then
 			Config.Numeric = false;
@@ -4420,7 +4420,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		local UIStroke = Instance.new("UIStroke")
 		local TextBox = Instance.new("TextBox")
 
-		TextInput.Name = ModernV2.RandomString();
+		TextInput.Name = L2Hub.RandomString();
 		TextInput.Parent = Handler
 		TextInput.BackgroundColor3 = Color3.fromRGB(26, 28, 36)
 		TextInput.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -4428,7 +4428,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		TextInput.ClipsDescendants = true
 		TextInput.Size = GetInputSize()
 		TextInput.ZIndex = ZINdex + 13
-		ModernV2:AttachLockMethods(TextBoxLib, self.Root or TextInput, Config);
+		L2Hub:AttachLockMethods(TextBoxLib, self.Root or TextInput, Config);
 
 		UICorner.CornerRadius = UDim.new(0, 4)
 		UICorner.Parent = TextInput
@@ -4460,34 +4460,34 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 
 		TextBoxLib.SetRender = LPH_NO_VIRTUALIZE(function(value)
 			if value then
-				ModernV2.PlayAnimate(TextInput , SlowyTween ,{
+				L2Hub.PlayAnimate(TextInput , SlowyTween ,{
 					BackgroundTransparency = 0
 				})	
 
-				ModernV2.PlayAnimate(UIStroke , SlowyTween ,{
+				L2Hub.PlayAnimate(UIStroke , SlowyTween ,{
 					Transparency = 0.650
 				})	
 
-				ModernV2.PlayAnimate(TextBox , SlowyTween ,{
+				L2Hub.PlayAnimate(TextBox , SlowyTween ,{
 					TextTransparency = 0.350
 				})	
 			else
-				ModernV2.PlayAnimate(TextInput , SlowyTween ,{
+				L2Hub.PlayAnimate(TextInput , SlowyTween ,{
 					BackgroundTransparency = 1
 				})	
 
-				ModernV2.PlayAnimate(UIStroke , SlowyTween ,{
+				L2Hub.PlayAnimate(UIStroke , SlowyTween ,{
 					Transparency = 1
 				})	
 
-				ModernV2.PlayAnimate(TextBox , SlowyTween ,{
+				L2Hub.PlayAnimate(TextBox , SlowyTween ,{
 					TextTransparency = 1
 				})
 			end;
 		end);
 
-		ModernV2:AddSignal(TextBox:GetPropertyChangedSignal('Text'):Connect(LPH_NO_VIRTUALIZE(function()
-			local valout = ModernV2:ParseInput(TextBox.Text , Config.Numeric);
+		L2Hub:AddSignal(TextBox:GetPropertyChangedSignal('Text'):Connect(LPH_NO_VIRTUALIZE(function()
+			local valout = L2Hub:ParseInput(TextBox.Text , Config.Numeric);
 
 			if Config.Numeric then
 				TextBox.Text = string.gsub(TextBox.Text , '[^0-9.]','')
@@ -4495,7 +4495,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 
 			if valout then
 				Config.Default = valout;
-				ModernV2:FireCallback(Config.Callback, Config.Name, valout);
+				L2Hub:FireCallback(Config.Callback, Config.Name, valout);
 			end
 		end)));
 
@@ -4509,7 +4509,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		function TextBoxLib:SetValue(v)
 			Config.Default = v;
 			TextBox.Text = tostring(v);
-			ModernV2:FireCallback(Config.Callback, Config.Name, Config.Default);
+			L2Hub:FireCallback(Config.Callback, Config.Name, Config.Default);
 			return TextBoxLib;
 		end;
 
@@ -4574,7 +4574,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		end;
 
 		if Config.Flag then
-			ModernV2:RegisterFlag(Config.Flag, TextBoxLib);
+			L2Hub:RegisterFlag(Config.Flag, TextBoxLib);
 		end;
 
 		return CaseInsensitive(TextBoxLib);
@@ -4584,7 +4584,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 	handle.AddInput = handle.AddTextInput;
 
 	function handle:AddDropdown(Config)
-		Config = ModernV2:ProcessParams(Config , {
+		Config = L2Hub:ProcessParams(Config , {
 			Name = nil,
 			Default = nil,
 			Values = {},
@@ -4610,9 +4610,9 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 			RefreshInterval = nil,
 			OptionsProvider = nil,
 		})
-		ModernV2:ResolveConfigFlag(Config);
+		L2Hub:ResolveConfigFlag(Config);
 
-		Config.Default = ModernV2.ProcessDropdown(Config.Default);
+		Config.Default = L2Hub.ProcessDropdown(Config.Default);
 		Config.OptionsIcon = Config.OptionsIcon or Config.OptionIcons or Config.Icons or {};
 		Config.DisabledOptions = Config.DisabledOptions or Config.Disabled or {};
 		Config.AllowNil = Config.AllowNil == true;
@@ -4704,7 +4704,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		end;
 
 		local function ResolveMultiDropdownValue(value)
-			local Processed = ModernV2.ProcessDropdown(value);
+			local Processed = L2Hub.ProcessDropdown(value);
 
 			if typeof(Processed) == "table" then
 				return Processed;
@@ -4731,7 +4731,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		local UIStroke = Instance.new("UIStroke")
 		local BasedLabel = Instance.new("TextLabel")
 
-		Dropdown.Name = ModernV2.RandomString();
+		Dropdown.Name = L2Hub.RandomString();
 		Dropdown.Parent = Handler
 		Dropdown.BackgroundColor3 = Color3.fromRGB(26, 28, 36)
 		Dropdown.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -4740,7 +4740,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		Dropdown.Size = UDim2.new(0, Config.Size, 0, 18)
 		Dropdown.ZIndex = ZINdex + 13
 
-		DropdownIcon.Name = ModernV2.RandomString();
+		DropdownIcon.Name = L2Hub.RandomString();
 		DropdownIcon.Parent = Dropdown
 		DropdownIcon.AnchorPoint = Vector2.new(1, 0.5)
 		DropdownIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -4750,7 +4750,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		DropdownIcon.Position = UDim2.new(1, -2, 0.5, 0)
 		DropdownIcon.Size = UDim2.new(0, 18, 0, 18)
 		DropdownIcon.ZIndex = ZINdex + 14
-		ModernV2:SetIconMode(DropdownIcon, "chevron-small-down")
+		L2Hub:SetIconMode(DropdownIcon, "chevron-small-down")
 		DropdownIcon.ImageColor3 = Color3.fromRGB(223, 223, 223)
 		DropdownIcon.ImageTransparency = 0.250
 		DropdownIcon.ScaleType = Enum.ScaleType.Fit
@@ -4762,7 +4762,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		UIStroke.Color = Color3.fromRGB(45, 48, 58)
 		UIStroke.Parent = Dropdown
 
-		BasedLabel.Name = ModernV2.RandomString();
+		BasedLabel.Name = L2Hub.RandomString();
 		BasedLabel.Parent = Dropdown
 		BasedLabel.AnchorPoint = Vector2.new(0, 0.5)
 		BasedLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -4774,7 +4774,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		BasedLabel.Size = UDim2.new(1, -25, 0, 15)
 		BasedLabel.ZIndex = ZINdex + 14
 		BasedLabel.Font = Enum.Font.GothamBold
-		BasedLabel.Text = ModernV2.ParseDropdown(Config.Default);
+		BasedLabel.Text = L2Hub.ParseDropdown(Config.Default);
 		BasedLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 		BasedLabel.TextSize = 12.000
 		BasedLabel.TextTransparency = 0.5
@@ -4787,57 +4787,57 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 			UIGradient.Parent = BasedLabel;
 		end;
 
-		ModernV2:AddSignal(Dropdown.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
-			ModernV2.PlayAnimate(BasedLabel , SlowyTween , {
+		L2Hub:AddSignal(Dropdown.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
+			L2Hub.PlayAnimate(BasedLabel , SlowyTween , {
 				TextTransparency = 0.200
 			})
 		end)));
 
-		ModernV2:AddSignal(Dropdown.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
-			ModernV2.PlayAnimate(BasedLabel , SlowyTween , {
+		L2Hub:AddSignal(Dropdown.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
+			L2Hub.PlayAnimate(BasedLabel , SlowyTween , {
 				TextTransparency = 0.5
 			})
 		end)));
 
 		local DropdownLib = {
-			OpenSignal = ModernV2:CreateSignal(false),
+			OpenSignal = L2Hub:CreateSignal(false),
 			Signals = {},
 			Refuse = {},
 			Items = {},
 		};
-		ModernV2:AttachLockMethods(DropdownLib, self.Root or Dropdown, Config);
+		L2Hub:AttachLockMethods(DropdownLib, self.Root or Dropdown, Config);
 
 		DropdownLib.SetRender = LPH_NO_VIRTUALIZE(function(value)
 			if value then
-				ModernV2.PlayAnimate(Dropdown , SlowyTween , {
+				L2Hub.PlayAnimate(Dropdown , SlowyTween , {
 					BackgroundTransparency = 0
 				});
 
-				ModernV2.PlayAnimate(DropdownIcon , SlowyTween , {
+				L2Hub.PlayAnimate(DropdownIcon , SlowyTween , {
 					TextTransparency = 0.250
 				});
 
-				ModernV2.PlayAnimate(UIStroke , SlowyTween , {
+				L2Hub.PlayAnimate(UIStroke , SlowyTween , {
 					Transparency = 0.650
 				});
 
-				ModernV2.PlayAnimate(BasedLabel , SlowyTween , {
+				L2Hub.PlayAnimate(BasedLabel , SlowyTween , {
 					TextTransparency = 0.5
 				});
 			else
-				ModernV2.PlayAnimate(Dropdown , SlowyTween , {
+				L2Hub.PlayAnimate(Dropdown , SlowyTween , {
 					BackgroundTransparency = 1
 				});
 
-				ModernV2.PlayAnimate(DropdownIcon , SlowyTween , {
+				L2Hub.PlayAnimate(DropdownIcon , SlowyTween , {
 					TextTransparency = 1
 				});
 
-				ModernV2.PlayAnimate(UIStroke , SlowyTween , {
+				L2Hub.PlayAnimate(UIStroke , SlowyTween , {
 					Transparency = 1
 				});
 
-				ModernV2.PlayAnimate(BasedLabel , SlowyTween , {
+				L2Hub.PlayAnimate(BasedLabel , SlowyTween , {
 					TextTransparency = 1
 				});
 			end
@@ -4858,12 +4858,12 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 			local SearchBox = Instance.new("TextBox")
 			local DropdownScrollFrame = Instance.new("ScrollingFrame")
 			local UIListLayout = Instance.new("UIListLayout")
-			local Shadow = ModernV2:CreateShadow(DropdownHandler);
+			local Shadow = L2Hub:CreateShadow(DropdownHandler);
 
-			DropdownHandler.Name = ModernV2.RandomString();
-			DropdownHandler.Parent = ModernV2.ScreenGui;
+			DropdownHandler.Name = L2Hub.RandomString();
+			DropdownHandler.Parent = L2Hub.ScreenGui;
 			DropdownHandler.AnchorPoint = Vector2.new(0.5, 0)
-			DropdownHandler.BackgroundColor3 = Color3.fromRGB(20, 22, 27)
+			DropdownHandler.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
 			DropdownHandler.BackgroundTransparency = 0.5
 			DropdownHandler.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			DropdownHandler.BorderSizePixel = 0
@@ -4873,17 +4873,17 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 			DropdownHandler.ZIndex = ZINdex + 125
 			DropdownLib.BlockRoot = DropdownHandler;
 
-			ModernV2:AddSignal(DropdownHandler:GetPropertyChangedSignal('BackgroundTransparency'):Connect(function()
+			L2Hub:AddSignal(DropdownHandler:GetPropertyChangedSignal('BackgroundTransparency'):Connect(function()
 				if DropdownHandler.BackgroundTransparency > 0.9 then
 					DropdownHandler.Visible = false;
 					DropdownHandler.Parent = nil;
 				else
 					DropdownHandler.Visible = true;
 
-					if ModernV2.Global3DRenderMode then
-						DropdownHandler.Parent = ModernV2.GlobalSurfaceGui;
+					if L2Hub.Global3DRenderMode then
+						DropdownHandler.Parent = L2Hub.GlobalSurfaceGui;
 					else
-						DropdownHandler.Parent = ModernV2.ScreenGui;
+						DropdownHandler.Parent = L2Hub.ScreenGui;
 					end;
 				end;
 			end));
@@ -4895,7 +4895,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 			UIStroke.Color = Color3.fromRGB(45, 48, 58)
 			UIStroke.Parent = DropdownHandler
 
-			SearchInput.Name = ModernV2.RandomString();
+			SearchInput.Name = L2Hub.RandomString();
 			SearchInput.Parent = DropdownHandler
 			SearchInput.AnchorPoint = Vector2.new(0.5, 0)
 			SearchInput.BackgroundColor3 = Color3.fromRGB(26, 28, 36)
@@ -4915,7 +4915,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 			SearchStroke.Color = Color3.fromRGB(45, 48, 58)
 			SearchStroke.Parent = SearchInput
 
-			SearchIcon.Name = ModernV2.RandomString();
+			SearchIcon.Name = L2Hub.RandomString();
 			SearchIcon.Parent = SearchInput
 			SearchIcon.AnchorPoint = Vector2.new(0, 0.5)
 			SearchIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -4925,12 +4925,12 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 			SearchIcon.Position = UDim2.new(0, 4, 0.5, 0)
 			SearchIcon.Size = UDim2.new(0, 20, 0, 20)
 			SearchIcon.ZIndex = ZINdex + 128
-			ModernV2:SetIconMode(SearchIcon, "magnifying-glass")
+			L2Hub:SetIconMode(SearchIcon, "magnifying-glass")
 			SearchIcon.ImageColor3 = Color3.fromRGB(223, 223, 223)
 			SearchIcon.ImageTransparency = 0.450
 			SearchIcon.ScaleType = Enum.ScaleType.Fit
 
-			SearchBox.Name = ModernV2.RandomString();
+			SearchBox.Name = L2Hub.RandomString();
 			SearchBox.Parent = SearchInput
 			SearchBox.AnchorPoint = Vector2.new(0, 0.5)
 			SearchBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -4950,7 +4950,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 			SearchBox.TextTransparency = 0.250
 			SearchBox.TextXAlignment = Enum.TextXAlignment.Left
 
-			DropdownScrollFrame.Name = ModernV2.RandomString();
+			DropdownScrollFrame.Name = L2Hub.RandomString();
 			DropdownScrollFrame.Parent = DropdownHandler
 			DropdownScrollFrame.Active = true
 			DropdownScrollFrame.AnchorPoint = Vector2.new(0.5, 0)
@@ -4977,7 +4977,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 				local ContentHeight = math.min(UIListLayout.AbsoluteContentSize.Y + 5, 250);
 
 				DropdownScrollFrame.CanvasSize = UDim2.fromOffset(0,UIListLayout.AbsoluteContentSize.Y)
-				ModernV2.PlayAnimate(DropdownHandler , SlowyTween , {
+				L2Hub.PlayAnimate(DropdownHandler , SlowyTween , {
 					Size = UDim2.new(0, (Dropdown.AbsoluteSize.X + 5) + DropdownLib.ExtentSize, 0, ContentHeight + GetSearchOffset());
 				})
 			end);
@@ -4998,11 +4998,11 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 				UpdateDropdownSize();
 			end);
 
-			ModernV2:AddSignal(SearchBox:GetPropertyChangedSignal("Text"):Connect(LPH_NO_VIRTUALIZE(function()
+			L2Hub:AddSignal(SearchBox:GetPropertyChangedSignal("Text"):Connect(LPH_NO_VIRTUALIZE(function()
 				DropdownLib.ApplySearch();
 			end)));
 
-			ModernV2:AddSignal(UIListLayout:GetPropertyChangedSignal('AbsoluteContentSize'):Connect(LPH_NO_VIRTUALIZE(function()
+			L2Hub:AddSignal(UIListLayout:GetPropertyChangedSignal('AbsoluteContentSize'):Connect(LPH_NO_VIRTUALIZE(function()
 				UpdateDropdownSize();
 			end)));
 
@@ -5010,16 +5010,16 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 				local Current = Dropdown;
 
 				while Current and Current.Parent do
-					if Current.Parent == ModernV2.ScreenGui
-					or (ModernV2.GlobalSurfaceGui and Current.Parent == ModernV2.GlobalSurfaceGui) then
+					if Current.Parent == L2Hub.ScreenGui
+					or (L2Hub.GlobalSurfaceGui and Current.Parent == L2Hub.GlobalSurfaceGui) then
 						return Current;
 					end;
 
 					Current = Current.Parent;
 				end;
 
-				if ModernV2.ActiveWindow and ModernV2.ActiveWindow.Root then
-					return ModernV2.ActiveWindow.Root;
+				if L2Hub.ActiveWindow and L2Hub.ActiveWindow.Root then
+					return L2Hub.ActiveWindow.Root;
 				end;
 			end);
 
@@ -5038,15 +5038,15 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 						);
 					else
 						DropdownHandler.Position = UDim2.fromOffset(
-							ModernV2.ScreenGui.AbsoluteSize.X / 2,
-							ModernV2.ScreenGui.AbsoluteSize.Y / 2
+							L2Hub.ScreenGui.AbsoluteSize.X / 2,
+							L2Hub.ScreenGui.AbsoluteSize.Y / 2
 						);
 					end;
 
 					return;
 				end;
 
-				if ModernV2:MoreThanHalfY(Dropdown.AbsolutePosition.Y + 85) then
+				if L2Hub:MoreThanHalfY(Dropdown.AbsolutePosition.Y + 85) then
 					DropdownHandler.AnchorPoint = Vector2.new(0.5,1)
 				else
 					DropdownHandler.AnchorPoint = Vector2.new(0.5,0)
@@ -5060,7 +5060,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 				DropdownLib.OpenSignal:SetValue(value);
 
 				if value then
-					Shadow:Render(true);
+					Shadow:Render(false);
 
 					if Config.Search then
 						SearchBox.Text = "";
@@ -5070,23 +5070,23 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 
 					SetPosition();
 
-					ModernV2.PlayAnimate(DropdownHandler , SlowyTween , {
+					L2Hub.PlayAnimate(DropdownHandler , SlowyTween , {
 						BackgroundTransparency = 0.035
 					})
 
-					ModernV2.PlayAnimate(SearchInput , SlowyTween , {
+					L2Hub.PlayAnimate(SearchInput , SlowyTween , {
 						BackgroundTransparency = Config.Search and 0.250 or 1
 					})
 
-					ModernV2.PlayAnimate(SearchStroke , SlowyTween , {
+					L2Hub.PlayAnimate(SearchStroke , SlowyTween , {
 						Transparency = Config.Search and 0.650 or 1
 					})
 
-					ModernV2.PlayAnimate(SearchIcon , SlowyTween , {
+					L2Hub.PlayAnimate(SearchIcon , SlowyTween , {
 						TextTransparency = Config.Search and 0.450 or 1
 					})
 
-					ModernV2.PlayAnimate(SearchBox , SlowyTween , {
+					L2Hub.PlayAnimate(SearchBox , SlowyTween , {
 						TextTransparency = Config.Search and 0.250 or 1
 					})
 
@@ -5095,25 +5095,25 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 					end;
 				else
 
-					ModernV2.PlayAnimate(DropdownHandler , SlowyTween , {
+					L2Hub.PlayAnimate(DropdownHandler , SlowyTween , {
 						BackgroundTransparency = 1
 					})
 
 					SearchBox:ReleaseFocus();
 
-					ModernV2.PlayAnimate(SearchInput , SlowyTween , {
+					L2Hub.PlayAnimate(SearchInput , SlowyTween , {
 						BackgroundTransparency = 1
 					})
 
-					ModernV2.PlayAnimate(SearchStroke , SlowyTween , {
+					L2Hub.PlayAnimate(SearchStroke , SlowyTween , {
 						Transparency = 1
 					})
 
-					ModernV2.PlayAnimate(SearchIcon , SlowyTween , {
+					L2Hub.PlayAnimate(SearchIcon , SlowyTween , {
 						TextTransparency = 1
 					})
 
-					ModernV2.PlayAnimate(SearchBox , SlowyTween , {
+					L2Hub.PlayAnimate(SearchBox , SlowyTween , {
 						TextTransparency = 1
 					})
 
@@ -5125,24 +5125,24 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		end;
 
 		local SecureSignal;
-		ModernV2:CreateInput(Dropdown , LPH_NO_VIRTUALIZE(function()
+		L2Hub:CreateInput(Dropdown , LPH_NO_VIRTUALIZE(function()
 			if SecureSignal then
 				SecureSignal:Disconnect();
 				SecureSignal = nil;
 			end;
 
 			DropdownLib.SetFrameRender(true);
-			ModernV2.IsMosueOverOtherFrame = true;
+			L2Hub.IsMosueOverOtherFrame = true;
 
 			SecureSignal = UserInputService.InputBegan:Connect(function(Input)
 				if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
-					if not ModernV2:IsMouseOverFrame(DropdownLib.BlockRoot) and not ModernV2:IsMouseOverFrame(Dropdown) then
+					if not L2Hub:IsMouseOverFrame(DropdownLib.BlockRoot) and not L2Hub:IsMouseOverFrame(Dropdown) then
 						if SecureSignal then
 							SecureSignal:Disconnect();
 							SecureSignal = nil;
 						end;
 
-						ModernV2.IsMosueOverOtherFrame = false;
+						L2Hub.IsMosueOverOtherFrame = false;
 						DropdownLib.SetFrameRender(false);
 					end;
 				end
@@ -5195,7 +5195,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 				local IsDisabled = DisabledMap[ValueKey] == true;
 				local CustomIcon = IconMap[ValueKey];
 
-				ItemFrame.Name = ModernV2.RandomString();
+				ItemFrame.Name = L2Hub.RandomString();
 				ItemFrame.Parent = DropdownLib.RootItem
 				ItemFrame.BackgroundColor3 = Color3.fromRGB(29, 31, 38)
 				ItemFrame.BackgroundTransparency = 1.000
@@ -5204,7 +5204,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 				ItemFrame.Size = UDim2.new(1, 0, 0, 25)
 				ItemFrame.ZIndex = ZINdex + 1258
 
-				ItemLabel.Name = ModernV2.RandomString();
+				ItemLabel.Name = L2Hub.RandomString();
 				ItemLabel.Parent = ItemFrame
 				ItemLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 				ItemLabel.BackgroundTransparency = 1.000
@@ -5232,7 +5232,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 					OptionIcon.Position = UDim2.new(0, Config.Multi and 29 or 13, 0.5, 0)
 					OptionIcon.Size = UDim2.new(0, 15, 0, 15)
 					OptionIcon.ZIndex = ZINdex + 1259
-					ModernV2:SetIconMode(OptionIcon, CustomIcon)
+					L2Hub:SetIconMode(OptionIcon, CustomIcon)
 					OptionIcon.ImageColor3 = IsDisabled and Color3.fromRGB(120, 120, 135) or Color3.fromRGB(223, 223, 223)
 					OptionIcon.ImageTransparency = IsDisabled and 0.650 or 0.300
 					OptionIcon.ScaleType = Enum.ScaleType.Fit
@@ -5261,19 +5261,19 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 					Icon.Position = UDim2.new(0, 5, 0.5, 0)
 					Icon.Size = UDim2.new(0, 20, 0, 20)
 					Icon.ZIndex = ZINdex + 1259
-					ModernV2:SetIconMode(Icon, "check")
+					L2Hub:SetIconMode(Icon, "check")
 					Icon.ImageColor3 = Color3.fromRGB(223, 223, 223)
 					Icon.ImageTransparency = 1
 					Icon.ScaleType = Enum.ScaleType.Fit
 
 					local VisiblewOfMult = LPH_NO_VIRTUALIZE(function()
 						if DropdownLib.IsMatch(Value) then
-							ModernV2.PlayAnimate(ItemLabel , VSlowTween , {
+							L2Hub.PlayAnimate(ItemLabel , VSlowTween , {
 								TextTransparency = IsDisabled and 0.600 or 0.200,
 								Position = UDim2.new(0, CustomIcon and 50 or 30, 0, 4)
 							})
 
-							ModernV2.PlayAnimate(Icon , SlowyTween , {
+							L2Hub.PlayAnimate(Icon , SlowyTween , {
 								TextTransparency = IsDisabled and 0.650 or 0.250
 							})
 							local FallbackText = Icon:FindFirstChild("ModernIconFallbackText");
@@ -5284,7 +5284,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 							Lastone = ItemLabel;
 						else
 
-							ModernV2.PlayAnimate(Icon , SlowyTween , {
+							L2Hub.PlayAnimate(Icon , SlowyTween , {
 								TextTransparency = 1
 							})
 							local FallbackText = Icon:FindFirstChild("ModernIconFallbackText");
@@ -5292,7 +5292,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 								FallbackText.TextTransparency = 1;
 							end;
 
-							ModernV2.PlayAnimate(ItemLabel , VSlowTween , {
+							L2Hub.PlayAnimate(ItemLabel , VSlowTween , {
 								TextTransparency = IsDisabled and 0.650 or 0.5,
 								Position = UDim2.new(0, CustomIcon and (Config.Multi and 50 or 34) or 15, 0, 4)
 							})
@@ -5304,13 +5304,13 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 				else
 					local DefaultVisible = LPH_NO_VIRTUALIZE(function()
 						if DropdownLib.IsMatch(Value) then
-							ModernV2.PlayAnimate(ItemLabel , SlowyTween , {
+							L2Hub.PlayAnimate(ItemLabel , SlowyTween , {
 								TextTransparency = IsDisabled and 0.600 or 0.200
 							})
 
 							Lastone = ItemLabel;
 						else
-							ModernV2.PlayAnimate(ItemLabel , SlowyTween , {
+							L2Hub.PlayAnimate(ItemLabel , SlowyTween , {
 								TextTransparency = IsDisabled and 0.650 or 0.5
 							})
 						end;
@@ -5328,13 +5328,13 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 						return;
 					end;
 
-					ModernV2.PlayAnimate(ItemFrame , SlowyTween , {
+					L2Hub.PlayAnimate(ItemFrame , SlowyTween , {
 						BackgroundTransparency = 0.1
 					})
 				end)));
 
 				table.insert(DropdownLib.Signals,ItemFrame.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
-					ModernV2.PlayAnimate(ItemFrame , SlowyTween , {
+					L2Hub.PlayAnimate(ItemFrame , SlowyTween , {
 						BackgroundTransparency = 1
 					})
 				end)));
@@ -5343,23 +5343,23 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 					if val then
 						MarkItem();
 						if OptionIcon then
-							ModernV2.PlayAnimate(OptionIcon, SlowyTween, {
+							L2Hub.PlayAnimate(OptionIcon, SlowyTween, {
 								TextTransparency = IsDisabled and 0.650 or 0.300
 							})
 						end;
 					else
-						ModernV2.PlayAnimate(ItemLabel , SlowyTween , {
+						L2Hub.PlayAnimate(ItemLabel , SlowyTween , {
 							TextTransparency = 1
 						})
 
 						if OptionIcon then
-							ModernV2.PlayAnimate(OptionIcon, SlowyTween, {
+							L2Hub.PlayAnimate(OptionIcon, SlowyTween, {
 								TextTransparency = 1
 							})
 						end;
 
 						if MIcon then
-							ModernV2.PlayAnimate(MIcon , SlowyTween , {
+							L2Hub.PlayAnimate(MIcon , SlowyTween , {
 								TextTransparency = 1
 							})
 							local FallbackText = MIcon:FindFirstChild("ModernIconFallbackText");
@@ -5371,7 +5371,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 				end)));
 
 				if Config.Multi then
-					local _,bth_signal = ModernV2:CreateInput(ItemFrame , LPH_NO_VIRTUALIZE(function()
+					local _,bth_signal = L2Hub:CreateInput(ItemFrame , LPH_NO_VIRTUALIZE(function()
 						if IsDisabled then
 							return;
 						end;
@@ -5380,14 +5380,14 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 
 						MarkItem();
 
-						BasedLabel.Text = ModernV2.ParseDropdown(Config.Default);
+						BasedLabel.Text = L2Hub.ParseDropdown(Config.Default);
 
-						ModernV2:FireCallback(Config.Callback, Config.Name, Config.Default);
+						L2Hub:FireCallback(Config.Callback, Config.Name, Config.Default);
 					end));
 
 					table.insert(DropdownLib.Signals , bth_signal);
 				else
-					local _,bth_signal = ModernV2:CreateInput(ItemFrame , LPH_NO_VIRTUALIZE(function()
+					local _,bth_signal = L2Hub:CreateInput(ItemFrame , LPH_NO_VIRTUALIZE(function()
 						if IsDisabled then
 							return;
 						end;
@@ -5398,9 +5398,9 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 							task.spawn(v);
 						end;
 
-						BasedLabel.Text = ModernV2.ParseDropdown(Config.Default);
+						BasedLabel.Text = L2Hub.ParseDropdown(Config.Default);
 
-						ModernV2:FireCallback(Config.Callback, Config.Name, Config.Default);
+						L2Hub:FireCallback(Config.Callback, Config.Name, Config.Default);
 					end));
 
 					table.insert(DropdownLib.Signals , bth_signal);
@@ -5418,7 +5418,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 			local Accumulator = 0;
 			local Interval = math.max(tonumber(Config.RefreshInterval) or 1, 0.1);
 
-			DropdownLib.RefreshSignal = ModernV2:AddSignal(RunService.RenderStepped:Connect(function(dt)
+			DropdownLib.RefreshSignal = L2Hub:AddSignal(RunService.RenderStepped:Connect(function(dt)
 				if not Dropdown or not Dropdown.Parent then
 					if DropdownLib.RefreshSignal then
 						DropdownLib.RefreshSignal:Disconnect();
@@ -5440,7 +5440,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 					Config.Values = values;
 					if not Config.Multi then
 						Config.Default = ResolveSingleDropdownValue(Config.Default);
-						BasedLabel.Text = ModernV2.ParseDropdown(Config.Default);
+						BasedLabel.Text = L2Hub.ParseDropdown(Config.Default);
 					end;
 					DropdownLib:Generate();
 				end;
@@ -5454,14 +5454,14 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		function DropdownLib:SetValue(v)
 			Config.Default = Config.Multi and ResolveMultiDropdownValue(v) or ResolveSingleDropdownValue(v);
 
-			BasedLabel.Text = ModernV2.ParseDropdown(Config.Default);
+			BasedLabel.Text = L2Hub.ParseDropdown(Config.Default);
 
 			for i,v in next , DropdownLib.Refuse do
 				task.spawn(v);
 			end;
 
 			if ShouldFireDropdownCallback(Config.Default) then
-				ModernV2:FireCallback(Config.Callback, Config.Name, Config.Default);
+				L2Hub:FireCallback(Config.Callback, Config.Name, Config.Default);
 			end;
 
 			return DropdownLib;
@@ -5472,7 +5472,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 
 			if not Config.Multi then
 				Config.Default = ResolveSingleDropdownValue(Config.Default);
-				BasedLabel.Text = ModernV2.ParseDropdown(Config.Default);
+				BasedLabel.Text = L2Hub.ParseDropdown(Config.Default);
 			end;
 
 			if not Config.AutoUpdate then
@@ -5546,21 +5546,21 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 				Config.Default = nil;
 			end;
 
-			BasedLabel.Text = ModernV2.ParseDropdown(Config.Default);
+			BasedLabel.Text = L2Hub.ParseDropdown(Config.Default);
 			DropdownLib:Generate();
 			return DropdownLib;
 		end;
 
 		function DropdownLib:Clear()
 			Config.Default = Config.Multi and {} or nil;
-			BasedLabel.Text = ModernV2.ParseDropdown(Config.Default);
+			BasedLabel.Text = L2Hub.ParseDropdown(Config.Default);
 
 			for _,Refresh in next, DropdownLib.Refuse do
 				task.spawn(Refresh);
 			end;
 
 			if ShouldFireDropdownCallback(Config.Default) then
-				ModernV2:FireCallback(Config.Callback, Config.Name, Config.Default);
+				L2Hub:FireCallback(Config.Callback, Config.Name, Config.Default);
 			end;
 
 			return DropdownLib;
@@ -5568,7 +5568,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 
 		function DropdownLib:Select(value)
 			if Config.Multi then
-				Config.Default = ModernV2.ProcessDropdown(Config.Default);
+				Config.Default = L2Hub.ProcessDropdown(Config.Default);
 				Config.Default[value] = true;
 				DropdownLib:SetValue(Config.Default);
 			else
@@ -5580,7 +5580,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 
 		function DropdownLib:Unselect(value)
 			if Config.Multi then
-				Config.Default = ModernV2.ProcessDropdown(Config.Default);
+				Config.Default = L2Hub.ProcessDropdown(Config.Default);
 				Config.Default[value] = nil;
 				DropdownLib:SetValue(Config.Default);
 			elseif Config.Default == value then
@@ -5623,7 +5623,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 		end;
 
 		if Config.Flag then
-			ModernV2:RegisterFlag(Config.Flag, DropdownLib);
+			L2Hub:RegisterFlag(Config.Flag, DropdownLib);
 		end;
 
 		return CaseInsensitive(DropdownLib);
@@ -5632,7 +5632,7 @@ function ModernV2:RegisiterHandler(Handler: Frame , Signal)
 	return CaseInsensitive(handle);
 end;
 
-ModernV2.ProcessDropdown = LPH_NO_VIRTUALIZE(function(value)
+L2Hub.ProcessDropdown = LPH_NO_VIRTUALIZE(function(value)
 	if typeof(value) == 'table' then
 		local data = {};
 
@@ -5650,7 +5650,7 @@ ModernV2.ProcessDropdown = LPH_NO_VIRTUALIZE(function(value)
 	end;
 end);
 
-ModernV2.ParseDropdown = LPH_NO_VIRTUALIZE(function(value)
+L2Hub.ParseDropdown = LPH_NO_VIRTUALIZE(function(value)
 	if not value then return 'Select'; end;
 
 	local Out;
@@ -5690,7 +5690,7 @@ ModernV2.ParseDropdown = LPH_NO_VIRTUALIZE(function(value)
 	return Out;
 end);
 
-function ModernV2:ParseInput(Value , Numeric)
+function L2Hub:ParseInput(Value , Numeric)
 	if not Value then
 		return (Numeric and nil) or "";	
 	end;
@@ -5708,16 +5708,16 @@ function ModernV2:ParseInput(Value , Numeric)
 	return Value;
 end;
 
-function ModernV2:CreateToolTips(Container: Frame , Name: string , Content: string)
+function L2Hub:CreateToolTips(Container: Frame , Name: string , Content: string)
 	local Tooltips = Instance.new("Frame")
 	local UICorner = Instance.new("UICorner")
 	local UIStroke = Instance.new("UIStroke")
 	local TooltipName = Instance.new("TextLabel")
 	local TooltipContent = Instance.new("TextLabel")
-	local Shadow = ModernV2:CreateShadow(Tooltips);
+	local Shadow = L2Hub:CreateShadow(Tooltips);
 
-	Tooltips.Name = ModernV2.RandomString();
-	Tooltips.BackgroundColor3 = Color3.fromRGB(20, 22, 27)
+	Tooltips.Name = L2Hub.RandomString();
+	Tooltips.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
 	Tooltips.BackgroundTransparency = 0.075
 	Tooltips.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	Tooltips.BorderSizePixel = 0
@@ -5733,7 +5733,7 @@ function ModernV2:CreateToolTips(Container: Frame , Name: string , Content: stri
 	UIStroke.Color = Color3.fromRGB(45, 48, 58)
 	UIStroke.Parent = Tooltips
 
-	TooltipName.Name = ModernV2.RandomString();
+	TooltipName.Name = L2Hub.RandomString();
 	TooltipName.Parent = Tooltips
 	TooltipName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	TooltipName.BackgroundTransparency = 1.000
@@ -5748,7 +5748,7 @@ function ModernV2:CreateToolTips(Container: Frame , Name: string , Content: stri
 	TooltipName.TextSize = 15.000
 	TooltipName.TextXAlignment = Enum.TextXAlignment.Left
 
-	TooltipContent.Name = ModernV2.RandomString();
+	TooltipContent.Name = L2Hub.RandomString();
 	TooltipContent.Parent = Tooltips
 	TooltipContent.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	TooltipContent.BackgroundTransparency = 1.000
@@ -5774,22 +5774,22 @@ function ModernV2:CreateToolTips(Container: Frame , Name: string , Content: stri
 		local MaxX = math.max(SizeName.X , SizeContent.X) + 65;
 		local MaxY = SizeName.Y + SizeContent.Y + 30;
 
-		ModernV2.PlayAnimate(Tooltips,SlowyTween , {
+		L2Hub.PlayAnimate(Tooltips,SlowyTween , {
 			Size = UDim2.new(0,MaxX,0,MaxY)
 		})
 	end)
 
-	ModernV2:AddSignal(Tooltips:GetPropertyChangedSignal('BackgroundTransparency'):Connect(LPH_NO_VIRTUALIZE(function()
+	L2Hub:AddSignal(Tooltips:GetPropertyChangedSignal('BackgroundTransparency'):Connect(LPH_NO_VIRTUALIZE(function()
 		if Tooltips.BackgroundTransparency > 0.9 then
 			Tooltips.Visible = false;
 			Tooltips.Parent = nil;
 		else
 			Tooltips.Visible = true;
 
-			if ModernV2.Global3DRenderMode then
-				Tooltips.Parent = ModernV2.GlobalSurfaceGui;
+			if L2Hub.Global3DRenderMode then
+				Tooltips.Parent = L2Hub.GlobalSurfaceGui;
 			else
-				Tooltips.Parent = ModernV2.ScreenGui;
+				Tooltips.Parent = L2Hub.ScreenGui;
 			end;
 		end
 	end)));
@@ -5798,38 +5798,38 @@ function ModernV2:CreateToolTips(Container: Frame , Name: string , Content: stri
 		if value then
 			Tooltips.Position = UDim2.fromOffset(Container.AbsolutePosition.X + Container.AbsoluteSize.X , Container.AbsolutePosition.Y + (Container.AbsoluteSize.Y + 25));
 
-			ModernV2.PlayAnimate(Tooltips , SlowyTween , {
+			L2Hub.PlayAnimate(Tooltips , SlowyTween , {
 				BackgroundTransparency = 0.075
 			})
 
-			ModernV2.PlayAnimate(UIStroke , SlowyTween , {
+			L2Hub.PlayAnimate(UIStroke , SlowyTween , {
 				Transparency = 0.650
 			})
 
-			ModernV2.PlayAnimate(TooltipName , SlowyTween , {
+			L2Hub.PlayAnimate(TooltipName , SlowyTween , {
 				TextTransparency = 0
 			})
 
-			ModernV2.PlayAnimate(TooltipContent , SlowyTween , {
+			L2Hub.PlayAnimate(TooltipContent , SlowyTween , {
 				TextTransparency = 0.650
 			})
 
 			ToolTip.Update();
-			Shadow:Render(true);
+			Shadow:Render(false);
 		else
-			ModernV2.PlayAnimate(Tooltips , SlowyTween , {
+			L2Hub.PlayAnimate(Tooltips , SlowyTween , {
 				BackgroundTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(UIStroke , SlowyTween , {
+			L2Hub.PlayAnimate(UIStroke , SlowyTween , {
 				Transparency = 1
 			})
 
-			ModernV2.PlayAnimate(TooltipName , SlowyTween , {
+			L2Hub.PlayAnimate(TooltipName , SlowyTween , {
 				TextTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(TooltipContent , SlowyTween , {
+			L2Hub.PlayAnimate(TooltipContent , SlowyTween , {
 				TextTransparency = 1
 			})
 
@@ -5841,7 +5841,7 @@ function ModernV2:CreateToolTips(Container: Frame , Name: string , Content: stri
 	ToolTip.Update();
 
 	local DelayThread;
-	ModernV2:AddSignal(Container.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
+	L2Hub:AddSignal(Container.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
 		if DelayThread then
 			task.cancel(DelayThread);
 			DelayThread = nil;
@@ -5850,7 +5850,7 @@ function ModernV2:CreateToolTips(Container: Frame , Name: string , Content: stri
 		DelayThread = task.delay(1,ToolTip.SetRender,true);
 	end)));
 
-	ModernV2:AddSignal(Container.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
+	L2Hub:AddSignal(Container.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
 		if DelayThread then
 			task.cancel(DelayThread);
 			DelayThread = nil;
@@ -5863,7 +5863,7 @@ function ModernV2:CreateToolTips(Container: Frame , Name: string , Content: stri
 	return ToolTip;
 end;
 
-function ModernV2:RegisiterItem(Frame: Frame , Signel)
+function L2Hub:RegisiterItem(Frame: Frame , Signel)
 	local idx = {};
 	local LayerIndex = Frame.ZIndex;
 
@@ -5891,7 +5891,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		local UIListLayout = Instance.new("UIListLayout")
 		local UICorner = Instance.new("UICorner")
 
-		BasedFrame.Name = ModernV2.RandomString();
+		BasedFrame.Name = L2Hub.RandomString();
 		BasedFrame.Parent = Frame
 		BasedFrame.BackgroundColor3 = Color3.fromRGB(25, 27, 33)
 		BasedFrame.BackgroundTransparency = 1.000
@@ -5900,9 +5900,9 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		BasedFrame.Size = UDim2.new(1, 0, 0, 30)
 		BasedFrame.ZIndex = LayerIndex + 8
 
-		ModernV2:AddQuery(BasedFrame , Name);
+		L2Hub:AddQuery(BasedFrame , Name);
 
-		BasedLabel.Name = ModernV2.RandomString();
+		BasedLabel.Name = L2Hub.RandomString();
 		BasedLabel.Parent = BasedFrame
 		BasedLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		BasedLabel.BackgroundTransparency = 1.000
@@ -5922,9 +5922,9 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		BasedLabel.TextWrapped = Warp
 		BasedLabel.TextXAlignment = Enum.TextXAlignment.Left
 		BasedLabel.TextYAlignment = (Warp and Enum.TextYAlignment.Top) or Enum.TextYAlignment.Center
-		ModernV2:AddTextGradient(BasedLabel);
+		L2Hub:AddTextGradient(BasedLabel);
 
-		LineFrame.Name = ModernV2.RandomString();
+		LineFrame.Name = L2Hub.RandomString();
 		LineFrame.Parent = BasedFrame
 		LineFrame.AnchorPoint = Vector2.new(0.5, 1)
 		LineFrame.BackgroundColor3 = Color3.fromRGB(45, 48, 58)
@@ -5935,7 +5935,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		LineFrame.Size = UDim2.new(1, -20, 0, 1)
 		LineFrame.ZIndex = LayerIndex + 11
 
-		BasedHandler.Name = ModernV2.RandomString();
+		BasedHandler.Name = L2Hub.RandomString();
 		BasedHandler.Parent = BasedFrame
 		BasedHandler.AnchorPoint = Vector2.new(1, 0)
 		BasedHandler.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -6018,8 +6018,8 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 			end);
 		end);
 
-		ModernV2:AddSignal(UIListLayout:GetPropertyChangedSignal('AbsoluteContentSize'):Connect(UpdateRowLayout));
-		ModernV2:AddSignal(BasedFrame:GetPropertyChangedSignal('AbsoluteSize'):Connect(UpdateRowLayout));
+		L2Hub:AddSignal(UIListLayout:GetPropertyChangedSignal('AbsoluteContentSize'):Connect(UpdateRowLayout));
+		L2Hub:AddSignal(BasedFrame:GetPropertyChangedSignal('AbsoluteSize'):Connect(UpdateRowLayout));
 		UpdateRowLayout();
 
 		local UpdateWarp = LPH_NO_VIRTUALIZE(function()
@@ -6030,33 +6030,33 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 			UpdateWarp();
 		end;
 
-		local handle = ModernV2:RegisiterHandler(BasedHandler , Signel);
+		local handle = L2Hub:RegisiterHandler(BasedHandler , Signel);
 
 		handle.Root = BasedFrame;
 
 		handle.SetRender = LPH_NO_VIRTUALIZE(function(value)
 			if value then
-				ModernV2.PlayAnimate(BasedFrame , SlowyTween , {
+				L2Hub.PlayAnimate(BasedFrame , SlowyTween , {
 					BackgroundTransparency = 1
 				});
 
-				ModernV2.PlayAnimate(BasedLabel , SlowyTween , {
+				L2Hub.PlayAnimate(BasedLabel , SlowyTween , {
 					TextTransparency = 0.35
 				})
 
-				ModernV2.PlayAnimate(LineFrame , SlowyTween , {
+				L2Hub.PlayAnimate(LineFrame , SlowyTween , {
 					BackgroundTransparency = 0.650
 				})
 			else
-				ModernV2.PlayAnimate(BasedFrame , SlowyTween , {
+				L2Hub.PlayAnimate(BasedFrame , SlowyTween , {
 					BackgroundTransparency = 1
 				});
 
-				ModernV2.PlayAnimate(BasedLabel , SlowyTween , {
+				L2Hub.PlayAnimate(BasedLabel , SlowyTween , {
 					TextTransparency = 1
 				})
 
-				ModernV2.PlayAnimate(LineFrame , SlowyTween , {
+				L2Hub.PlayAnimate(LineFrame , SlowyTween , {
 					BackgroundTransparency = 1
 				})
 			end;
@@ -6067,23 +6067,23 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 			return handle;
 		end;
 
-		ModernV2:AddSignal(BasedFrame.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
-			ModernV2.PlayAnimate(BasedFrame , SlowyTween , {
+		L2Hub:AddSignal(BasedFrame.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
+			L2Hub.PlayAnimate(BasedFrame , SlowyTween , {
 				BackgroundTransparency = 0.35
 			});
 
-			ModernV2.PlayAnimate(BasedLabel , SlowyTween , {
+			L2Hub.PlayAnimate(BasedLabel , SlowyTween , {
 				TextTransparency = 0.25
 			})
 
 		end)))
 
-		ModernV2:AddSignal(BasedFrame.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
-			ModernV2.PlayAnimate(BasedFrame , SlowyTween , {
+		L2Hub:AddSignal(BasedFrame.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
+			L2Hub.PlayAnimate(BasedFrame , SlowyTween , {
 				BackgroundTransparency = 1
 			});
 
-			ModernV2.PlayAnimate(BasedLabel , SlowyTween , {
+			L2Hub.PlayAnimate(BasedLabel , SlowyTween , {
 				TextTransparency = 0.35
 			})
 		end)))
@@ -6140,7 +6140,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		end;
 
 		function handle:ToolTip(Content: string)
-			handle.ToolTip = ModernV2:CreateToolTips(BasedFrame , Name , Content);
+			handle.ToolTip = L2Hub:CreateToolTips(BasedFrame , Name , Content);
 
 			return handle;
 		end;
@@ -6152,7 +6152,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 	end;
 
 	function idx:AddButton(Config)
-		Config = ModernV2:ProcessParams(Config , {
+		Config = L2Hub:ProcessParams(Config , {
 			Icon = 'chevron-large-left',
 			IconPosition = "Left",
 			Name = "Button",
@@ -6169,9 +6169,9 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		local UICorner = Instance.new("UICorner")
 		local Icon = Instance.new("ImageLabel")
 
-		ModernV2:AddQuery(ButtonFrame , Config.Name);
+		L2Hub:AddQuery(ButtonFrame , Config.Name);
 
-		ButtonFrame.Name = ModernV2.RandomString();
+		ButtonFrame.Name = L2Hub.RandomString();
 		ButtonFrame.Parent = Frame
 		ButtonFrame.BackgroundColor3 = Color3.fromRGB(25, 27, 33)
 		ButtonFrame.BackgroundTransparency = 1.000
@@ -6179,9 +6179,9 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		ButtonFrame.BorderSizePixel = 0
 		ButtonFrame.Size = UDim2.new(1, 0, 0, 30)
 		ButtonFrame.ZIndex = LayerIndex + 8
-		ModernV2:AttachLockMethods(Button, ButtonFrame, Config);
+		L2Hub:AttachLockMethods(Button, ButtonFrame, Config);
 
-		BasedLabel.Name = ModernV2.RandomString();
+		BasedLabel.Name = L2Hub.RandomString();
 		BasedLabel.Parent = ButtonFrame
 		BasedLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		BasedLabel.BackgroundTransparency = 1.000
@@ -6196,9 +6196,9 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		BasedLabel.TextSize = 13.000
 		BasedLabel.TextTransparency = 0.200
 		BasedLabel.TextXAlignment = Enum.TextXAlignment.Left
-		ModernV2:AddTextGradient(BasedLabel);
+		L2Hub:AddTextGradient(BasedLabel);
 
-		LineFrame.Name = ModernV2.RandomString();
+		LineFrame.Name = L2Hub.RandomString();
 		LineFrame.Parent = ButtonFrame
 		LineFrame.AnchorPoint = Vector2.new(0.5, 1)
 		LineFrame.BackgroundColor3 = Color3.fromRGB(45, 48, 58)
@@ -6212,7 +6212,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		UICorner.CornerRadius = UDim.new(0, 10)
 		UICorner.Parent = ButtonFrame
 
-		Icon.Name = ModernV2.RandomString();
+		Icon.Name = L2Hub.RandomString();
 		Icon.Parent = ButtonFrame
 		Icon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		Icon.BackgroundTransparency = 1.000
@@ -6221,7 +6221,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		Icon.Position = UDim2.new(0, 11, 0, 5)
 		Icon.Size = UDim2.new(0, 18, 0, 18)
 		Icon.ZIndex = LayerIndex + 9
-		ModernV2:SetIconMode(Icon, Config.Icon)
+		L2Hub:SetIconMode(Icon, Config.Icon)
 		Icon.ImageColor3 = Color3.fromRGB(223, 223, 223)
 		Icon.ImageTransparency = 0.250
 		Icon.ScaleType = Enum.ScaleType.Fit
@@ -6261,7 +6261,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 
 		function Button:SetIcon(t)
 			Config.Icon = t or Config.Icon;
-			ModernV2:SetIconMode(Icon, Config.Icon)
+			L2Hub:SetIconMode(Icon, Config.Icon)
 			return Button;
 		end;
 
@@ -6281,7 +6281,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		end;
 
 		function Button:Fire(...)
-			ModernV2:FireCallback(Config.Callback, Config.Name, ...);
+			L2Hub:FireCallback(Config.Callback, Config.Name, ...);
 			return Button;
 		end;
 
@@ -6304,60 +6304,60 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 			return Button;
 		end;
 
-		local bth = ModernV2:CreateInput(ButtonFrame , LPH_NO_VIRTUALIZE(function()
-			ModernV2:FireCallback(Config.Callback, Config.Name);
+		local bth = L2Hub:CreateInput(ButtonFrame , LPH_NO_VIRTUALIZE(function()
+			L2Hub:FireCallback(Config.Callback, Config.Name);
 		end));
 
-		ModernV2:AddSignal(bth.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
-			ModernV2.PlayAnimate(ButtonFrame , SlowyTween , {
+		L2Hub:AddSignal(bth.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
+			L2Hub.PlayAnimate(ButtonFrame , SlowyTween , {
 				BackgroundTransparency = 0.35
 			});
 		end)))
 
-		ModernV2:AddSignal(bth.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
-			ModernV2.PlayAnimate(ButtonFrame , SlowyTween , {
+		L2Hub:AddSignal(bth.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
+			L2Hub.PlayAnimate(ButtonFrame , SlowyTween , {
 				BackgroundTransparency = 1
 			});
 		end)))
 
 		Button.SetRender = LPH_NO_VIRTUALIZE(function(value)
 			if value then
-				ModernV2.PlayAnimate(ButtonFrame , SlowyTween , {
+				L2Hub.PlayAnimate(ButtonFrame , SlowyTween , {
 					BackgroundTransparency = 1
 				});
 
-				ModernV2.PlayAnimate(BasedLabel , SlowyTween , {
+				L2Hub.PlayAnimate(BasedLabel , SlowyTween , {
 					TextTransparency = 0.200
 				});
 
-				ModernV2.PlayAnimate(LineFrame , SlowyTween , {
+				L2Hub.PlayAnimate(LineFrame , SlowyTween , {
 					BackgroundTransparency = 0.650
 				});
 
-				ModernV2.PlayAnimate(Icon , SlowyTween , {
+				L2Hub.PlayAnimate(Icon , SlowyTween , {
 					TextTransparency = 0.250
 				});
 			else
-				ModernV2.PlayAnimate(ButtonFrame , SlowyTween , {
+				L2Hub.PlayAnimate(ButtonFrame , SlowyTween , {
 					BackgroundTransparency = 1
 				});
 
-				ModernV2.PlayAnimate(BasedLabel , SlowyTween , {
+				L2Hub.PlayAnimate(BasedLabel , SlowyTween , {
 					TextTransparency = 1
 				});
 
-				ModernV2.PlayAnimate(LineFrame , SlowyTween , {
+				L2Hub.PlayAnimate(LineFrame , SlowyTween , {
 					BackgroundTransparency = 1
 				});
 
-				ModernV2.PlayAnimate(Icon , SlowyTween , {
+				L2Hub.PlayAnimate(Icon , SlowyTween , {
 					TextTransparency = 1
 				});
 			end;
 		end);
 
 		if Config.ToolTip then
-			Button.ToolTip = ModernV2:CreateToolTips(ButtonFrame , Config.Name , Config.ToolTip);
+			Button.ToolTip = L2Hub:CreateToolTips(ButtonFrame , Config.Name , Config.ToolTip);
 		end;
 
 		Button.SetRender(Signel:GetValue())
@@ -6373,7 +6373,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 			};
 		end;
 
-		Config = ModernV2:ProcessParams(Config , {
+		Config = L2Hub:ProcessParams(Config , {
 			Name = "Information",
 			Content = "",
 			RichText = true,
@@ -6388,9 +6388,9 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		local LineFrame = Instance.new("Frame")
 		local UICorner = Instance.new("UICorner")
 
-		ModernV2:AddQuery(ParagraphFrame , Config.Name);
+		L2Hub:AddQuery(ParagraphFrame , Config.Name);
 
-		ParagraphFrame.Name = ModernV2.RandomString();
+		ParagraphFrame.Name = L2Hub.RandomString();
 		ParagraphFrame.Parent = Frame
 		ParagraphFrame.BackgroundColor3 = Color3.fromRGB(25, 27, 33)
 		ParagraphFrame.BackgroundTransparency = 1.000
@@ -6399,12 +6399,12 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		ParagraphFrame.ClipsDescendants = true
 		ParagraphFrame.Size = UDim2.new(1, 0, 0, 58)
 		ParagraphFrame.ZIndex = LayerIndex + 8
-		ModernV2:AttachLockMethods(Paragraph, ParagraphFrame, Config);
+		L2Hub:AttachLockMethods(Paragraph, ParagraphFrame, Config);
 
 		UICorner.CornerRadius = UDim.new(0, 10)
 		UICorner.Parent = ParagraphFrame
 
-		NameLabel.Name = ModernV2.RandomString();
+		NameLabel.Name = L2Hub.RandomString();
 		NameLabel.Parent = ParagraphFrame
 		NameLabel.BackgroundTransparency = 1.000
 		NameLabel.BorderSizePixel = 0
@@ -6419,9 +6419,9 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		NameLabel.TextTransparency = 0.200
 		NameLabel.TextXAlignment = Enum.TextXAlignment.Left
 		NameLabel.TextYAlignment = Enum.TextYAlignment.Top
-		ModernV2:AddTextGradient(NameLabel);
+		L2Hub:AddTextGradient(NameLabel);
 
-		ContentLabel.Name = ModernV2.RandomString();
+		ContentLabel.Name = L2Hub.RandomString();
 		ContentLabel.Parent = ParagraphFrame
 		ContentLabel.BackgroundTransparency = 1.000
 		ContentLabel.BorderSizePixel = 0
@@ -6438,7 +6438,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		ContentLabel.TextXAlignment = Enum.TextXAlignment.Left
 		ContentLabel.TextYAlignment = Enum.TextYAlignment.Top
 
-		LineFrame.Name = ModernV2.RandomString();
+		LineFrame.Name = L2Hub.RandomString();
 		LineFrame.Parent = ParagraphFrame
 		LineFrame.AnchorPoint = Vector2.new(0.5, 1)
 		LineFrame.BackgroundColor3 = Color3.fromRGB(45, 48, 58)
@@ -6454,13 +6454,13 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 			local Height = math.max(58, ContentSize.Y + 38);
 
 			ContentLabel.Size = UDim2.new(1, -22, 0, ContentSize.Y + 4);
-			ModernV2.PlayAnimate(ParagraphFrame , SlowyTween , {
+			L2Hub.PlayAnimate(ParagraphFrame , SlowyTween , {
 				Size = UDim2.new(1, 0, 0, Height)
 			});
 		end;
 
 		task.defer(UpdateSize);
-		ModernV2:AddSignal(ParagraphFrame:GetPropertyChangedSignal("AbsoluteSize"):Connect(UpdateSize));
+		L2Hub:AddSignal(ParagraphFrame:GetPropertyChangedSignal("AbsoluteSize"):Connect(UpdateSize));
 
 		function Paragraph:SetName(name)
 			Config.Name = tostring(name or "");
@@ -6507,23 +6507,23 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 
 		Paragraph.SetRender = LPH_NO_VIRTUALIZE(function(value)
 			if value then
-				ModernV2.PlayAnimate(NameLabel , SlowyTween , {
+				L2Hub.PlayAnimate(NameLabel , SlowyTween , {
 					TextTransparency = 0.200
 				});
-				ModernV2.PlayAnimate(ContentLabel , SlowyTween , {
+				L2Hub.PlayAnimate(ContentLabel , SlowyTween , {
 					TextTransparency = 0.500
 				});
-				ModernV2.PlayAnimate(LineFrame , SlowyTween , {
+				L2Hub.PlayAnimate(LineFrame , SlowyTween , {
 					BackgroundTransparency = 0.650
 				});
 			else
-				ModernV2.PlayAnimate(NameLabel , SlowyTween , {
+				L2Hub.PlayAnimate(NameLabel , SlowyTween , {
 					TextTransparency = 1
 				});
-				ModernV2.PlayAnimate(ContentLabel , SlowyTween , {
+				L2Hub.PlayAnimate(ContentLabel , SlowyTween , {
 					TextTransparency = 1
 				});
-				ModernV2.PlayAnimate(LineFrame , SlowyTween , {
+				L2Hub.PlayAnimate(LineFrame , SlowyTween , {
 					BackgroundTransparency = 1
 				});
 			end;
@@ -6542,7 +6542,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 			};
 		end;
 
-		Config = ModernV2:ProcessParams(Config , {
+		Config = L2Hub:ProcessParams(Config , {
 			Name = "Image",
 			Image = "",
 			Size = UDim2.new(1, -20, 0, 120),
@@ -6566,9 +6566,9 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 			Config.Size = UDim2.new(1, -20, 0, tonumber(Config.Height) or 120);
 		end;
 
-		ModernV2:AddQuery(ImageFrame , Config.Name);
+		L2Hub:AddQuery(ImageFrame , Config.Name);
 
-		ImageFrame.Name = ModernV2.RandomString();
+		ImageFrame.Name = L2Hub.RandomString();
 		ImageFrame.Parent = Frame
 		ImageFrame.BackgroundColor3 = Color3.fromRGB(25, 27, 33)
 		ImageFrame.BackgroundTransparency = 1.000
@@ -6577,12 +6577,12 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		ImageFrame.ClipsDescendants = true
 		ImageFrame.Size = UDim2.new(1, 0, 0, Config.Size.Y.Offset + 15)
 		ImageFrame.ZIndex = LayerIndex + 8
-		ModernV2:AttachLockMethods(ImageLib, ImageFrame, Config);
+		L2Hub:AttachLockMethods(ImageLib, ImageFrame, Config);
 
 		UICorner.CornerRadius = UDim.new(0, 10)
 		UICorner.Parent = ImageFrame
 
-		ImageLabel.Name = ModernV2.RandomString();
+		ImageLabel.Name = L2Hub.RandomString();
 		ImageLabel.Parent = ImageFrame
 		ImageLabel.AnchorPoint = Vector2.new(0.5, 0)
 		ImageLabel.BackgroundColor3 = Color3.fromRGB(26, 28, 36)
@@ -6595,7 +6595,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		ImageLabel.ImageColor3 = Config.Color
 		ImageLabel.ImageTransparency = Config.Transparency
 		ImageLabel.ScaleType = Config.ScaleType
-		ModernV2:SetIconMode(ImageLabel, Config.Image);
+		L2Hub:SetIconMode(ImageLabel, Config.Image);
 		ImageLabel.ScaleType = Config.ScaleType;
 		ImageLabel.ImageColor3 = Config.Color;
 		ImageLabel.ImageTransparency = Config.Transparency;
@@ -6607,7 +6607,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		ImageCorner.CornerRadius = UDim.new(0, Config.Corner)
 		ImageCorner.Parent = ImageLabel
 
-		LineFrame.Name = ModernV2.RandomString();
+		LineFrame.Name = L2Hub.RandomString();
 		LineFrame.Parent = ImageFrame
 		LineFrame.AnchorPoint = Vector2.new(0.5, 1)
 		LineFrame.BackgroundColor3 = Color3.fromRGB(45, 48, 58)
@@ -6624,7 +6624,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 
 		function ImageLib:SetImage(image)
 			Config.Image = tostring(image or "");
-			ModernV2:SetIconMode(ImageLabel, Config.Image);
+			L2Hub:SetIconMode(ImageLabel, Config.Image);
 			ImageLabel.ScaleType = Config.ScaleType;
 			ImageLabel.ImageColor3 = Config.Color;
 			ImageLabel.ImageTransparency = Config.Transparency;
@@ -6680,17 +6680,17 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 
 		ImageLib.SetRender = LPH_NO_VIRTUALIZE(function(value)
 			if value then
-				ModernV2.PlayAnimate(ImageLabel , SlowyTween , {
+				L2Hub.PlayAnimate(ImageLabel , SlowyTween , {
 					ImageTransparency = Config.Transparency
 				});
-				ModernV2.PlayAnimate(LineFrame , SlowyTween , {
+				L2Hub.PlayAnimate(LineFrame , SlowyTween , {
 					BackgroundTransparency = 0.650
 				});
 			else
-				ModernV2.PlayAnimate(ImageLabel , SlowyTween , {
+				L2Hub.PlayAnimate(ImageLabel , SlowyTween , {
 					ImageTransparency = 1
 				});
-				ModernV2.PlayAnimate(LineFrame , SlowyTween , {
+				L2Hub.PlayAnimate(LineFrame , SlowyTween , {
 					BackgroundTransparency = 1
 				});
 			end;
@@ -6710,7 +6710,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 			};
 		end;
 
-		Config = ModernV2:ProcessParams(Config , {
+		Config = L2Hub:ProcessParams(Config , {
 			Text = "",
 			Name = nil,
 		});
@@ -6721,14 +6721,14 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		local RightLine = Instance.new("Frame")
 		local TextLabel = Instance.new("TextLabel")
 
-		DividerFrame.Name = ModernV2.RandomString();
+		DividerFrame.Name = L2Hub.RandomString();
 		DividerFrame.Parent = Frame
 		DividerFrame.BackgroundTransparency = 1.000
 		DividerFrame.BorderSizePixel = 0
 		DividerFrame.Size = UDim2.new(1, 0, 0, 22)
 		DividerFrame.ZIndex = LayerIndex + 8
 
-		LeftLine.Name = ModernV2.RandomString();
+		LeftLine.Name = L2Hub.RandomString();
 		LeftLine.Parent = DividerFrame
 		LeftLine.AnchorPoint = Vector2.new(0, 0.5)
 		LeftLine.BackgroundColor3 = Color3.fromRGB(45, 48, 58)
@@ -6738,7 +6738,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		LeftLine.Size = UDim2.new(0.5, -20, 0, 1)
 		LeftLine.ZIndex = LayerIndex + 9
 
-		TextLabel.Name = ModernV2.RandomString();
+		TextLabel.Name = L2Hub.RandomString();
 		TextLabel.Parent = DividerFrame
 		TextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
 		TextLabel.BackgroundTransparency = 1.000
@@ -6752,7 +6752,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		TextLabel.TextSize = 11.000
 		TextLabel.TextTransparency = 0.500
 
-		RightLine.Name = ModernV2.RandomString();
+		RightLine.Name = L2Hub.RandomString();
 		RightLine.Parent = DividerFrame
 		RightLine.AnchorPoint = Vector2.new(1, 0.5)
 		RightLine.BackgroundColor3 = Color3.fromRGB(45, 48, 58)
@@ -6799,19 +6799,19 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		end;
 
 		Divider.SetRender = LPH_NO_VIRTUALIZE(function(value)
-			ModernV2.PlayAnimate(LeftLine , SlowyTween , {
+			L2Hub.PlayAnimate(LeftLine , SlowyTween , {
 				BackgroundTransparency = value and 0.650 or 1
 			});
-			ModernV2.PlayAnimate(RightLine , SlowyTween , {
+			L2Hub.PlayAnimate(RightLine , SlowyTween , {
 				BackgroundTransparency = value and 0.650 or 1
 			});
-			ModernV2.PlayAnimate(TextLabel , SlowyTween , {
+			L2Hub.PlayAnimate(TextLabel , SlowyTween , {
 				TextTransparency = value and 0.500 or 1
 			});
 		end);
 
 		UpdateDivider();
-		ModernV2:AddSignal(DividerFrame:GetPropertyChangedSignal("AbsoluteSize"):Connect(UpdateDivider));
+		L2Hub:AddSignal(DividerFrame:GetPropertyChangedSignal("AbsoluteSize"):Connect(UpdateDivider));
 		Divider.SetRender(Signel:GetValue());
 		Signel:Connect(Divider.SetRender);
 
@@ -6829,7 +6829,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		end;
 
 		local SpacerFrame = Instance.new("Frame")
-		SpacerFrame.Name = ModernV2.RandomString();
+		SpacerFrame.Name = L2Hub.RandomString();
 		SpacerFrame.Parent = Frame
 		SpacerFrame.BackgroundTransparency = 1.000
 		SpacerFrame.BorderSizePixel = 0
@@ -6868,7 +6868,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 			};
 		end;
 
-		Config = ModernV2:ProcessParams(Config , {
+		Config = L2Hub:ProcessParams(Config , {
 			Name = "Progress",
 			Value = 0,
 			Max = 100,
@@ -6888,9 +6888,9 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		local BarFillCorner = Instance.new("UICorner")
 		local LineFrame = Instance.new("Frame")
 
-		ModernV2:AddQuery(ProgressFrame , Config.Name);
+		L2Hub:AddQuery(ProgressFrame , Config.Name);
 
-		ProgressFrame.Name = ModernV2.RandomString();
+		ProgressFrame.Name = L2Hub.RandomString();
 		ProgressFrame.Parent = Frame
 		ProgressFrame.BackgroundColor3 = Color3.fromRGB(25, 27, 33)
 		ProgressFrame.BackgroundTransparency = 1.000
@@ -6898,12 +6898,12 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		ProgressFrame.ClipsDescendants = true
 		ProgressFrame.Size = UDim2.new(1, 0, 0, 45)
 		ProgressFrame.ZIndex = LayerIndex + 8
-		ModernV2:AttachLockMethods(Progress, ProgressFrame, Config);
+		L2Hub:AttachLockMethods(Progress, ProgressFrame, Config);
 
 		UICorner.CornerRadius = UDim.new(0, 10)
 		UICorner.Parent = ProgressFrame
 
-		Title.Name = ModernV2.RandomString();
+		Title.Name = L2Hub.RandomString();
 		Title.Parent = ProgressFrame
 		Title.BackgroundTransparency = 1.000
 		Title.BorderSizePixel = 0
@@ -6916,9 +6916,9 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		Title.TextSize = 13.000
 		Title.TextTransparency = 0.250
 		Title.TextXAlignment = Enum.TextXAlignment.Left
-		ModernV2:AddTextGradient(Title);
+		L2Hub:AddTextGradient(Title);
 
-		ValueLabel.Name = ModernV2.RandomString();
+		ValueLabel.Name = L2Hub.RandomString();
 		ValueLabel.Parent = ProgressFrame
 		ValueLabel.BackgroundTransparency = 1.000
 		ValueLabel.BorderSizePixel = 0
@@ -6931,7 +6931,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		ValueLabel.TextTransparency = 0.500
 		ValueLabel.TextXAlignment = Enum.TextXAlignment.Right
 
-		BarBack.Name = ModernV2.RandomString();
+		BarBack.Name = L2Hub.RandomString();
 		BarBack.Parent = ProgressFrame
 		BarBack.BackgroundColor3 = Color3.fromRGB(26, 28, 36)
 		BarBack.BorderSizePixel = 0
@@ -6942,9 +6942,9 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		BarBackCorner.CornerRadius = UDim.new(1, 0)
 		BarBackCorner.Parent = BarBack
 
-		BarFill.Name = ModernV2.RandomString();
+		BarFill.Name = L2Hub.RandomString();
 		BarFill.Parent = BarBack
-		BarFill.BackgroundColor3 = ModernV2.AccentColor
+		BarFill.BackgroundColor3 = L2Hub.AccentColor
 		BarFill.BorderSizePixel = 0
 		BarFill.Size = UDim2.fromScale(0, 1)
 		BarFill.ZIndex = LayerIndex + 10
@@ -6952,7 +6952,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		BarFillCorner.CornerRadius = UDim.new(1, 0)
 		BarFillCorner.Parent = BarFill
 
-		LineFrame.Name = ModernV2.RandomString();
+		LineFrame.Name = L2Hub.RandomString();
 		LineFrame.Parent = ProgressFrame
 		LineFrame.AnchorPoint = Vector2.new(0.5, 1)
 		LineFrame.BackgroundColor3 = Color3.fromRGB(45, 48, 58)
@@ -6966,18 +6966,18 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 			local MaxValue = math.max(tonumber(Config.Max) or 1, 0.0001);
 			local Value = math.clamp(tonumber(Config.Value) or 0, 0, MaxValue);
 			local Percent = Value / MaxValue;
-			local DisplayValue = ModernV2.Rounding(Value, 2);
-			local DisplayMax = ModernV2.Rounding(MaxValue, 2);
+			local DisplayValue = L2Hub.Rounding(Value, 2);
+			local DisplayMax = L2Hub.Rounding(MaxValue, 2);
 
 			if Config.Type == "%" then
-				ValueLabel.Text = tostring(ModernV2.Rounding(Percent * 100, 0)).."%";
+				ValueLabel.Text = tostring(L2Hub.Rounding(Percent * 100, 0)).."%";
 			else
 				ValueLabel.Text = tostring(DisplayValue).."/"..tostring(DisplayMax)..tostring(Config.Type or "");
 			end;
 
-			ModernV2.PlayAnimate(BarFill , SlowyTween , {
+			L2Hub.PlayAnimate(BarFill , SlowyTween , {
 				Size = UDim2.fromScale(Percent, 1),
-				BackgroundColor3 = ModernV2.AccentColor
+				BackgroundColor3 = L2Hub.AccentColor
 			});
 		end;
 
@@ -7015,11 +7015,11 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		end;
 
 		Progress.SetRender = LPH_NO_VIRTUALIZE(function(value)
-			ModernV2.PlayAnimate(Title , SlowyTween , { TextTransparency = value and 0.250 or 1 });
-			ModernV2.PlayAnimate(ValueLabel , SlowyTween , { TextTransparency = value and 0.500 or 1 });
-			ModernV2.PlayAnimate(BarBack , SlowyTween , { BackgroundTransparency = value and 0 or 1 });
-			ModernV2.PlayAnimate(BarFill , SlowyTween , { BackgroundTransparency = value and 0 or 1 });
-			ModernV2.PlayAnimate(LineFrame , SlowyTween , { BackgroundTransparency = value and 0.650 or 1 });
+			L2Hub.PlayAnimate(Title , SlowyTween , { TextTransparency = value and 0.250 or 1 });
+			L2Hub.PlayAnimate(ValueLabel , SlowyTween , { TextTransparency = value and 0.500 or 1 });
+			L2Hub.PlayAnimate(BarBack , SlowyTween , { BackgroundTransparency = value and 0 or 1 });
+			L2Hub.PlayAnimate(BarFill , SlowyTween , { BackgroundTransparency = value and 0 or 1 });
+			L2Hub.PlayAnimate(LineFrame , SlowyTween , { BackgroundTransparency = value and 0.650 or 1 });
 		end);
 
 		UpdateProgress();
@@ -7036,7 +7036,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 			};
 		end;
 
-		Config = ModernV2:ProcessParams(Config , {
+		Config = L2Hub:ProcessParams(Config , {
 			Name = "Code",
 			Code = "",
 			RichText = false,
@@ -7058,9 +7058,9 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		local CopyIcon = Instance.new("ImageLabel")
 		local LineFrame = Instance.new("Frame")
 
-		ModernV2:AddQuery(CodeFrame , Config.Name);
+		L2Hub:AddQuery(CodeFrame , Config.Name);
 
-		CodeFrame.Name = ModernV2.RandomString();
+		CodeFrame.Name = L2Hub.RandomString();
 		CodeFrame.Parent = Frame
 		CodeFrame.BackgroundColor3 = Color3.fromRGB(25, 27, 33)
 		CodeFrame.BackgroundTransparency = 1.000
@@ -7068,12 +7068,12 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		CodeFrame.ClipsDescendants = true
 		CodeFrame.Size = UDim2.new(1, 0, 0, 60)
 		CodeFrame.ZIndex = LayerIndex + 8
-		ModernV2:AttachLockMethods(CodeBlock, CodeFrame, Config);
+		L2Hub:AttachLockMethods(CodeBlock, CodeFrame, Config);
 
 		UICorner.CornerRadius = UDim.new(0, 10)
 		UICorner.Parent = CodeFrame
 
-		CodeLabel.Name = ModernV2.RandomString();
+		CodeLabel.Name = L2Hub.RandomString();
 		CodeLabel.Parent = CodeFrame
 		CodeLabel.BackgroundColor3 = Color3.fromRGB(18, 19, 25)
 		CodeLabel.BackgroundTransparency = 0.150
@@ -7100,7 +7100,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		CodePadding.PaddingRight = UDim.new(0, Config.Copy ~= false and 35 or 7)
 		CodePadding.Parent = CodeLabel
 
-		CopyButton.Name = ModernV2.RandomString();
+		CopyButton.Name = L2Hub.RandomString();
 		CopyButton.Parent = CodeFrame
 		CopyButton.AnchorPoint = Vector2.new(1, 0)
 		CopyButton.BackgroundColor3 = Color3.fromRGB(26, 28, 36)
@@ -7119,7 +7119,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		CopyStroke.Color = Color3.fromRGB(45, 48, 58)
 		CopyStroke.Parent = CopyButton
 
-		CopyIcon.Name = ModernV2.RandomString();
+		CopyIcon.Name = L2Hub.RandomString();
 		CopyIcon.Parent = CopyButton
 		CopyIcon.AnchorPoint = Vector2.new(0.5, 0.5)
 		CopyIcon.BackgroundTransparency = 1
@@ -7130,9 +7130,9 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		CopyIcon.ImageColor3 = Color3.fromRGB(223, 223, 223)
 		CopyIcon.ImageTransparency = 0.250
 		CopyIcon.ScaleType = Enum.ScaleType.Fit
-		ModernV2:SetIconMode(CopyIcon, "lucide:copy")
+		L2Hub:SetIconMode(CopyIcon, "lucide:copy")
 
-		LineFrame.Name = ModernV2.RandomString();
+		LineFrame.Name = L2Hub.RandomString();
 		LineFrame.Parent = CodeFrame
 		LineFrame.AnchorPoint = Vector2.new(0.5, 1)
 		LineFrame.BackgroundColor3 = Color3.fromRGB(45, 48, 58)
@@ -7159,10 +7159,10 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 			local Writer = GetClipboardWriter();
 
 			if not Writer then
-				ModernV2:SetIconMode(CopyIcon, "lucide:x")
+				L2Hub:SetIconMode(CopyIcon, "lucide:x")
 				task.delay(0.85, function()
 					if CopyIcon and CopyIcon.Parent then
-						ModernV2:SetIconMode(CopyIcon, "lucide:copy")
+						L2Hub:SetIconMode(CopyIcon, "lucide:copy")
 					end;
 				end)
 				return false;
@@ -7172,10 +7172,10 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 				Writer(Config.Code);
 			end);
 
-			ModernV2:SetIconMode(CopyIcon, Success and "lucide:check" or "lucide:x")
+			L2Hub:SetIconMode(CopyIcon, Success and "lucide:check" or "lucide:x")
 			task.delay(0.85, function()
 				if CopyIcon and CopyIcon.Parent then
-					ModernV2:SetIconMode(CopyIcon, "lucide:copy")
+					L2Hub:SetIconMode(CopyIcon, "lucide:copy")
 				end;
 			end)
 
@@ -7211,49 +7211,49 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 			return CodeBlock;
 		end;
 
-		local CopyInput = ModernV2:CreateInput(CopyButton, function()
+		local CopyInput = L2Hub:CreateInput(CopyButton, function()
 			CodeBlock:Copy();
 		end);
 
-		ModernV2:AddSignal(CopyInput.MouseEnter:Connect(function()
-			ModernV2.PlayAnimate(CopyButton, SlowyTween, {
+		L2Hub:AddSignal(CopyInput.MouseEnter:Connect(function()
+			L2Hub.PlayAnimate(CopyButton, SlowyTween, {
 				BackgroundTransparency = 0
 			});
-			ModernV2.PlayAnimate(CopyIcon, SlowyTween, {
+			L2Hub.PlayAnimate(CopyIcon, SlowyTween, {
 				TextTransparency = 0
 			});
 		end));
 
-		ModernV2:AddSignal(CopyInput.MouseLeave:Connect(function()
-			ModernV2.PlayAnimate(CopyButton, SlowyTween, {
+		L2Hub:AddSignal(CopyInput.MouseLeave:Connect(function()
+			L2Hub.PlayAnimate(CopyButton, SlowyTween, {
 				BackgroundTransparency = 0.100
 			});
-			ModernV2.PlayAnimate(CopyIcon, SlowyTween, {
+			L2Hub.PlayAnimate(CopyIcon, SlowyTween, {
 				TextTransparency = 0.250
 			});
 		end));
 
 		CodeBlock.SetRender = LPH_NO_VIRTUALIZE(function(value)
-			ModernV2.PlayAnimate(CodeLabel , SlowyTween , {
+			L2Hub.PlayAnimate(CodeLabel , SlowyTween , {
 				BackgroundTransparency = value and 0.150 or 1,
 				TextTransparency = value and 0.200 or 1
 			});
-			ModernV2.PlayAnimate(CopyButton , SlowyTween , {
+			L2Hub.PlayAnimate(CopyButton , SlowyTween , {
 				BackgroundTransparency = (value and Config.Copy) and 0.100 or 1
 			});
-			ModernV2.PlayAnimate(CopyStroke , SlowyTween , {
+			L2Hub.PlayAnimate(CopyStroke , SlowyTween , {
 				Transparency = (value and Config.Copy) and 0.650 or 1
 			});
-			ModernV2.PlayAnimate(CopyIcon , SlowyTween , {
+			L2Hub.PlayAnimate(CopyIcon , SlowyTween , {
 				TextTransparency = (value and Config.Copy) and 0.250 or 1
 			});
-			ModernV2.PlayAnimate(LineFrame , SlowyTween , {
+			L2Hub.PlayAnimate(LineFrame , SlowyTween , {
 				BackgroundTransparency = value and 0.650 or 1
 			});
 		end);
 
 		task.defer(UpdateCodeSize);
-		ModernV2:AddSignal(CodeFrame:GetPropertyChangedSignal("AbsoluteSize"):Connect(UpdateCodeSize));
+		L2Hub:AddSignal(CodeFrame:GetPropertyChangedSignal("AbsoluteSize"):Connect(UpdateCodeSize));
 		CodeBlock.SetRender(Signel:GetValue());
 		Signel:Connect(CodeBlock.SetRender);
 
@@ -7267,7 +7267,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 			};
 		end;
 
-		Config = ModernV2:ProcessParams(Config , {
+		Config = L2Hub:ProcessParams(Config , {
 			Name = "DependencyBox",
 			Dependencies = {},
 			Mode = "Visible",
@@ -7281,7 +7281,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		local UICorner = Instance.new("UICorner")
 		local DependencyHandler = Instance.new("Frame")
 		local UIListLayout = Instance.new("UIListLayout")
-		local DependencySignal = ModernV2:CreateSignal(false);
+		local DependencySignal = L2Hub:CreateSignal(false);
 		local IsRendered = Signel:GetValue() == true;
 		local LastMatched;
 		local CheckAccumulator = 0;
@@ -7291,7 +7291,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 
 		local function ResolveDependencyObject(value)
 			if typeof(value) == "string" then
-				return ModernV2.Flags[value] or value;
+				return L2Hub.Flags[value] or value;
 			end;
 
 			return value;
@@ -7371,15 +7371,15 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 			return true;
 		end;
 
-		DependencyFrame.Name = ModernV2.RandomString();
+		DependencyFrame.Name = L2Hub.RandomString();
 		DependencyFrame.Parent = Frame
-		DependencyFrame.BackgroundColor3 = Color3.fromRGB(20, 22, 27)
+		DependencyFrame.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
 		DependencyFrame.BackgroundTransparency = 0.500
 		DependencyFrame.BorderSizePixel = 0
 		DependencyFrame.ClipsDescendants = true
 		DependencyFrame.Size = UDim2.new(1, 0, 0, 0)
 		DependencyFrame.ZIndex = LayerIndex + 8
-		ModernV2:AttachLockMethods(DependencyBox, DependencyFrame, {
+		L2Hub:AttachLockMethods(DependencyBox, DependencyFrame, {
 			Locked = LockMode and not DependenciesMatch() or Config.Locked,
 			TextLocked = Config.TextLocked,
 		});
@@ -7391,7 +7391,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		UIStroke.Color = Color3.fromRGB(45, 48, 58)
 		UIStroke.Parent = DependencyFrame
 
-		DependencyHandler.Name = ModernV2.RandomString();
+		DependencyHandler.Name = L2Hub.RandomString();
 		DependencyHandler.Parent = DependencyFrame
 		DependencyHandler.AnchorPoint = Vector2.new(0.5, 0)
 		DependencyHandler.BackgroundTransparency = 1.000
@@ -7405,7 +7405,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 		UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 
-		local Inner = ModernV2:RegisiterItem(DependencyHandler, DependencySignal);
+		local Inner = L2Hub:RegisiterItem(DependencyHandler, DependencySignal);
 
 		local function UpdateSize()
 			local Matched = DependenciesMatch();
@@ -7417,12 +7417,12 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 			DependencySignal:SetValue(IsRendered and (LockMode or Matched));
 			DependencyBox:SetLocked(Config.Locked == true or (LockMode and not Matched));
 
-			ModernV2.PlayAnimate(DependencyFrame, VSlowTween, {
+			L2Hub.PlayAnimate(DependencyFrame, VSlowTween, {
 				Size = UDim2.new(1, 0, 0, TargetHeight),
 				BackgroundTransparency = ShouldShow and 0.500 or 1,
 			});
 
-			ModernV2.PlayAnimate(UIStroke, SlowyTween, {
+			L2Hub.PlayAnimate(UIStroke, SlowyTween, {
 				Transparency = ShouldShow and 0.650 or 1,
 			});
 
@@ -7463,14 +7463,14 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 			end;
 		end;
 
-		ModernV2:AddSignal(UIListLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(UpdateSize));
+		L2Hub:AddSignal(UIListLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(UpdateSize));
 
 		Signel:Connect(function(value)
 			IsRendered = value == true;
 			UpdateSize();
 		end);
 
-		ModernV2:AddSignal(RunService.RenderStepped:Connect(function(dt)
+		L2Hub:AddSignal(RunService.RenderStepped:Connect(function(dt)
 			CheckAccumulator = CheckAccumulator + (dt or 0);
 
 			if CheckAccumulator < 0.1 then
@@ -7497,7 +7497,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 			};
 		end;
 
-		Config = ModernV2:ProcessParams(Config , {
+		Config = L2Hub:ProcessParams(Config , {
 			Name = "Dependency Groupbox",
 			Dependencies = {},
 			Mode = "Visible",
@@ -7515,7 +7515,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		local CollapseIcon = Instance.new("ImageLabel")
 		local GroupHandler = Instance.new("Frame")
 		local UIListLayout = Instance.new("UIListLayout")
-		local GroupSignal = ModernV2:CreateSignal(false);
+		local GroupSignal = L2Hub:CreateSignal(false);
 		local IsRendered = Signel:GetValue() == true;
 		local LastMatched;
 		local CheckAccumulator = 0;
@@ -7528,7 +7528,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 
 		local function ResolveDependencyObject(value)
 			if typeof(value) == "string" then
-				return ModernV2.Flags[value] or value;
+				return L2Hub.Flags[value] or value;
 			end;
 
 			return value;
@@ -7608,15 +7608,15 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 			return true;
 		end;
 
-		GroupFrame.Name = ModernV2.RandomString();
+		GroupFrame.Name = L2Hub.RandomString();
 		GroupFrame.Parent = Frame
-		GroupFrame.BackgroundColor3 = Color3.fromRGB(20, 22, 27)
+		GroupFrame.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
 		GroupFrame.BackgroundTransparency = 0.500
 		GroupFrame.BorderSizePixel = 0
 		GroupFrame.ClipsDescendants = true
 		GroupFrame.Size = UDim2.new(1, 0, 0, 0)
 		GroupFrame.ZIndex = LayerIndex + 8
-		ModernV2:AttachLockMethods(Groupbox, GroupFrame, {
+		L2Hub:AttachLockMethods(Groupbox, GroupFrame, {
 			Locked = Config.Locked == true or (LockMode and not DependenciesMatch()),
 			TextLocked = Config.TextLocked,
 		});
@@ -7628,7 +7628,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		UIStroke.Color = Color3.fromRGB(45, 48, 58)
 		UIStroke.Parent = GroupFrame
 
-		Title.Name = ModernV2.RandomString();
+		Title.Name = L2Hub.RandomString();
 		Title.Parent = GroupFrame
 		Title.BackgroundTransparency = 1.000
 		Title.BorderSizePixel = 0
@@ -7641,9 +7641,9 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		Title.TextSize = 13.000
 		Title.TextTransparency = 0.200
 		Title.TextXAlignment = Enum.TextXAlignment.Left
-		ModernV2:AddTextGradient(Title);
+		L2Hub:AddTextGradient(Title);
 
-		CollapseIcon.Name = ModernV2.RandomString();
+		CollapseIcon.Name = L2Hub.RandomString();
 		CollapseIcon.Parent = GroupFrame
 		CollapseIcon.AnchorPoint = Vector2.new(1, 0)
 		CollapseIcon.BackgroundTransparency = 1.000
@@ -7652,12 +7652,12 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		CollapseIcon.Size = UDim2.new(0, 22, 0, 22)
 		CollapseIcon.Visible = Collapsible
 		CollapseIcon.ZIndex = LayerIndex + 10
-		ModernV2:SetIconMode(CollapseIcon, "chevron-small-down")
+		L2Hub:SetIconMode(CollapseIcon, "chevron-small-down")
 		CollapseIcon.ImageColor3 = Color3.fromRGB(223, 223, 223)
 		CollapseIcon.ImageTransparency = 0.500
 		CollapseIcon.ScaleType = Enum.ScaleType.Fit
 
-		GroupHandler.Name = ModernV2.RandomString();
+		GroupHandler.Name = L2Hub.RandomString();
 		GroupHandler.Parent = GroupFrame
 		GroupHandler.AnchorPoint = Vector2.new(0.5, 0)
 		GroupHandler.BackgroundTransparency = 1.000
@@ -7671,7 +7671,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 		UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 
-		local Inner = ModernV2:RegisiterItem(GroupHandler, GroupSignal);
+		local Inner = L2Hub:RegisiterItem(GroupHandler, GroupSignal);
 
 		local function UpdateSize()
 			local Matched = DependenciesMatch();
@@ -7689,20 +7689,20 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 			GroupSignal:SetValue(ShowContent);
 			Groupbox:SetLocked(Config.Locked == true or (LockMode and not Matched));
 
-			ModernV2.PlayAnimate(GroupFrame, VSlowTween, {
+			L2Hub.PlayAnimate(GroupFrame, VSlowTween, {
 				Size = UDim2.new(1, 0, 0, TargetHeight),
 				BackgroundTransparency = ShouldShow and 0.500 or 1,
 			});
 
-			ModernV2.PlayAnimate(UIStroke, SlowyTween, {
+			L2Hub.PlayAnimate(UIStroke, SlowyTween, {
 				Transparency = ShouldShow and 0.650 or 1,
 			});
 
-			ModernV2.PlayAnimate(Title, SlowyTween, {
+			L2Hub.PlayAnimate(Title, SlowyTween, {
 				TextTransparency = ShouldShow and 0.200 or 1,
 			});
 
-			ModernV2.PlayAnimate(CollapseIcon, SlowyTween, {
+			L2Hub.PlayAnimate(CollapseIcon, SlowyTween, {
 				ImageTransparency = (ShouldShow and Collapsible) and 0.500 or 1,
 				Rotation = Collapsed and -90 or 0,
 			});
@@ -7784,21 +7784,21 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		end;
 
 		if Collapsible then
-			local CollapseInput = ModernV2:CreateInput(GroupFrame, LPH_NO_VIRTUALIZE(function()
+			local CollapseInput = L2Hub:CreateInput(GroupFrame, LPH_NO_VIRTUALIZE(function()
 				Groupbox:ToggleCollapsed();
 			end));
 			CollapseInput.ZIndex = LayerIndex + 20;
 			CollapseInput.Size = UDim2.new(1, 0, 0, HeaderHeight);
 		end;
 
-		ModernV2:AddSignal(UIListLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(UpdateSize));
+		L2Hub:AddSignal(UIListLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(UpdateSize));
 
 		Signel:Connect(function(value)
 			IsRendered = value == true;
 			UpdateSize();
 		end);
 
-		ModernV2:AddSignal(RunService.RenderStepped:Connect(function(dt)
+		L2Hub:AddSignal(RunService.RenderStepped:Connect(function(dt)
 			CheckAccumulator = CheckAccumulator + (dt or 0);
 
 			if CheckAccumulator < 0.1 then
@@ -7827,7 +7827,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		local UICorner_2 = Instance.new("UICorner")
 		local UserStatusLabel = Instance.new("TextLabel")
 
-		UserFrame.Name = ModernV2.RandomString();
+		UserFrame.Name = L2Hub.RandomString();
 		UserFrame.Parent = Frame
 		UserFrame.BackgroundColor3 = Color3.fromRGB(25, 27, 33)
 		UserFrame.BackgroundTransparency = 1.000
@@ -7836,7 +7836,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		UserFrame.Size = UDim2.new(1, 0, 0, 60)
 		UserFrame.ZIndex = LayerIndex + 8
 
-		UserLabel.Name = ModernV2.RandomString();
+		UserLabel.Name = L2Hub.RandomString();
 		UserLabel.Parent = UserFrame
 		UserLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		UserLabel.BackgroundTransparency = 1.000
@@ -7852,7 +7852,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		UserLabel.TextTransparency = 0.200
 		UserLabel.TextXAlignment = Enum.TextXAlignment.Left
 
-		LineFrame.Name = ModernV2.RandomString();
+		LineFrame.Name = L2Hub.RandomString();
 		LineFrame.Parent = UserFrame
 		LineFrame.AnchorPoint = Vector2.new(0.5, 1)
 		LineFrame.BackgroundColor3 = Color3.fromRGB(45, 48, 58)
@@ -7866,7 +7866,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		UICorner.CornerRadius = UDim.new(0, 10)
 		UICorner.Parent = UserFrame
 
-		LogoImage.Name = ModernV2.RandomString();
+		LogoImage.Name = L2Hub.RandomString();
 		LogoImage.Parent = UserFrame
 		LogoImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		LogoImage.BackgroundTransparency = 1.000
@@ -7880,7 +7880,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 		UICorner_2.CornerRadius = UDim.new(1, 0)
 		UICorner_2.Parent = LogoImage
 
-		UserStatusLabel.Name = ModernV2.RandomString();
+		UserStatusLabel.Name = L2Hub.RandomString();
 		UserStatusLabel.Parent = UserFrame
 		UserStatusLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		UserStatusLabel.BackgroundTransparency = 1.000
@@ -7900,35 +7900,35 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 
 		UserFrameItem.SetRender = LPH_NO_VIRTUALIZE(function(value)
 			if value then
-				ModernV2.PlayAnimate(UserLabel,SlowyTween,{
+				L2Hub.PlayAnimate(UserLabel,SlowyTween,{
 					TextTransparency = 0.200
 				})
 
-				ModernV2.PlayAnimate(LineFrame,SlowyTween,{
+				L2Hub.PlayAnimate(LineFrame,SlowyTween,{
 					BackgroundTransparency = 0.650
 				})
 
-				ModernV2.PlayAnimate(LogoImage,SlowyTween,{
+				L2Hub.PlayAnimate(LogoImage,SlowyTween,{
 					ImageTransparency = 0
 				})
 
-				ModernV2.PlayAnimate(UserStatusLabel,SlowyTween,{
+				L2Hub.PlayAnimate(UserStatusLabel,SlowyTween,{
 					TextTransparency = 0.200
 				})
 			else
-				ModernV2.PlayAnimate(UserLabel,SlowyTween,{
+				L2Hub.PlayAnimate(UserLabel,SlowyTween,{
 					TextTransparency = 1
 				})
 
-				ModernV2.PlayAnimate(LineFrame,SlowyTween,{
+				L2Hub.PlayAnimate(LineFrame,SlowyTween,{
 					BackgroundTransparency = 1
 				})
 
-				ModernV2.PlayAnimate(LogoImage,SlowyTween,{
+				L2Hub.PlayAnimate(LogoImage,SlowyTween,{
 					ImageTransparency = 1
 				})
 
-				ModernV2.PlayAnimate(UserStatusLabel,SlowyTween,{
+				L2Hub.PlayAnimate(UserStatusLabel,SlowyTween,{
 					TextTransparency = 1
 				})
 			end;
@@ -8010,7 +8010,7 @@ function ModernV2:RegisiterItem(Frame: Frame , Signel)
 	return CaseInsensitive(idx);
 end;
 
-function ModernV2:CreateWindow(Config)
+function L2Hub:CreateWindow(Config)
 	Config = Config or {};
 	local ConfigSettings = (typeof(Config.Config) == "table" and Config.Config) or {};
 
@@ -8024,7 +8024,7 @@ function ModernV2:CreateWindow(Config)
 	end;
 
 	if typeof(Config.Color) == "Color3" then
-		ModernV2.AccentColor = Config.Color;
+		L2Hub.AccentColor = Config.Color;
 	end;
 
 	if ConfigSettings.ConfigFolder ~= nil and Config.ConfigFolder == nil then
@@ -8036,14 +8036,14 @@ function ModernV2:CreateWindow(Config)
 	end;
 
 	if Config.Size == nil then
-		Config.Size = ModernV2.IsMobile and ModernV2.Scales.Mobile or ModernV2.Scales.Large;
+		Config.Size = L2Hub.IsMobile and L2Hub.Scales.Mobile or L2Hub.Scales.Large;
 	end;
 
-	Config = ModernV2:ProcessParams(Config , {
-		Logo = ModernV2.GlobalLogo,
-		Name = "ModernV2",
+	Config = L2Hub:ProcessParams(Config , {
+		Logo = L2Hub.GlobalLogo,
+		Name = "L2Hub",
 		Content = "Counter-Strike 2",
-		Size = ModernV2.IsMobile and ModernV2.Scales.Mobile or ModernV2.Scales.Large,
+		Size = L2Hub.IsMobile and L2Hub.Scales.Mobile or L2Hub.Scales.Large,
 		Font = nil,
 		ConfigFolder = "ModernV2Configs",
 		Uitransparent = nil,
@@ -8058,9 +8058,9 @@ function ModernV2:CreateWindow(Config)
 		Keybind = "RightControl"
 	});
 
-	ModernV2:SetTextGradientEnabled(Config.TextGradient);
+	L2Hub:SetTextGradientEnabled(Config.TextGradient);
 	if Config.Font ~= nil then
-		ModernV2:SetFont(Config.Font);
+		L2Hub:SetFont(Config.Font);
 	end;
 
 	Config.ConfigFolder = tostring(Config.ConfigFolder):gsub("[/\\]+$","");
@@ -8084,7 +8084,7 @@ function ModernV2:CreateWindow(Config)
 		ConfigEncrypted = ConfigSettings.Encrypted == true or string.lower(tostring(ConfigSettings.Format or "")) == "encoded",
 		ConfigShowAutoSaveToggle = ConfigSettings.ShowAutoSaveToggle == true,
 		ConfigSaveWindowState = ConfigSettings.SaveWindowState == true,
-		Signal = ModernV2:CreateSignal(true),
+		Signal = L2Hub:CreateSignal(true),
 		Tabs = {},
 		CurrentTab = 1,
 		NotifyOnCallbackError = Config.NotifyOnCallbackError == true,
@@ -8098,9 +8098,9 @@ function ModernV2:CreateWindow(Config)
 		table.insert(Window.OnDestroyCallbacks, Config.OnDestroy);
 	end;
 
-	ModernV2.GlobalLogo = Window.Logo;
+	L2Hub.GlobalLogo = Window.Logo;
 
-	local Logging = ModernV2:CreateLogger();
+	local Logging = L2Hub:CreateLogger();
 	if not isfolder(Window.ConfigFolder) then
 		makefolder(Window.ConfigFolder);
 	end;
@@ -8141,10 +8141,10 @@ function ModernV2:CreateWindow(Config)
 	local CloseButton = Instance.new("ImageLabel")
 	local TabContainer = Instance.new("Frame")
 
-	WindowFrame.Name = ModernV2.RandomString();
-	WindowFrame.Parent = ModernV2.ScreenGui;
+	WindowFrame.Name = L2Hub.RandomString();
+	WindowFrame.Parent = L2Hub.ScreenGui;
 	WindowFrame.AnchorPoint = Vector2.new(0.5, 0.5)
-	WindowFrame.BackgroundColor3 = Color3.fromRGB(8, 8, 13)
+	WindowFrame.BackgroundColor3 = Color3.fromRGB(12, 12, 12)
 	WindowFrame.BackgroundTransparency = Window.Uitransparent or 0.055
 	WindowFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	WindowFrame.BorderSizePixel = 0
@@ -8163,18 +8163,18 @@ function ModernV2:CreateWindow(Config)
 		local LoadingTitle = Instance.new("TextLabel")
 		local LoadingContent = Instance.new("TextLabel")
 
-		LoadingOverlay.Name = ModernV2.RandomString();
-		LoadingOverlay.Parent = ModernV2.ScreenGui
+		LoadingOverlay.Name = L2Hub.RandomString();
+		LoadingOverlay.Parent = L2Hub.ScreenGui
 		LoadingOverlay.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 		LoadingOverlay.BackgroundTransparency = 1
 		LoadingOverlay.BorderSizePixel = 0
 		LoadingOverlay.Size = UDim2.fromScale(1, 1)
 		LoadingOverlay.ZIndex = 250
 
-		LoadingPanel.Name = ModernV2.RandomString();
+		LoadingPanel.Name = L2Hub.RandomString();
 		LoadingPanel.Parent = LoadingOverlay
 		LoadingPanel.AnchorPoint = Vector2.new(0.5, 0.5)
-		LoadingPanel.BackgroundColor3 = Color3.fromRGB(20, 22, 27)
+		LoadingPanel.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
 		LoadingPanel.BackgroundTransparency = 1
 		LoadingPanel.BorderSizePixel = 0
 		LoadingPanel.Position = UDim2.fromScale(0.5, 0.5)
@@ -8188,7 +8188,7 @@ function ModernV2:CreateWindow(Config)
 		LoadingStroke.Transparency = 1
 		LoadingStroke.Parent = LoadingPanel
 
-		LoadingIcon.Name = ModernV2.RandomString();
+		LoadingIcon.Name = L2Hub.RandomString();
 		LoadingIcon.Parent = LoadingPanel
 		LoadingIcon.BackgroundTransparency = 1
 		LoadingIcon.BorderSizePixel = 0
@@ -8196,10 +8196,10 @@ function ModernV2:CreateWindow(Config)
 		LoadingIcon.Size = UDim2.fromOffset(34, 34)
 		LoadingIcon.ZIndex = 252
 		LoadingIcon.Image = Window.Logo
-		LoadingIcon.ImageColor3 = ModernV2.IconColor
+		LoadingIcon.ImageColor3 = L2Hub.IconColor
 		LoadingIcon.ImageTransparency = 1
 
-		LoadingTitle.Name = ModernV2.RandomString();
+		LoadingTitle.Name = L2Hub.RandomString();
 		LoadingTitle.Parent = LoadingPanel
 		LoadingTitle.BackgroundTransparency = 1
 		LoadingTitle.BorderSizePixel = 0
@@ -8212,9 +8212,9 @@ function ModernV2:CreateWindow(Config)
 		LoadingTitle.TextSize = 15
 		LoadingTitle.TextTransparency = 1
 		LoadingTitle.TextXAlignment = Enum.TextXAlignment.Left
-		ModernV2:AddTextGradient(LoadingTitle);
+		L2Hub:AddTextGradient(LoadingTitle);
 
-		LoadingContent.Name = ModernV2.RandomString();
+		LoadingContent.Name = L2Hub.RandomString();
 		LoadingContent.Parent = LoadingPanel
 		LoadingContent.BackgroundTransparency = 1
 		LoadingContent.BorderSizePixel = 0
@@ -8228,24 +8228,24 @@ function ModernV2:CreateWindow(Config)
 		LoadingContent.TextTransparency = 1
 		LoadingContent.TextXAlignment = Enum.TextXAlignment.Left
 
-		ModernV2.PlayAnimate(LoadingOverlay, SlowyTween, { BackgroundTransparency = 0.250 })
-		ModernV2.PlayAnimate(LoadingPanel, SlowyTween, { BackgroundTransparency = 0.035 })
-		ModernV2.PlayAnimate(LoadingStroke, SlowyTween, { Transparency = 0.650 })
-		ModernV2.PlayAnimate(LoadingIcon, SlowyTween, { ImageTransparency = 0 })
-		ModernV2.PlayAnimate(LoadingTitle, SlowyTween, { TextTransparency = 0 })
-		ModernV2.PlayAnimate(LoadingContent, SlowyTween, { TextTransparency = 0.350 })
+		L2Hub.PlayAnimate(LoadingOverlay, SlowyTween, { BackgroundTransparency = 0.250 })
+		L2Hub.PlayAnimate(LoadingPanel, SlowyTween, { BackgroundTransparency = 0.035 })
+		L2Hub.PlayAnimate(LoadingStroke, SlowyTween, { Transparency = 0.650 })
+		L2Hub.PlayAnimate(LoadingIcon, SlowyTween, { ImageTransparency = 0 })
+		L2Hub.PlayAnimate(LoadingTitle, SlowyTween, { TextTransparency = 0 })
+		L2Hub.PlayAnimate(LoadingContent, SlowyTween, { TextTransparency = 0.350 })
 
 		task.delay(tonumber(Config.LoadingDuration) or 1.15, function()
 			if not LoadingOverlay.Parent then
 				return;
 			end;
 
-			ModernV2.PlayAnimate(LoadingOverlay, SlowyTween, { BackgroundTransparency = 1 })
-			ModernV2.PlayAnimate(LoadingPanel, SlowyTween, { BackgroundTransparency = 1 })
-			ModernV2.PlayAnimate(LoadingStroke, SlowyTween, { Transparency = 1 })
-			ModernV2.PlayAnimate(LoadingIcon, SlowyTween, { ImageTransparency = 1 })
-			ModernV2.PlayAnimate(LoadingTitle, SlowyTween, { TextTransparency = 1 })
-			ModernV2.PlayAnimate(LoadingContent, SlowyTween, { TextTransparency = 1 })
+			L2Hub.PlayAnimate(LoadingOverlay, SlowyTween, { BackgroundTransparency = 1 })
+			L2Hub.PlayAnimate(LoadingPanel, SlowyTween, { BackgroundTransparency = 1 })
+			L2Hub.PlayAnimate(LoadingStroke, SlowyTween, { Transparency = 1 })
+			L2Hub.PlayAnimate(LoadingIcon, SlowyTween, { ImageTransparency = 1 })
+			L2Hub.PlayAnimate(LoadingTitle, SlowyTween, { TextTransparency = 1 })
+			L2Hub.PlayAnimate(LoadingContent, SlowyTween, { TextTransparency = 1 })
 
 			task.delay(0.2, function()
 				if LoadingOverlay.Parent then
@@ -8255,7 +8255,7 @@ function ModernV2:CreateWindow(Config)
 		end);
 	end;
 
-	if not ModernV2.EnabledBlur then
+	if not L2Hub.EnabledBlur then
 		WindowFrame.BackgroundTransparency = Window.Uitransparent or 0.0255
 	end;
 
@@ -8267,7 +8267,7 @@ function ModernV2:CreateWindow(Config)
 			else
 				WindowFrame.Visible = true;
 
-				ModernV2.PlayAnimate(WindowFrame,VSlowTween , {
+				L2Hub.PlayAnimate(WindowFrame,VSlowTween , {
 					Position = UDim2.fromScale(0.5,0.5);
 				});
 
@@ -8279,195 +8279,195 @@ function ModernV2:CreateWindow(Config)
 				WindowFrame.Parent = nil
 			else
 				WindowFrame.Visible = true;
-				WindowFrame.Parent = ModernV2.ScreenGui
+				WindowFrame.Parent = L2Hub.ScreenGui
 
 
 			end;
 		end;
 	end);
 
-	ModernV2:AddSignal(WindowFrame:GetPropertyChangedSignal('BackgroundTransparency'):Connect(renderParentWindow))
+	L2Hub:AddSignal(WindowFrame:GetPropertyChangedSignal('BackgroundTransparency'):Connect(renderParentWindow))
 
 	Window.SetRender = LPH_NO_VIRTUALIZE(function(self , value)
 		if value then
-			ModernV2.PlayAnimate(WindowFrame , SlowyTween , {
-				BackgroundTransparency = Window.Uitransparent or ((ModernV2.EnabledBlur and 0.055) or 0.0255),
+			L2Hub.PlayAnimate(WindowFrame , SlowyTween , {
+				BackgroundTransparency = Window.Uitransparent or ((L2Hub.EnabledBlur and 0.055) or 0.0255),
 				Size = Window.Size
 			})
 
-			ModernV2.PlayAnimate(LogoImage , SlowyTween , {
+			L2Hub.PlayAnimate(LogoImage , SlowyTween , {
 				ImageTransparency = 0
 			})
 
-			ModernV2.PlayAnimate(WindowName , SlowyTween , {
+			L2Hub.PlayAnimate(WindowName , SlowyTween , {
 				TextTransparency = 0
 			})
 
-			ModernV2.PlayAnimate(WindowContent , SlowyTween , {
+			L2Hub.PlayAnimate(WindowContent , SlowyTween , {
 				TextTransparency = 0.650
 			})
 
-			ModernV2.PlayAnimate(LineFrame , SlowyTween , {
+			L2Hub.PlayAnimate(LineFrame , SlowyTween , {
 				BackgroundTransparency = 0.650
 			})
 
-			ModernV2.PlayAnimate(AccountProfile , SlowyTween , {
+			L2Hub.PlayAnimate(AccountProfile , SlowyTween , {
 				ImageTransparency = 0
 			})
 
-			ModernV2.PlayAnimate(AccountName , SlowyTween , {
+			L2Hub.PlayAnimate(AccountName , SlowyTween , {
 				TextTransparency = 0
 			})
 
-			ModernV2.PlayAnimate(ExpireLabel , SlowyTween , {
+			L2Hub.PlayAnimate(ExpireLabel , SlowyTween , {
 				TextTransparency = 0.650
 			})
 
-			ModernV2.PlayAnimate(LineFrame_2 , SlowyTween , {
+			L2Hub.PlayAnimate(LineFrame_2 , SlowyTween , {
 				BackgroundTransparency = 0.650
 			})
 
-			ModernV2.PlayAnimate(UserSettingButton , SlowyTween , {
+			L2Hub.PlayAnimate(UserSettingButton , SlowyTween , {
 				TextTransparency = 0.5
 			})
 
-			ModernV2.PlayAnimate(RightMenuFrame , SlowyTween , {
+			L2Hub.PlayAnimate(RightMenuFrame , SlowyTween , {
 				BackgroundTransparency = 0.600
 			})
 
-			ModernV2.PlayAnimate(UIStroke , SlowyTween , {
+			L2Hub.PlayAnimate(UIStroke , SlowyTween , {
 				Transparency = 0.650
 			})
 
-			ModernV2.PlayAnimate(LineFrame_3 , SlowyTween , {
+			L2Hub.PlayAnimate(LineFrame_3 , SlowyTween , {
 				BackgroundTransparency = 0.650
 			})
 
-			ModernV2.PlayAnimate(ConfigFrame , SlowyTween , {
+			L2Hub.PlayAnimate(ConfigFrame , SlowyTween , {
 				BackgroundTransparency = 0.750
 			})
 
-			ModernV2.PlayAnimate(UIStroke_2 , SlowyTween , {
+			L2Hub.PlayAnimate(UIStroke_2 , SlowyTween , {
 				Transparency = 0.650
 			})
 
-			ModernV2.PlayAnimate(ConfigIcon , SlowyTween , {
+			L2Hub.PlayAnimate(ConfigIcon , SlowyTween , {
 				TextTransparency = 0.250
 			})
 
-			ModernV2.PlayAnimate(LineFrame_4 , SlowyTween , {
+			L2Hub.PlayAnimate(LineFrame_4 , SlowyTween , {
 				BackgroundTransparency = 0.650
 			})
 
-			ModernV2.PlayAnimate(ConfigName , SlowyTween , {
+			L2Hub.PlayAnimate(ConfigName , SlowyTween , {
 				TextTransparency = 0.350
 			})
 
-			ModernV2.PlayAnimate(ConfigBthIcon , SlowyTween , {
+			L2Hub.PlayAnimate(ConfigBthIcon , SlowyTween , {
 				TextTransparency = 0.250
 			})
 
-			ModernV2.PlayAnimate(SearchIcon , SlowyTween , {
+			L2Hub.PlayAnimate(SearchIcon , SlowyTween , {
 				TextTransparency = 0.250
 			})
 
-			ModernV2.PlayAnimate(SearchBox , SlowyTween , {
+			L2Hub.PlayAnimate(SearchBox , SlowyTween , {
 				TextTransparency = 0.350
 			})
 
-			ModernV2.PlayAnimate(CloseButton , SlowyTween , {
+			L2Hub.PlayAnimate(CloseButton , SlowyTween , {
 				TextTransparency = 0.450
 			})
 
-			Window.Shadow:Render(true);
+			Window.Shadow:Render(false);
 		else
 
-			ModernV2.PlayAnimate(WindowFrame , SlowyTween , {
+			L2Hub.PlayAnimate(WindowFrame , SlowyTween , {
 				BackgroundTransparency = 1,
 				Size = Window.Size + UDim2.fromOffset(-15,-15)
 			})
 
-			ModernV2.PlayAnimate(LogoImage , SlowyTween , {
+			L2Hub.PlayAnimate(LogoImage , SlowyTween , {
 				ImageTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(WindowName , SlowyTween , {
+			L2Hub.PlayAnimate(WindowName , SlowyTween , {
 				TextTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(WindowContent , SlowyTween , {
+			L2Hub.PlayAnimate(WindowContent , SlowyTween , {
 				TextTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(LineFrame , SlowyTween , {
+			L2Hub.PlayAnimate(LineFrame , SlowyTween , {
 				BackgroundTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(AccountProfile , SlowyTween , {
+			L2Hub.PlayAnimate(AccountProfile , SlowyTween , {
 				ImageTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(AccountName , SlowyTween , {
+			L2Hub.PlayAnimate(AccountName , SlowyTween , {
 				TextTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(ExpireLabel , SlowyTween , {
+			L2Hub.PlayAnimate(ExpireLabel , SlowyTween , {
 				TextTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(LineFrame_2 , SlowyTween , {
+			L2Hub.PlayAnimate(LineFrame_2 , SlowyTween , {
 				BackgroundTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(UserSettingButton , SlowyTween , {
+			L2Hub.PlayAnimate(UserSettingButton , SlowyTween , {
 				TextTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(RightMenuFrame , SlowyTween , {
+			L2Hub.PlayAnimate(RightMenuFrame , SlowyTween , {
 				BackgroundTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(UIStroke , SlowyTween , {
+			L2Hub.PlayAnimate(UIStroke , SlowyTween , {
 				Transparency = 1
 			})
 
-			ModernV2.PlayAnimate(LineFrame_3 , SlowyTween , {
+			L2Hub.PlayAnimate(LineFrame_3 , SlowyTween , {
 				BackgroundTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(ConfigFrame , SlowyTween , {
+			L2Hub.PlayAnimate(ConfigFrame , SlowyTween , {
 				BackgroundTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(UIStroke_2 , SlowyTween , {
+			L2Hub.PlayAnimate(UIStroke_2 , SlowyTween , {
 				Transparency = 1
 			})
 
-			ModernV2.PlayAnimate(ConfigIcon , SlowyTween , {
+			L2Hub.PlayAnimate(ConfigIcon , SlowyTween , {
 				TextTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(LineFrame_4 , SlowyTween , {
+			L2Hub.PlayAnimate(LineFrame_4 , SlowyTween , {
 				BackgroundTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(ConfigName , SlowyTween , {
+			L2Hub.PlayAnimate(ConfigName , SlowyTween , {
 				TextTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(ConfigBthIcon , SlowyTween , {
+			L2Hub.PlayAnimate(ConfigBthIcon , SlowyTween , {
 				TextTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(SearchIcon , SlowyTween , {
+			L2Hub.PlayAnimate(SearchIcon , SlowyTween , {
 				TextTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(SearchBox , SlowyTween , {
+			L2Hub.PlayAnimate(SearchBox , SlowyTween , {
 				TextTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(CloseButton , SlowyTween , {
+			L2Hub.PlayAnimate(CloseButton , SlowyTween , {
 				TextTransparency = 1
 			})
 
@@ -8475,19 +8475,19 @@ function ModernV2:CreateWindow(Config)
 		end;
 	end);
 
-	Window.Shadow = ModernV2:CreateShadow(WindowFrame);
+	Window.Shadow = L2Hub:CreateShadow(WindowFrame);
 	Window.Shadow:Render(false);
 
 	task.delay(0.25,function()
 		WindowFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
 		Window:SetRender(true);
-		ModernV2:AddSignal(Window.Signal:Connect(LPH_NO_VIRTUALIZE(function(...)
+		L2Hub:AddSignal(Window.Signal:Connect(LPH_NO_VIRTUALIZE(function(...)
 			Window:SetRender(...);
 		end)))
 	end)
 
-	if ModernV2.EnabledBlur then
-		ModernV2:CreateBlurModule(WindowFrame,Window.Signal);
+	if L2Hub.EnabledBlur then
+		L2Hub:CreateBlurModule(WindowFrame,Window.Signal);
 	end;
 
 	do
@@ -8501,12 +8501,12 @@ function ModernV2:CreateWindow(Config)
 		Frame.ZIndex = 7
 		Frame.BackgroundTransparency = 1;
 
-		ModernV2.Drag(Frame , WindowFrame , 0.15)
+		L2Hub.Drag(Frame , WindowFrame , 0.15)
 	end
 
 	UICorner.Parent = WindowFrame
 
-	LeftMenuFrame.Name = ModernV2.RandomString();
+	LeftMenuFrame.Name = L2Hub.RandomString();
 	LeftMenuFrame.Parent = WindowFrame
 	LeftMenuFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	LeftMenuFrame.BackgroundTransparency = 1.000
@@ -8514,7 +8514,7 @@ function ModernV2:CreateWindow(Config)
 	LeftMenuFrame.BorderSizePixel = 0
 	LeftMenuFrame.Size = UDim2.new(0, 175, 1, 0)
 
-	HeadFrame.Name = ModernV2.RandomString();
+	HeadFrame.Name = L2Hub.RandomString();
 	HeadFrame.Parent = LeftMenuFrame
 	HeadFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	HeadFrame.BackgroundTransparency = 1.000
@@ -8524,7 +8524,7 @@ function ModernV2:CreateWindow(Config)
 	HeadFrame.Size = UDim2.new(1, 0, 0, 50)
 	HeadFrame.ZIndex = 7
 
-	LogoImage.Name = ModernV2.RandomString();
+	LogoImage.Name = L2Hub.RandomString();
 	LogoImage.Parent = HeadFrame
 	LogoImage.AnchorPoint = Vector2.new(0, 0.5)
 	LogoImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -8535,12 +8535,12 @@ function ModernV2:CreateWindow(Config)
 	LogoImage.Size = UDim2.new(0, 35, 0, 35)
 	LogoImage.ZIndex = 7
 	LogoImage.Image = Window.Logo
-	LogoImage.ImageColor3 = ModernV2.IconColor
+	LogoImage.ImageColor3 = L2Hub.IconColor
 
 	UICorner_2.CornerRadius = UDim.new(0, 7)
 	UICorner_2.Parent = LogoImage
 
-	WindowName.Name = ModernV2.RandomString();
+	WindowName.Name = L2Hub.RandomString();
 	WindowName.Parent = HeadFrame
 	WindowName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	WindowName.BackgroundTransparency = 1.000
@@ -8554,9 +8554,9 @@ function ModernV2:CreateWindow(Config)
 	WindowName.TextColor3 = Color3.fromRGB(255, 255, 255)
 	WindowName.TextSize = 18.000
 	WindowName.TextXAlignment = Enum.TextXAlignment.Left
-	ModernV2:AddTextGradient(WindowName);
+	L2Hub:AddTextGradient(WindowName);
 
-	WindowContent.Name = ModernV2.RandomString();
+	WindowContent.Name = L2Hub.RandomString();
 	WindowContent.Parent = HeadFrame
 	WindowContent.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	WindowContent.BackgroundTransparency = 1.000
@@ -8599,8 +8599,8 @@ function ModernV2:CreateWindow(Config)
 			end);
 		end;
 
-		ModernV2:AddSignal(Label:GetPropertyChangedSignal("Text"):Connect(Refresh));
-		ModernV2:AddSignal(Label:GetPropertyChangedSignal("AbsoluteSize"):Connect(Refresh));
+		L2Hub:AddSignal(Label:GetPropertyChangedSignal("Text"):Connect(Refresh));
+		L2Hub:AddSignal(Label:GetPropertyChangedSignal("AbsoluteSize"):Connect(Refresh));
 		Refresh();
 	end;
 
@@ -8609,7 +8609,7 @@ function ModernV2:CreateWindow(Config)
 		Gap = Gap or 45;
 
 		local Clip = Instance.new("Frame");
-		Clip.Name = ModernV2.RandomString();
+		Clip.Name = L2Hub.RandomString();
 		Clip.Parent = Label.Parent;
 		Clip.BackgroundTransparency = 1;
 		Clip.BorderSizePixel = 0;
@@ -8624,7 +8624,7 @@ function ModernV2:CreateWindow(Config)
 		Label.TextTruncate = Enum.TextTruncate.None;
 
 		local Clone = Label:Clone();
-		Clone.Name = ModernV2.RandomString();
+		Clone.Name = L2Hub.RandomString();
 		Clone.Parent = Clip;
 		Clone.Position = UDim2.fromOffset(0, 0);
 		Clone.TextTruncate = Enum.TextTruncate.None;
@@ -8668,12 +8668,12 @@ function ModernV2:CreateWindow(Config)
 			end);
 		end;
 
-		ModernV2:AddSignal(Label:GetPropertyChangedSignal("Text"):Connect(Refresh));
-		ModernV2:AddSignal(Label:GetPropertyChangedSignal("TextSize"):Connect(Refresh));
-		ModernV2:AddSignal(Label:GetPropertyChangedSignal("TextTransparency"):Connect(SyncClone));
-		ModernV2:AddSignal(Label:GetPropertyChangedSignal("TextColor3"):Connect(SyncClone));
-		ModernV2:AddSignal(Clip:GetPropertyChangedSignal("AbsoluteSize"):Connect(Refresh));
-		ModernV2:AddSignal(RunService.RenderStepped:Connect(function()
+		L2Hub:AddSignal(Label:GetPropertyChangedSignal("Text"):Connect(Refresh));
+		L2Hub:AddSignal(Label:GetPropertyChangedSignal("TextSize"):Connect(Refresh));
+		L2Hub:AddSignal(Label:GetPropertyChangedSignal("TextTransparency"):Connect(SyncClone));
+		L2Hub:AddSignal(Label:GetPropertyChangedSignal("TextColor3"):Connect(SyncClone));
+		L2Hub:AddSignal(Clip:GetPropertyChangedSignal("AbsoluteSize"):Connect(Refresh));
+		L2Hub:AddSignal(RunService.RenderStepped:Connect(function()
 			if not Label.Parent or not Clip.Parent then
 				return;
 			end;
@@ -8701,7 +8701,7 @@ function ModernV2:CreateWindow(Config)
 		WindowName.TextTruncate = Enum.TextTruncate.None;
 	end;
 
-	LineFrame.Name = ModernV2.RandomString();
+	LineFrame.Name = L2Hub.RandomString();
 	LineFrame.Parent = HeadFrame
 	LineFrame.AnchorPoint = Vector2.new(0.5, 1)
 	LineFrame.BackgroundColor3 = Color3.fromRGB(45, 48, 58)
@@ -8712,7 +8712,7 @@ function ModernV2:CreateWindow(Config)
 	LineFrame.Size = UDim2.new(1, -10, 0, 1)
 	LineFrame.ZIndex = 5
 
-	LeftScrollingFrame.Name = ModernV2.RandomString();
+	LeftScrollingFrame.Name = L2Hub.RandomString();
 	LeftScrollingFrame.Parent = LeftMenuFrame
 	LeftScrollingFrame.Active = true
 	LeftScrollingFrame.AnchorPoint = Vector2.new(0.5, 0)
@@ -8730,11 +8730,11 @@ function ModernV2:CreateWindow(Config)
 	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 	UIListLayout.Padding = UDim.new(0, 5)
 
-	ModernV2:AddSignal(UIListLayout:GetPropertyChangedSignal('AbsoluteContentSize'):Connect(LPH_NO_VIRTUALIZE(function()
+	L2Hub:AddSignal(UIListLayout:GetPropertyChangedSignal('AbsoluteContentSize'):Connect(LPH_NO_VIRTUALIZE(function()
 		LeftScrollingFrame.CanvasSize = UDim2.fromOffset(0,UIListLayout.AbsoluteContentSize.Y + 1)
 	end)))
 
-	BottomFrame.Name = ModernV2.RandomString();
+	BottomFrame.Name = L2Hub.RandomString();
 	BottomFrame.Parent = LeftMenuFrame
 	BottomFrame.AnchorPoint = Vector2.new(0, 1)
 	BottomFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -8745,7 +8745,7 @@ function ModernV2:CreateWindow(Config)
 	BottomFrame.Size = UDim2.new(1, 0, 0, 50)
 	BottomFrame.ZIndex = 7
 
-	AccountProfile.Name = ModernV2.RandomString();
+	AccountProfile.Name = L2Hub.RandomString();
 	AccountProfile.Parent = BottomFrame
 	AccountProfile.AnchorPoint = Vector2.new(0, 0.5)
 	AccountProfile.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -8755,12 +8755,12 @@ function ModernV2:CreateWindow(Config)
 	AccountProfile.Position = UDim2.new(0, 10, 0.5, 0)
 	AccountProfile.Size = UDim2.new(0, 35, 0, 35)
 	AccountProfile.ZIndex = 7
-	AccountProfile.Image = ModernV2.UserProfile or ""
+	AccountProfile.Image = L2Hub.UserProfile or ""
 
 	UICorner_3.CornerRadius = UDim.new(1, 0)
 	UICorner_3.Parent = AccountProfile
 
-	AccountName.Name = ModernV2.RandomString();
+	AccountName.Name = L2Hub.RandomString();
 	AccountName.Parent = BottomFrame
 	AccountName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	AccountName.BackgroundTransparency = 1.000
@@ -8776,7 +8776,7 @@ function ModernV2:CreateWindow(Config)
 	AccountName.TextXAlignment = Enum.TextXAlignment.Left
 	AccountName.TextTruncate = Enum.TextTruncate.SplitWord;
 
-	ExpireLabel.Name = ModernV2.RandomString();
+	ExpireLabel.Name = L2Hub.RandomString();
 	ExpireLabel.Parent = BottomFrame
 	ExpireLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	ExpireLabel.BackgroundTransparency = 1.000
@@ -8792,7 +8792,7 @@ function ModernV2:CreateWindow(Config)
 	ExpireLabel.TextTransparency = 0.650
 	ExpireLabel.TextXAlignment = Enum.TextXAlignment.Left
 
-	LineFrame_2.Name = ModernV2.RandomString();
+	LineFrame_2.Name = L2Hub.RandomString();
 	LineFrame_2.Parent = BottomFrame
 	LineFrame_2.AnchorPoint = Vector2.new(0.5, 0)
 	LineFrame_2.BackgroundColor3 = Color3.fromRGB(45, 48, 58)
@@ -8803,7 +8803,7 @@ function ModernV2:CreateWindow(Config)
 	LineFrame_2.Size = UDim2.new(1, -10, 0, 1)
 	LineFrame_2.ZIndex = 5
 
-	UserSettingButton.Name = ModernV2.RandomString();
+	UserSettingButton.Name = L2Hub.RandomString();
 	UserSettingButton.Parent = BottomFrame
 	UserSettingButton.AnchorPoint = Vector2.new(1, 0.5)
 	UserSettingButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -8813,7 +8813,7 @@ function ModernV2:CreateWindow(Config)
 	UserSettingButton.Position = UDim2.new(1, -7, 0.5, 0)
 	UserSettingButton.Size = UDim2.new(0, 25, 0, 25)
 	UserSettingButton.ZIndex = 7
-	ModernV2:SetIconMode(UserSettingButton, "chevron-large-right")
+	L2Hub:SetIconMode(UserSettingButton, "chevron-large-right")
 	UserSettingButton.ImageColor3 = Color3.fromRGB(255, 255, 255)
 	UserSettingButton.ImageTransparency = 0.5
 	UserSettingButton.ScaleType = Enum.ScaleType.Fit
@@ -8823,8 +8823,8 @@ function ModernV2:CreateWindow(Config)
 		AccountProfile.ImageTransparency = 1;
 		AccountProfile.BackgroundColor3 = Color3.fromRGB(26, 28, 36);
 		AccountProfile.BackgroundTransparency = 0.250;
-		ModernV2:SetIconMode(AccountProfile, "gear");
-		AccountProfile.ImageColor3 = ModernV2.AccentColor;
+		L2Hub:SetIconMode(AccountProfile, "gear");
+		AccountProfile.ImageColor3 = L2Hub.AccentColor;
 		AccountProfile.ImageTransparency = 0.050;
 
 		AccountName.Text = "Settings";
@@ -8833,21 +8833,21 @@ function ModernV2:CreateWindow(Config)
 		ExpireLabel.Size = UDim2.new(0, 120, 0, 15);
 	end;
 
-	ModernV2:AddSignal(BottomFrame.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
-		ModernV2.PlayAnimate(UserSettingButton,SlowyTween , {
+	L2Hub:AddSignal(BottomFrame.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
+		L2Hub.PlayAnimate(UserSettingButton,SlowyTween , {
 			TextTransparency = 0.25
 		})		
 	end)))
 
-	ModernV2:AddSignal(BottomFrame.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
-		ModernV2.PlayAnimate(UserSettingButton,SlowyTween , {
+	L2Hub:AddSignal(BottomFrame.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
+		L2Hub.PlayAnimate(UserSettingButton,SlowyTween , {
 			TextTransparency = 0.5
 		})		
 	end)))
 
-	RightMenuFrame.Name = ModernV2.RandomString();
+	RightMenuFrame.Name = L2Hub.RandomString();
 	RightMenuFrame.Parent = WindowFrame
-	RightMenuFrame.BackgroundColor3 = Color3.fromRGB(8, 8, 13)
+	RightMenuFrame.BackgroundColor3 = Color3.fromRGB(12, 12, 12)
 	RightMenuFrame.BackgroundTransparency = 0.600
 	RightMenuFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	RightMenuFrame.BorderSizePixel = 0
@@ -8863,7 +8863,7 @@ function ModernV2:CreateWindow(Config)
 	UICorner_4.CornerRadius = UDim.new(0, 13)
 	UICorner_4.Parent = RightMenuFrame
 
-	RightHeader.Name = ModernV2.RandomString();
+	RightHeader.Name = L2Hub.RandomString();
 	RightHeader.Parent = RightMenuFrame
 	RightHeader.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	RightHeader.BackgroundTransparency = 1.000
@@ -8872,7 +8872,7 @@ function ModernV2:CreateWindow(Config)
 	RightHeader.Size = UDim2.new(1, 0, 0, 50)
 	RightHeader.ZIndex = 9
 
-	LineFrame_3.Name = ModernV2.RandomString();
+	LineFrame_3.Name = L2Hub.RandomString();
 	LineFrame_3.Parent = RightHeader
 	LineFrame_3.AnchorPoint = Vector2.new(0.5, 1)
 	LineFrame_3.BackgroundColor3 = Color3.fromRGB(45, 48, 58)
@@ -8883,7 +8883,7 @@ function ModernV2:CreateWindow(Config)
 	LineFrame_3.Size = UDim2.new(1, -10, 0, 1)
 	LineFrame_3.ZIndex = 9
 
-	ConfigFrame.Name = ModernV2.RandomString();
+	ConfigFrame.Name = L2Hub.RandomString();
 	ConfigFrame.Parent = RightHeader
 	ConfigFrame.AnchorPoint = Vector2.new(0, 0.5)
 	ConfigFrame.BackgroundColor3 = Color3.fromRGB(13, 17, 22)
@@ -8901,7 +8901,7 @@ function ModernV2:CreateWindow(Config)
 	UICorner_5.CornerRadius = UDim.new(0, 4)
 	UICorner_5.Parent = ConfigFrame
 
-	ConfigIcon.Name = ModernV2.RandomString();
+	ConfigIcon.Name = L2Hub.RandomString();
 	ConfigIcon.Parent = ConfigFrame
 	ConfigIcon.AnchorPoint = Vector2.new(0, 0.5)
 	ConfigIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -8911,12 +8911,12 @@ function ModernV2:CreateWindow(Config)
 	ConfigIcon.Position = UDim2.new(0, 2, 0.5, 0)
 	ConfigIcon.Size = UDim2.new(0, 25, 0, 25)
 	ConfigIcon.ZIndex = 9
-	ModernV2:SetIconMode(ConfigIcon, "pencil-square")
+	L2Hub:SetIconMode(ConfigIcon, "pencil-square")
 	ConfigIcon.ImageColor3 = Color3.fromRGB(223, 223, 223)
 	ConfigIcon.ImageTransparency = 0.250
 	ConfigIcon.ScaleType = Enum.ScaleType.Fit
 
-	LineFrame_4.Name = ModernV2.RandomString();
+	LineFrame_4.Name = L2Hub.RandomString();
 	LineFrame_4.Parent = ConfigFrame
 	LineFrame_4.BackgroundColor3 = Color3.fromRGB(45, 48, 58)
 	LineFrame_4.BackgroundTransparency = 0.650
@@ -8925,7 +8925,7 @@ function ModernV2:CreateWindow(Config)
 	LineFrame_4.Position = UDim2.new(0, 30, 0, 0)
 	LineFrame_4.Size = UDim2.new(0, 1, 1, 0)
 
-	ConfigName.Name = ModernV2.RandomString();
+	ConfigName.Name = L2Hub.RandomString();
 	ConfigName.Parent = ConfigFrame
 	ConfigName.AnchorPoint = Vector2.new(0, 0.5)
 	ConfigName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -8942,7 +8942,7 @@ function ModernV2:CreateWindow(Config)
 	ConfigName.TextTransparency = 0.350
 	ConfigName.TextXAlignment = Enum.TextXAlignment.Left
 
-	ConfigBthIcon.Name = ModernV2.RandomString();
+	ConfigBthIcon.Name = L2Hub.RandomString();
 	ConfigBthIcon.Parent = ConfigFrame
 	ConfigBthIcon.AnchorPoint = Vector2.new(1, 0.5)
 	ConfigBthIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -8952,12 +8952,12 @@ function ModernV2:CreateWindow(Config)
 	ConfigBthIcon.Position = UDim2.new(1, -2, 0.5, 0)
 	ConfigBthIcon.Size = UDim2.new(0, 25, 0, 25)
 	ConfigBthIcon.ZIndex = 9
-	ModernV2:SetIconMode(ConfigBthIcon, "chevron-small-down")
+	L2Hub:SetIconMode(ConfigBthIcon, "chevron-small-down")
 	ConfigBthIcon.ImageColor3 = Color3.fromRGB(223, 223, 223)
 	ConfigBthIcon.ImageTransparency = 0.250
 	ConfigBthIcon.ScaleType = Enum.ScaleType.Fit
 
-	SearchFrame.Name = ModernV2.RandomString();
+	SearchFrame.Name = L2Hub.RandomString();
 	SearchFrame.Parent = RightHeader
 	SearchFrame.AnchorPoint = Vector2.new(1, 0.5)
 	SearchFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -8969,7 +8969,7 @@ function ModernV2:CreateWindow(Config)
 	SearchFrame.Size = UDim2.new(0, 30, 0, 30)
 	SearchFrame.ZIndex = 12
 
-	SearchIcon.Name = ModernV2.RandomString();
+	SearchIcon.Name = L2Hub.RandomString();
 	SearchIcon.Parent = SearchFrame
 	SearchIcon.AnchorPoint = Vector2.new(0, 0.5)
 	SearchIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -8979,12 +8979,12 @@ function ModernV2:CreateWindow(Config)
 	SearchIcon.Position = UDim2.new(0, 2, 0.5, 0)
 	SearchIcon.Size = UDim2.new(0, 25, 0, 25)
 	SearchIcon.ZIndex = 12
-	ModernV2:SetIconMode(SearchIcon, "magnifying-glass")
+	L2Hub:SetIconMode(SearchIcon, "magnifying-glass")
 	SearchIcon.ImageColor3 = Color3.fromRGB(223, 223, 223)
 	SearchIcon.ImageTransparency = 0.45
 	SearchIcon.ScaleType = Enum.ScaleType.Fit
 
-	SearchBox.Name = ModernV2.RandomString();
+	SearchBox.Name = L2Hub.RandomString();
 	SearchBox.Parent = SearchFrame
 	SearchBox.AnchorPoint = Vector2.new(0, 0.5)
 	SearchBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -9003,7 +9003,7 @@ function ModernV2:CreateWindow(Config)
 	SearchBox.TextTransparency = 1
 	SearchBox.TextXAlignment = Enum.TextXAlignment.Left
 
-	CloseButton.Name = ModernV2.RandomString();
+	CloseButton.Name = L2Hub.RandomString();
 	CloseButton.Parent = RightHeader
 	CloseButton.AnchorPoint = Vector2.new(1, 0.5)
 	CloseButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -9013,12 +9013,12 @@ function ModernV2:CreateWindow(Config)
 	CloseButton.Position = UDim2.new(1, -10, 0.5, 0)
 	CloseButton.Size = UDim2.new(0, 30, 0, 30)
 	CloseButton.ZIndex = 12
-	ModernV2:SetIconMode(CloseButton, "x")
+	L2Hub:SetIconMode(CloseButton, "x")
 	CloseButton.ImageColor3 = Color3.fromRGB(223, 223, 223)
 	CloseButton.ImageTransparency = 0.45
 	CloseButton.ScaleType = Enum.ScaleType.Fit
 
-	TabContainer.Name = ModernV2.RandomString();
+	TabContainer.Name = L2Hub.RandomString();
 	TabContainer.Parent = RightMenuFrame
 	TabContainer.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	TabContainer.BackgroundTransparency = 1.000
@@ -9031,31 +9031,31 @@ function ModernV2:CreateWindow(Config)
 
 	if Window.SearchEnabled then
 		Window.Searching = false;
-		local Input = ModernV2:CreateInput(SearchIcon , LPH_NO_VIRTUALIZE(function()
+		local Input = L2Hub:CreateInput(SearchIcon , LPH_NO_VIRTUALIZE(function()
 			Window.Searching = not Window.Searching;
 
 			if Window.Searching then
-				ModernV2.PlayAnimate(SearchFrame , VSlowTween , {
+				L2Hub.PlayAnimate(SearchFrame , VSlowTween , {
 					Size = UDim2.new(0, 220, 0, 30)
 				})
 
-				ModernV2.PlayAnimate(SearchIcon , SlowyTween , {
+				L2Hub.PlayAnimate(SearchIcon , SlowyTween , {
 					TextTransparency = 0.25
 				})
 
-				ModernV2.PlayAnimate(SearchBox , VSlowTween , {
+				L2Hub.PlayAnimate(SearchBox , VSlowTween , {
 					TextTransparency = 0.350
 				})
 			else
-				ModernV2.PlayAnimate(SearchFrame , VSlowTween , {
+				L2Hub.PlayAnimate(SearchFrame , VSlowTween , {
 					Size = UDim2.new(0, 30, 0, 30)
 				})
 
-				ModernV2.PlayAnimate(SearchIcon , SlowyTween , {
+				L2Hub.PlayAnimate(SearchIcon , SlowyTween , {
 					TextTransparency = 0.45
 				})
 
-				ModernV2.PlayAnimate(SearchBox , SlowyTween , {
+				L2Hub.PlayAnimate(SearchBox , SlowyTween , {
 					TextTransparency = 1
 				})
 
@@ -9067,9 +9067,9 @@ function ModernV2:CreateWindow(Config)
 		local last_thread;
 		local max_time = 0.2;
 
-		ModernV2:AddSignal(SearchBox:GetPropertyChangedSignal('Text'):Connect(LPH_NO_VIRTUALIZE(function()
+		L2Hub:AddSignal(SearchBox:GetPropertyChangedSignal('Text'):Connect(LPH_NO_VIRTUALIZE(function()
 			if not SearchBox.Text:byte() then
-				for i,v in next , ModernV2.NameRegisitry do
+				for i,v in next , L2Hub.NameRegisitry do
 					v.Root.Visible = true;
 				end;
 
@@ -9087,13 +9087,13 @@ function ModernV2:CreateWindow(Config)
 				if SearchBox.Text:byte() and (tick() - wati_for_finish) > max_time then
 					local RevealedMatch = false;
 
-					for i,v in next , ModernV2.NameRegisitry do
+					for i,v in next , L2Hub.NameRegisitry do
 						if string.find(string.lower(v.Idx) , string.lower(SearchBox.Text), 1, true) then
 							v.Root.Visible = true;
 
 							if not RevealedMatch then
 								RevealedMatch = true;
-								ModernV2:RevealQueryItem(v);
+								L2Hub:RevealQueryItem(v);
 							end;
 						else
 							v.Root.Visible = false;
@@ -9103,19 +9103,19 @@ function ModernV2:CreateWindow(Config)
 			end);
 		end)));
 
-		ModernV2:AddSignal(Input.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
-			ModernV2.PlayAnimate(SearchIcon , SlowyTween , {
+		L2Hub:AddSignal(Input.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
+			L2Hub.PlayAnimate(SearchIcon , SlowyTween , {
 				TextTransparency = 0.25
 			})
 		end)))
 
-		ModernV2:AddSignal(Input.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
+		L2Hub:AddSignal(Input.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
 			if Window.Searching then
-				ModernV2.PlayAnimate(SearchIcon , SlowyTween , {
+				L2Hub.PlayAnimate(SearchIcon , SlowyTween , {
 					TextTransparency = 0.25
 				})
 			else
-				ModernV2.PlayAnimate(SearchIcon , SlowyTween , {
+				L2Hub.PlayAnimate(SearchIcon , SlowyTween , {
 					TextTransparency = 0.45
 				})
 			end;
@@ -9125,7 +9125,7 @@ function ModernV2:CreateWindow(Config)
 	end;
 
 	do
-		local Input = ModernV2:CreateInput(CloseButton , LPH_NO_VIRTUALIZE(function()
+		local Input = L2Hub:CreateInput(CloseButton , LPH_NO_VIRTUALIZE(function()
 			Window:Dialog({
 				Title = "Destroy Window?",
 				Content = "Are you sure you want to destroy this window?",
@@ -9148,14 +9148,14 @@ function ModernV2:CreateWindow(Config)
 			});
 		end));
 
-		ModernV2:AddSignal(Input.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
-			ModernV2.PlayAnimate(CloseButton , SlowyTween , {
+		L2Hub:AddSignal(Input.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
+			L2Hub.PlayAnimate(CloseButton , SlowyTween , {
 				TextTransparency = 0.150
 			})
 		end)))
 
-		ModernV2:AddSignal(Input.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
-			ModernV2.PlayAnimate(CloseButton , SlowyTween , {
+		L2Hub:AddSignal(Input.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
+			L2Hub.PlayAnimate(CloseButton , SlowyTween , {
 				TextTransparency = Window.Signal:GetValue() and 0.450 or 1
 			})
 		end)))
@@ -9164,19 +9164,19 @@ function ModernV2:CreateWindow(Config)
 	if Window.Enable3DRenderer then
 		local Part = Instance.new('Part');
 
-		Part.Name = ModernV2.RandomString();
+		Part.Name = L2Hub.RandomString();
 		Part.Anchored = true;
 		Part.Transparency = 1;
 		Part.CanCollide = false;
 		Part.CanTouch = false;
 		Part.AudioCanCollide = false;
-		Part.CollisionGroup = ModernV2.RandomString();
+		Part.CollisionGroup = L2Hub.RandomString();
 		Part.CFrame = CFrame.new(0,0,0);
 		Part.Size = Vector3.zero;
 
 		local SurfaceGui = Instance.new("SurfaceGui")
 
-		SurfaceGui.Parent = ModernV2.ScreenGui;
+		SurfaceGui.Parent = L2Hub.ScreenGui;
 		SurfaceGui.Adornee = Part;
 		SurfaceGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 		SurfaceGui.AlwaysOnTop = true
@@ -9186,7 +9186,7 @@ function ModernV2:CreateWindow(Config)
 		SurfaceGui.PixelsPerStud = 40;
 
 		Window.SurfaceGui = SurfaceGui;
-		ModernV2.GlobalSurfaceGui = SurfaceGui;
+		L2Hub.GlobalSurfaceGui = SurfaceGui;
 
 		local PerfectScale = Vector2.new(1920 , 1080 + 300)
 
@@ -9195,7 +9195,7 @@ function ModernV2:CreateWindow(Config)
 				local _,OnScreen = CurrentCamera:WorldToViewportPoint(Part.Position);
 
 				if OnScreen then
-					ModernV2.PlayAnimate(Part,VSlowTween , {
+					L2Hub.PlayAnimate(Part,VSlowTween , {
 						CFrame = CurrentCamera.CFrame * CFrame.new(0,0,-15) * CFrame.Angles(0,math.rad(180),0);
 					});
 				end;
@@ -9209,9 +9209,9 @@ function ModernV2:CreateWindow(Config)
 			local PerfectDistance = XY_Incom.Magnitude;
 			local SizeIndicator = PerfectDistance / 1.35;
 
-			Part.Parent = ModernV2.BlurModuleParent or workspace;
+			Part.Parent = L2Hub.BlurModuleParent or workspace;
 
-			ModernV2.PlayAnimate(Part,VSlowTween , {
+			L2Hub.PlayAnimate(Part,VSlowTween , {
 				CFrame = (CurrentCamera.CFrame * CFrame.new(0,0,-25)) * CFrame.Angles(0,math.rad(180),0);
 			});
 
@@ -9220,7 +9220,7 @@ function ModernV2:CreateWindow(Config)
 
 		function Window:Set3DRender(val)
 			Window.__3DRender = val;
-			ModernV2.Global3DRenderMode = val;
+			L2Hub.Global3DRenderMode = val;
 
 			if val then
 				Window.Load3DBlock();
@@ -9237,7 +9237,7 @@ function ModernV2:CreateWindow(Config)
 	function Window:AddTabLabel(Name: string)
 		local TabLabel = Instance.new("TextLabel")
 
-		TabLabel.Name = ModernV2.RandomString()
+		TabLabel.Name = L2Hub.RandomString()
 		TabLabel.Parent = LeftScrollingFrame
 		TabLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		TabLabel.BackgroundTransparency = 1.000
@@ -9254,11 +9254,11 @@ function ModernV2:CreateWindow(Config)
 
 		local SetRender = LPH_NO_VIRTUALIZE(function(val)
 			if val then
-				ModernV2.PlayAnimate(TabLabel , SlowyTween,{
+				L2Hub.PlayAnimate(TabLabel , SlowyTween,{
 					TextTransparency = 0.500
 				})
 			else
-				ModernV2.PlayAnimate(TabLabel , SlowyTween,{
+				L2Hub.PlayAnimate(TabLabel , SlowyTween,{
 					TextTransparency = 1
 				})
 			end
@@ -9276,7 +9276,7 @@ function ModernV2:CreateWindow(Config)
 			};
 		end;
 
-		Config = ModernV2:ProcessParams(Config , {
+		Config = L2Hub:ProcessParams(Config , {
 			Name = "Category",
 			Icon = "",
 			Open = true,
@@ -9298,7 +9298,7 @@ function ModernV2:CreateWindow(Config)
 		local TabsHolder = Instance.new("Frame")
 		local TabsLayout = Instance.new("UIListLayout")
 
-		CategoryRoot.Name = ModernV2.RandomString();
+		CategoryRoot.Name = L2Hub.RandomString();
 		CategoryRoot.Parent = LeftScrollingFrame
 		CategoryRoot.BackgroundTransparency = 1
 		CategoryRoot.BorderSizePixel = 0
@@ -9310,9 +9310,9 @@ function ModernV2:CreateWindow(Config)
 		CategoryLayout.SortOrder = Enum.SortOrder.LayoutOrder
 		CategoryLayout.Padding = UDim.new(0, 5)
 
-		Header.Name = ModernV2.RandomString();
+		Header.Name = L2Hub.RandomString();
 		Header.Parent = CategoryRoot
-		Header.BackgroundColor3 = Color3.fromRGB(20, 22, 27)
+		Header.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
 		Header.BackgroundTransparency = 0.250
 		Header.BorderSizePixel = 0
 		Header.ClipsDescendants = true
@@ -9326,7 +9326,7 @@ function ModernV2:CreateWindow(Config)
 		HeaderStroke.Transparency = 0.700
 		HeaderStroke.Parent = Header
 
-		HeaderIcon.Name = ModernV2.RandomString();
+		HeaderIcon.Name = L2Hub.RandomString();
 		HeaderIcon.Parent = Header
 		HeaderIcon.AnchorPoint = Vector2.new(0, 0.5)
 		HeaderIcon.BackgroundTransparency = 1
@@ -9334,12 +9334,12 @@ function ModernV2:CreateWindow(Config)
 		HeaderIcon.Position = UDim2.new(0, 8, 0.5, 0)
 		HeaderIcon.Size = UDim2.new(0, 16, 0, 16)
 		HeaderIcon.ZIndex = 9
-		HeaderIcon.ImageColor3 = ModernV2.IconColor
+		HeaderIcon.ImageColor3 = L2Hub.IconColor
 		HeaderIcon.ScaleType = Enum.ScaleType.Fit
-		ModernV2:SetIconMode(HeaderIcon, Config.Icon)
+		L2Hub:SetIconMode(HeaderIcon, Config.Icon)
 		HeaderIcon.Visible = tostring(Config.Icon or "") ~= ""
 
-		HeaderLabel.Name = ModernV2.RandomString();
+		HeaderLabel.Name = L2Hub.RandomString();
 		HeaderLabel.Parent = Header
 		HeaderLabel.AnchorPoint = Vector2.new(0, 0.5)
 		HeaderLabel.BackgroundTransparency = 1
@@ -9355,7 +9355,7 @@ function ModernV2:CreateWindow(Config)
 		HeaderLabel.TextTruncate = Enum.TextTruncate.AtEnd
 		HeaderLabel.TextXAlignment = Enum.TextXAlignment.Left
 
-		ChevronIcon.Name = ModernV2.RandomString();
+		ChevronIcon.Name = L2Hub.RandomString();
 		ChevronIcon.Parent = Header
 		ChevronIcon.AnchorPoint = Vector2.new(1, 0.5)
 		ChevronIcon.BackgroundTransparency = 1
@@ -9366,9 +9366,9 @@ function ModernV2:CreateWindow(Config)
 		ChevronIcon.ImageColor3 = Color3.fromRGB(223, 223, 223)
 		ChevronIcon.ImageTransparency = 0.350
 		ChevronIcon.ScaleType = Enum.ScaleType.Fit
-		ModernV2:SetIconMode(ChevronIcon, "chevron-small-down")
+		L2Hub:SetIconMode(ChevronIcon, "chevron-small-down")
 
-		TabsHolder.Name = ModernV2.RandomString();
+		TabsHolder.Name = L2Hub.RandomString();
 		TabsHolder.Parent = CategoryRoot
 		TabsHolder.BackgroundTransparency = 1
 		TabsHolder.BorderSizePixel = 0
@@ -9389,15 +9389,15 @@ function ModernV2:CreateWindow(Config)
 				TabsHolder.Visible = true;
 			end;
 
-			ModernV2.PlayAnimate(TabsHolder, VSlowTween, {
+			L2Hub.PlayAnimate(TabsHolder, VSlowTween, {
 				Size = UDim2.new(1, 0, 0, tabsHeight)
 			});
 
-			ModernV2.PlayAnimate(CategoryRoot, VSlowTween, {
+			L2Hub.PlayAnimate(CategoryRoot, VSlowTween, {
 				Size = UDim2.new(1, -1, 0, rootHeight)
 			});
 
-			ModernV2.PlayAnimate(ChevronIcon, SlowyTween, {
+			L2Hub.PlayAnimate(ChevronIcon, SlowyTween, {
 				Rotation = Category.Open and 0 or -90
 			});
 
@@ -9432,7 +9432,7 @@ function ModernV2:CreateWindow(Config)
 
 		function Category:SetIcon(icon)
 			Config.Icon = icon or "";
-			ModernV2:SetIconMode(HeaderIcon, Config.Icon);
+			L2Hub:SetIconMode(HeaderIcon, Config.Icon);
 			HeaderIcon.Visible = tostring(Config.Icon or "") ~= "";
 			HeaderLabel.Position = HeaderIcon.Visible and UDim2.new(0, 30, 0.5, 0) or UDim2.new(0, 10, 0.5, 0);
 			HeaderLabel.Size = HeaderIcon.Visible and UDim2.new(1, -58, 0, 16) or UDim2.new(1, -38, 0, 16);
@@ -9452,55 +9452,55 @@ function ModernV2:CreateWindow(Config)
 			return Tab;
 		end;
 
-		ModernV2:AddSignal(TabsLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(UpdateSize))
+		L2Hub:AddSignal(TabsLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(UpdateSize))
 
-		local Input = ModernV2:CreateInput(Header, function()
+		local Input = L2Hub:CreateInput(Header, function()
 			Category:Toggle();
 		end);
 
-		ModernV2:AddSignal(Input.MouseEnter:Connect(function()
-			ModernV2.PlayAnimate(Header, SlowyTween, {
+		L2Hub:AddSignal(Input.MouseEnter:Connect(function()
+			L2Hub.PlayAnimate(Header, SlowyTween, {
 				BackgroundTransparency = 0.150
 			})
 		end))
 
-		ModernV2:AddSignal(Input.MouseLeave:Connect(function()
-			ModernV2.PlayAnimate(Header, SlowyTween, {
+		L2Hub:AddSignal(Input.MouseLeave:Connect(function()
+			L2Hub.PlayAnimate(Header, SlowyTween, {
 				BackgroundTransparency = 0.250
 			})
 		end))
 
-		ModernV2:AddSignal(Window.Signal:Connect(function(value)
+		L2Hub:AddSignal(Window.Signal:Connect(function(value)
 			if value then
-				ModernV2.PlayAnimate(Header, SlowyTween, {
+				L2Hub.PlayAnimate(Header, SlowyTween, {
 					BackgroundTransparency = 0.250
 				})
-				ModernV2.PlayAnimate(HeaderStroke, SlowyTween, {
+				L2Hub.PlayAnimate(HeaderStroke, SlowyTween, {
 					Transparency = 0.700
 				})
-				ModernV2.PlayAnimate(HeaderIcon, SlowyTween, {
+				L2Hub.PlayAnimate(HeaderIcon, SlowyTween, {
 					TextTransparency = 0.250
 				})
-				ModernV2.PlayAnimate(HeaderLabel, SlowyTween, {
+				L2Hub.PlayAnimate(HeaderLabel, SlowyTween, {
 					TextTransparency = 0.080
 				})
-				ModernV2.PlayAnimate(ChevronIcon, SlowyTween, {
+				L2Hub.PlayAnimate(ChevronIcon, SlowyTween, {
 					TextTransparency = 0.350
 				})
 			else
-				ModernV2.PlayAnimate(Header, SlowyTween, {
+				L2Hub.PlayAnimate(Header, SlowyTween, {
 					BackgroundTransparency = 1
 				})
-				ModernV2.PlayAnimate(HeaderStroke, SlowyTween, {
+				L2Hub.PlayAnimate(HeaderStroke, SlowyTween, {
 					Transparency = 1
 				})
-				ModernV2.PlayAnimate(HeaderIcon, SlowyTween, {
+				L2Hub.PlayAnimate(HeaderIcon, SlowyTween, {
 					TextTransparency = 1
 				})
-				ModernV2.PlayAnimate(HeaderLabel, SlowyTween, {
+				L2Hub.PlayAnimate(HeaderLabel, SlowyTween, {
 					TextTransparency = 1
 				})
-				ModernV2.PlayAnimate(ChevronIcon, SlowyTween, {
+				L2Hub.PlayAnimate(ChevronIcon, SlowyTween, {
 					TextTransparency = 1
 				})
 			end;
@@ -9512,7 +9512,7 @@ function ModernV2:CreateWindow(Config)
 	end;
 
 	function Window:CreateHomeTab(Config)
-		Config = ModernV2:ProcessParams(Config or {}, {
+		Config = L2Hub:ProcessParams(Config or {}, {
 			Name = "Dashboard",
 			Title = nil,
 			Icon = "lucide:layout-dashboard",
@@ -9540,7 +9540,7 @@ function ModernV2:CreateWindow(Config)
 		if Config.AutoSetup ~= false then
 			if not Tab.CustomRoot and Tab.Root then
 				Tab.CustomRoot = Instance.new("Frame");
-				Tab.CustomRoot.Name = ModernV2.RandomString();
+				Tab.CustomRoot.Name = L2Hub.RandomString();
 				Tab.CustomRoot.Parent = Tab.Root;
 				Tab.CustomRoot.BackgroundTransparency = 1;
 				Tab.CustomRoot.BorderSizePixel = 0;
@@ -9599,7 +9599,7 @@ function ModernV2:CreateWindow(Config)
 
 			local function MakeText(Parent, Text, Size, Bold, Transparency)
 				local Label = Instance.new("TextLabel");
-				Label.Name = ModernV2.RandomString();
+				Label.Name = L2Hub.RandomString();
 				Label.Parent = Parent;
 				Label.BackgroundTransparency = 1;
 				Label.BorderSizePixel = 0;
@@ -9640,7 +9640,7 @@ function ModernV2:CreateWindow(Config)
 
 			local function MakePanel(Parent, Size, Position)
 				local Panel = Instance.new("Frame");
-				Panel.Name = ModernV2.RandomString();
+				Panel.Name = L2Hub.RandomString();
 				Panel.Parent = Parent;
 				Panel.BackgroundColor3 = Color3.fromRGB(13, 17, 22);
 				Panel.BackgroundTransparency = 0.100;
@@ -9656,7 +9656,7 @@ function ModernV2:CreateWindow(Config)
 
 			local function MakeIcon(Parent, Icon, Size, Color)
 				local Image = Instance.new("ImageLabel");
-				Image.Name = ModernV2.RandomString();
+				Image.Name = L2Hub.RandomString();
 				Image.Parent = Parent;
 				Image.BackgroundTransparency = 1;
 				Image.BorderSizePixel = 0;
@@ -9664,7 +9664,7 @@ function ModernV2:CreateWindow(Config)
 				Image.ScaleType = Enum.ScaleType.Fit;
 				Image.ImageColor3 = Color or Color3.fromRGB(255, 255, 255);
 				Image.ZIndex = 15;
-				ModernV2:SetIconMode(Image, Icon or "");
+				L2Hub:SetIconMode(Image, Icon or "");
 				return Image;
 			end;
 
@@ -9673,19 +9673,19 @@ function ModernV2:CreateWindow(Config)
 				Button.BackgroundTransparency = 0.250;
 				Button.Size = UDim2.new(1, 0, 0, 34);
 
-				local IconImage = MakeIcon(Button, Icon, 16, ModernV2.AccentColor);
+				local IconImage = MakeIcon(Button, Icon, 16, L2Hub.AccentColor);
 				IconImage.Position = UDim2.new(0, 12, 0.5, -8);
 
 				local Label = MakeText(Button, Text, 12, true, 0.050);
 				Label.Position = UDim2.new(0, 36, 0, 0);
 				Label.Size = UDim2.new(1, -44, 1, 0);
 
-				local Input = ModernV2:CreateInput(Button, Callback or EmptyFunction);
-				ModernV2:AddSignal(Input.MouseEnter:Connect(function()
-					ModernV2.PlayAnimate(Button, SlowyTween, { BackgroundTransparency = 0.080 });
+				local Input = L2Hub:CreateInput(Button, Callback or EmptyFunction);
+				L2Hub:AddSignal(Input.MouseEnter:Connect(function()
+					L2Hub.PlayAnimate(Button, SlowyTween, { BackgroundTransparency = 0.080 });
 				end));
-				ModernV2:AddSignal(Input.MouseLeave:Connect(function()
-					ModernV2.PlayAnimate(Button, SlowyTween, { BackgroundTransparency = 0.250 });
+				L2Hub:AddSignal(Input.MouseLeave:Connect(function()
+					L2Hub.PlayAnimate(Button, SlowyTween, { BackgroundTransparency = 0.250 });
 				end));
 
 				return Button;
@@ -9714,7 +9714,7 @@ function ModernV2:CreateWindow(Config)
 			end;
 
 			local Root = Instance.new("Frame");
-			Root.Name = ModernV2.RandomString();
+			Root.Name = L2Hub.RandomString();
 			Root.Parent = Tab.CustomRoot;
 			Root.BackgroundTransparency = 1;
 			Root.BorderSizePixel = 0;
@@ -9727,19 +9727,19 @@ function ModernV2:CreateWindow(Config)
 			AvatarBox.BackgroundTransparency = 0.200;
 
 			local Avatar = Instance.new("ImageLabel");
-			Avatar.Name = ModernV2.RandomString();
+			Avatar.Name = L2Hub.RandomString();
 			Avatar.Parent = AvatarBox;
 			Avatar.BackgroundTransparency = 1;
 			Avatar.BorderSizePixel = 0;
 			Avatar.Size = UDim2.fromScale(1, 1);
-			Avatar.Image = ModernV2.UserProfile or "";
+			Avatar.Image = L2Hub.UserProfile or "";
 			Avatar.ZIndex = 15;
 			AddCorner(Avatar, 8);
 
 			local Welcome = MakeText(Profile, "Hello, "..tostring(Player.DisplayName), 18, true, 0);
 			Welcome.Position = UDim2.new(0, 82, 0, 17);
 			Welcome.Size = UDim2.new(1, -98, 0, 24);
-			ModernV2:AddTextGradient(Welcome);
+			L2Hub:AddTextGradient(Welcome);
 
 			local Username = MakeText(Profile, "@"..tostring(Player.Name), 12, false, 0.350);
 			Username.Position = UDim2.new(0, 82, 0, 41);
@@ -9755,7 +9755,7 @@ function ModernV2:CreateWindow(Config)
 			SegmentLayout.Padding = UDim.new(0, 8);
 
 			local ContentHolder = Instance.new("Frame");
-			ContentHolder.Name = ModernV2.RandomString();
+			ContentHolder.Name = L2Hub.RandomString();
 			ContentHolder.Parent = Root;
 			ContentHolder.BackgroundTransparency = 1;
 			ContentHolder.BorderSizePixel = 0;
@@ -9764,7 +9764,7 @@ function ModernV2:CreateWindow(Config)
 			ContentHolder.ZIndex = 11;
 
 			local DetailsPage = Instance.new("Frame");
-			DetailsPage.Name = ModernV2.RandomString();
+			DetailsPage.Name = L2Hub.RandomString();
 			DetailsPage.Parent = ContentHolder;
 			DetailsPage.BackgroundTransparency = 1;
 			DetailsPage.BorderSizePixel = 0;
@@ -9772,7 +9772,7 @@ function ModernV2:CreateWindow(Config)
 			DetailsPage.ZIndex = 11;
 
 			local ScriptPage = Instance.new("Frame");
-			ScriptPage.Name = ModernV2.RandomString();
+			ScriptPage.Name = L2Hub.RandomString();
 			ScriptPage.Parent = ContentHolder;
 			ScriptPage.BackgroundTransparency = 1;
 			ScriptPage.BorderSizePixel = 0;
@@ -9781,7 +9781,7 @@ function ModernV2:CreateWindow(Config)
 			ScriptPage.ZIndex = 11;
 
 			local UiPage = Instance.new("Frame");
-			UiPage.Name = ModernV2.RandomString();
+			UiPage.Name = L2Hub.RandomString();
 			UiPage.Parent = ContentHolder;
 			UiPage.BackgroundTransparency = 1;
 			UiPage.BorderSizePixel = 0;
@@ -9803,10 +9803,10 @@ function ModernV2:CreateWindow(Config)
 					Page.Visible = Name == PageName;
 				end;
 				for Name,Button in next, SegmentButtons do
-					ModernV2.PlayAnimate(Button.Root, SlowyTween, {
+					L2Hub.PlayAnimate(Button.Root, SlowyTween, {
 						BackgroundTransparency = Name == PageName and 0.080 or 0.550
 					});
-					Button.Icon.ImageColor3 = Name == PageName and ModernV2.AccentColor or Color3.fromRGB(210, 210, 220);
+					Button.Icon.ImageColor3 = Name == PageName and L2Hub.AccentColor or Color3.fromRGB(210, 210, 220);
 					Button.Label.TextTransparency = Name == PageName and 0 or 0.250;
 				end;
 			end;
@@ -9822,7 +9822,7 @@ function ModernV2:CreateWindow(Config)
 				local Inner = Instance.new("Frame");
 				local InnerLayout = Instance.new("UIListLayout");
 
-				Inner.Name = ModernV2.RandomString();
+				Inner.Name = L2Hub.RandomString();
 				Inner.Parent = Button;
 				Inner.AnchorPoint = Vector2.new(0.5, 0.5);
 				Inner.BackgroundTransparency = 1;
@@ -9852,7 +9852,7 @@ function ModernV2:CreateWindow(Config)
 					Icon = IconImage,
 					Label = Label,
 				};
-				ModernV2:CreateInput(Button, function()
+				L2Hub:CreateInput(Button, function()
 					SelectPage(Name);
 				end);
 
@@ -9864,7 +9864,7 @@ function ModernV2:CreateWindow(Config)
 					Label.TextTruncate = TextWidth > AvailableWidth and Enum.TextTruncate.AtEnd or Enum.TextTruncate.None;
 				end;
 
-				ModernV2:AddSignal(Inner:GetPropertyChangedSignal("AbsoluteSize"):Connect(FitSegmentText))
+				L2Hub:AddSignal(Inner:GetPropertyChangedSignal("AbsoluteSize"):Connect(FitSegmentText))
 				task.defer(FitSegmentText);
 			end;
 
@@ -9897,7 +9897,7 @@ function ModernV2:CreateWindow(Config)
 			end;
 
 			local LeftColumn = Instance.new("Frame");
-			LeftColumn.Name = ModernV2.RandomString();
+			LeftColumn.Name = L2Hub.RandomString();
 			LeftColumn.Parent = DetailsPage;
 			LeftColumn.BackgroundTransparency = 1;
 			LeftColumn.BorderSizePixel = 0;
@@ -9905,7 +9905,7 @@ function ModernV2:CreateWindow(Config)
 			LeftColumn.ZIndex = 11;
 
 			local RightColumn = Instance.new("Frame");
-			RightColumn.Name = ModernV2.RandomString();
+			RightColumn.Name = L2Hub.RandomString();
 			RightColumn.Parent = DetailsPage;
 			RightColumn.BackgroundTransparency = 1;
 			RightColumn.BorderSizePixel = 0;
@@ -9941,11 +9941,11 @@ function ModernV2:CreateWindow(Config)
 			StatLabels.Runtime = MakeStat(ServerCard, "In server for", "0s", 0.67, 104, 0.33);
 
 			local DiscordCard = MakePanel(LeftColumn, UDim2.new(1, 0, 0, 68), UDim2.fromOffset(0, 164));
-			DiscordCard.BackgroundColor3 = ModernV2.AccentColor;
+			DiscordCard.BackgroundColor3 = L2Hub.AccentColor;
 			DiscordCard.BackgroundTransparency = 0.180;
 			local DiscordGradient = Instance.new("UIGradient");
 			DiscordGradient.Color = ColorSequence.new({
-				ColorSequenceKeypoint.new(0, ModernV2.AccentColor),
+				ColorSequenceKeypoint.new(0, L2Hub.AccentColor),
 				ColorSequenceKeypoint.new(1, Color3.fromRGB(13, 17, 22)),
 			});
 			DiscordGradient.Parent = DiscordCard;
@@ -9955,7 +9955,7 @@ function ModernV2:CreateWindow(Config)
 			local DiscordSub = MakeText(DiscordCard, tostring(Config.DiscordInvite or "") ~= "" and "Tap to copy Discord invite" or "No Discord invite configured", 12, false, 0.250);
 			DiscordSub.Position = UDim2.fromOffset(18, 38);
 			DiscordSub.Size = UDim2.new(1, -36, 0, 18);
-			ModernV2:CreateInput(DiscordCard, function()
+			L2Hub:CreateInput(DiscordCard, function()
 				if tostring(Config.DiscordInvite or "") == "" then
 					return;
 				end;
@@ -9966,7 +9966,7 @@ function ModernV2:CreateWindow(Config)
 
 			local ExecutorCard = MakePanel(RightColumn, UDim2.new(1, 0, 0, 92), UDim2.fromOffset(0, 0));
 			local ExecutorStatus = "Unknown";
-			local ExecutorColor = ModernV2.AccentColor;
+			local ExecutorColor = L2Hub.AccentColor;
 			if table.find(Config.SupportedExecutors, ExecutorName) then
 				ExecutorStatus = "Your executor seems to support this script.";
 				ExecutorColor = Color3.fromRGB(45, 180, 115);
@@ -10130,7 +10130,7 @@ function ModernV2:CreateWindow(Config)
 
 			SelectPage("Details");
 
-			local HomeSignal = ModernV2:AddSignal(RunService.RenderStepped:Connect(UpdateHome));
+			local HomeSignal = L2Hub:AddSignal(RunService.RenderStepped:Connect(UpdateHome));
 			table.insert(Window.OnDestroyCallbacks, function()
 				if HomeSignal then
 					HomeSignal:Disconnect();
@@ -10361,7 +10361,7 @@ function ModernV2:CreateWindow(Config)
 				end;
 			end;
 
-			local HomeSignal = ModernV2:AddSignal(RunService.RenderStepped:Connect(UpdateHome));
+			local HomeSignal = L2Hub:AddSignal(RunService.RenderStepped:Connect(UpdateHome));
 			table.insert(Window.OnDestroyCallbacks, function()
 				if HomeSignal then
 					HomeSignal:Disconnect();
@@ -10388,7 +10388,7 @@ function ModernV2:CreateWindow(Config)
 	end;
 
 	function Window:AddTab(Config)
-		Config = ModernV2:ProcessParams(Config , {
+		Config = L2Hub:ProcessParams(Config , {
 			Icon = "crosshairs",
 			Name = "Tab",
 			Type = "Double",
@@ -10397,7 +10397,7 @@ function ModernV2:CreateWindow(Config)
 		});
 
 		local Tab = {
-			Signal = ModernV2:CreateSignal(false);
+			Signal = L2Hub:CreateSignal(false);
 		};
 
 		local TabButton = Instance.new("Frame")
@@ -10407,7 +10407,7 @@ function ModernV2:CreateWindow(Config)
 
 		Tab.Idx = TabButton;
 
-		TabButton.Name = ModernV2.RandomString();
+		TabButton.Name = L2Hub.RandomString();
 		TabButton.Parent = Window.__NextTabParent or LeftScrollingFrame
 		TabButton.BackgroundColor3 = Color3.fromRGB(41, 45, 49)
 		TabButton.BackgroundTransparency = 0.500
@@ -10416,12 +10416,12 @@ function ModernV2:CreateWindow(Config)
 		TabButton.ClipsDescendants = true
 		TabButton.Size = UDim2.new(1, -1, 0, 30)
 		TabButton.ZIndex = 8
-		ModernV2:AttachLockMethods(Tab, TabButton, Config);
+		L2Hub:AttachLockMethods(Tab, TabButton, Config);
 
 		UICorner.CornerRadius = UDim.new(0, 6)
 		UICorner.Parent = TabButton
 
-		TabIcon.Name = ModernV2.RandomString();
+		TabIcon.Name = L2Hub.RandomString();
 		TabIcon.Parent = TabButton
 		TabIcon.AnchorPoint = Vector2.new(0, 0.5)
 		TabIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -10431,11 +10431,11 @@ function ModernV2:CreateWindow(Config)
 		TabIcon.Position = UDim2.new(0, 2, 0.5, 0)
 		TabIcon.Size = UDim2.new(0, 25, 0, 25)
 		TabIcon.ZIndex = 9
-		ModernV2:SetIconMode(TabIcon, Config.Icon);
-		TabIcon.ImageColor3 = ModernV2.AccentColor
+		L2Hub:SetIconMode(TabIcon, Config.Icon);
+		TabIcon.ImageColor3 = L2Hub.AccentColor
 		TabIcon.ScaleType = Enum.ScaleType.Fit
 
-		TabContentLabel.Name = ModernV2.RandomString();
+		TabContentLabel.Name = L2Hub.RandomString();
 		TabContentLabel.Parent = TabButton
 		TabContentLabel.AnchorPoint = Vector2.new(0, 0.5)
 		TabContentLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -10450,7 +10450,7 @@ function ModernV2:CreateWindow(Config)
 		TabContentLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 		TabContentLabel.TextSize = 12.000
 		TabContentLabel.TextXAlignment = Enum.TextXAlignment.Left
-		ModernV2:AddTextGradient(TabContentLabel);
+		L2Hub:AddTextGradient(TabContentLabel);
 
 		local TabFrame = Instance.new("Frame")
 		local LeftScroll = Instance.new("ScrollingFrame")
@@ -10462,7 +10462,7 @@ function ModernV2:CreateWindow(Config)
 		local FlowScroll = Instance.new("ScrollingFrame")
 		local UIListLayout_4 = Instance.new("UIListLayout")
 
-		TabFrame.Name = ModernV2.RandomString();
+		TabFrame.Name = L2Hub.RandomString();
 		TabFrame.Parent = TabContainer
 		TabFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 		TabFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -10474,7 +10474,7 @@ function ModernV2:CreateWindow(Config)
 		TabFrame.Size = UDim2.new(1, 0, 1, 0)
 		TabFrame.Visible = true;
 
-		LeftScroll.Name = ModernV2.RandomString();
+		LeftScroll.Name = L2Hub.RandomString();
 		LeftScroll.Parent = TabFrame
 		LeftScroll.Active = true
 		LeftScroll.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -10492,11 +10492,11 @@ function ModernV2:CreateWindow(Config)
 		UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 		UIListLayout.Padding = UDim.new(0, 5)
 
-		ModernV2:AddSignal(UIListLayout:GetPropertyChangedSignal('AbsoluteContentSize'):Connect(LPH_NO_VIRTUALIZE(function()
+		L2Hub:AddSignal(UIListLayout:GetPropertyChangedSignal('AbsoluteContentSize'):Connect(LPH_NO_VIRTUALIZE(function()
 			LeftScroll.CanvasSize = UDim2.fromOffset(0,UIListLayout.AbsoluteContentSize.Y + 1)
 		end)))
 
-		RightScroll.Name = ModernV2.RandomString();
+		RightScroll.Name = L2Hub.RandomString();
 		RightScroll.Parent = TabFrame
 		RightScroll.Active = true
 		RightScroll.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -10513,7 +10513,7 @@ function ModernV2:CreateWindow(Config)
 		UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
 		UIListLayout_2.Padding = UDim.new(0, 5)
 
-		CenterScroll.Name = ModernV2.RandomString();
+		CenterScroll.Name = L2Hub.RandomString();
 		CenterScroll.Parent = TabFrame
 		CenterScroll.Active = true
 		CenterScroll.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -10574,16 +10574,16 @@ function ModernV2:CreateWindow(Config)
 			end;
 		end);
 
-		ModernV2:AddSignal(UIListLayout_3:GetPropertyChangedSignal('AbsoluteContentSize'):Connect(LPH_NO_VIRTUALIZE(function()
+		L2Hub:AddSignal(UIListLayout_3:GetPropertyChangedSignal('AbsoluteContentSize'):Connect(LPH_NO_VIRTUALIZE(function()
 			CenterScroll.CanvasSize = UDim2.fromOffset(0,UIListLayout_3.AbsoluteContentSize.Y + 1)
 			UpdateTabColumnLayout();
 		end)))
 
-		ModernV2:AddSignal(TabFrame:GetPropertyChangedSignal('AbsoluteSize'):Connect(LPH_NO_VIRTUALIZE(function()
+		L2Hub:AddSignal(TabFrame:GetPropertyChangedSignal('AbsoluteSize'):Connect(LPH_NO_VIRTUALIZE(function()
 			UpdateTabColumnLayout();
 		end)))
 
-		FlowScroll.Name = ModernV2.RandomString();
+		FlowScroll.Name = L2Hub.RandomString();
 		FlowScroll.Parent = TabFrame
 		FlowScroll.Active = true
 		FlowScroll.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -10612,7 +10612,7 @@ function ModernV2:CreateWindow(Config)
 		RightScroll.Visible = false
 		CenterScroll.Visible = false
 
-		ModernV2:AddSignal(UIListLayout_4:GetPropertyChangedSignal('AbsoluteContentSize'):Connect(LPH_NO_VIRTUALIZE(function()
+		L2Hub:AddSignal(UIListLayout_4:GetPropertyChangedSignal('AbsoluteContentSize'):Connect(LPH_NO_VIRTUALIZE(function()
 			FlowScroll.CanvasSize = UDim2.fromOffset(0,UIListLayout_4.AbsoluteContentSize.Y + 1)
 		end)))
 
@@ -10625,7 +10625,7 @@ function ModernV2:CreateWindow(Config)
 			local Row = Instance.new("Frame")
 			local RowLayout = Instance.new("UIListLayout")
 
-			Row.Name = ModernV2.RandomString();
+			Row.Name = L2Hub.RandomString();
 			Row.Parent = FlowScroll
 			Row.BackgroundTransparency = 1
 			Row.BorderSizePixel = 0
@@ -10645,7 +10645,7 @@ function ModernV2:CreateWindow(Config)
 			local RightCell = Instance.new("Frame")
 			local RightLayout = Instance.new("UIListLayout")
 
-			LeftCell.Name = ModernV2.RandomString();
+			LeftCell.Name = L2Hub.RandomString();
 			LeftCell.Parent = Row
 			LeftCell.BackgroundTransparency = 1
 			LeftCell.BorderSizePixel = 0
@@ -10659,7 +10659,7 @@ function ModernV2:CreateWindow(Config)
 			LeftLayout.SortOrder = Enum.SortOrder.LayoutOrder
 			LeftLayout.Padding = UDim.new(0, 5)
 
-			RightCell.Name = ModernV2.RandomString();
+			RightCell.Name = L2Hub.RandomString();
 			RightCell.Parent = Row
 			RightCell.BackgroundTransparency = 1
 			RightCell.BorderSizePixel = 0
@@ -10685,8 +10685,8 @@ function ModernV2:CreateWindow(Config)
 				FlowScroll.CanvasSize = UDim2.fromOffset(0,UIListLayout_4.AbsoluteContentSize.Y + 1);
 			end;
 
-			ModernV2:AddSignal(LeftLayout:GetPropertyChangedSignal('AbsoluteContentSize'):Connect(UpdateRowSize))
-			ModernV2:AddSignal(RightLayout:GetPropertyChangedSignal('AbsoluteContentSize'):Connect(UpdateRowSize))
+			L2Hub:AddSignal(LeftLayout:GetPropertyChangedSignal('AbsoluteContentSize'):Connect(UpdateRowSize))
+			L2Hub:AddSignal(RightLayout:GetPropertyChangedSignal('AbsoluteContentSize'):Connect(UpdateRowSize))
 
 			return {
 				Root = Row,
@@ -10746,14 +10746,14 @@ function ModernV2:CreateWindow(Config)
 			LeftScroll.Size = UDim2.new(1, 0, 1, -5);
 			LeftScroll.Position = UDim2.new(0.5, 0, 0.5, 0)
 		else
-			ModernV2:AddSignal(UIListLayout_2:GetPropertyChangedSignal('AbsoluteContentSize'):Connect(LPH_NO_VIRTUALIZE(function()
+			L2Hub:AddSignal(UIListLayout_2:GetPropertyChangedSignal('AbsoluteContentSize'):Connect(LPH_NO_VIRTUALIZE(function()
 				RightScroll.CanvasSize = UDim2.fromOffset(0,UIListLayout_2.AbsoluteContentSize.Y + 1)
 			end)))
 		end;
 
 		UpdateTabColumnLayout();
 
-		ModernV2:AddSignal(TabIcon:GetPropertyChangedSignal('ImageTransparency'):Connect(LPH_NO_VIRTUALIZE(function()
+		L2Hub:AddSignal(TabIcon:GetPropertyChangedSignal('ImageTransparency'):Connect(LPH_NO_VIRTUALIZE(function()
 			if TabIcon.ImageTransparency > 0.4 then
 				UIListLayout.Parent = nil;
 				UIListLayout_2.Parent = nil;
@@ -10779,29 +10779,29 @@ function ModernV2:CreateWindow(Config)
 			Tab.Signal:SetValue(value);
 
 			if value then
-				ModernV2.PlayAnimate(TabButton , SlowyTween , {
+				L2Hub.PlayAnimate(TabButton , SlowyTween , {
 					BackgroundTransparency = 0.500
 				})
 
-				ModernV2.PlayAnimate(TabIcon , SlowyTween , {
+				L2Hub.PlayAnimate(TabIcon , SlowyTween , {
 					TextTransparency = 0,
-					TextColor3 = ModernV2.AccentColor
+					TextColor3 = L2Hub.AccentColor
 				})
 
-				ModernV2.PlayAnimate(TabContentLabel , SlowyTween , {
+				L2Hub.PlayAnimate(TabContentLabel , SlowyTween , {
 					TextTransparency = 0
 				})
 			else
-				ModernV2.PlayAnimate(TabButton , SlowyTween , {
+				L2Hub.PlayAnimate(TabButton , SlowyTween , {
 					BackgroundTransparency = 1
 				})
 
-				ModernV2.PlayAnimate(TabIcon , SlowyTween , {
+				L2Hub.PlayAnimate(TabIcon , SlowyTween , {
 					TextTransparency = 0.5,
 					TextColor3 = Color3.fromRGB(252, 252, 252)
 				})
 
-				ModernV2.PlayAnimate(TabContentLabel , SlowyTween , {
+				L2Hub.PlayAnimate(TabContentLabel , SlowyTween , {
 					TextTransparency = 0.5
 				})
 			end;
@@ -10857,7 +10857,7 @@ function ModernV2:CreateWindow(Config)
 			Tab.SetValue(false);
 		end;
 
-		local over = ModernV2:CreateInput(TabButton,LPH_NO_VIRTUALIZE(function()
+		local over = L2Hub:CreateInput(TabButton,LPH_NO_VIRTUALIZE(function()
 			if Tab.GetLocked and Tab:GetLocked() then
 				return;
 			end;
@@ -10872,25 +10872,25 @@ function ModernV2:CreateWindow(Config)
 			end;
 		end));
 
-		ModernV2:AddSignal(over.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
+		L2Hub:AddSignal(over.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
 			if Window.Tabs[Window.CurrentTab] == Tab then
-				ModernV2.PlayAnimate(TabButton , SlowyTween , {
+				L2Hub.PlayAnimate(TabButton , SlowyTween , {
 					BackgroundTransparency = 0.500
 				})
 			else
-				ModernV2.PlayAnimate(TabButton , SlowyTween , {
+				L2Hub.PlayAnimate(TabButton , SlowyTween , {
 					BackgroundTransparency = 0.8
 				})
 			end;
 		end)))
 
-		ModernV2:AddSignal(over.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
+		L2Hub:AddSignal(over.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
 			if Window.Tabs[Window.CurrentTab] == Tab then
-				ModernV2.PlayAnimate(TabButton , SlowyTween , {
+				L2Hub.PlayAnimate(TabButton , SlowyTween , {
 					BackgroundTransparency = 0.500
 				})
 			else
-				ModernV2.PlayAnimate(TabButton , SlowyTween , {
+				L2Hub.PlayAnimate(TabButton , SlowyTween , {
 					BackgroundTransparency = 1
 				})
 			end;
@@ -10906,22 +10906,22 @@ function ModernV2:CreateWindow(Config)
 			else
 				Tab.SetValue(false);
 
-				ModernV2.PlayAnimate(TabButton , SlowyTween , {
+				L2Hub.PlayAnimate(TabButton , SlowyTween , {
 					BackgroundTransparency = 1
 				})
 
-				ModernV2.PlayAnimate(TabIcon , SlowyTween , {
+				L2Hub.PlayAnimate(TabIcon , SlowyTween , {
 					TextTransparency = 1,
 				})
 
-				ModernV2.PlayAnimate(TabContentLabel , SlowyTween , {
+				L2Hub.PlayAnimate(TabContentLabel , SlowyTween , {
 					TextTransparency = 1
 				})
 			end;
 		end));
 
 		function Tab:AddSection(Config)
-			Config = ModernV2:ProcessParams(Config , {
+			Config = L2Hub:ProcessParams(Config , {
 				Name = "SECTION",
 				Position = 'left',
 				Collapsible = false,
@@ -10963,7 +10963,7 @@ function ModernV2:CreateWindow(Config)
 			local UICorner = Instance.new("UICorner")
 			local UIListLayout = Instance.new("UIListLayout")
 
-			SectionFrame.Name = ModernV2.RandomString();
+			SectionFrame.Name = L2Hub.RandomString();
 			local SectionPosition = string.lower(tostring(Config.Position));
 			SectionFrame.Parent = ResolveFlowParent(SectionPosition)
 			SectionFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -10974,7 +10974,7 @@ function ModernV2:CreateWindow(Config)
 			SectionFrame.Size = UDim2.new(1, -5, 0, 0)
 			SectionFrame.ZIndex = 9
 
-			SectionIcon.Name = ModernV2.RandomString();
+			SectionIcon.Name = L2Hub.RandomString();
 			SectionIcon.Parent = SectionFrame
 			SectionIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			SectionIcon.BackgroundTransparency = 1.000
@@ -10986,10 +10986,10 @@ function ModernV2:CreateWindow(Config)
 			SectionIcon.ImageTransparency = Config.Icon and 0.500 or 1
 			SectionIcon.ScaleType = Enum.ScaleType.Fit
 			if Config.Icon then
-				ModernV2:SetIconMode(SectionIcon, Config.Icon);
+				L2Hub:SetIconMode(SectionIcon, Config.Icon);
 			end;
 
-			SectionLabel.Name = ModernV2.RandomString();
+			SectionLabel.Name = L2Hub.RandomString();
 			SectionLabel.Parent = SectionFrame
 			SectionLabel.AnchorPoint = Vector2.new(0, 0)
 			SectionLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -11005,9 +11005,9 @@ function ModernV2:CreateWindow(Config)
 			SectionLabel.TextSize = tonumber(Config.TextSize) or 11
 			SectionLabel.TextTransparency = 0.500
 			SectionLabel.TextXAlignment = ResolveTextXAlignment(Config.TextXAlignment)
-			ModernV2:AddTextGradient(SectionLabel);
+			L2Hub:AddTextGradient(SectionLabel);
 
-			SectionCollapseIcon.Name = ModernV2.RandomString();
+			SectionCollapseIcon.Name = L2Hub.RandomString();
 			SectionCollapseIcon.Parent = SectionFrame
 			SectionCollapseIcon.AnchorPoint = Vector2.new(1, 0)
 			SectionCollapseIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -11018,15 +11018,15 @@ function ModernV2:CreateWindow(Config)
 			SectionCollapseIcon.Size = UDim2.new(0, 24, 0, 24)
 			SectionCollapseIcon.Visible = Config.Collapsible == true
 			SectionCollapseIcon.ZIndex = 12
-			ModernV2:SetIconMode(SectionCollapseIcon, "chevron-small-down")
+			L2Hub:SetIconMode(SectionCollapseIcon, "chevron-small-down")
 			SectionCollapseIcon.ImageColor3 = Color3.fromRGB(223, 223, 223)
 			SectionCollapseIcon.ImageTransparency = 0.500
 			SectionCollapseIcon.ScaleType = Enum.ScaleType.Fit
 
-			SectionHandler.Name = ModernV2.RandomString();
+			SectionHandler.Name = L2Hub.RandomString();
 			SectionHandler.Parent = SectionFrame
 			SectionHandler.AnchorPoint = Vector2.new(0.5, 0)
-			SectionHandler.BackgroundColor3 = Color3.fromRGB(20, 22, 27)
+			SectionHandler.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
 			SectionHandler.BackgroundTransparency = 0.500
 			SectionHandler.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			SectionHandler.BorderSizePixel = 0
@@ -11035,7 +11035,7 @@ function ModernV2:CreateWindow(Config)
 			SectionHandler.Size = SectionBoxed and UDim2.new(1, -10, 1, 0) or UDim2.new(1, -10, 1, -GetSectionHeaderHeight() - 1)
 			SectionHandler.ZIndex = 9
 
-			SectionHeaderSpacer.Name = ModernV2.RandomString();
+			SectionHeaderSpacer.Name = L2Hub.RandomString();
 			SectionHeaderSpacer.Parent = SectionHandler
 			SectionHeaderSpacer.BackgroundTransparency = 1.000
 			SectionHeaderSpacer.BorderSizePixel = 0
@@ -11089,12 +11089,12 @@ function ModernV2:CreateWindow(Config)
 
 			UpdateSectionHeaderLayout();
 
-			local Section = ModernV2:RegisiterItem(SectionHandler , Tab.Signal);
+			local Section = L2Hub:RegisiterItem(SectionHandler , Tab.Signal);
 			Section.Collapsible = Config.Collapsible == true;
 			Section.Collapsed = Config.Collapsed == true;
 			Section.Root = SectionFrame;
-			ModernV2:AttachLockMethods(Section, SectionFrame, Config);
-			ModernV2.SectionOwners[SectionHandler] = Section;
+			L2Hub:AttachLockMethods(Section, SectionFrame, Config);
+			L2Hub.SectionOwners[SectionHandler] = Section;
 
 			local IsSectionRendered = Tab.Signal:GetValue();
 			local function UpdateSectionSize()
@@ -11114,7 +11114,7 @@ function ModernV2:CreateWindow(Config)
 					TargetHeight = SectionBoxed and (HeaderSpacerHeight + RealContentHeight + BoxPadding) or (ContentHeight + HeaderHeight - 0.5);
 				end;
 
-				ModernV2.PlayAnimate(SectionFrame , VSlowTween , {
+				L2Hub.PlayAnimate(SectionFrame , VSlowTween , {
 					Size = UDim2.new(1, -5, 0, TargetHeight)
 				})
 			end;
@@ -11126,7 +11126,7 @@ function ModernV2:CreateWindow(Config)
 				UIListLayout.Parent = SectionHandler;
 
 				if Section.Collapsible then
-					ModernV2.PlayAnimate(SectionCollapseIcon,SlowyTween,{
+					L2Hub.PlayAnimate(SectionCollapseIcon,SlowyTween,{
 						Rotation = Section.Collapsed and -90 or 0,
 						ImageTransparency = IsSectionRendered and 0.500 or 1
 					})
@@ -11135,7 +11135,7 @@ function ModernV2:CreateWindow(Config)
 				UpdateSectionSize();
 			end;
 
-			ModernV2:AddSignal(UIListLayout:GetPropertyChangedSignal('AbsoluteContentSize'):Connect(LPH_NO_VIRTUALIZE(UpdateSectionSize)));
+			L2Hub:AddSignal(UIListLayout:GetPropertyChangedSignal('AbsoluteContentSize'):Connect(LPH_NO_VIRTUALIZE(UpdateSectionSize)));
 
 			function Section:SetCollapsed(value)
 				if not Section.Collapsible then
@@ -11192,7 +11192,7 @@ function ModernV2:CreateWindow(Config)
 				Config.Icon = icon;
 
 				if Config.Icon and tostring(Config.Icon) ~= "" then
-					ModernV2:SetIconMode(SectionIcon, Config.Icon);
+					L2Hub:SetIconMode(SectionIcon, Config.Icon);
 				end;
 
 				UpdateSectionHeaderLayout();
@@ -11220,7 +11220,7 @@ function ModernV2:CreateWindow(Config)
 			end;
 
 			if Config.Collapsible then
-				CollapseInput = ModernV2:CreateInput(SectionFrame , LPH_NO_VIRTUALIZE(function()
+				CollapseInput = L2Hub:CreateInput(SectionFrame , LPH_NO_VIRTUALIZE(function()
 					Section:ToggleCollapsed();
 				end));
 				CollapseInput.ZIndex = 12;
@@ -11230,35 +11230,35 @@ function ModernV2:CreateWindow(Config)
 			Section.SetRender = LPH_NO_VIRTUALIZE(function(value)
 				IsSectionRendered = value == true;
 				if value then
-					ModernV2.PlayAnimate(SectionIcon,SlowyTween,{
+					L2Hub.PlayAnimate(SectionIcon,SlowyTween,{
 						ImageTransparency = (Config.Icon and tostring(Config.Icon) ~= "") and 0.500 or 1
 					})
 
-					ModernV2.PlayAnimate(SectionLabel,SlowyTween,{
+					L2Hub.PlayAnimate(SectionLabel,SlowyTween,{
 						TextTransparency = 0.500
 					})
 
-					ModernV2.PlayAnimate(SectionHandler,SlowyTween,{
+					L2Hub.PlayAnimate(SectionHandler,SlowyTween,{
 						BackgroundTransparency = 0.500
 					})
 
-					ModernV2.PlayAnimate(UIStroke,SlowyTween,{
+					L2Hub.PlayAnimate(UIStroke,SlowyTween,{
 						Transparency = 0.650
 					})
 				else
-					ModernV2.PlayAnimate(SectionIcon,SlowyTween,{
+					L2Hub.PlayAnimate(SectionIcon,SlowyTween,{
 						ImageTransparency = 1
 					})
 
-					ModernV2.PlayAnimate(SectionLabel,SlowyTween,{
+					L2Hub.PlayAnimate(SectionLabel,SlowyTween,{
 						TextTransparency = 1
 					})
 
-					ModernV2.PlayAnimate(SectionHandler,SlowyTween,{
+					L2Hub.PlayAnimate(SectionHandler,SlowyTween,{
 						BackgroundTransparency = 1
 					})
 
-					ModernV2.PlayAnimate(UIStroke,SlowyTween,{
+					L2Hub.PlayAnimate(UIStroke,SlowyTween,{
 						Transparency = 1
 					})
 				end;
@@ -11279,7 +11279,7 @@ function ModernV2:CreateWindow(Config)
 				};
 			end;
 
-			Config = ModernV2:ProcessParams(Config , {
+			Config = L2Hub:ProcessParams(Config , {
 				Name = "TABBOX",
 				Position = 'left',
 				Side = nil,
@@ -11300,7 +11300,7 @@ function ModernV2:CreateWindow(Config)
 				ActiveTab = nil,
 			};
 
-			TabboxFrame.Name = ModernV2.RandomString();
+			TabboxFrame.Name = L2Hub.RandomString();
 			local TabboxPosition = (Config.Side == 1 and "left") or (Config.Side == 2 and "right") or string.lower(Config.Position);
 
 			TabboxFrame.Parent = ResolveFlowParent(TabboxPosition)
@@ -11311,9 +11311,9 @@ function ModernV2:CreateWindow(Config)
 			TabboxFrame.ClipsDescendants = true
 			TabboxFrame.Size = UDim2.new(1, -5, 0, 55)
 			TabboxFrame.ZIndex = 9
-			ModernV2:AttachLockMethods(Tabbox, TabboxFrame, Config);
+			L2Hub:AttachLockMethods(Tabbox, TabboxFrame, Config);
 
-			TabboxLabel.Name = ModernV2.RandomString();
+			TabboxLabel.Name = L2Hub.RandomString();
 			TabboxLabel.Parent = TabboxFrame
 			TabboxLabel.AnchorPoint = Vector2.new(0.5, 0)
 			TabboxLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -11329,12 +11329,12 @@ function ModernV2:CreateWindow(Config)
 			TabboxLabel.TextSize = 11.000
 			TabboxLabel.TextTransparency = 0.500
 			TabboxLabel.TextXAlignment = Enum.TextXAlignment.Left
-			ModernV2:AddTextGradient(TabboxLabel);
+			L2Hub:AddTextGradient(TabboxLabel);
 
-			TabboxHolder.Name = ModernV2.RandomString();
+			TabboxHolder.Name = L2Hub.RandomString();
 			TabboxHolder.Parent = TabboxFrame
 			TabboxHolder.AnchorPoint = Vector2.new(0.5, 0)
-			TabboxHolder.BackgroundColor3 = Color3.fromRGB(20, 22, 27)
+			TabboxHolder.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
 			TabboxHolder.BackgroundTransparency = 0.500
 			TabboxHolder.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			TabboxHolder.BorderSizePixel = 0
@@ -11350,7 +11350,7 @@ function ModernV2:CreateWindow(Config)
 			UICorner.CornerRadius = UDim.new(0, 10)
 			UICorner.Parent = TabboxHolder
 
-			ButtonHolder.Name = ModernV2.RandomString();
+			ButtonHolder.Name = L2Hub.RandomString();
 			ButtonHolder.Parent = TabboxHolder
 			ButtonHolder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			ButtonHolder.BackgroundTransparency = 1.000
@@ -11377,34 +11377,34 @@ function ModernV2:CreateWindow(Config)
 					height = 55;
 				end;
 
-				ModernV2.PlayAnimate(TabboxFrame , VSlowTween , {
+				L2Hub.PlayAnimate(TabboxFrame , VSlowTween , {
 					Size = UDim2.new(1, -5, 0, height + 19.5)
 				})
 			end);
 
 			local UpdateParentRender = LPH_NO_VIRTUALIZE(function(value)
 				if value then
-					ModernV2.PlayAnimate(TabboxLabel,SlowyTween,{
+					L2Hub.PlayAnimate(TabboxLabel,SlowyTween,{
 						TextTransparency = 0.500
 					})
 
-					ModernV2.PlayAnimate(TabboxHolder,SlowyTween,{
+					L2Hub.PlayAnimate(TabboxHolder,SlowyTween,{
 						BackgroundTransparency = 0.500
 					})
 
-					ModernV2.PlayAnimate(UIStroke,SlowyTween,{
+					L2Hub.PlayAnimate(UIStroke,SlowyTween,{
 						Transparency = 0.650
 					})
 				else
-					ModernV2.PlayAnimate(TabboxLabel,SlowyTween,{
+					L2Hub.PlayAnimate(TabboxLabel,SlowyTween,{
 						TextTransparency = 1
 					})
 
-					ModernV2.PlayAnimate(TabboxHolder,SlowyTween,{
+					L2Hub.PlayAnimate(TabboxHolder,SlowyTween,{
 						BackgroundTransparency = 1
 					})
 
-					ModernV2.PlayAnimate(UIStroke,SlowyTween,{
+					L2Hub.PlayAnimate(UIStroke,SlowyTween,{
 						Transparency = 1
 					})
 				end;
@@ -11428,7 +11428,7 @@ function ModernV2:CreateWindow(Config)
 				local SubTab = {
 					Name = Name or "Tab",
 					Icon = IconName or "folder",
-					Signal = ModernV2:CreateSignal(false),
+					Signal = L2Hub:CreateSignal(false),
 				};
 
 				TabConfig.Locked = TabConfig.Locked == true;
@@ -11442,7 +11442,7 @@ function ModernV2:CreateWindow(Config)
 				local Container = Instance.new("Frame")
 				local Layout = Instance.new("UIListLayout")
 
-				Button.Name = ModernV2.RandomString();
+				Button.Name = L2Hub.RandomString();
 				Button.Parent = ButtonHolder
 				Button.BackgroundColor3 = Color3.fromRGB(26, 28, 36)
 				Button.BackgroundTransparency = 1.000
@@ -11451,7 +11451,7 @@ function ModernV2:CreateWindow(Config)
 				Button.ClipsDescendants = true
 				Button.Size = UDim2.new(0, 0, 1, 0)
 				Button.ZIndex = 11
-				ModernV2:AttachLockMethods(SubTab, Button, TabConfig);
+				L2Hub:AttachLockMethods(SubTab, Button, TabConfig);
 
 				ButtonCorner.CornerRadius = UDim.new(0, 5)
 				ButtonCorner.Parent = Button
@@ -11460,7 +11460,7 @@ function ModernV2:CreateWindow(Config)
 				ButtonStroke.Color = Color3.fromRGB(45, 48, 58)
 				ButtonStroke.Parent = Button
 
-				Icon.Name = ModernV2.RandomString();
+				Icon.Name = L2Hub.RandomString();
 				Icon.Parent = Button
 				Icon.AnchorPoint = Vector2.new(0, 0.5)
 				Icon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -11470,14 +11470,14 @@ function ModernV2:CreateWindow(Config)
 				Icon.Position = UDim2.new(0, 7, 0.5, 0)
 				Icon.Size = UDim2.new(0, 18, 0, 18)
 				Icon.ZIndex = 12
-				ModernV2:SetIconMode(Icon, SubTab.Icon)
+				L2Hub:SetIconMode(Icon, SubTab.Icon)
 				Icon.ImageColor3 = Color3.fromRGB(223, 223, 223)
 				Icon.ImageTransparency = 0.500
 				Icon.ScaleType = Enum.ScaleType.Fit
 				-- Hide icon so the label can use the full button width
 				Icon.Visible = false
 
-				Label.Name = ModernV2.RandomString();
+				Label.Name = L2Hub.RandomString();
 				Label.Parent = Button
 				Label.AnchorPoint = Vector2.new(0, 0.5)
 				Label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -11496,9 +11496,9 @@ function ModernV2:CreateWindow(Config)
 				Label.TextTransparency = 0.500
 				Label.TextXAlignment = Enum.TextXAlignment.Center
 				Label.TextTruncate = Enum.TextTruncate.AtEnd
-				ModernV2:AddTextGradient(Label);
+				L2Hub:AddTextGradient(Label);
 
-				Container.Name = ModernV2.RandomString();
+				Container.Name = L2Hub.RandomString();
 				Container.Parent = TabboxHolder
 				Container.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 				Container.BackgroundTransparency = 1.000
@@ -11526,37 +11526,37 @@ function ModernV2:CreateWindow(Config)
 
 				local RenderButton = LPH_NO_VIRTUALIZE(function(active)
 					if active then
-						ModernV2.PlayAnimate(Button,SlowyTween,{
+						L2Hub.PlayAnimate(Button,SlowyTween,{
 							BackgroundTransparency = 0.150
 						})
 
-						ModernV2.PlayAnimate(ButtonStroke,SlowyTween,{
+						L2Hub.PlayAnimate(ButtonStroke,SlowyTween,{
 							Transparency = 0.650
 						})
 
-						ModernV2.PlayAnimate(Icon,SlowyTween,{
+						L2Hub.PlayAnimate(Icon,SlowyTween,{
 							TextTransparency = 0,
-							TextColor3 = ModernV2.AccentColor
+							TextColor3 = L2Hub.AccentColor
 						})
 
-						ModernV2.PlayAnimate(Label,SlowyTween,{
+						L2Hub.PlayAnimate(Label,SlowyTween,{
 							TextTransparency = 0
 						})
 					else
-						ModernV2.PlayAnimate(Button,SlowyTween,{
+						L2Hub.PlayAnimate(Button,SlowyTween,{
 							BackgroundTransparency = 1
 						})
 
-						ModernV2.PlayAnimate(ButtonStroke,SlowyTween,{
+						L2Hub.PlayAnimate(ButtonStroke,SlowyTween,{
 							Transparency = 1
 						})
 
-						ModernV2.PlayAnimate(Icon,SlowyTween,{
+						L2Hub.PlayAnimate(Icon,SlowyTween,{
 							TextTransparency = Tab.Signal:GetValue() and 0.500 or 1,
 							TextColor3 = Color3.fromRGB(223, 223, 223)
 						})
 
-						ModernV2.PlayAnimate(Label,SlowyTween,{
+						L2Hub.PlayAnimate(Label,SlowyTween,{
 							TextTransparency = Tab.Signal:GetValue() and 0.500 or 1
 						})
 					end;
@@ -11592,13 +11592,13 @@ function ModernV2:CreateWindow(Config)
 
 				SubTab.RenderButton = RenderButton;
 
-				ModernV2:AddSignal(Layout:GetPropertyChangedSignal('AbsoluteContentSize'):Connect(LPH_NO_VIRTUALIZE(function()
+				L2Hub:AddSignal(Layout:GetPropertyChangedSignal('AbsoluteContentSize'):Connect(LPH_NO_VIRTUALIZE(function()
 					if Tabbox.ActiveTab == SubTab then
 						UpdateSize();
 					end;
 				end)))
 
-				local Input = ModernV2:CreateInput(Button , LPH_NO_VIRTUALIZE(function()
+				local Input = L2Hub:CreateInput(Button , LPH_NO_VIRTUALIZE(function()
 					if Tabbox.GetLocked and Tabbox:GetLocked() then
 						return;
 					end;
@@ -11610,21 +11610,21 @@ function ModernV2:CreateWindow(Config)
 					SubTab:Show();
 				end));
 
-				ModernV2:AddSignal(Input.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
+				L2Hub:AddSignal(Input.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
 					if Tabbox.ActiveTab ~= SubTab and Tab.Signal:GetValue() then
-						ModernV2.PlayAnimate(Button,SlowyTween,{
+						L2Hub.PlayAnimate(Button,SlowyTween,{
 							BackgroundTransparency = 0.650
 						})
 					end;
 				end)))
 
-				ModernV2:AddSignal(Input.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
+				L2Hub:AddSignal(Input.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
 					if Tabbox.ActiveTab ~= SubTab then
 						RenderButton(false);
 					end;
 				end)))
 
-				local Handler = ModernV2:RegisiterItem(Container , SubTab.Signal);
+				local Handler = L2Hub:RegisiterItem(Container , SubTab.Signal);
 				SubTab.Handler = Handler;
 
 				function Handler:Select()
@@ -11669,7 +11669,7 @@ function ModernV2:CreateWindow(Config)
 
 				function Handler:SetIcon(icon)
 					SubTab.Icon = icon or SubTab.Icon;
-					ModernV2:SetIconMode(Icon, SubTab.Icon);
+					L2Hub:SetIconMode(Icon, SubTab.Icon);
 					return Handler;
 				end;
 
@@ -11741,7 +11741,7 @@ function ModernV2:CreateWindow(Config)
 	end;
 
 	function Window:_InitConfig()
-		local ConfigSignal = ModernV2:CreateSignal(false);
+		local ConfigSignal = L2Hub:CreateSignal(false);
 		local ConfigLib = {
 			Signals = {},
 		};
@@ -11764,76 +11764,76 @@ function ModernV2:CreateWindow(Config)
 		local UICorner_3 = Instance.new("UICorner")
 		local UICorner_4 = Instance.new("UICorner")
 
-		local shadow = ModernV2:CreateShadow(ConfigMenu);
+		local shadow = L2Hub:CreateShadow(ConfigMenu);
 
 		ConfigLib.SetRender = LPH_NO_VIRTUALIZE(function(value)
 			if value then
 				ConfigMenu.Position = UDim2.fromOffset(ConfigFrame.AbsolutePosition.X + 110 , ConfigFrame.AbsolutePosition.Y + 96)
 
-				ModernV2.PlayAnimate(ConfigMenu , SlowyTween , {
+				L2Hub.PlayAnimate(ConfigMenu , SlowyTween , {
 					BackgroundTransparency = 0.035,
 					Position = UDim2.fromOffset(ConfigFrame.AbsolutePosition.X + 110 , ConfigFrame.AbsolutePosition.Y + 95)
 				})	
 
-				ModernV2.PlayAnimate(UIStroke , SlowyTween , {
+				L2Hub.PlayAnimate(UIStroke , SlowyTween , {
 					Transparency = 0.650
 				})
-				ModernV2.PlayAnimate(BasedLabel , SlowyTween , {
+				L2Hub.PlayAnimate(BasedLabel , SlowyTween , {
 					TextTransparency = 0.200
 				})	
 
-				ModernV2.PlayAnimate(UIStroke_2 , SlowyTween , {
+				L2Hub.PlayAnimate(UIStroke_2 , SlowyTween , {
 					Transparency = 0.65
 				})	
 
-				ModernV2.PlayAnimate(LineFrame , SlowyTween , {
+				L2Hub.PlayAnimate(LineFrame , SlowyTween , {
 					BackgroundTransparency = 0.650
 				})	
-				ModernV2.PlayAnimate(TextInput , SlowyTween , {
+				L2Hub.PlayAnimate(TextInput , SlowyTween , {
 					BackgroundTransparency = 0
 				})	
-				ModernV2.PlayAnimate(TextBox , SlowyTween , {
+				L2Hub.PlayAnimate(TextBox , SlowyTween , {
 					TextTransparency = 0.350
 				})	
-				ModernV2.PlayAnimate(Icon , SlowyTween , {
+				L2Hub.PlayAnimate(Icon , SlowyTween , {
 					TextTransparency = 0.350
 				})	
 
-				ModernV2.PlayAnimate(ConfigBthIcon , SlowyTween , {
+				L2Hub.PlayAnimate(ConfigBthIcon , SlowyTween , {
 					Rotation = 180
 				})	
 
 				shadow:Render(true)
 			else
-				ModernV2.PlayAnimate(ConfigBthIcon , SlowyTween , {
+				L2Hub.PlayAnimate(ConfigBthIcon , SlowyTween , {
 					Rotation = 0
 				})
 
-				ModernV2.PlayAnimate(ConfigMenu , SlowyTween , {
+				L2Hub.PlayAnimate(ConfigMenu , SlowyTween , {
 					BackgroundTransparency = 1,
 					Position = UDim2.fromOffset(ConfigFrame.AbsolutePosition.X + 110 , ConfigFrame.AbsolutePosition.Y + 96)
 				})	
 
-				ModernV2.PlayAnimate(UIStroke_2 , SlowyTween , {
+				L2Hub.PlayAnimate(UIStroke_2 , SlowyTween , {
 					Transparency = 1
 				})	
 
-				ModernV2.PlayAnimate(UIStroke , SlowyTween , {
+				L2Hub.PlayAnimate(UIStroke , SlowyTween , {
 					Transparency = 1
 				})
-				ModernV2.PlayAnimate(BasedLabel , SlowyTween , {
+				L2Hub.PlayAnimate(BasedLabel , SlowyTween , {
 					TextTransparency = 1
 				})	
-				ModernV2.PlayAnimate(LineFrame , SlowyTween , {
+				L2Hub.PlayAnimate(LineFrame , SlowyTween , {
 					BackgroundTransparency = 1
 				})	
-				ModernV2.PlayAnimate(TextInput , SlowyTween , {
+				L2Hub.PlayAnimate(TextInput , SlowyTween , {
 					BackgroundTransparency = 1
 				})	
-				ModernV2.PlayAnimate(TextBox , SlowyTween , {
+				L2Hub.PlayAnimate(TextBox , SlowyTween , {
 					TextTransparency = 1
 				})	
-				ModernV2.PlayAnimate(Icon , SlowyTween , {
+				L2Hub.PlayAnimate(Icon , SlowyTween , {
 					TextTransparency = 1
 				})	
 
@@ -11841,7 +11841,7 @@ function ModernV2:CreateWindow(Config)
 			end;
 		end);
 
-		ModernV2:AddSignal(ConfigMenu:GetPropertyChangedSignal('BackgroundTransparency'):Connect(LPH_NO_VIRTUALIZE(function()
+		L2Hub:AddSignal(ConfigMenu:GetPropertyChangedSignal('BackgroundTransparency'):Connect(LPH_NO_VIRTUALIZE(function()
 			if ConfigMenu.BackgroundTransparency > 0.9 then
 				ConfigMenu.Visible = false;
 				UIListLayout.Parent = nil;
@@ -11851,18 +11851,18 @@ function ModernV2:CreateWindow(Config)
 				ConfigMenu.Visible = true;
 				UIListLayout.Parent = ConfigMenu
 
-				if ModernV2.Global3DRenderMode then
-					ConfigMenu.Parent = ModernV2.GlobalSurfaceGui;
+				if L2Hub.Global3DRenderMode then
+					ConfigMenu.Parent = L2Hub.GlobalSurfaceGui;
 				else
-					ConfigMenu.Parent = ModernV2.ScreenGui;
+					ConfigMenu.Parent = L2Hub.ScreenGui;
 				end;
 			end
 		end)))
 
-		ConfigMenu.Name = ModernV2.RandomString();
-		ConfigMenu.Parent = ModernV2.ScreenGui;
+		ConfigMenu.Name = L2Hub.RandomString();
+		ConfigMenu.Parent = L2Hub.ScreenGui;
 		ConfigMenu.AnchorPoint = Vector2.new(0.5, 0)
-		ConfigMenu.BackgroundColor3 = Color3.fromRGB(20, 22, 27)
+		ConfigMenu.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
 		ConfigMenu.BackgroundTransparency = 0.035
 		ConfigMenu.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		ConfigMenu.BorderSizePixel = 0
@@ -11883,7 +11883,7 @@ function ModernV2:CreateWindow(Config)
 		UIStroke.Color = Color3.fromRGB(45, 48, 58)
 		UIStroke.Parent = ConfigMenu
 
-		InputFrame.Name = ModernV2.RandomString();
+		InputFrame.Name = L2Hub.RandomString();
 		InputFrame.Parent = ConfigMenu
 		InputFrame.BackgroundColor3 = Color3.fromRGB(25, 27, 33)
 		InputFrame.BackgroundTransparency = 1.000
@@ -11892,7 +11892,7 @@ function ModernV2:CreateWindow(Config)
 		InputFrame.Size = UDim2.new(1, 0, 0, 30)
 		InputFrame.ZIndex = 154
 
-		BasedLabel.Name = ModernV2.RandomString();
+		BasedLabel.Name = L2Hub.RandomString();
 		BasedLabel.Parent = InputFrame
 		BasedLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		BasedLabel.BackgroundTransparency = 1.000
@@ -11908,7 +11908,7 @@ function ModernV2:CreateWindow(Config)
 		BasedLabel.TextTransparency = 0.200
 		BasedLabel.TextXAlignment = Enum.TextXAlignment.Left
 
-		LineFrame.Name = ModernV2.RandomString();
+		LineFrame.Name = L2Hub.RandomString();
 		LineFrame.Parent = InputFrame
 		LineFrame.AnchorPoint = Vector2.new(0.5, 1)
 		LineFrame.BackgroundColor3 = Color3.fromRGB(45, 48, 58)
@@ -11919,7 +11919,7 @@ function ModernV2:CreateWindow(Config)
 		LineFrame.Size = UDim2.new(1, -20, 0, 1)
 		LineFrame.ZIndex = 154
 
-		BasedHandler.Name = ModernV2.RandomString();
+		BasedHandler.Name = L2Hub.RandomString();
 		BasedHandler.Parent = InputFrame
 		BasedHandler.AnchorPoint = Vector2.new(1, 0)
 		BasedHandler.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -11937,20 +11937,20 @@ function ModernV2:CreateWindow(Config)
 		UIListLayout_2.VerticalAlignment = Enum.VerticalAlignment.Center
 		UIListLayout_2.Padding = UDim.new(0, 5)
 
-		ModernV2:AddSignal(UIListLayout:GetPropertyChangedSignal('AbsoluteContentSize'):Connect(LPH_NO_VIRTUALIZE(function()
+		L2Hub:AddSignal(UIListLayout:GetPropertyChangedSignal('AbsoluteContentSize'):Connect(LPH_NO_VIRTUALIZE(function()
 			if #ConfigLib.Signals <= 0 then
-				ModernV2.PlayAnimate(ConfigMenu , SlowyTween , {
+				L2Hub.PlayAnimate(ConfigMenu , SlowyTween , {
 					Size = UDim2.new(0, 220,0, UIListLayout.AbsoluteContentSize.Y + 0);
 				})
 			else
-				ModernV2.PlayAnimate(ConfigMenu , SlowyTween , {
+				L2Hub.PlayAnimate(ConfigMenu , SlowyTween , {
 					Size = UDim2.new(0, 220,0, UIListLayout.AbsoluteContentSize.Y + 5);
 				})
 			end;
 
 		end)));
 
-		TextInput.Name = ModernV2.RandomString();
+		TextInput.Name = L2Hub.RandomString();
 		TextInput.Parent = BasedHandler
 		TextInput.BackgroundColor3 = Color3.fromRGB(26, 28, 36)
 		TextInput.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -11984,7 +11984,7 @@ function ModernV2:CreateWindow(Config)
 		TextBox.TextTransparency = 0.350
 		TextBox.TextXAlignment = Enum.TextXAlignment.Left
 
-		LoadConfig.Name = ModernV2.RandomString();
+		LoadConfig.Name = L2Hub.RandomString();
 		LoadConfig.Parent = BasedHandler
 		LoadConfig.BackgroundColor3 = Color3.fromRGB(39, 40, 49)
 		LoadConfig.BackgroundTransparency = 1.000
@@ -11994,7 +11994,7 @@ function ModernV2:CreateWindow(Config)
 		LoadConfig.Size = UDim2.new(0, 20, 0, 18)
 		LoadConfig.ZIndex = 153
 
-		Icon.Name = ModernV2.RandomString();
+		Icon.Name = L2Hub.RandomString();
 		Icon.Parent = LoadConfig
 		Icon.AnchorPoint = Vector2.new(0.5, 0.5)
 		Icon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -12004,7 +12004,7 @@ function ModernV2:CreateWindow(Config)
 		Icon.Position = UDim2.new(0.5, 0, 0.5, 0)
 		Icon.Size = UDim2.new(1, 0, 1, 0)
 		Icon.ZIndex = 153
-		ModernV2:SetIconMode(Icon, "plus-large")
+		L2Hub:SetIconMode(Icon, "plus-large")
 		Icon.ImageColor3 = Color3.fromRGB(223, 223, 223)
 		Icon.ImageTransparency = 0.350
 		Icon.ScaleType = Enum.ScaleType.Fit
@@ -12018,10 +12018,10 @@ function ModernV2:CreateWindow(Config)
 		local OpenButton = Instance.new("TextButton")
 		local UICorner = Instance.new("UICorner")
 
-		OpenButton.Name = ModernV2.RandomString();
+		OpenButton.Name = L2Hub.RandomString();
 		OpenButton.Parent = ConfigFrame
 		OpenButton.AnchorPoint = Vector2.new(0, 0.5)
-		OpenButton.BackgroundColor3 = Color3.fromRGB(20, 22, 27)
+		OpenButton.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
 		OpenButton.BackgroundTransparency = 1.000
 		OpenButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		OpenButton.BorderSizePixel = 0
@@ -12045,7 +12045,7 @@ function ModernV2:CreateWindow(Config)
 		local UpdateSize = LPH_NO_VIRTUALIZE(function()
 			local size = TextService:GetTextSize(ConfigName.Text , ConfigName.TextSize,ConfigName.Font,Vector2.new(math.huge,math.huge));
 
-			ModernV2.PlayAnimate(ConfigFrame,SlowyTween , {
+			L2Hub.PlayAnimate(ConfigFrame,SlowyTween , {
 				Size = UDim2.fromOffset(size.X + 75, 30)
 			});
 		end);
@@ -12058,7 +12058,7 @@ function ModernV2:CreateWindow(Config)
 			local cd = 0;
 			-- Config hanya menyimpan element yang punya Flag/Key/ConfigKey.
 			-- Flag dipakai sebagai key unik untuk save/load value.
-			for Flag,v in next , ModernV2.Flags do
+			for Flag,v in next , L2Hub.Flags do
 				if v and v.GetValue then
 					local data = v:GetValue();
 
@@ -12087,7 +12087,7 @@ function ModernV2:CreateWindow(Config)
 			local JsonData = HttpService:JSONEncode(ikc);
 
 			if Window.ConfigEncrypted then
-				return ModernV2.Base64Encode(Encryption.new(JsonData));
+				return L2Hub.Base64Encode(Encryption.new(JsonData));
 			end;
 
 			return JsonData;
@@ -12149,7 +12149,7 @@ function ModernV2:CreateWindow(Config)
 			end;
 
 			success, decoded = pcall(function()
-				return HttpService:JSONDecode(Encryption.reverse(ModernV2.Base64Decode(data)));
+				return HttpService:JSONDecode(Encryption.reverse(L2Hub.Base64Decode(data)));
 			end);
 
 			if success and typeof(decoded) == "table" then
@@ -12164,12 +12164,12 @@ function ModernV2:CreateWindow(Config)
 
 			for i,v in next , coded do
 				if v.Idx then
-					if ModernV2.Flags[v.Idx] then
+					if L2Hub.Flags[v.Idx] then
 						task.spawn(function()
-							ModernV2.Flags[v.Idx]:SetValue(v.Value)
+							L2Hub.Flags[v.Idx]:SetValue(v.Value)
 						end)
 					else
-						ModernV2.PendingFlagValues[v.Idx] = v.Value;
+						L2Hub.PendingFlagValues[v.Idx] = v.Value;
 					end;
 				end;
 			end;
@@ -12221,7 +12221,7 @@ function ModernV2:CreateWindow(Config)
 				local BasedLabel = Instance.new("TextLabel")
 				local UIStroke = Instance.new("UIStroke")
 
-				ConfigItemFrame.Name = ModernV2.RandomString();
+				ConfigItemFrame.Name = L2Hub.RandomString();
 				ConfigItemFrame.Parent = ConfigMenu
 				ConfigItemFrame.BackgroundColor3 = Color3.fromRGB(21, 20, 27)
 				ConfigItemFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -12230,7 +12230,7 @@ function ModernV2:CreateWindow(Config)
 				ConfigItemFrame.ZIndex = 153
 				ConfigItemFrame:SetAttribute('ConfigItem',true);
 
-				BasedHandler.Name = ModernV2.RandomString();
+				BasedHandler.Name = L2Hub.RandomString();
 				BasedHandler.Parent = ConfigItemFrame
 				BasedHandler.AnchorPoint = Vector2.new(1, 0)
 				BasedHandler.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -12248,7 +12248,7 @@ function ModernV2:CreateWindow(Config)
 				UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
 				UIListLayout.Padding = UDim.new(0, 5)
 
-				DeleteConfig.Name = ModernV2.RandomString();
+				DeleteConfig.Name = L2Hub.RandomString();
 				DeleteConfig.Parent = BasedHandler
 				DeleteConfig.BackgroundColor3 = Color3.fromRGB(39, 40, 49)
 				DeleteConfig.BackgroundTransparency = 1.000
@@ -12258,7 +12258,7 @@ function ModernV2:CreateWindow(Config)
 				DeleteConfig.Size = UDim2.new(0, 20, 0, 18)
 				DeleteConfig.ZIndex = 153
 
-				Icon.Name = ModernV2.RandomString();
+				Icon.Name = L2Hub.RandomString();
 				Icon.Parent = DeleteConfig
 				Icon.AnchorPoint = Vector2.new(0.5, 0.5)
 				Icon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -12268,7 +12268,7 @@ function ModernV2:CreateWindow(Config)
 				Icon.Position = UDim2.new(0.5, 0, 0.5, 0)
 				Icon.Size = UDim2.new(1, 0, 1, 0)
 				Icon.ZIndex = 153
-				ModernV2:SetIconMode(Icon, "trash-can")
+				L2Hub:SetIconMode(Icon, "trash-can")
 				Icon.ImageColor3 = Color3.fromRGB(223, 223, 223)
 				Icon.ImageTransparency = 0.400
 				Icon.ScaleType = Enum.ScaleType.Fit
@@ -12276,7 +12276,7 @@ function ModernV2:CreateWindow(Config)
 				UICorner.CornerRadius = UDim.new(0, 4)
 				UICorner.Parent = DeleteConfig
 
-				OverwriteConfig.Name = ModernV2.RandomString();
+				OverwriteConfig.Name = L2Hub.RandomString();
 				OverwriteConfig.Parent = BasedHandler
 				OverwriteConfig.BackgroundColor3 = Color3.fromRGB(39, 40, 49)
 				OverwriteConfig.BackgroundTransparency = 1.000
@@ -12286,7 +12286,7 @@ function ModernV2:CreateWindow(Config)
 				OverwriteConfig.Size = UDim2.new(0, 20, 0, 18)
 				OverwriteConfig.ZIndex = 153
 
-				Icon_3.Name = ModernV2.RandomString();
+				Icon_3.Name = L2Hub.RandomString();
 				Icon_3.Parent = OverwriteConfig
 				Icon_3.AnchorPoint = Vector2.new(0.5, 0.5)
 				Icon_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -12296,7 +12296,7 @@ function ModernV2:CreateWindow(Config)
 				Icon_3.Position = UDim2.new(0.5, 0, 0.5, 0)
 				Icon_3.Size = UDim2.new(1, 0, 1, 0)
 				Icon_3.ZIndex = 153
-				ModernV2:SetIconMode(Icon_3, "pencil-square")
+				L2Hub:SetIconMode(Icon_3, "pencil-square")
 				Icon_3.ImageColor3 = Color3.fromRGB(223, 223, 223)
 				Icon_3.ImageTransparency = 0.400
 				Icon_3.ScaleType = Enum.ScaleType.Fit
@@ -12304,7 +12304,7 @@ function ModernV2:CreateWindow(Config)
 				UICorner_4.CornerRadius = UDim.new(0, 4)
 				UICorner_4.Parent = OverwriteConfig
 
-				LoadConfig.Name = ModernV2.RandomString();
+				LoadConfig.Name = L2Hub.RandomString();
 				LoadConfig.Parent = BasedHandler
 				LoadConfig.BackgroundColor3 = Color3.fromRGB(39, 40, 49)
 				LoadConfig.BackgroundTransparency = 1.000
@@ -12314,7 +12314,7 @@ function ModernV2:CreateWindow(Config)
 				LoadConfig.Size = UDim2.new(0, 20, 0, 18)
 				LoadConfig.ZIndex = 153
 
-				Icon_2.Name = ModernV2.RandomString();
+				Icon_2.Name = L2Hub.RandomString();
 				Icon_2.Parent = LoadConfig
 				Icon_2.AnchorPoint = Vector2.new(0.5, 0.5)
 				Icon_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -12324,7 +12324,7 @@ function ModernV2:CreateWindow(Config)
 				Icon_2.Position = UDim2.new(0.5, 0, 0.5, 0)
 				Icon_2.Size = UDim2.new(1, 0, 1, 0)
 				Icon_2.ZIndex = 153
-				ModernV2:SetIconMode(Icon_2, "arrow-right-from-portrait-rectangle")
+				L2Hub:SetIconMode(Icon_2, "arrow-right-from-portrait-rectangle")
 				Icon_2.ImageColor3 = Color3.fromRGB(223, 223, 223)
 				Icon_2.ImageTransparency = 0.400
 				Icon_2.ScaleType = Enum.ScaleType.Fit
@@ -12335,7 +12335,7 @@ function ModernV2:CreateWindow(Config)
 				UICorner_3.CornerRadius = UDim.new(0, 5)
 				UICorner_3.Parent = ConfigItemFrame
 
-				BasedLabel.Name = ModernV2.RandomString();
+				BasedLabel.Name = L2Hub.RandomString();
 				BasedLabel.Parent = ConfigItemFrame
 				BasedLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 				BasedLabel.BackgroundTransparency = 1.000
@@ -12357,51 +12357,51 @@ function ModernV2:CreateWindow(Config)
 
 				local Render = LPH_NO_VIRTUALIZE(function(rst)
 					if rst then
-						ModernV2.PlayAnimate(ConfigItemFrame,SlowyTween,{
+						L2Hub.PlayAnimate(ConfigItemFrame,SlowyTween,{
 							BackgroundTransparency = 0
 						})
 
-						ModernV2.PlayAnimate(Icon,SlowyTween,{
+						L2Hub.PlayAnimate(Icon,SlowyTween,{
 							TextTransparency = 0.400
 						})
 
-						ModernV2.PlayAnimate(Icon_3,SlowyTween,{
+						L2Hub.PlayAnimate(Icon_3,SlowyTween,{
 							TextTransparency = 0.400
 						})
 
-						ModernV2.PlayAnimate(Icon_2,SlowyTween,{
+						L2Hub.PlayAnimate(Icon_2,SlowyTween,{
 							TextTransparency = 0.400
 						})
 
-						ModernV2.PlayAnimate(BasedLabel,SlowyTween,{
+						L2Hub.PlayAnimate(BasedLabel,SlowyTween,{
 							TextTransparency = 0.200
 						})
 
-						ModernV2.PlayAnimate(UIStroke,SlowyTween,{
+						L2Hub.PlayAnimate(UIStroke,SlowyTween,{
 							Transparency = 0.500
 						})
 					else
-						ModernV2.PlayAnimate(ConfigItemFrame,SlowyTween,{
+						L2Hub.PlayAnimate(ConfigItemFrame,SlowyTween,{
 							BackgroundTransparency = 1
 						})
 
-						ModernV2.PlayAnimate(Icon,SlowyTween,{
+						L2Hub.PlayAnimate(Icon,SlowyTween,{
 							TextTransparency = 1
 						})
 
-						ModernV2.PlayAnimate(Icon_3,SlowyTween,{
+						L2Hub.PlayAnimate(Icon_3,SlowyTween,{
 							TextTransparency = 1
 						})
 
-						ModernV2.PlayAnimate(Icon_2,SlowyTween,{
+						L2Hub.PlayAnimate(Icon_2,SlowyTween,{
 							TextTransparency = 1
 						})
 
-						ModernV2.PlayAnimate(BasedLabel,SlowyTween,{
+						L2Hub.PlayAnimate(BasedLabel,SlowyTween,{
 							TextTransparency = 1
 						})
 
-						ModernV2.PlayAnimate(UIStroke,SlowyTween,{
+						L2Hub.PlayAnimate(UIStroke,SlowyTween,{
 							Transparency = 1
 						})
 					end;
@@ -12411,18 +12411,18 @@ function ModernV2:CreateWindow(Config)
 				table.insert(ConfigLib.Signals , ConfigSignal:Connect(Render));
 
 				table.insert(ConfigLib.Signals , ConfigItemFrame.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
-					ModernV2.PlayAnimate(UIStroke,SlowyTween,{
+					L2Hub.PlayAnimate(UIStroke,SlowyTween,{
 						Transparency = 0.25
 					})
 				end)));
 
 				table.insert(ConfigLib.Signals , ConfigItemFrame.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
-					ModernV2.PlayAnimate(UIStroke,SlowyTween,{
+					L2Hub.PlayAnimate(UIStroke,SlowyTween,{
 						Transparency = 0.500
 					})
 				end)));
 
-				local deleter,signal = ModernV2:CreateInput(DeleteConfig,function()
+				local deleter,signal = L2Hub:CreateInput(DeleteConfig,function()
 					if ConfigNameStr == "Default" then
 						Logging.new("trash-can","You can't delete default config!",3.5)
 						return;
@@ -12437,7 +12437,7 @@ function ModernV2:CreateWindow(Config)
 					Logging.new("trash-can",'Deleted '..tostring(ConfigNameStr),3.5)
 				end);
 
-				local _,overwrite_signal = ModernV2:CreateInput(OverwriteConfig,function()
+				local _,overwrite_signal = L2Hub:CreateInput(OverwriteConfig,function()
 					if ConfigLib:WriteConfig(ConfigNameStr, true) then
 						ConfigLib.SelectedConfig = ConfigNameStr;
 						ConfigName.Text = ConfigNameStr;
@@ -12447,7 +12447,7 @@ function ModernV2:CreateWindow(Config)
 					end;
 				end);
 
-				local _,load_signal = ModernV2:CreateInput(LoadConfig,function()
+				local _,load_signal = L2Hub:CreateInput(LoadConfig,function()
 					local path = Window.ConfigFolder..'/'..ConfigNameStr;
 
 					if isfile(path) then
@@ -12471,42 +12471,42 @@ function ModernV2:CreateWindow(Config)
 				table.insert(ConfigLib.Signals , load_signal);
 
 				table.insert(ConfigLib.Signals , deleter.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
-					ModernV2.PlayAnimate(Icon,SlowyTween,{
+					L2Hub.PlayAnimate(Icon,SlowyTween,{
 						TextTransparency = 0.2,
 						TextColor3 = Color3.fromRGB(223, 125, 125)
 					})
 				end)))
 
 				table.insert(ConfigLib.Signals , deleter.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
-					ModernV2.PlayAnimate(Icon,SlowyTween,{
+					L2Hub.PlayAnimate(Icon,SlowyTween,{
 						TextTransparency = 0.400,
 						TextColor3 = Color3.fromRGB(223, 223, 223)
 					})
 				end)))
 
 				table.insert(ConfigLib.Signals , OverwriteConfig.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
-					ModernV2.PlayAnimate(Icon_3,SlowyTween,{
+					L2Hub.PlayAnimate(Icon_3,SlowyTween,{
 						TextTransparency = 0.2,
-						TextColor3 = ModernV2.AccentColor
+						TextColor3 = L2Hub.AccentColor
 					})
 				end)))
 
 				table.insert(ConfigLib.Signals , OverwriteConfig.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
-					ModernV2.PlayAnimate(Icon_3,SlowyTween,{
+					L2Hub.PlayAnimate(Icon_3,SlowyTween,{
 						TextTransparency = 0.400,
 						TextColor3 = Color3.fromRGB(223, 223, 223)
 					})
 				end)))
 
 				table.insert(ConfigLib.Signals , LoadConfig.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
-					ModernV2.PlayAnimate(Icon_2,SlowyTween,{
+					L2Hub.PlayAnimate(Icon_2,SlowyTween,{
 						TextTransparency = 0.2,
-						TextColor3 = ModernV2.AccentColor
+						TextColor3 = L2Hub.AccentColor
 					})
 				end)))
 
 				table.insert(ConfigLib.Signals , LoadConfig.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
-					ModernV2.PlayAnimate(Icon_2,SlowyTween,{
+					L2Hub.PlayAnimate(Icon_2,SlowyTween,{
 						TextTransparency = 0.400,
 						TextColor3 = Color3.fromRGB(223, 223, 223)
 					})
@@ -12560,26 +12560,26 @@ function ModernV2:CreateWindow(Config)
 			end;
 		end);
 
-		local hover_write = ModernV2:CreateInput(ConfigIcon,function()
+		local hover_write = L2Hub:CreateInput(ConfigIcon,function()
 			if ConfigLib:WriteConfig(ConfigLib.SelectedConfig or "Default", true) then
 				ConfigLib:RefreshConfig();
 			end;
 		end);
 
-		ModernV2:AddSignal(hover_write.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
-			ModernV2.PlayAnimate(ConfigIcon,SlowyTween,{
+		L2Hub:AddSignal(hover_write.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
+			L2Hub.PlayAnimate(ConfigIcon,SlowyTween,{
 				TextTransparency = 0.1
 			})
 		end)));
 
-		ModernV2:AddSignal(hover_write.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
-			ModernV2.PlayAnimate(ConfigIcon,SlowyTween,{
+		L2Hub:AddSignal(hover_write.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
+			L2Hub.PlayAnimate(ConfigIcon,SlowyTween,{
 				TextTransparency = 0.25
 			})
 		end)));
 
 
-		local mv = ModernV2:CreateInput(LoadConfig , function()
+		local mv = L2Hub:CreateInput(LoadConfig , function()
 			local cfg_name = TextBox.Text;
 
 			if cfg_name and cfg_name:byte() and not cfg_name:find('/',1,true) and not cfg_name:find('\\',1,true) then
@@ -12592,14 +12592,14 @@ function ModernV2:CreateWindow(Config)
 			end;
 		end);
 
-		ModernV2:AddSignal(mv.MouseEnter:Connect(function()
-			ModernV2.PlayAnimate(Icon , SlowyTween , {
+		L2Hub:AddSignal(mv.MouseEnter:Connect(function()
+			L2Hub.PlayAnimate(Icon , SlowyTween , {
 				TextTransparency = 0.1
 			})
 		end))
 
-		ModernV2:AddSignal(mv.MouseLeave:Connect(function()
-			ModernV2.PlayAnimate(Icon , SlowyTween , {
+		L2Hub:AddSignal(mv.MouseLeave:Connect(function()
+			L2Hub.PlayAnimate(Icon , SlowyTween , {
 				TextTransparency = 0.35
 			})
 		end))
@@ -12616,7 +12616,7 @@ function ModernV2:CreateWindow(Config)
 
 			ConfigLib.UnsafeThread = UserInputService.InputBegan:Connect(function(Input)
 				if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
-					if not ModernV2:IsMouseOverFrame(ConfigMenu) then
+					if not L2Hub:IsMouseOverFrame(ConfigMenu) then
 						if ConfigLib.UnsafeThread then
 							ConfigLib.UnsafeThread:Disconnect();
 							ConfigLib.UnsafeThread = nil;
@@ -12637,9 +12637,9 @@ function ModernV2:CreateWindow(Config)
 		ConfigFrame.Visible = false;
 	end;
 
-	local UserSettings = ModernV2:CreateOptionWindow(BottomFrame , BottomFrame.ZIndex + 13);
+	local UserSettings = L2Hub:CreateOptionWindow(BottomFrame , BottomFrame.ZIndex + 13);
 	local reciveSignal;
-	ModernV2:CreateInput(BottomFrame , LPH_NO_VIRTUALIZE(function()
+	L2Hub:CreateInput(BottomFrame , LPH_NO_VIRTUALIZE(function()
 		if reciveSignal then
 			reciveSignal:Disconnect();
 			reciveSignal = nil;	
@@ -12649,7 +12649,7 @@ function ModernV2:CreateWindow(Config)
 
 		reciveSignal = UserInputService.InputBegan:Connect(function(Input)
 			if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
-				if not ModernV2:IsMouseOverFrame(UserSettings.Root) and not ModernV2:IsMouseOverFrame(BottomFrame) and not ModernV2.IsMosueOverOtherFrame then
+				if not L2Hub:IsMouseOverFrame(UserSettings.Root) and not L2Hub:IsMouseOverFrame(BottomFrame) and not L2Hub.IsMosueOverOtherFrame then
 					if reciveSignal then
 						reciveSignal:Disconnect();
 						reciveSignal = nil;	
@@ -12673,25 +12673,25 @@ function ModernV2:CreateWindow(Config)
 	end;
 
 			UserSettings:AddLabel("Menu Scale"):AddDropdown({
-				Default = ModernV2.IsMobile and "Mobile" or "Large",
+				Default = L2Hub.IsMobile and "Mobile" or "Large",
 				Values = { "Large", "Default", "Mobile", "Small", "Compact" },
 				Callback = function(value)
-					if ModernV2.Scales[value] then
-						Window:SetSize(ModernV2.Scales[value]);
+					if L2Hub.Scales[value] then
+						Window:SetSize(L2Hub.Scales[value]);
 						Logging.new("crop","Scale changed to "..tostring(value),5);
 			end;
 		end,
 	});
 
 	UserSettings:AddLabel("Text Gradient"):AddToggle({
-		Default = ModernV2.TextGradientEnabled,
+		Default = L2Hub.TextGradientEnabled,
 		Callback = function(value)
-			ModernV2:SetTextGradientEnabled(value);
+			L2Hub:SetTextGradientEnabled(value);
 		end,
 	});
 
 	function Window:AddToggle(Config)
-		Config = ModernV2:ProcessParams(Config , {
+		Config = L2Hub:ProcessParams(Config , {
 			Name = "Toggle",
 			Default = false,
 			Flag = nil,
@@ -12702,7 +12702,7 @@ function ModernV2:CreateWindow(Config)
 	end;
 
 	function Window:AddButton(Config)
-		Config = ModernV2:ProcessParams(Config , {
+		Config = L2Hub:ProcessParams(Config , {
 			Name = "Button",
 			Icon = "chevron-large-left",
 			Callback = EmptyFunction,
@@ -12713,8 +12713,8 @@ function ModernV2:CreateWindow(Config)
 	end;
 
 	function Window:SetAccount(Config)
-		Config = ModernV2:ProcessParams(Config , {
-			Profile = ModernV2.UserProfile,
+		Config = L2Hub:ProcessParams(Config , {
+			Profile = L2Hub.UserProfile,
 			Username = LocalPlayer.DisplayName,
 			Expires = "Never",
 		});
@@ -12724,8 +12724,8 @@ function ModernV2:CreateWindow(Config)
 			AccountProfile.ImageTransparency = 0.050;
 			AccountProfile.BackgroundColor3 = Color3.fromRGB(26, 28, 36);
 			AccountProfile.BackgroundTransparency = 0.250;
-			ModernV2:SetIconMode(AccountProfile, "gear");
-			AccountProfile.ImageColor3 = ModernV2.AccentColor;
+			L2Hub:SetIconMode(AccountProfile, "gear");
+			AccountProfile.ImageColor3 = L2Hub.AccentColor;
 			AccountName.Text = "Settings";
 			ExpireLabel.Text = "Customize menu";
 			Window.Username = "Settings";
@@ -12764,7 +12764,7 @@ function ModernV2:CreateWindow(Config)
 		Window.Size = newsize;
 
 		if Window.Signal:GetValue() then
-			ModernV2.PlayAnimate(WindowFrame , VSlowTween , {
+			L2Hub.PlayAnimate(WindowFrame , VSlowTween , {
 				Size = Window.Size
 			})
 		end
@@ -12819,11 +12819,11 @@ function ModernV2:CreateWindow(Config)
 	end;
 
 	function Window:SafeCallback(fn, Context, ...)
-		return ModernV2:FireCallback(fn, Context, ...);
+		return L2Hub:FireCallback(fn, Context, ...);
 	end;
 
 	function Window:InputDialog(Config)
-		Config = ModernV2:ProcessParams(Config , {
+		Config = L2Hub:ProcessParams(Config , {
 			Title = "Input",
 			Content = "",
 			Name = "Value",
@@ -12864,11 +12864,11 @@ function ModernV2:CreateWindow(Config)
 		local InputLayout = Instance.new("UIListLayout")
 		local ButtonHolder = Instance.new("Frame")
 		local ButtonLayout = Instance.new("UIListLayout")
-		local Shadow = ModernV2:CreateShadow(Panel);
+		local Shadow = L2Hub:CreateShadow(Panel);
 
 		local PanelHeight = 148 + (#Inputs * 42);
 
-		Overlay.Name = ModernV2.RandomString();
+		Overlay.Name = L2Hub.RandomString();
 		Overlay.Parent = WindowFrame
 		Overlay.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 		Overlay.BackgroundTransparency = 1
@@ -12877,10 +12877,10 @@ function ModernV2:CreateWindow(Config)
 		Overlay.ZIndex = 190
 		Overlay.Active = true
 
-		Panel.Name = ModernV2.RandomString();
+		Panel.Name = L2Hub.RandomString();
 		Panel.Parent = Overlay
 		Panel.AnchorPoint = Vector2.new(0.5, 0.5)
-		Panel.BackgroundColor3 = Color3.fromRGB(20, 22, 27)
+		Panel.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
 		Panel.BackgroundTransparency = 1
 		Panel.BorderSizePixel = 0
 		Panel.ClipsDescendants = true
@@ -12895,7 +12895,7 @@ function ModernV2:CreateWindow(Config)
 		UIStroke.Color = Color3.fromRGB(45, 48, 58)
 		UIStroke.Parent = Panel
 
-		Title.Name = ModernV2.RandomString();
+		Title.Name = L2Hub.RandomString();
 		Title.Parent = Panel
 		Title.BackgroundTransparency = 1
 		Title.BorderSizePixel = 0
@@ -12908,9 +12908,9 @@ function ModernV2:CreateWindow(Config)
 		Title.TextSize = 15
 		Title.TextTransparency = 1
 		Title.TextXAlignment = Enum.TextXAlignment.Left
-		ModernV2:AddTextGradient(Title);
+		L2Hub:AddTextGradient(Title);
 
-		Content.Name = ModernV2.RandomString();
+		Content.Name = L2Hub.RandomString();
 		Content.Parent = Panel
 		Content.BackgroundTransparency = 1
 		Content.BorderSizePixel = 0
@@ -12926,7 +12926,7 @@ function ModernV2:CreateWindow(Config)
 		Content.TextXAlignment = Enum.TextXAlignment.Left
 		Content.TextYAlignment = Enum.TextYAlignment.Top
 
-		InputHolder.Name = ModernV2.RandomString();
+		InputHolder.Name = L2Hub.RandomString();
 		InputHolder.Parent = Panel
 		InputHolder.BackgroundTransparency = 1
 		InputHolder.BorderSizePixel = 0
@@ -12964,7 +12964,7 @@ function ModernV2:CreateWindow(Config)
 				Inputs[Index] = InputConfig;
 			end;
 
-			InputConfig = ModernV2:ProcessParams(InputConfig , {
+			InputConfig = L2Hub:ProcessParams(InputConfig , {
 				Name = "Value",
 				Placeholder = "",
 				Default = "",
@@ -12978,7 +12978,7 @@ function ModernV2:CreateWindow(Config)
 			local BoxStroke = Instance.new("UIStroke")
 			local Box = Instance.new("TextBox")
 
-			Row.Name = ModernV2.RandomString();
+			Row.Name = L2Hub.RandomString();
 			Row.Parent = InputHolder
 			Row.BackgroundTransparency = 1
 			Row.BorderSizePixel = 0
@@ -12986,7 +12986,7 @@ function ModernV2:CreateWindow(Config)
 			Row.ZIndex = 192
 			Row.LayoutOrder = Index
 
-			Label.Name = ModernV2.RandomString();
+			Label.Name = L2Hub.RandomString();
 			Label.Parent = Row
 			Label.BackgroundTransparency = 1
 			Label.BorderSizePixel = 0
@@ -13001,7 +13001,7 @@ function ModernV2:CreateWindow(Config)
 			Label.TextXAlignment = Enum.TextXAlignment.Left
 			Label.TextTruncate = Enum.TextTruncate.AtEnd
 
-			BoxFrame.Name = ModernV2.RandomString();
+			BoxFrame.Name = L2Hub.RandomString();
 			BoxFrame.Parent = Row
 			BoxFrame.AnchorPoint = Vector2.new(1, 0.5)
 			BoxFrame.BackgroundColor3 = Color3.fromRGB(13, 17, 22)
@@ -13018,7 +13018,7 @@ function ModernV2:CreateWindow(Config)
 			BoxStroke.Transparency = 1
 			BoxStroke.Parent = BoxFrame
 
-			Box.Name = ModernV2.RandomString();
+			Box.Name = L2Hub.RandomString();
 			Box.Parent = BoxFrame
 			Box.BackgroundTransparency = 1
 			Box.BorderSizePixel = 0
@@ -13036,20 +13036,20 @@ function ModernV2:CreateWindow(Config)
 			Box.TextXAlignment = Enum.TextXAlignment.Left
 
 			if InputConfig.Numeric then
-				ModernV2:AddSignal(Box:GetPropertyChangedSignal("Text"):Connect(function()
+				L2Hub:AddSignal(Box:GetPropertyChangedSignal("Text"):Connect(function()
 					Box.Text = Box.Text:gsub("[^%d%.%-]", "");
 				end))
 			end;
 
 			table.insert(Dialog.Boxes, Box);
 
-			ModernV2.PlayAnimate(Label, SlowyTween, { TextTransparency = 0.250 })
-			ModernV2.PlayAnimate(BoxFrame, SlowyTween, { BackgroundTransparency = 0.150 })
-			ModernV2.PlayAnimate(BoxStroke, SlowyTween, { Transparency = 0.700 })
-			ModernV2.PlayAnimate(Box, SlowyTween, { TextTransparency = 0.150 })
+			L2Hub.PlayAnimate(Label, SlowyTween, { TextTransparency = 0.250 })
+			L2Hub.PlayAnimate(BoxFrame, SlowyTween, { BackgroundTransparency = 0.150 })
+			L2Hub.PlayAnimate(BoxStroke, SlowyTween, { Transparency = 0.700 })
+			L2Hub.PlayAnimate(Box, SlowyTween, { TextTransparency = 0.150 })
 		end;
 
-		ButtonHolder.Name = ModernV2.RandomString();
+		ButtonHolder.Name = L2Hub.RandomString();
 		ButtonHolder.Parent = Panel
 		ButtonHolder.AnchorPoint = Vector2.new(1, 1)
 		ButtonHolder.BackgroundTransparency = 1
@@ -13071,11 +13071,11 @@ function ModernV2:CreateWindow(Config)
 
 			Dialog.Closed = true;
 
-			ModernV2.PlayAnimate(Overlay, SlowyTween, { BackgroundTransparency = 1 })
-			ModernV2.PlayAnimate(Panel, SlowyTween, { BackgroundTransparency = 1 })
-			ModernV2.PlayAnimate(UIStroke, SlowyTween, { Transparency = 1 })
-			ModernV2.PlayAnimate(Title, SlowyTween, { TextTransparency = 1 })
-			ModernV2.PlayAnimate(Content, SlowyTween, { TextTransparency = 1 })
+			L2Hub.PlayAnimate(Overlay, SlowyTween, { BackgroundTransparency = 1 })
+			L2Hub.PlayAnimate(Panel, SlowyTween, { BackgroundTransparency = 1 })
+			L2Hub.PlayAnimate(UIStroke, SlowyTween, { Transparency = 1 })
+			L2Hub.PlayAnimate(Title, SlowyTween, { TextTransparency = 1 })
+			L2Hub.PlayAnimate(Content, SlowyTween, { TextTransparency = 1 })
 			Shadow:Render(false);
 
 			task.delay(0.18, function()
@@ -13084,7 +13084,7 @@ function ModernV2:CreateWindow(Config)
 				end;
 			end);
 
-			ModernV2:FireCallback(Config.Callback, Config.Title, Result, Dialog.Values);
+			L2Hub:FireCallback(Config.Callback, Config.Title, Result, Dialog.Values);
 
 			return Result;
 		end;
@@ -13095,9 +13095,9 @@ function ModernV2:CreateWindow(Config)
 			local ButtonStroke = Instance.new("UIStroke")
 			local ButtonLabel = Instance.new("TextLabel")
 
-			Button.Name = ModernV2.RandomString();
+			Button.Name = L2Hub.RandomString();
 			Button.Parent = ButtonHolder
-			Button.BackgroundColor3 = Primary and ModernV2.AccentColor or Color3.fromRGB(26, 28, 36)
+			Button.BackgroundColor3 = Primary and L2Hub.AccentColor or Color3.fromRGB(26, 28, 36)
 			Button.BackgroundTransparency = 1
 			Button.BorderSizePixel = 0
 			Button.ClipsDescendants = true
@@ -13108,10 +13108,10 @@ function ModernV2:CreateWindow(Config)
 			ButtonCorner.Parent = Button
 
 			ButtonStroke.Transparency = 1
-			ButtonStroke.Color = Primary and ModernV2.AccentColor or Color3.fromRGB(45, 48, 58)
+			ButtonStroke.Color = Primary and L2Hub.AccentColor or Color3.fromRGB(45, 48, 58)
 			ButtonStroke.Parent = Button
 
-			ButtonLabel.Name = ModernV2.RandomString();
+			ButtonLabel.Name = L2Hub.RandomString();
 			ButtonLabel.Parent = Button
 			ButtonLabel.BackgroundTransparency = 1
 			ButtonLabel.BorderSizePixel = 0
@@ -13123,19 +13123,19 @@ function ModernV2:CreateWindow(Config)
 			ButtonLabel.TextSize = 12
 			ButtonLabel.TextTransparency = 1
 
-			local Input = ModernV2:CreateInput(Button, Callback);
+			local Input = L2Hub:CreateInput(Button, Callback);
 
-			ModernV2:AddSignal(Input.MouseEnter:Connect(function()
-				ModernV2.PlayAnimate(Button, SlowyTween, { BackgroundTransparency = Primary and 0 or 0.100 })
+			L2Hub:AddSignal(Input.MouseEnter:Connect(function()
+				L2Hub.PlayAnimate(Button, SlowyTween, { BackgroundTransparency = Primary and 0 or 0.100 })
 			end))
 
-			ModernV2:AddSignal(Input.MouseLeave:Connect(function()
-				ModernV2.PlayAnimate(Button, SlowyTween, { BackgroundTransparency = Primary and 0.100 or 0.250 })
+			L2Hub:AddSignal(Input.MouseLeave:Connect(function()
+				L2Hub.PlayAnimate(Button, SlowyTween, { BackgroundTransparency = Primary and 0.100 or 0.250 })
 			end))
 
-			ModernV2.PlayAnimate(Button, SlowyTween, { BackgroundTransparency = Primary and 0.100 or 0.250 })
-			ModernV2.PlayAnimate(ButtonStroke, SlowyTween, { Transparency = Primary and 1 or 0.650 })
-			ModernV2.PlayAnimate(ButtonLabel, SlowyTween, { TextTransparency = 0 })
+			L2Hub.PlayAnimate(Button, SlowyTween, { BackgroundTransparency = Primary and 0.100 or 0.250 })
+			L2Hub.PlayAnimate(ButtonStroke, SlowyTween, { Transparency = Primary and 1 or 0.650 })
+			L2Hub.PlayAnimate(ButtonLabel, SlowyTween, { TextTransparency = 0 })
 		end;
 
 		AddDialogButton(Config.CancelText, false, function()
@@ -13146,12 +13146,12 @@ function ModernV2:CreateWindow(Config)
 			Dialog:Close(ReadValues());
 		end);
 
-		ModernV2.PlayAnimate(Overlay, SlowyTween, { BackgroundTransparency = 0.350 })
-		ModernV2.PlayAnimate(Panel, VSlowTween, { BackgroundTransparency = 0.035, Size = UDim2.new(0, 360, 0, PanelHeight) })
-		ModernV2.PlayAnimate(UIStroke, SlowyTween, { Transparency = 0.650 })
-		ModernV2.PlayAnimate(Title, SlowyTween, { TextTransparency = 0 })
-		ModernV2.PlayAnimate(Content, SlowyTween, { TextTransparency = 0.250 })
-		Shadow:Render(true);
+		L2Hub.PlayAnimate(Overlay, SlowyTween, { BackgroundTransparency = 0.350 })
+		L2Hub.PlayAnimate(Panel, VSlowTween, { BackgroundTransparency = 0.035, Size = UDim2.new(0, 360, 0, PanelHeight) })
+		L2Hub.PlayAnimate(UIStroke, SlowyTween, { Transparency = 0.650 })
+		L2Hub.PlayAnimate(Title, SlowyTween, { TextTransparency = 0 })
+		L2Hub.PlayAnimate(Content, SlowyTween, { TextTransparency = 0.250 })
+		Shadow:Render(false);
 
 		task.defer(function()
 			if Dialog.Boxes[1] then
@@ -13183,7 +13183,7 @@ function ModernV2:CreateWindow(Config)
 	end;
 
 	function Window:Dialog(Config)
-		Config = ModernV2:ProcessParams(Config , {
+		Config = L2Hub:ProcessParams(Config , {
 			Title = "Dialog",
 			Content = "",
 			Icon = "lucide:message-square",
@@ -13215,7 +13215,7 @@ function ModernV2:CreateWindow(Config)
 		local PanelClosedSize = UDim2.new(0, 365, 0, PanelHeight - 18);
 		local PanelOpenSize = UDim2.new(0, 392, 0, PanelHeight);
 
-		Overlay.Name = ModernV2.RandomString();
+		Overlay.Name = L2Hub.RandomString();
 		Overlay.Parent = WindowFrame
 		Overlay.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 		Overlay.BackgroundTransparency = 1
@@ -13225,7 +13225,7 @@ function ModernV2:CreateWindow(Config)
 		Overlay.ZIndex = 180
 		Overlay.Active = true
 
-		Panel.Name = ModernV2.RandomString();
+		Panel.Name = L2Hub.RandomString();
 		Panel.Parent = Overlay
 		Panel.AnchorPoint = Vector2.new(0.5, 0.5)
 		Panel.BackgroundColor3 = Color3.fromRGB(13, 17, 22)
@@ -13244,11 +13244,11 @@ function ModernV2:CreateWindow(Config)
 		UIStroke.Color = Color3.fromRGB(45, 48, 58)
 		UIStroke.Parent = Panel
 
-		local Shadow = ModernV2:CreateShadow(Panel);
+		local Shadow = L2Hub:CreateShadow(Panel);
 
-		AccentBar.Name = ModernV2.RandomString();
+		AccentBar.Name = L2Hub.RandomString();
 		AccentBar.Parent = Panel
-		AccentBar.BackgroundColor3 = ModernV2.AccentColor
+		AccentBar.BackgroundColor3 = L2Hub.AccentColor
 		AccentBar.BackgroundTransparency = 1
 		AccentBar.BorderSizePixel = 0
 		AccentBar.Position = UDim2.fromOffset(0, 0)
@@ -13258,9 +13258,9 @@ function ModernV2:CreateWindow(Config)
 		AccentCorner.CornerRadius = UDim.new(0, 12)
 		AccentCorner.Parent = AccentBar
 
-		IconHolder.Name = ModernV2.RandomString();
+		IconHolder.Name = L2Hub.RandomString();
 		IconHolder.Parent = Panel
-		IconHolder.BackgroundColor3 = ModernV2.AccentColor
+		IconHolder.BackgroundColor3 = L2Hub.AccentColor
 		IconHolder.BackgroundTransparency = 1
 		IconHolder.BorderSizePixel = 0
 		IconHolder.Position = UDim2.fromOffset(18, 18)
@@ -13270,11 +13270,11 @@ function ModernV2:CreateWindow(Config)
 		IconCorner.CornerRadius = UDim.new(0, 8)
 		IconCorner.Parent = IconHolder
 
-		IconStroke.Color = ModernV2.AccentColor
+		IconStroke.Color = L2Hub.AccentColor
 		IconStroke.Transparency = 1
 		IconStroke.Parent = IconHolder
 
-		DialogIcon.Name = ModernV2.RandomString();
+		DialogIcon.Name = L2Hub.RandomString();
 		DialogIcon.Parent = IconHolder
 		DialogIcon.AnchorPoint = Vector2.new(0.5, 0.5)
 		DialogIcon.BackgroundTransparency = 1
@@ -13284,9 +13284,9 @@ function ModernV2:CreateWindow(Config)
 		DialogIcon.ZIndex = 183
 		DialogIcon.ImageColor3 = Color3.fromRGB(255, 255, 255)
 		DialogIcon.ImageTransparency = 1
-		ModernV2:SetIconMode(DialogIcon, Config.Icon)
+		L2Hub:SetIconMode(DialogIcon, Config.Icon)
 
-		Title.Name = ModernV2.RandomString();
+		Title.Name = L2Hub.RandomString();
 		Title.Parent = Panel
 		Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		Title.BackgroundTransparency = 1
@@ -13301,9 +13301,9 @@ function ModernV2:CreateWindow(Config)
 		Title.TextSize = 16
 		Title.TextTransparency = 1
 		Title.TextXAlignment = Enum.TextXAlignment.Left
-		ModernV2:AddTextGradient(Title);
+		L2Hub:AddTextGradient(Title);
 
-		Content.Name = ModernV2.RandomString();
+		Content.Name = L2Hub.RandomString();
 		Content.Parent = Panel
 		Content.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		Content.BackgroundTransparency = 1
@@ -13321,7 +13321,7 @@ function ModernV2:CreateWindow(Config)
 		Content.TextXAlignment = Enum.TextXAlignment.Left
 		Content.TextYAlignment = Enum.TextYAlignment.Top
 
-		Divider.Name = ModernV2.RandomString();
+		Divider.Name = L2Hub.RandomString();
 		Divider.Parent = Panel
 		Divider.BackgroundColor3 = Color3.fromRGB(45, 48, 58)
 		Divider.BackgroundTransparency = 1
@@ -13330,7 +13330,7 @@ function ModernV2:CreateWindow(Config)
 		Divider.Size = UDim2.new(1, -28, 0, 1)
 		Divider.ZIndex = 182
 
-		ButtonHolder.Name = ModernV2.RandomString();
+		ButtonHolder.Name = L2Hub.RandomString();
 		ButtonHolder.Parent = Panel
 		ButtonHolder.AnchorPoint = Vector2.new(1, 1)
 		ButtonHolder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -13354,44 +13354,44 @@ function ModernV2:CreateWindow(Config)
 
 			Dialog.Closed = true;
 
-			ModernV2.PlayAnimate(Overlay,SlowyTween,{
+			L2Hub.PlayAnimate(Overlay,SlowyTween,{
 				BackgroundTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(Panel,SlowyTween,{
+			L2Hub.PlayAnimate(Panel,SlowyTween,{
 				BackgroundTransparency = 1,
 				Size = PanelClosedSize
 			})
 
-			ModernV2.PlayAnimate(UIStroke,SlowyTween,{
+			L2Hub.PlayAnimate(UIStroke,SlowyTween,{
 				Transparency = 1
 			})
 
-			ModernV2.PlayAnimate(AccentBar,SlowyTween,{
+			L2Hub.PlayAnimate(AccentBar,SlowyTween,{
 				BackgroundTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(IconHolder,SlowyTween,{
+			L2Hub.PlayAnimate(IconHolder,SlowyTween,{
 				BackgroundTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(IconStroke,SlowyTween,{
+			L2Hub.PlayAnimate(IconStroke,SlowyTween,{
 				Transparency = 1
 			})
 
-			ModernV2.PlayAnimate(DialogIcon,SlowyTween,{
+			L2Hub.PlayAnimate(DialogIcon,SlowyTween,{
 				ImageTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(Title,SlowyTween,{
+			L2Hub.PlayAnimate(Title,SlowyTween,{
 				TextTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(Content,SlowyTween,{
+			L2Hub.PlayAnimate(Content,SlowyTween,{
 				TextTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(Divider,SlowyTween,{
+			L2Hub.PlayAnimate(Divider,SlowyTween,{
 				BackgroundTransparency = 1
 			})
 
@@ -13401,7 +13401,7 @@ function ModernV2:CreateWindow(Config)
 				Overlay:Destroy();
 			end);
 
-			ModernV2:FireCallback(Config.Callback, Config.Title, Result);
+			L2Hub:FireCallback(Config.Callback, Config.Title, Result);
 
 			return Result;
 		end;
@@ -13416,7 +13416,7 @@ function ModernV2:CreateWindow(Config)
 		end;
 
 		for Index,ButtonConfig in ipairs(Config.Buttons) do
-			ButtonConfig = ModernV2:ProcessParams(ButtonConfig , {
+			ButtonConfig = L2Hub:ProcessParams(ButtonConfig , {
 				Text = "Button",
 				Primary = false,
 				Callback = EmptyFunction,
@@ -13427,9 +13427,9 @@ function ModernV2:CreateWindow(Config)
 			local ButtonStroke = Instance.new("UIStroke")
 			local ButtonLabel = Instance.new("TextLabel")
 
-			Button.Name = ModernV2.RandomString();
+			Button.Name = L2Hub.RandomString();
 			Button.Parent = ButtonHolder
-			Button.BackgroundColor3 = ButtonConfig.Primary and ModernV2.AccentColor or Color3.fromRGB(26, 28, 36)
+			Button.BackgroundColor3 = ButtonConfig.Primary and L2Hub.AccentColor or Color3.fromRGB(26, 28, 36)
 			Button.BackgroundTransparency = 1
 			Button.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Button.BorderSizePixel = 0
@@ -13442,10 +13442,10 @@ function ModernV2:CreateWindow(Config)
 			ButtonCorner.Parent = Button
 
 			ButtonStroke.Transparency = 1
-			ButtonStroke.Color = ButtonConfig.Primary and ModernV2.AccentColor or Color3.fromRGB(45, 48, 58)
+			ButtonStroke.Color = ButtonConfig.Primary and L2Hub.AccentColor or Color3.fromRGB(45, 48, 58)
 			ButtonStroke.Parent = Button
 
-			ButtonLabel.Name = ModernV2.RandomString();
+			ButtonLabel.Name = L2Hub.RandomString();
 			ButtonLabel.Parent = Button
 			ButtonLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			ButtonLabel.BackgroundTransparency = 1
@@ -13459,90 +13459,90 @@ function ModernV2:CreateWindow(Config)
 			ButtonLabel.TextSize = 12
 			ButtonLabel.TextTransparency = 1
 
-			local Input = ModernV2:CreateInput(Button , LPH_NO_VIRTUALIZE(function()
+			local Input = L2Hub:CreateInput(Button , LPH_NO_VIRTUALIZE(function()
 				local Result = ButtonConfig.ReturnValue;
 
 				if Result == nil then
 					Result = ButtonConfig.Text;
 				end;
 
-				ModernV2:FireCallback(ButtonConfig.Callback, ButtonConfig.Text, Result);
+				L2Hub:FireCallback(ButtonConfig.Callback, ButtonConfig.Text, Result);
 				Dialog:Close(Result);
 			end));
 
-			ModernV2:AddSignal(Input.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
-				ModernV2.PlayAnimate(Button,SlowyTween,{
+			L2Hub:AddSignal(Input.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
+				L2Hub.PlayAnimate(Button,SlowyTween,{
 					BackgroundTransparency = ButtonConfig.Primary and 0 or 0.080
 				})
 			end)))
 
-			ModernV2:AddSignal(Input.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
-				ModernV2.PlayAnimate(Button,SlowyTween,{
+			L2Hub:AddSignal(Input.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
+				L2Hub.PlayAnimate(Button,SlowyTween,{
 					BackgroundTransparency = ButtonConfig.Primary and 0.100 or 0.250
 				})
 			end)))
 
-			ModernV2.PlayAnimate(Button,SlowyTween,{
+			L2Hub.PlayAnimate(Button,SlowyTween,{
 				BackgroundTransparency = ButtonConfig.Primary and 0.100 or 0.250
 			})
 
-			ModernV2.PlayAnimate(ButtonStroke,SlowyTween,{
+			L2Hub.PlayAnimate(ButtonStroke,SlowyTween,{
 				Transparency = ButtonConfig.Primary and 1 or 0.650
 			})
 
-			ModernV2.PlayAnimate(ButtonLabel,SlowyTween,{
+			L2Hub.PlayAnimate(ButtonLabel,SlowyTween,{
 				TextTransparency = 0
 			})
 		end;
 
-		ModernV2.PlayAnimate(Overlay,SlowyTween,{
+		L2Hub.PlayAnimate(Overlay,SlowyTween,{
 			BackgroundTransparency = 0.280
 		})
 
-		ModernV2.PlayAnimate(Panel,VSlowTween,{
+		L2Hub.PlayAnimate(Panel,VSlowTween,{
 			BackgroundTransparency = 0.025,
 			Size = PanelOpenSize
 		})
 
-		ModernV2.PlayAnimate(UIStroke,SlowyTween,{
+		L2Hub.PlayAnimate(UIStroke,SlowyTween,{
 			Transparency = 0.650
 		})
 
-		ModernV2.PlayAnimate(AccentBar,SlowyTween,{
+		L2Hub.PlayAnimate(AccentBar,SlowyTween,{
 			BackgroundTransparency = 0
 		})
 
-		ModernV2.PlayAnimate(IconHolder,SlowyTween,{
+		L2Hub.PlayAnimate(IconHolder,SlowyTween,{
 			BackgroundTransparency = 0.820
 		})
 
-		ModernV2.PlayAnimate(IconStroke,SlowyTween,{
+		L2Hub.PlayAnimate(IconStroke,SlowyTween,{
 			Transparency = 0.350
 		})
 
-		ModernV2.PlayAnimate(DialogIcon,SlowyTween,{
+		L2Hub.PlayAnimate(DialogIcon,SlowyTween,{
 			ImageTransparency = 0
 		})
 
-		ModernV2.PlayAnimate(Title,SlowyTween,{
+		L2Hub.PlayAnimate(Title,SlowyTween,{
 			TextTransparency = 0
 		})
 
-		ModernV2.PlayAnimate(Content,SlowyTween,{
+		L2Hub.PlayAnimate(Content,SlowyTween,{
 			TextTransparency = 0.250
 		})
 
-		ModernV2.PlayAnimate(Divider,SlowyTween,{
+		L2Hub.PlayAnimate(Divider,SlowyTween,{
 			BackgroundTransparency = 0.720
 		})
 
-		Shadow:Render(true);
+		Shadow:Render(false);
 
 		return CaseInsensitive(Dialog);
 	end;
 
 	function Window:ProgressDialog(Config)
-		Config = ModernV2:ProcessParams(Config , {
+		Config = L2Hub:ProcessParams(Config , {
 			Title = "Progress",
 			Content = "",
 			Value = 0,
@@ -13574,7 +13574,7 @@ function ModernV2:CreateWindow(Config)
 		local CancelStroke = Instance.new("UIStroke")
 		local CancelLabel = Instance.new("TextLabel")
 
-		Overlay.Name = ModernV2.RandomString();
+		Overlay.Name = L2Hub.RandomString();
 		Overlay.Parent = WindowFrame
 		Overlay.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 		Overlay.BackgroundTransparency = 1
@@ -13583,10 +13583,10 @@ function ModernV2:CreateWindow(Config)
 		Overlay.ZIndex = 180
 		Overlay.Active = true
 
-		Panel.Name = ModernV2.RandomString();
+		Panel.Name = L2Hub.RandomString();
 		Panel.Parent = Overlay
 		Panel.AnchorPoint = Vector2.new(0.5, 0.5)
-		Panel.BackgroundColor3 = Color3.fromRGB(20, 22, 27)
+		Panel.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
 		Panel.BackgroundTransparency = 1
 		Panel.BorderSizePixel = 0
 		Panel.ClipsDescendants = true
@@ -13601,9 +13601,9 @@ function ModernV2:CreateWindow(Config)
 		UIStroke.Color = Color3.fromRGB(45, 48, 58)
 		UIStroke.Parent = Panel
 
-		local Shadow = ModernV2:CreateShadow(Panel);
+		local Shadow = L2Hub:CreateShadow(Panel);
 
-		Title.Name = ModernV2.RandomString();
+		Title.Name = L2Hub.RandomString();
 		Title.Parent = Panel
 		Title.BackgroundTransparency = 1
 		Title.BorderSizePixel = 0
@@ -13616,9 +13616,9 @@ function ModernV2:CreateWindow(Config)
 		Title.TextSize = 15
 		Title.TextTransparency = 1
 		Title.TextXAlignment = Enum.TextXAlignment.Left
-		ModernV2:AddTextGradient(Title);
+		L2Hub:AddTextGradient(Title);
 
-		Content.Name = ModernV2.RandomString();
+		Content.Name = L2Hub.RandomString();
 		Content.Parent = Panel
 		Content.BackgroundTransparency = 1
 		Content.BorderSizePixel = 0
@@ -13634,7 +13634,7 @@ function ModernV2:CreateWindow(Config)
 		Content.TextXAlignment = Enum.TextXAlignment.Left
 		Content.TextYAlignment = Enum.TextYAlignment.Top
 
-		ValueLabel.Name = ModernV2.RandomString();
+		ValueLabel.Name = L2Hub.RandomString();
 		ValueLabel.Parent = Panel
 		ValueLabel.BackgroundTransparency = 1
 		ValueLabel.BorderSizePixel = 0
@@ -13647,7 +13647,7 @@ function ModernV2:CreateWindow(Config)
 		ValueLabel.TextTransparency = 1
 		ValueLabel.TextXAlignment = Enum.TextXAlignment.Right
 
-		BarBack.Name = ModernV2.RandomString();
+		BarBack.Name = L2Hub.RandomString();
 		BarBack.Parent = Panel
 		BarBack.BackgroundColor3 = Color3.fromRGB(26, 28, 36)
 		BarBack.BackgroundTransparency = 1
@@ -13659,9 +13659,9 @@ function ModernV2:CreateWindow(Config)
 		BarBackCorner.CornerRadius = UDim.new(1, 0)
 		BarBackCorner.Parent = BarBack
 
-		BarFill.Name = ModernV2.RandomString();
+		BarFill.Name = L2Hub.RandomString();
 		BarFill.Parent = BarBack
-		BarFill.BackgroundColor3 = ModernV2.AccentColor
+		BarFill.BackgroundColor3 = L2Hub.AccentColor
 		BarFill.BackgroundTransparency = 1
 		BarFill.BorderSizePixel = 0
 		BarFill.Size = UDim2.fromScale(0, 1)
@@ -13670,7 +13670,7 @@ function ModernV2:CreateWindow(Config)
 		BarFillCorner.CornerRadius = UDim.new(1, 0)
 		BarFillCorner.Parent = BarFill
 
-		CancelButton.Name = ModernV2.RandomString();
+		CancelButton.Name = L2Hub.RandomString();
 		CancelButton.Parent = Panel
 		CancelButton.AnchorPoint = Vector2.new(1, 1)
 		CancelButton.BackgroundColor3 = Color3.fromRGB(26, 28, 36)
@@ -13689,7 +13689,7 @@ function ModernV2:CreateWindow(Config)
 		CancelStroke.Color = Color3.fromRGB(45, 48, 58)
 		CancelStroke.Parent = CancelButton
 
-		CancelLabel.Name = ModernV2.RandomString();
+		CancelLabel.Name = L2Hub.RandomString();
 		CancelLabel.Parent = CancelButton
 		CancelLabel.BackgroundTransparency = 1
 		CancelLabel.BorderSizePixel = 0
@@ -13707,14 +13707,14 @@ function ModernV2:CreateWindow(Config)
 			local Percent = Value / MaxValue;
 
 			if Config.Type == "%" then
-				ValueLabel.Text = tostring(ModernV2.Rounding(Percent * 100, 0)).."%";
+				ValueLabel.Text = tostring(L2Hub.Rounding(Percent * 100, 0)).."%";
 			else
-				ValueLabel.Text = tostring(ModernV2.Rounding(Value, 2)).."/"..tostring(ModernV2.Rounding(MaxValue, 2))..tostring(Config.Type or "");
+				ValueLabel.Text = tostring(L2Hub.Rounding(Value, 2)).."/"..tostring(L2Hub.Rounding(MaxValue, 2))..tostring(Config.Type or "");
 			end;
 
-			ModernV2.PlayAnimate(BarFill, SlowyTween, {
+			L2Hub.PlayAnimate(BarFill, SlowyTween, {
 				Size = UDim2.fromScale(Percent, 1),
-				BackgroundColor3 = ModernV2.AccentColor
+				BackgroundColor3 = L2Hub.AccentColor
 			});
 		end;
 
@@ -13725,27 +13725,27 @@ function ModernV2:CreateWindow(Config)
 
 			Dialog.Closed = true;
 
-			ModernV2.PlayAnimate(Overlay,SlowyTween,{ BackgroundTransparency = 1 })
-			ModernV2.PlayAnimate(Panel,SlowyTween,{
+			L2Hub.PlayAnimate(Overlay,SlowyTween,{ BackgroundTransparency = 1 })
+			L2Hub.PlayAnimate(Panel,SlowyTween,{
 				BackgroundTransparency = 1,
 				Size = UDim2.new(0, 335, 0, Config.Cancelable and 150 or 125)
 			})
-			ModernV2.PlayAnimate(UIStroke,SlowyTween,{ Transparency = 1 })
-			ModernV2.PlayAnimate(Title,SlowyTween,{ TextTransparency = 1 })
-			ModernV2.PlayAnimate(Content,SlowyTween,{ TextTransparency = 1 })
-			ModernV2.PlayAnimate(ValueLabel,SlowyTween,{ TextTransparency = 1 })
-			ModernV2.PlayAnimate(BarBack,SlowyTween,{ BackgroundTransparency = 1 })
-			ModernV2.PlayAnimate(BarFill,SlowyTween,{ BackgroundTransparency = 1 })
-			ModernV2.PlayAnimate(CancelButton,SlowyTween,{ BackgroundTransparency = 1 })
-			ModernV2.PlayAnimate(CancelStroke,SlowyTween,{ Transparency = 1 })
-			ModernV2.PlayAnimate(CancelLabel,SlowyTween,{ TextTransparency = 1 })
+			L2Hub.PlayAnimate(UIStroke,SlowyTween,{ Transparency = 1 })
+			L2Hub.PlayAnimate(Title,SlowyTween,{ TextTransparency = 1 })
+			L2Hub.PlayAnimate(Content,SlowyTween,{ TextTransparency = 1 })
+			L2Hub.PlayAnimate(ValueLabel,SlowyTween,{ TextTransparency = 1 })
+			L2Hub.PlayAnimate(BarBack,SlowyTween,{ BackgroundTransparency = 1 })
+			L2Hub.PlayAnimate(BarFill,SlowyTween,{ BackgroundTransparency = 1 })
+			L2Hub.PlayAnimate(CancelButton,SlowyTween,{ BackgroundTransparency = 1 })
+			L2Hub.PlayAnimate(CancelStroke,SlowyTween,{ Transparency = 1 })
+			L2Hub.PlayAnimate(CancelLabel,SlowyTween,{ TextTransparency = 1 })
 			Shadow:Render(false);
 
 			task.delay(0.18,function()
 				Overlay:Destroy();
 			end);
 
-			ModernV2:FireCallback(Config.Callback, Config.Title, Result);
+			L2Hub:FireCallback(Config.Callback, Config.Title, Result);
 			return Result;
 		end;
 
@@ -13789,47 +13789,47 @@ function ModernV2:CreateWindow(Config)
 		end;
 
 		if Config.Cancelable then
-			local Input = ModernV2:CreateInput(CancelButton , LPH_NO_VIRTUALIZE(function()
+			local Input = L2Hub:CreateInput(CancelButton , LPH_NO_VIRTUALIZE(function()
 				Dialog:Close(false);
 			end));
 
-			ModernV2:AddSignal(Input.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
-				ModernV2.PlayAnimate(CancelButton,SlowyTween,{ BackgroundTransparency = 0.100 })
+			L2Hub:AddSignal(Input.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
+				L2Hub.PlayAnimate(CancelButton,SlowyTween,{ BackgroundTransparency = 0.100 })
 			end)))
 
-			ModernV2:AddSignal(Input.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
-				ModernV2.PlayAnimate(CancelButton,SlowyTween,{ BackgroundTransparency = 0.250 })
+			L2Hub:AddSignal(Input.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
+				L2Hub.PlayAnimate(CancelButton,SlowyTween,{ BackgroundTransparency = 0.250 })
 			end)))
 		end;
 
 		UpdateProgress();
 
-		ModernV2.PlayAnimate(Overlay,SlowyTween,{ BackgroundTransparency = 0.350 })
-		ModernV2.PlayAnimate(Panel,VSlowTween,{
+		L2Hub.PlayAnimate(Overlay,SlowyTween,{ BackgroundTransparency = 0.350 })
+		L2Hub.PlayAnimate(Panel,VSlowTween,{
 			BackgroundTransparency = 0.035,
 			Size = UDim2.new(0, 350, 0, Config.Cancelable and 165 or 140)
 		})
-		ModernV2.PlayAnimate(UIStroke,SlowyTween,{ Transparency = 0.650 })
-		ModernV2.PlayAnimate(Title,SlowyTween,{ TextTransparency = 0 })
-		ModernV2.PlayAnimate(Content,SlowyTween,{ TextTransparency = 0.250 })
-		ModernV2.PlayAnimate(ValueLabel,SlowyTween,{ TextTransparency = 0.500 })
-		ModernV2.PlayAnimate(BarBack,SlowyTween,{ BackgroundTransparency = 0 })
-		ModernV2.PlayAnimate(BarFill,SlowyTween,{ BackgroundTransparency = 0 })
+		L2Hub.PlayAnimate(UIStroke,SlowyTween,{ Transparency = 0.650 })
+		L2Hub.PlayAnimate(Title,SlowyTween,{ TextTransparency = 0 })
+		L2Hub.PlayAnimate(Content,SlowyTween,{ TextTransparency = 0.250 })
+		L2Hub.PlayAnimate(ValueLabel,SlowyTween,{ TextTransparency = 0.500 })
+		L2Hub.PlayAnimate(BarBack,SlowyTween,{ BackgroundTransparency = 0 })
+		L2Hub.PlayAnimate(BarFill,SlowyTween,{ BackgroundTransparency = 0 })
 
 		if Config.Cancelable then
-			ModernV2.PlayAnimate(CancelButton,SlowyTween,{ BackgroundTransparency = 0.250 })
-			ModernV2.PlayAnimate(CancelStroke,SlowyTween,{ Transparency = 0.650 })
-			ModernV2.PlayAnimate(CancelLabel,SlowyTween,{ TextTransparency = 0 })
+			L2Hub.PlayAnimate(CancelButton,SlowyTween,{ BackgroundTransparency = 0.250 })
+			L2Hub.PlayAnimate(CancelStroke,SlowyTween,{ Transparency = 0.650 })
+			L2Hub.PlayAnimate(CancelLabel,SlowyTween,{ TextTransparency = 0 })
 		end;
 
-		Shadow:Render(true);
+		Shadow:Render(false);
 
 		return CaseInsensitive(Dialog);
 	end;
 
 	Window:SetAccount();
 
-	ModernV2:AddSignal(UserInputService.InputBegan:Connect(LPH_NO_VIRTUALIZE(function(value,ISTYPING)
+	L2Hub:AddSignal(UserInputService.InputBegan:Connect(LPH_NO_VIRTUALIZE(function(value,ISTYPING)
 		if value.KeyCode == Window.Keybind or value.KeyCode.Name == Window.Keybind then
 			if not ISTYPING then
 				Window:ToggleInterface()
@@ -13851,7 +13851,7 @@ function ModernV2:CreateWindow(Config)
 
 	function Window:SetFont(FontConfig)
 		Window.Font = FontConfig;
-		return ModernV2:SetFont(FontConfig);
+		return L2Hub:SetFont(FontConfig);
 	end;
 
 	function Window:Destroy()
@@ -13863,11 +13863,11 @@ function ModernV2:CreateWindow(Config)
 		Window.Signal:SetValue(false);
 
 		for _,Callback in ipairs(Window.OnDestroyCallbacks) do
-			ModernV2:FireCallback(Callback, "OnDestroy", Window);
+			L2Hub:FireCallback(Callback, "OnDestroy", Window);
 		end;
 
-		if ModernV2.ActiveWindow == Window then
-			ModernV2.ActiveWindow = nil;
+		if L2Hub.ActiveWindow == Window then
+			L2Hub.ActiveWindow = nil;
 		end;
 
 		task.delay(0.2,function()
@@ -13884,29 +13884,29 @@ function ModernV2:CreateWindow(Config)
 	end;
 
 	-- Register this window as the active window so bindables can fire it
-	ModernV2.ActiveWindow = Window;
+	L2Hub.ActiveWindow = Window;
 
 	function Window:Watermark(Config)
 		if typeof(Config) == "table" then
-			local WatermarkLib = ModernV2.__WatermarkCache or Window:Watermark();
+			local WatermarkLib = L2Hub.__WatermarkCache or Window:Watermark();
 
 			return WatermarkLib:AddBlock(Config.Icon or Config.IconName or "", Config.Name or Config.Title or "Watermark");
 		end;
 
-		if ModernV2.__WatermarkCache then
-			return ModernV2.__WatermarkCache;
+		if L2Hub.__WatermarkCache then
+			return L2Hub.__WatermarkCache;
 		end;
 
 		local Watermark_lb = {};
 		local Watermark = Instance.new("Frame")
 		local UICorner = Instance.new("UICorner")
 		local UIListLayout = Instance.new("UIListLayout")
-		local Shadow = ModernV2:CreateShadow(Watermark);
+		local Shadow = L2Hub:CreateShadow(Watermark);
 
-		Watermark.Name = ModernV2.RandomString();
-		Watermark.Parent = ModernV2.ScreenGui
+		Watermark.Name = L2Hub.RandomString();
+		Watermark.Parent = L2Hub.ScreenGui
 		Watermark.AnchorPoint = Vector2.new(1, 0)
-		Watermark.BackgroundColor3 = Color3.fromRGB(8, 8, 13)
+		Watermark.BackgroundColor3 = Color3.fromRGB(12, 12, 12)
 		Watermark.BackgroundTransparency = 0.200
 		Watermark.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		Watermark.BorderSizePixel = 0
@@ -13936,20 +13936,20 @@ function ModernV2:CreateWindow(Config)
 				Watermark.Visible = false;
 				Watermark.Parent = nil;
 			else
-				Watermark.Parent = ModernV2.ScreenGui
+				Watermark.Parent = L2Hub.ScreenGui
 				Watermark.Visible = true;
 			end;
 		end));
 
 		UIListLayout:GetPropertyChangedSignal('AbsoluteContentSize'):Connect(LPH_NO_VIRTUALIZE(function()
-			ModernV2.PlayAnimate(Watermark , SlowyTween , {
+			L2Hub.PlayAnimate(Watermark , SlowyTween , {
 				Size = UDim2.new(0, UIListLayout.AbsoluteContentSize.X + 5, 0, 30)
 			})
 		end));
 
-		ModernV2.__WatermarkCache = Watermark_lb;
+		L2Hub.__WatermarkCache = Watermark_lb;
 
-		Shadow:Render(true);
+		Shadow:Render(false);
 
 		Watermark_lb.Renders = {};
 		Watermark_lb.Status = true;
@@ -13958,17 +13958,17 @@ function ModernV2:CreateWindow(Config)
 			Watermark_lb.Status = value;
 
 			if value then
-				ModernV2.PlayAnimate(Watermark,SlowyTween , {
+				L2Hub.PlayAnimate(Watermark,SlowyTween , {
 					BackgroundTransparency = 0.200
 				})
 
-				Shadow:Render(true);
+				Shadow:Render(false);
 
 				for i,v in next , Watermark_lb.Renders do
 					pcall(v,true);
 				end;
 			else
-				ModernV2.PlayAnimate(Watermark,SlowyTween , {
+				L2Hub.PlayAnimate(Watermark,SlowyTween , {
 					BackgroundTransparency = 1
 				})
 
@@ -13996,7 +13996,7 @@ function ModernV2:CreateWindow(Config)
 			Frame.Size = UDim2.new(0, 50, 0, 30)
 			Frame.ZIndex = 17  -- must be >= Content/Icon ZIndex so CreateInput button (ZIndex+10=27) sits on top
 
-			Content.Name = ModernV2.RandomString();
+			Content.Name = L2Hub.RandomString();
 			Content.Parent = Frame
 			Content.AnchorPoint = Vector2.new(0, 0.5)
 			Content.BackgroundColor3 = Color3.fromRGB(186, 186, 186)
@@ -14012,9 +14012,9 @@ function ModernV2:CreateWindow(Config)
 			Content.TextSize = 15.000
 			Content.TextTransparency = 0.200
 			Content.TextXAlignment = Enum.TextXAlignment.Left
-			ModernV2:AddTextGradient(Content);
+			L2Hub:AddTextGradient(Content);
 
-			Icon.Name = ModernV2.RandomString();
+			Icon.Name = L2Hub.RandomString();
 			Icon.Parent = Frame
 			Icon.AnchorPoint = Vector2.new(0, 0.5)
 			Icon.BackgroundColor3 = Color3.fromRGB(186, 186, 186)
@@ -14024,8 +14024,8 @@ function ModernV2:CreateWindow(Config)
 			Icon.Position = UDim2.new(0, 10, 0.5, 0)
 			Icon.Size = UDim2.new(0, 20, 0, 20)
 			Icon.ZIndex = 17
-			ModernV2:SetIconMode(Icon, IconStr)
-			Icon.ImageColor3 = ModernV2.AccentColor
+			L2Hub:SetIconMode(Icon, IconStr)
+			Icon.ImageColor3 = L2Hub.AccentColor
 			Icon.ImageTransparency = 0.250
 			Icon.ScaleType = Enum.ScaleType.Fit
 
@@ -14033,11 +14033,11 @@ function ModernV2:CreateWindow(Config)
 				local size = TextService:GetTextSize(Content.Text , Content.TextSize,Content.Font,Vector2.new(math.huge,math.huge))
 
 				if InnerBlock.Visible then
-					ModernV2.PlayAnimate(Frame,VSlowTween,{
+					L2Hub.PlayAnimate(Frame,VSlowTween,{
 						Size = UDim2.new(0, size.X + 35, 0, 30)
 					})
 				else
-					ModernV2.PlayAnimate(Frame,VSlowTween,{
+					L2Hub.PlayAnimate(Frame,VSlowTween,{
 						Size = UDim2.new(0, 0, 0, 30)
 					})
 				end;
@@ -14059,20 +14059,20 @@ function ModernV2:CreateWindow(Config)
 
 			InnerBlock.SetRender = LPH_NO_VIRTUALIZE(function(value)
 				if value and InnerBlock.Visible then
-					ModernV2.PlayAnimate(Content,SlowyTween , {
+					L2Hub.PlayAnimate(Content,SlowyTween , {
 						TextTransparency = 0.200
 					})
 
-					ModernV2.PlayAnimate(Icon,SlowyTween , {
+					L2Hub.PlayAnimate(Icon,SlowyTween , {
 						TextTransparency = 0.250
 					})
 				else
 
-					ModernV2.PlayAnimate(Content,SlowyTween , {
+					L2Hub.PlayAnimate(Content,SlowyTween , {
 						TextTransparency = 1
 					})
 
-					ModernV2.PlayAnimate(Icon,SlowyTween , {
+					L2Hub.PlayAnimate(Icon,SlowyTween , {
 						TextTransparency = 1
 					})
 				end;
@@ -14090,10 +14090,10 @@ function ModernV2:CreateWindow(Config)
 				-- If caller passes a function, use it.
 				-- If nil, default to firing the real-time keybind toggle.
 				local handler = func or function()
-					ModernV2:FireKeybind();
+					L2Hub:FireKeybind();
 				end;
 
-				local btn, signal = ModernV2:CreateInput(Frame, handler);
+				local btn, signal = L2Hub:CreateInput(Frame, handler);
 				btn.Active = true;
 				btn.ZIndex = Frame.ZIndex + 10;
 				return signal;
@@ -14153,11 +14153,11 @@ function ModernV2:CreateWindow(Config)
 	end;
 
 	function Window:Notify(Config)
-		return ModernV2.Notifier.new(Config);
+		return L2Hub.Notifier.new(Config);
 	end;
 
 	Window.Indicators = LPH_NO_VIRTUALIZE(function(Config)
-		local Indicator = ModernV2.Indicators.new(Config);
+		local Indicator = L2Hub.Indicators.new(Config);
 		Indicator:SetRender(true);
 		return Indicator;
 	end);
@@ -14169,17 +14169,17 @@ function ModernV2:CreateWindow(Config)
 	return CaseInsensitive(Window);
 end;
 
-function ModernV2:CreateNotification()
-	if ModernV2.__Notification_Cache then
-		return ModernV2.__Notification_Cache;
+function L2Hub:CreateNotification()
+	if L2Hub.__Notification_Cache then
+		return L2Hub.__Notification_Cache;
 	end;
 
 	local Notifier = {};
 	local Notification = Instance.new("Frame")
 	local UIListLayout = Instance.new("UIListLayout")
 
-	Notification.Name = ModernV2.RandomString();
-	Notification.Parent = ModernV2.ScreenGui;
+	Notification.Name = L2Hub.RandomString();
+	Notification.Parent = L2Hub.ScreenGui;
 	Notification.AnchorPoint = Vector2.new(1, 0)
 	Notification.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	Notification.BackgroundTransparency = 1.000
@@ -14193,26 +14193,26 @@ function ModernV2:CreateNotification()
 	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 	UIListLayout.Padding = UDim.new(0, 0)
 
-	ModernV2.__Notification_Cache = Notifier;
+	L2Hub.__Notification_Cache = Notifier;
 
 	function Notifier.new(Config)
 		Config = Config or {};
 		local CustomIcon = Config.Icon;
 
-		Config = ModernV2:ProcessParams(Config , {
+		Config = L2Hub:ProcessParams(Config , {
 			Title = "Notification",
 			Content = "Hello World!",
-			Logo = ModernV2.GlobalLogo or "rbxasset://textures/ui/VerifiedBadgeNameIcon.png",
+			Logo = L2Hub.GlobalLogo or "rbxasset://textures/ui/VerifiedBadgeNameIcon.png",
 			Icon = CustomIcon,
 			Duration = 5,
 		});
 
 		local IconSource = Config.Icon or Config.Logo;
-		local IconId = ModernV2:GetIconId(IconSource);
+		local IconId = L2Hub:GetIconId(IconSource);
 		local IsImageIcon = IconId ~= "";
 
-		if ModernV2.__WatermarkCache then
-			ModernV2.PlayAnimate(Notification,SlowyTween , {
+		if L2Hub.__WatermarkCache then
+			L2Hub.PlayAnimate(Notification,SlowyTween , {
 				Position = UDim2.new(1, -25, 0, 55)
 			});
 		end;
@@ -14226,9 +14226,9 @@ function ModernV2:CreateNotification()
 		local UICorner_2 = Instance.new("UICorner")
 		local NotifyName = Instance.new("TextLabel")
 		local NotifyContent = Instance.new("TextLabel");
-		local shadow = ModernV2:CreateShadow(NotifyFrame , true);
+		local shadow = L2Hub:CreateShadow(NotifyFrame , true);
 
-		ContainerFrame.Name = ModernV2.RandomString();
+		ContainerFrame.Name = L2Hub.RandomString();
 		ContainerFrame.Parent = Notification
 		ContainerFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		ContainerFrame.BackgroundTransparency = 1.000
@@ -14236,10 +14236,10 @@ function ModernV2:CreateNotification()
 		ContainerFrame.BorderSizePixel = 0
 		ContainerFrame.Size = UDim2.new(0, 0, 0, 100)
 
-		NotifyFrame.Name = ModernV2.RandomString();
+		NotifyFrame.Name = L2Hub.RandomString();
 		NotifyFrame.Parent = ContainerFrame
 		NotifyFrame.AnchorPoint = Vector2.new(1, 0)
-		NotifyFrame.BackgroundColor3 = Color3.fromRGB(20, 22, 27)
+		NotifyFrame.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
 		NotifyFrame.BackgroundTransparency = 0.075
 		NotifyFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		NotifyFrame.BorderSizePixel = 0
@@ -14255,7 +14255,7 @@ function ModernV2:CreateNotification()
 		UIStroke.Color = Color3.fromRGB(45, 48, 58)
 		UIStroke.Parent = NotifyFrame
 
-		LogoImage.Name = ModernV2.RandomString();
+		LogoImage.Name = L2Hub.RandomString();
 		LogoImage.Parent = NotifyFrame
 		LogoImage.AnchorPoint = Vector2.new(0, 0.5)
 		LogoImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -14266,13 +14266,13 @@ function ModernV2:CreateNotification()
 		LogoImage.Size = UDim2.new(0, 28, 0, 28)
 		LogoImage.ZIndex = 131
 		LogoImage.Image = IsImageIcon and IconId or ""
-		LogoImage.ImageColor3 = ModernV2.IconColor;
+		LogoImage.ImageColor3 = L2Hub.IconColor;
 		LogoImage.ImageTransparency = IsImageIcon and 0 or 1
 
 		UICorner_2.CornerRadius = UDim.new(0, 7)
 		UICorner_2.Parent = LogoImage
 
-		LogoIcon.Name = ModernV2.RandomString();
+		LogoIcon.Name = L2Hub.RandomString();
 		LogoIcon.Parent = NotifyFrame
 		LogoIcon.AnchorPoint = Vector2.new(0, 0.5)
 		LogoIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -14282,12 +14282,12 @@ function ModernV2:CreateNotification()
 		LogoIcon.Position = UDim2.new(0, 8, 0.5, 0)
 		LogoIcon.Size = UDim2.new(0, 28, 0, 28)
 		LogoIcon.ZIndex = 131
-		ModernV2:SetIconMode(LogoIcon, IsImageIcon and "" or tostring(IconSource or "bell"))
-		LogoIcon.ImageColor3 = ModernV2.IconColor
+		L2Hub:SetIconMode(LogoIcon, IsImageIcon and "" or tostring(IconSource or "bell"))
+		LogoIcon.ImageColor3 = L2Hub.IconColor
 		LogoIcon.ImageTransparency = IsImageIcon and 1 or 0.150
 		LogoIcon.ScaleType = Enum.ScaleType.Fit
 
-		NotifyName.Name = ModernV2.RandomString();
+		NotifyName.Name = L2Hub.RandomString();
 		NotifyName.Parent = NotifyFrame
 		NotifyName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		NotifyName.BackgroundTransparency = 1.000
@@ -14302,7 +14302,7 @@ function ModernV2:CreateNotification()
 		NotifyName.TextSize = 13.000
 		NotifyName.TextXAlignment = Enum.TextXAlignment.Left
 
-		NotifyContent.Name = ModernV2.RandomString();
+		NotifyContent.Name = L2Hub.RandomString();
 		NotifyContent.Parent = NotifyFrame
 		NotifyContent.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		NotifyContent.BackgroundTransparency = 1.000
@@ -14327,7 +14327,7 @@ function ModernV2:CreateNotification()
 		NotifyFrame.Size = UDim2.new(0, MainSize + 52, 0, 46);
 
 		shadow:Render(true)
-		ModernV2.PlayAnimate(NotifyFrame , VSlowTween , {
+		L2Hub.PlayAnimate(NotifyFrame , VSlowTween , {
 			Position = UDim2.new(1, 0, 0, 0)
 		})
 
@@ -14335,41 +14335,41 @@ function ModernV2:CreateNotification()
 
 		task.delay(Config.Duration or 5 , LPH_NO_VIRTUALIZE(function()
 
-			if ModernV2.__WatermarkCache then
-				ModernV2.PlayAnimate(Notification,SlowyTween , {
+			if L2Hub.__WatermarkCache then
+				L2Hub.PlayAnimate(Notification,SlowyTween , {
 					Position = UDim2.new(1, -25, 0, 55)
 				});
 			end;
 
 			shadow:Render(false)
 
-			ModernV2.PlayAnimate(NotifyFrame , SlowyTween , {
+			L2Hub.PlayAnimate(NotifyFrame , SlowyTween , {
 				BackgroundTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(UIStroke , SlowyTween , {
+			L2Hub.PlayAnimate(UIStroke , SlowyTween , {
 				Transparency = 1
 			})
 
-			ModernV2.PlayAnimate(LogoImage , SlowyTween , {
+			L2Hub.PlayAnimate(LogoImage , SlowyTween , {
 				ImageTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(LogoIcon , SlowyTween , {
+			L2Hub.PlayAnimate(LogoIcon , SlowyTween , {
 				TextTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(NotifyName , SlowyTween , {
+			L2Hub.PlayAnimate(NotifyName , SlowyTween , {
 				TextTransparency = 1
 			})
 
-			ModernV2.PlayAnimate(NotifyContent , SlowyTween , {
+			L2Hub.PlayAnimate(NotifyContent , SlowyTween , {
 				TextTransparency = 1
 			})
 
 			task.wait(0.125);
 
-			ModernV2.PlayAnimate(ContainerFrame , SlowyTween , {
+			L2Hub.PlayAnimate(ContainerFrame , SlowyTween , {
 				Size = UDim2.new(0, 0, 0, 0)
 			})
 
@@ -14382,29 +14382,29 @@ function ModernV2:CreateNotification()
 	return Notifier;
 end;
 
-function ModernV2:CreateLogger()
-	if ModernV2.__LogSystem then
-		return 	ModernV2.__LogSystem;
+function L2Hub:CreateLogger()
+	if L2Hub.__LogSystem then
+		return 	L2Hub.__LogSystem;
 	end;
 
 	local Logging = {};
 	local Log = Instance.new("Frame")
 	local UIListLayout = Instance.new("UIListLayout")
 
-	Log.Name = ModernV2.RandomString();
-	Log.Parent = ModernV2.ScreenGui
+	Log.Name = L2Hub.RandomString();
+	Log.Parent = L2Hub.ScreenGui
 	Log.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	Log.BackgroundTransparency = 1.000
 	Log.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	Log.BorderSizePixel = 0
-	Log.Position = UDim2.new(0, 25, 0, 5 + math.abs(ModernV2.ScreenGui.AbsolutePosition.Y))
+	Log.Position = UDim2.new(0, 25, 0, 5 + math.abs(L2Hub.ScreenGui.AbsolutePosition.Y))
 	Log.Size = UDim2.new(0, 25, 0, 25)
 
 	UIListLayout.Parent = Log
 	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 	UIListLayout.Padding = UDim.new(0, 12)
 
-	ModernV2.__LogSystem = Logging;
+	L2Hub.__LogSystem = Logging;
 
 	function Logging.new(IconStr: string , Message: string , Duration: number)
 		Duration = Duration or 3;
@@ -14418,12 +14418,12 @@ function ModernV2:CreateLogger()
 		local Line = Instance.new("Frame")
 		local UICorner_2 = Instance.new("UICorner")
 		local Icon = Instance.new("ImageLabel")
-		local Shadow = ModernV2:CreateShadow(LogFrame , true);
+		local Shadow = L2Hub:CreateShadow(LogFrame , true);
 
-		LogFrame.Name = ModernV2.RandomString();
+		LogFrame.Name = L2Hub.RandomString();
 		LogFrame.Parent = Log
 		LogFrame.AnchorPoint = Vector2.new(0.5, 0)
-		LogFrame.BackgroundColor3 = Color3.fromRGB(20, 22, 27)
+		LogFrame.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
 		LogFrame.BackgroundTransparency =  1--0.075
 		LogFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		LogFrame.BorderSizePixel = 0
@@ -14439,7 +14439,7 @@ function ModernV2:CreateLogger()
 		UIStroke.Color = Color3.fromRGB(45, 48, 58)
 		UIStroke.Parent = LogFrame
 
-		LogContent.Name = ModernV2.RandomString();
+		LogContent.Name = L2Hub.RandomString();
 		LogContent.Parent = LogFrame
 		LogContent.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		LogContent.BackgroundTransparency = 1.000
@@ -14455,10 +14455,10 @@ function ModernV2:CreateLogger()
 		LogContent.TextTransparency = 1--0.250
 		LogContent.TextXAlignment = Enum.TextXAlignment.Left
 
-		Line.Name = ModernV2.RandomString();
+		Line.Name = L2Hub.RandomString();
 		Line.Parent = LogFrame
 		Line.AnchorPoint = Vector2.new(0, 0.5)
-		Line.BackgroundColor3 = ModernV2.AccentColor
+		Line.BackgroundColor3 = L2Hub.AccentColor
 		Line.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		Line.BackgroundTransparency = 1 --0
 		Line.BorderSizePixel = 0
@@ -14469,7 +14469,7 @@ function ModernV2:CreateLogger()
 		UICorner_2.CornerRadius = UDim.new(0, 4)
 		UICorner_2.Parent = Line
 
-		Icon.Name = ModernV2.RandomString();
+		Icon.Name = L2Hub.RandomString();
 		Icon.Parent = LogFrame
 		Icon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		Icon.BackgroundTransparency = 1.000
@@ -14478,34 +14478,34 @@ function ModernV2:CreateLogger()
 		Icon.Position = UDim2.new(0, 7, 0, 3)
 		Icon.Size = UDim2.new(0, 15, 0, 15)
 		Icon.ZIndex = 133
-		ModernV2:SetIconMode(Icon, IconStr)
+		L2Hub:SetIconMode(Icon, IconStr)
 		Icon.ImageColor3 = Color3.fromRGB(223, 223, 223)
 		Icon.ImageTransparency = 1--0.250
 		Icon.ScaleType = Enum.ScaleType.Fit
 
 		local size = TextService:GetTextSize(LogContent.Text,LogContent.TextSize,LogContent.Font,Vector2.new(math.huge,math.huge));
 
-		ModernV2.PlayAnimate(LogFrame , SlowyTween , {
+		L2Hub.PlayAnimate(LogFrame , SlowyTween , {
 			Size = UDim2.new(0, size.X + 35, 0, 20),
 			BackgroundTransparency =  0.075
 		});
 
 		task.delay(0.15,LPH_NO_VIRTUALIZE(function()
-			Shadow:Render(true);
+			Shadow:Render(false);
 
-			ModernV2.PlayAnimate(UIStroke , SlowyTween , {
+			L2Hub.PlayAnimate(UIStroke , SlowyTween , {
 				Transparency = 0.650
 			});
 
-			ModernV2.PlayAnimate(LogContent , SlowyTween , {
+			L2Hub.PlayAnimate(LogContent , SlowyTween , {
 				TextTransparency = 0.25
 			});
 
-			ModernV2.PlayAnimate(Line , SlowyTween , {
+			L2Hub.PlayAnimate(Line , SlowyTween , {
 				BackgroundTransparency = 0
 			});
 
-			ModernV2.PlayAnimate(Icon , SlowyTween , {
+			L2Hub.PlayAnimate(Icon , SlowyTween , {
 				TextTransparency = 0.25
 			});
 
@@ -14513,23 +14513,23 @@ function ModernV2:CreateLogger()
 
 			Shadow:Render(false);
 
-			ModernV2.PlayAnimate(LogFrame , SlowyTween , {
+			L2Hub.PlayAnimate(LogFrame , SlowyTween , {
 				BackgroundTransparency =  1
 			});
 
-			ModernV2.PlayAnimate(UIStroke , SlowyTween , {
+			L2Hub.PlayAnimate(UIStroke , SlowyTween , {
 				Transparency = 1
 			});
 
-			ModernV2.PlayAnimate(LogContent , SlowyTween , {
+			L2Hub.PlayAnimate(LogContent , SlowyTween , {
 				TextTransparency = 1
 			});
 
-			ModernV2.PlayAnimate(Line , SlowyTween , {
+			L2Hub.PlayAnimate(Line , SlowyTween , {
 				BackgroundTransparency = 1
 			});
 
-			ModernV2.PlayAnimate(Icon , SlowyTween , {
+			L2Hub.PlayAnimate(Icon , SlowyTween , {
 				TextTransparency = 1
 			});
 
@@ -14542,12 +14542,12 @@ function ModernV2:CreateLogger()
 	return CaseInsensitive(Logging)
 end;
 
-function ModernV2:CreateIndicator()
+function L2Hub:CreateIndicator()
 	local IndicatorFrame = Instance.new("Frame")
 	local UIListLayout = Instance.new("UIListLayout")
 
-	IndicatorFrame.Name = ModernV2.RandomString();
-	IndicatorFrame.Parent = ModernV2.ScreenGui;
+	IndicatorFrame.Name = L2Hub.RandomString();
+	IndicatorFrame.Parent = L2Hub.ScreenGui;
 	IndicatorFrame.AnchorPoint = Vector2.new(0, 0.5)
 	IndicatorFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	IndicatorFrame.BackgroundTransparency = 1.000
@@ -14572,7 +14572,7 @@ function ModernV2:CreateIndicator()
 	Indicators.Root = IndicatorFrame;
 
 	function Indicators.new(Config)
-		Config = ModernV2:ProcessParams(Config , {
+		Config = L2Hub:ProcessParams(Config , {
 			Name = "Indicator",
 			Icon = 'crosshairs',
 			Color = 'Red',
@@ -14590,10 +14590,10 @@ function ModernV2:CreateIndicator()
 		local UIGradient = Instance.new("UIGradient")
 		local Icon = Instance.new("ImageLabel")
 		local Content = Instance.new("TextLabel")
-		local Shadow = ModernV2:CreateShadow(IndicatorItem);
+		local Shadow = L2Hub:CreateShadow(IndicatorItem);
 
-		IndicatorItem.Name = ModernV2.RandomString();
-		IndicatorItem.BackgroundColor3 = Color3.fromRGB(8, 8, 13)
+		IndicatorItem.Name = L2Hub.RandomString();
+		IndicatorItem.BackgroundColor3 = Color3.fromRGB(12, 12, 12)
 		IndicatorItem.BackgroundTransparency = 1
 		IndicatorItem.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		IndicatorItem.BorderSizePixel = 0
@@ -14615,7 +14615,7 @@ function ModernV2:CreateIndicator()
 		UICorner.CornerRadius = UDim.new(0, 25)
 		UICorner.Parent = IndicatorItem
 
-		Line.Name = ModernV2.RandomString();
+		Line.Name = L2Hub.RandomString();
 		Line.Parent = IndicatorItem
 		Line.AnchorPoint = Vector2.new(0, 0.5)
 		Line.BackgroundColor3 = Color3.fromRGB(186, 186, 186)
@@ -14633,7 +14633,7 @@ function ModernV2:CreateIndicator()
 		UIGradient.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0.00, 1.00), NumberSequenceKeypoint.new(0.50, 0.00), NumberSequenceKeypoint.new(1.00, 1.00)}
 		UIGradient.Parent = Line
 
-		Icon.Name = ModernV2.RandomString();
+		Icon.Name = L2Hub.RandomString();
 		Icon.Parent = IndicatorItem
 		Icon.AnchorPoint = Vector2.new(0, 0.5)
 		Icon.BackgroundColor3 = Color3.fromRGB(186, 186, 186)
@@ -14643,12 +14643,12 @@ function ModernV2:CreateIndicator()
 		Icon.Position = UDim2.new(0, 10, 0.5, 0)
 		Icon.Size = UDim2.new(0, 25, 0, 25)
 		Icon.ZIndex = 17
-		ModernV2:SetIconMode(Icon, Config.Icon)
+		L2Hub:SetIconMode(Icon, Config.Icon)
 		Icon.ImageColor3 = Color3.fromRGB(186, 186, 186)
 		Icon.ImageTransparency = 1
 		Icon.ScaleType = Enum.ScaleType.Fit
 
-		Content.Name = ModernV2.RandomString();
+		Content.Name = L2Hub.RandomString();
 		Content.Parent = IndicatorItem
 		Content.AnchorPoint = Vector2.new(0, 0.5)
 		Content.BackgroundColor3 = Color3.fromRGB(186, 186, 186)
@@ -14668,7 +14668,7 @@ function ModernV2:CreateIndicator()
 		Indicator.Update = LPH_NO_VIRTUALIZE(function()
 			local text = TextService:GetTextSize(Content.Text,Content.TextSize , Content.Font , Vector2.new(math.huge,math.huge));
 
-			ModernV2.PlayAnimate(IndicatorItem , SlowyTween , {
+			L2Hub.PlayAnimate(IndicatorItem , SlowyTween , {
 				Size = UDim2.new(0, text.X + 60, 0, 40);
 			})
 		end);
@@ -14677,42 +14677,42 @@ function ModernV2:CreateIndicator()
 			Indicator.Visible = value;
 
 			if value then
-				ModernV2.PlayAnimate(IndicatorItem , SlowyTween , {
+				L2Hub.PlayAnimate(IndicatorItem , SlowyTween , {
 					BackgroundTransparency = 0.200
 				});
 
-				ModernV2.PlayAnimate(Line , SlowyTween , {
+				L2Hub.PlayAnimate(Line , SlowyTween , {
 					BackgroundTransparency = 0,
 					BackgroundColor3 = Indicators.Color[Indicator.CurrentColor]
 				});
 
-				ModernV2.PlayAnimate(Icon , VSlowTween , {
+				L2Hub.PlayAnimate(Icon , VSlowTween , {
 					TextTransparency = 0.250,
 					TextColor3 = Indicators.Color[Indicator.CurrentColor]
 				});
 
-				ModernV2.PlayAnimate(Content , VSlowTween , {
+				L2Hub.PlayAnimate(Content , VSlowTween , {
 					TextTransparency = 0.2,
 					TextColor3 = Indicators.Color[Indicator.CurrentColor]
 				});
 
-				Shadow:Render(true);
+				Shadow:Render(false);
 			else
-				ModernV2.PlayAnimate(IndicatorItem , SlowyTween , {
+				L2Hub.PlayAnimate(IndicatorItem , SlowyTween , {
 					BackgroundTransparency = 1
 				});
 
-				ModernV2.PlayAnimate(Line , SlowyTween , {
+				L2Hub.PlayAnimate(Line , SlowyTween , {
 					BackgroundTransparency = 1,
 					BackgroundColor3 = Indicators.Color[Indicator.CurrentColor]
 				});
 
-				ModernV2.PlayAnimate(Icon , VSlowTween , {
+				L2Hub.PlayAnimate(Icon , VSlowTween , {
 					TextTransparency = 1,
 					TextColor3 = Indicators.Color[Indicator.CurrentColor]
 				});
 
-				ModernV2.PlayAnimate(Content , VSlowTween , {
+				L2Hub.PlayAnimate(Content , VSlowTween , {
 					TextTransparency = 1,
 					TextColor3 = Indicators.Color[Indicator.CurrentColor]
 				});
@@ -14748,24 +14748,24 @@ function ModernV2:CreateIndicator()
 	return CaseInsensitive(Indicators);
 end;
 
-ModernV2.Logging = ModernV2:CreateLogger();
-ModernV2.Notifier = ModernV2:CreateNotification();
-ModernV2.Indicators = ModernV2:CreateIndicator();
+L2Hub.Logging = L2Hub:CreateLogger();
+L2Hub.Notifier = L2Hub:CreateNotification();
+L2Hub.Indicators = L2Hub:CreateIndicator();
 
-function ModernV2:Unload()
-	if not ModernV2.UnloadEnabled then
+function L2Hub:Unload()
+	if not L2Hub.UnloadEnabled then
 		return;	
 	end;
 
-	ModernV2.ScreenGui:Destroy();
+	L2Hub.ScreenGui:Destroy();
 
-	for i,v in next , ModernV2.GlobalSignals do
+	for i,v in next , L2Hub.GlobalSignals do
 		pcall(v.Disconnect,v)
 	end;
 end;
 
-function ModernV2:Window(Config)
-	return ModernV2:CreateWindow(Config);
+function L2Hub:Window(Config)
+	return L2Hub:CreateWindow(Config);
 end;
 
-return CaseInsensitive(ModernV2);
+return CaseInsensitive(L2Hub);
