@@ -622,14 +622,13 @@ function L2Hub:CreateMenuIcon(Config)
 	_applyIcon(iconImage);
 
 	-- ── Show / Hide with smooth animations ───────────────────────
-	local function _setIconVisible(val)
+		local function _setIconVisible(val)
 		MenuIconLib.Visible = val;
 		local IconFallbackText = IconImage:FindFirstChild("ModernIconFallbackText");
 
 		if val then
-			-- IconRoot.Position = UDim2.new(0, -iconSize, 0.5, 0); 
 			L2Hub.PlayAnimate(IconRoot, VSlowTween, {
-			BackgroundTransparency = 0,
+				BackgroundTransparency = 0,
 			});
 			L2Hub.PlayAnimate(UIStrokeIcon, SlowyTween, {
 				Transparency = 0.25,
@@ -647,10 +646,9 @@ function L2Hub:CreateMenuIcon(Config)
 			end;
 			IconShadow:Render(false);
 		else
-			-- Slide out to the left
+		
 			L2Hub.PlayAnimate(IconRoot, VSlowTween, {
 				BackgroundTransparency = 1,
-				Position = UDim2.new(0, -iconSize - 10, 0.5, 0),
 			});
 			L2Hub.PlayAnimate(UIStrokeIcon, SlowyTween, {
 				Transparency = 1,
