@@ -9158,12 +9158,17 @@ pcall(function() GameName = game:GetService("MarketplaceService"):GetProductInfo
 		SearchFrame.Visible = false;
 	end;
 	
-	do
+		do
 		local Input = L2Hub:CreateInput(MinimizeButton , LPH_NO_VIRTUALIZE(function()
 			Window.Signal:SetValue(false);
-			if Window._MenuIcon then
-				Window._MenuIcon:SetVisible(true);
+			if not Window._MenuIcon then
+				Window._MenuIcon = L2Hub:CreateMenuIcon({
+					Image = Window.Logo,
+					Size = 48,
+					Draggable = true
+				})
 			end;
+			Window._MenuIcon:SetVisible(true);
 		end));
 
 		L2Hub:AddSignal(Input.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
