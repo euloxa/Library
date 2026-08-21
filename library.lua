@@ -2064,18 +2064,13 @@ L2Hub.Drag = LPH_NO_VIRTUALIZE(function(InputFrame: Frame, MoveFrame: Frame, Spe
 	local Tween = TweenInfo.new(Speed);
 
 	local updateInput = function(input)
-		local delta = input.Position - dragStart;
-		local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
+	local delta = input.Position - dragStart;
+	local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
 			startPos.Y.Scale, startPos.Y.Offset + delta.Y);
-
 		if L2Hub.Global3DRenderMode then
-			L2Hub.PlayAnimate(MoveFrame,Tween,{
-				Position = UDim2.fromScale(0.5,0.5)
-			});
+			MoveFrame.Position = UDim2.fromScale(0.5, 0.5)
 		else
-			L2Hub.PlayAnimate(MoveFrame,Tween,{
-				Position = position
-			});
+			MoveFrame.Position = position
 		end;
 	end;
 
@@ -2507,105 +2502,10 @@ function L2Hub:RollingEffect(parent)
 	return UIGradient;
 end;
 
-function L2Hub:CreateShadow(parent , RollingEffect)
-	local Shadow = {};
-
-	local UIShadowSafe85 = Instance.new("UIStroke")
-	local UIShadowSafe65 = Instance.new("UIStroke")
-	local UIShadowSafe50 = Instance.new("UIStroke")
-	local UIShadowSafe45 = Instance.new("UIStroke")
-
-	UIShadowSafe85.Thickness = 6.000
-	UIShadowSafe85.Transparency = 1
-	UIShadowSafe85.Parent = parent
-
-	UIShadowSafe65.Thickness = 5.000
-	UIShadowSafe65.Transparency = 1
-	UIShadowSafe65.Parent = parent
-
-	UIShadowSafe50.Thickness = 4.000
-	UIShadowSafe50.Transparency = 1
-	UIShadowSafe50.Parent = parent
-
-	UIShadowSafe45.Thickness = 3.000
-	UIShadowSafe45.Transparency = 1
-	UIShadowSafe45.Parent = parent
-
-	local RollingEffectThread;
-	local r1,r2,r3,r4;
-
-	if RollingEffect then
-		r1 = L2Hub:RollingEffect(UIShadowSafe85);
-		r2 = L2Hub:RollingEffect(UIShadowSafe65);
-		r3 = L2Hub:RollingEffect(UIShadowSafe50);
-		r4 = L2Hub:RollingEffect(UIShadowSafe45);
-	end;
-
-	Shadow.Render = LPH_NO_VIRTUALIZE(function(self , value)
-		if RollingEffectThread then
-			task.cancel(RollingEffectThread);
-			RollingEffectThread = nil;
-		end;
-
-		if value then
-			L2Hub.PlayAnimate(UIShadowSafe85 , SlowyTween , {
-				Transparency = 0.900
-			})
-
-			L2Hub.PlayAnimate(UIShadowSafe65 , SlowyTween , {
-				Transparency = 0.900
-			})
-
-			L2Hub.PlayAnimate(UIShadowSafe50 , SlowyTween , {
-				Transparency = 0.900
-			})
-
-			L2Hub.PlayAnimate(UIShadowSafe45 , SlowyTween , {
-				Transparency = 0.900
-			})
-
-			if RollingEffect then
-				RollingEffectThread = task.spawn(function()
-					local level = 20;
-					while true do task.wait(0.025)
-						L2Hub.PlayAnimate(r1 , SlowyTween , {
-							Rotation = r1.Rotation + level
-						});
-
-						L2Hub.PlayAnimate(r2 , SlowyTween , {
-							Rotation = r2.Rotation + level
-						});
-
-						L2Hub.PlayAnimate(r3 , SlowyTween , {
-							Rotation = r3.Rotation + level
-						});
-
-						L2Hub.PlayAnimate(r4 , SlowyTween , {
-							Rotation = r4.Rotation + level
-						});
-					end;
-				end);
-			end;
-		else
-			L2Hub.PlayAnimate(UIShadowSafe85 , SlowyTween , {
-				Transparency = 1
-			})
-
-			L2Hub.PlayAnimate(UIShadowSafe65 , SlowyTween , {
-				Transparency = 1
-			})
-
-			L2Hub.PlayAnimate(UIShadowSafe50 , SlowyTween , {
-				Transparency = 1
-			})
-
-			L2Hub.PlayAnimate(UIShadowSafe45 , SlowyTween , {
-				Transparency = 1
-			})
-		end;
-	end);
-
-	return Shadow;
+function L2Hub:CreateShadow(parent, RollingEffect)
+	return {
+		Render = function(self, value) end
+	}
 end;
 
 function L2Hub:CreateOptionWindow(Frame: Frame , Zindex)
