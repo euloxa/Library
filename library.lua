@@ -259,55 +259,64 @@ end;
 --   "solar:user"      -> icon id from external solar library
 --   "https://..."     -> direct image URL
 function L2Hub:LoadIconLibrary()
-	if L2Hub.IconLibraryLoaded then
-		return L2Hub.Icons;
-	end;
+    if L2Hub.IconLibraryLoaded then
+        return L2Hub.Icons;
+    end;
 
-	if L2Hub.IconLibraryLoading then
-		repeat task.wait() until not L2Hub.IconLibraryLoading;
-		return L2Hub.Icons;
-	end;
+    if L2Hub.IconLibraryLoading then
+        -- FIX 1: Tambahin Timeout 3 detik biar script gak nyangkut nungguin selamanya
+        local timeout = 0
+        repeat 
+            task.wait(0.1)
+            timeout = timeout + 0.1
+        until not L2Hub.IconLibraryLoading or timeout > 3
+        return L2Hub.Icons;
+    end;
 
-	L2Hub.IconLibraryLoading = true;
+    L2Hub.IconLibraryLoading = true;
 
-	local function Load(path)
-		local success, result = pcall(function()
-			return loadstring(game:HttpGet(L2Hub.IconBase .. path))();
-		end);
+    local function Load(path)
+        local success, result = pcall(function()
+            return loadstring(game:HttpGet(L2Hub.IconBase .. path))();
+        end);
 
-		if success and typeof(result) == "table" then
-			return result;
-		end;
+        if success and typeof(result) == "table" then
+            return result;
+        end;
 
-		return {};
-	end;
+        return {};
+    end;
 
-	local defaultIcons = Load("src/elements/icon/basic.lua");
-	local lucideIcons = Load("src/elements/icon/lucide.lua");
-	local solarIcons = Load("src/elements/icon/solar.lua");
+    -- FIX 2: Bungkus pake pcall. Kalau Lime gagal fetch HttpGet, loading status tetep bakal dilepas!
+    pcall(function()
+        local defaultIcons = Load("src/elements/icon/basic.lua");
+        local lucideIcons = Load("src/elements/icon/lucide.lua");
+        local solarIcons = Load("src/elements/icon/solar.lua");
 
-	for name, id in pairs(defaultIcons) do
-		L2Hub.Icons[name] = L2Hub:NormalizeIconId(id);
-	end;
+        for name, id in pairs(defaultIcons) do
+            L2Hub.Icons[name] = L2Hub:NormalizeIconId(id);
+        end;
 
-	for name, id in pairs(lucideIcons) do
-		L2Hub.Icons["lucide:" .. name] = L2Hub:NormalizeIconId(id);
-	end;
+        for name, id in pairs(lucideIcons) do
+            L2Hub.Icons["lucide:" .. name] = L2Hub:NormalizeIconId(id);
+        end;
 
-	for name, id in pairs(solarIcons) do
-		L2Hub.Icons["solar:" .. name] = L2Hub:NormalizeIconId(id);
-	end;
+        for name, id in pairs(solarIcons) do
+            L2Hub.Icons["solar:" .. name] = L2Hub:NormalizeIconId(id);
+        end;
+    end)
 
-	L2Hub.IconLibraryLoaded = true;
-	L2Hub.IconLibraryLoading = false;
-	L2Hub.IconSystem = {
-		Icons = L2Hub.Icons,
-		getIconId = function(iconName)
-			return L2Hub:GetIconId(iconName);
-		end,
-	};
+    -- PASTIKAN INI SELALU TEREKSEKUSI BIAR GAK NYANGKUT
+    L2Hub.IconLibraryLoaded = true;
+    L2Hub.IconLibraryLoading = false;
+    L2Hub.IconSystem = {
+        Icons = L2Hub.Icons,
+        getIconId = function(iconName)
+            return L2Hub:GetIconId(iconName);
+        end,
+    };
 
-	return L2Hub.Icons;
+    return L2Hub.Icons;
 end;
 
 function L2Hub:GetIconId(iconName)
