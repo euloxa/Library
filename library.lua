@@ -264,7 +264,6 @@ function L2Hub:LoadIconLibrary()
     end;
 
     if L2Hub.IconLibraryLoading then
-        -- FIX 1: Tambahin Timeout 3 detik biar script gak nyangkut nungguin selamanya
         local timeout = 0
         repeat 
             task.wait(0.1)
@@ -287,7 +286,6 @@ function L2Hub:LoadIconLibrary()
         return {};
     end;
 
-    -- FIX 2: Bungkus pake pcall. Kalau Lime gagal fetch HttpGet, loading status tetep bakal dilepas!
     pcall(function()
         local defaultIcons = Load("src/elements/icon/basic.lua");
         local lucideIcons = Load("src/elements/icon/lucide.lua");
@@ -306,7 +304,6 @@ function L2Hub:LoadIconLibrary()
         end;
     end)
 
-    -- PASTIKAN INI SELALU TEREKSEKUSI BIAR GAK NYANGKUT
     L2Hub.IconLibraryLoaded = true;
     L2Hub.IconLibraryLoading = false;
     L2Hub.IconSystem = {
