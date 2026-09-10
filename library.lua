@@ -11446,7 +11446,7 @@ pcall(function() GameName = game:GetService("MarketplaceService"):GetProductInfo
 				Icon.ImageColor3 = Color3.fromRGB(223, 223, 223)
 				Icon.ImageTransparency = 0.500
 				Icon.ScaleType = Enum.ScaleType.Fit
-				-- MUNCULIN ICONNYA:
+				-- Hide icon so the label can use the full button width
 				Icon.Visible = true
 
 				Label.Name = L2Hub.RandomString();
@@ -11456,9 +11456,9 @@ pcall(function() GameName = game:GetService("MarketplaceService"):GetProductInfo
 				Label.BackgroundTransparency = 1.000
 				Label.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				Label.BorderSizePixel = 0
-				-- GESER TEKSNYA KE KANAN BIAR GAK NABRAK ICON:
-				Label.Position = UDim2.new(0, 25, 0.5, 0)
-				Label.Size = UDim2.new(1, -25, 0, 15)
+				-- Start from x=3 (no icon offset) and use full button width
+				Label.Position = UDim2.new(0, 3, 0.5, 0)
+				Label.Size = UDim2.new(1, -6, 0, 15)
 				Label.ZIndex = 12
 				Label.Font = Enum.Font.GothamBold
 				Label.Text = SubTab.Name
