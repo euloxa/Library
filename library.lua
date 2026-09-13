@@ -9098,40 +9098,29 @@ pcall(function() GameName = game:GetService("MarketplaceService"):GetProductInfo
 	end;
 
 	do
-		local Input = L2Hub:CreateInput(CloseButton , LPH_NO_VIRTUALIZE(function()
-			Window:Dialog({
-				Title = "Destroy Window?",
-				Content = "Are you sure you want to destroy this window?",
-				Buttons = {
-					{
-						Text = "Cancel",
-						ReturnValue = false,
-					},
-					{
-						Text = "Yes",
-						Primary = true,
-						ReturnValue = true,
-					},
-				},
-				Callback = function(result)
-					if result == true then
-						Window:Destroy();
-					end;
-				end,
-			});
-		end));
+		local Input = L2Hub:CreateInput(CloseButton, function()
+			Window:Notify({
+				Title = "L2-HUB",
+				Content = "Menu has been closed/unloaded.",
+				Duration = 3,
+				Icon = "lucide:check-circle",
+			})
 
-		L2Hub:AddSignal(Input.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
+			task.wait(0.1)
+			Window:Destroy()
+		end)
+
+		L2Hub:AddSignal(Input.MouseEnter:Connect(function()
 			L2Hub.PlayAnimate(CloseButton , SlowyTween , {
 				TextTransparency = 0.150
 			})
-		end)))
+		end))
 
-		L2Hub:AddSignal(Input.MouseLeave:Connect(LPH_NO_VIRTUALIZE(function()
+		L2Hub:AddSignal(Input.MouseLeave:Connect(function()
 			L2Hub.PlayAnimate(CloseButton , SlowyTween , {
 				TextTransparency = Window.Signal:GetValue() and 0.450 or 1
 			})
-		end)))
+		end))
 	end;
 
 	if Window.Enable3DRenderer then
