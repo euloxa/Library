@@ -2113,6 +2113,7 @@ end);
 
 L2Hub.ProcessParams = LPH_NO_VIRTUALIZE(function(self , Params , Fixed)
 	Params = Params or {};
+	Fixed = Fixed or {};
 
 	local k = Params or {};
 
