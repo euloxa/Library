@@ -9098,7 +9098,7 @@ pcall(function() GameName = game:GetService("MarketplaceService"):GetProductInfo
 	end;
 
 	do
-		local Input = L2Hub:CreateInput(CloseButton , LPH_NO_VIRTUALIZE(function()
+		local Input = L2Hub:CreateInput(CloseButton , function()
 			Window:Dialog({
 				Title = "Destroy Window?",
 				Content = "Are you sure you want to destroy this window?",
