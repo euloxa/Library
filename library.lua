@@ -9098,7 +9098,7 @@ pcall(function() GameName = game:GetService("MarketplaceService"):GetProductInfo
 	end;
 
 	do
-		local Input = L2Hub:CreateInput(CloseButton , function()
+		local Input = L2Hub:CreateInput(CloseButton , LPH_NO_VIRTUALIZE(function()
 			Window:Dialog({
 				Title = "Destroy Window?",
 				Content = "Are you sure you want to destroy this window?",
@@ -9119,7 +9119,7 @@ pcall(function() GameName = game:GetService("MarketplaceService"):GetProductInfo
 					end;
 				end,
 			});
-		end);
+		end));
 
 		L2Hub:AddSignal(Input.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
 			L2Hub.PlayAnimate(CloseButton , SlowyTween , {
