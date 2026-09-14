@@ -9119,7 +9119,7 @@ pcall(function() GameName = game:GetService("MarketplaceService"):GetProductInfo
 					end;
 				end,
 			});
-		end));
+		end);
 
 		L2Hub:AddSignal(Input.MouseEnter:Connect(LPH_NO_VIRTUALIZE(function()
 			L2Hub.PlayAnimate(CloseButton , SlowyTween , {
