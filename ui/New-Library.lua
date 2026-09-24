@@ -8011,7 +8011,7 @@ pcall(function() GameName = game:GetService("MarketplaceService"):GetProductInfo
 		Enable3DRenderer = Config.Enable3DRenderer,
 		IconLocked = false,
 		HideName = false,
-		RealUsername = nil
+		RealUsername = LocalPlayer.DisplayName
 	};
 
 	if type(Config.OnDestroy) == "function" then
@@ -12674,25 +12674,18 @@ pcall(function() GameName = game:GetService("MarketplaceService"):GetProductInfo
 			end
 		end,
 	});
-	
+
 	UserSettings:AddLabel("Hide Name"):AddToggle({
-	Default = Window.HideName,
-	Callback = function(value)
-		Window.HideName = value;
-
-		if not Window.ShowUser then
-			return;
-		end;
-
-		local DisplayName = value and MaskUsername(Window.RealUsername) or tostring(Window.RealUsername or "");
-
-		AccountName.Text = DisplayName;
-
-		if Window.UserSettings.UserFrame then
-			Window.UserSettings.UserFrame:SetUsername(DisplayName);
-		end;
-	end,
-});
+		Default = Window.HideName,
+		Callback = function(value)
+			Window.HideName = value;
+			Window:SetAccount({
+				Username = Window.RealUsername,
+				Profile = Window.Profile,
+				Expires = Window.Expires
+			});
+		end,
+	});
 
 	function Window:AddToggle(Config)
 		Config = L2Hub:ProcessParams(Config , {
@@ -12715,12 +12708,6 @@ pcall(function() GameName = game:GetService("MarketplaceService"):GetProductInfo
 
 		return Window.UserSettings:AddButton(Config);
 	end;
-	
-	local function MaskUsername(name)
-	    name = tostring(name or "");
-	    if #name <= 2 then return name; end;
-	    return string.sub(name, 1, 2) .. "***";
-    end;
 
 	function Window:SetAccount(Config)
 		Config = L2Hub:ProcessParams(Config , {
@@ -12728,6 +12715,9 @@ pcall(function() GameName = game:GetService("MarketplaceService"):GetProductInfo
 			Username = LocalPlayer.DisplayName,
 			Expires = "Never",
 		});
+
+		Window.RealUsername = Config.Username or Window.RealUsername or LocalPlayer.DisplayName;
+		local DisplayName = Window.HideName and (string.sub(Window.RealUsername, 1, 2) .. "*******") or Window.RealUsername;
 
 		if not Window.ShowUser then
 			AccountProfile.Image = "";
@@ -12753,24 +12743,22 @@ pcall(function() GameName = game:GetService("MarketplaceService"):GetProductInfo
 			return;
 		end;
 
-	Window.RealUsername = tostring(Config.Username or Window.RealUsername or "");
-	Window.Profile      = Config.Profile or Window.Profile;
-	Window.Expires      = Config.Expires or Window.Expires;
+		AccountName.Text = DisplayName;
+		AccountProfile.Image = Config.Profile;
+		ExpireLabel.Text = Config.Expires;
 
-	local DisplayName = Window.HideName and MaskUsername(Window.RealUsername) or Window.RealUsername;
+		Window.Username = DisplayName;
+		Window.Profile = Config.Profile or Window.Profile;
+		Window.Expires = Config.Expires or Window.Expires;
 
-	AccountName.Text         = DisplayName;
-	AccountProfile.Image     = Window.Profile;
-	ExpireLabel.Text         = Window.Expires;
-
-	if Window.UserSettings.UserFrame then
-		Window.UserSettings.UserFrame:SetUsername(DisplayName);
-		Window.UserSettings.UserFrame:SetProfile(Window.Profile);
-		Window.UserSettings.UserFrame:SetExpires(Window.Expires);
-	else
-		Window.UserSettings.UserFrame = UserSettings:AddUserFrame(DisplayName , Window.Profile , Window.Expires);
+		if Window.UserSettings.UserFrame then
+			Window.UserSettings.UserFrame:SetUsername(Window.Username);
+			Window.UserSettings.UserFrame:SetProfile(Window.Profile);
+			Window.UserSettings.UserFrame:SetExpires(Window.Expires);
+		else
+			Window.UserSettings.UserFrame = UserSettings:AddUserFrame(Window.Username , Window.Profile , Window.Expires);
+		end;
 	end;
-end;
 
 	function Window:SetSize(newsize)
 		Window.Size = newsize;
