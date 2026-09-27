@@ -5,19 +5,20 @@ local LocalPlayer = Players.LocalPlayer
 local GAMES = {
     [126025038789852] = {
         Name      = "The Morgue Shift",
-        ScriptURL = "https://raw.githubusercontent.com/euloxa/Library/main/scripts/adoptme.lua",
+        ScriptURL = "https://raw.githubusercontent.com/euloxa/Library/refs/heads/main/loader/scripts/themorgueshift.lua",
     },
 }
 
 local FALLBACK_URL = nil
 
 local CONFIG = {
-    LoaderURL  = "https://raw.githubusercontent.com/euloxa/Library/refs/heads/main/loader/loader.lua",
-    VerifyKey  = "L2-HUB",
-    NotifyTime = 4,
-    Verbose    = true,
-    SecretSalt = "L2HUB_v1_SECRET_CHANGE_ME",
-    SessionTTL = 600,
+    LoaderURL   = "https://raw.githubusercontent.com/euloxa/Library/refs/heads/main/loader/loader.lua",
+    VerifyKey   = "L2-HUB",
+    NotifyTime  = 4,
+    Verbose     = true,
+    SecretSalt  = "L2HUB_v1_SECRET_CHANGE_ME",
+    SessionTTL  = 600,
+    VerifyWait  = 120,
 }
 
 local function Log(msg)
@@ -63,7 +64,7 @@ local function GenerateSession()
         tostring(LocalPlayer.UserId or 0),
     }, "|")
 
-    local signature = HttpService:GenerateGUID(false)
+    local signature   = HttpService:GenerateGUID(false)
     local fingerprint = HMAC(sessionKey .. CONFIG.SecretSalt, CONFIG.SecretSalt)
 
     getgenv().L2HUB_SESSION = {
@@ -104,6 +105,35 @@ local function LoadLoader()
 
     Log("Loader UI loaded.")
     return true
+end
+
+local function WaitForVerification(timeout)
+    timeout = timeout or CONFIG.VerifyWait
+
+    local bindable = Instance.new("BindableEvent")
+    getgenv().L2HUB_VERIFIED = bindable
+
+    local verified = false
+    local conn = bindable.Event:Connect(function(result)
+        if result == true then
+            verified = true
+        end
+    end)
+
+    local startTime = os.time()
+    while not verified do
+        if os.time() - startTime > timeout then
+            Log("Verification timeout.")
+            break
+        end
+        task.wait(0.2)
+    end
+
+    conn:Disconnect()
+    bindable:Destroy()
+    getgenv().L2HUB_VERIFIED = nil
+
+    return verified
 end
 
 local function ExecuteScript(name, url)
@@ -178,9 +208,19 @@ local function Main()
         return
     end
 
-    LoadLoader()
-    task.wait(0.5)
+    if not LoadLoader() then
+        return
+    end
+
+    local verified = WaitForVerification(CONFIG.VerifyWait)
+    if not verified then
+        Log("Verification cancelled or timed out.")
+        return
+    end
+
     GenerateSession()
+    task.wait(0.15)
+
     ExecuteScript(info.Name, info.URL)
 end
 

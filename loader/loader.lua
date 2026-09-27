@@ -1,4 +1,3 @@
--- L2-HUB Key Loader · standalone · responsive
 local Players           = game:GetService("Players")
 local TweenService      = game:GetService("TweenService")
 local UserInputService  = game:GetService("UserInputService")
@@ -10,7 +9,7 @@ local CONFIG = {
     Key            = "L2-HUB",
     DiscordInvite  = "https://discord.gg/lifeorlose",
     GetKeyURL      = "https://discord.gg/lifeorlose",
-    WebsiteURL     = "https://example.com",
+    WebsiteURL     = "https://lifeorlose.xyz",
     BannerURL      = "https://files.catbox.moe/6ajzfh.png",
     LogoAsset      = "rbxassetid://120932910004936",
     WindowTitle    = "L2 HUB",
@@ -110,6 +109,13 @@ local function CopyURL(url)
     elseif toclipboard then copied = pcall(toclipboard, url)
     elseif set_clipboard then copied = pcall(set_clipboard, url) end
     return copied, url
+end
+
+local function FireVerified(result)
+    local bindable = getgenv().L2HUB_VERIFIED
+    if bindable and typeof(bindable) == "Instance" and bindable:IsA("BindableEvent") then
+        pcall(function() bindable:Fire(result) end)
+    end
 end
 
 local ScreenGui = Instance.new("ScreenGui")
@@ -227,6 +233,7 @@ CloseBtn.MouseLeave:Connect(function()
     Tween(CloseBtn, { ImageTransparency = 0.1 }, 0.15)
 end)
 CloseBtn.MouseButton1Click:Connect(function()
+    FireVerified(false)
     Tween(Root, { BackgroundTransparency = 1 }, 0.2)
     task.wait(0.25)
     ScreenGui:Destroy()
@@ -515,11 +522,11 @@ VerifyBtn.MouseButton1Click:Connect(function()
         if typed == NormalizeKey(CONFIG.Key) then
             Toast("Access granted. Welcome to L2-HUB.", true)
             VerifyLabel.Text = "Verified"
-            task.wait(1)
-            Root.Visible = false
-            task.wait(0.4)
+            task.wait(0.6)
+            FireVerified(true)
+            Tween(Root, { BackgroundTransparency = 1 }, 0.25)
+            task.wait(0.3)
             ScreenGui:Destroy()
-            -- loadstring(game:HttpGet("MAIN_SCRIPT_URL"))()
         else
             Toast("Invalid key. Please try again.", false)
             VerifyLabel.Text = "Verify Key"
