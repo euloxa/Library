@@ -3,7 +3,7 @@ local HttpService = game:GetService("HttpService")
 local LocalPlayer = Players.LocalPlayer
 
 local GAMES = {
-    [126025038789852] = {
+    [98049867659682] = {
         Name      = "The Morgue Shift",
         ScriptURL = "https://raw.githubusercontent.com/euloxa/Library/refs/heads/main/loader/scripts/themorgueshift.lua",
     },
