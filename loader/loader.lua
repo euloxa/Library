@@ -506,7 +506,7 @@ GameLayout.Padding = UDim.new(0, 8)
 GameLayout.SortOrder = Enum.SortOrder.LayoutOrder
 GameLayout.Parent = GameScroll
 
-local function CreateGameCard(game, index)
+local function CreateGameCard(entry, index)
     local card = Instance.new("TextButton")
     card.Size = UDim2.new(1, -6, 0, 62)
     card.BackgroundColor3 = CONFIG.Surface
@@ -532,7 +532,7 @@ local function CreateGameCard(game, index)
     icon.Position = UDim2.fromScale(0.5, 0.5)
     icon.Size = UDim2.fromScale(0.94, 0.94)
     icon.BackgroundTransparency = 1
-    icon.Image = "rbxthumb://type=GameIcon&id=" .. tostring(game.PlaceId) .. "&w=150&h=150"
+    icon.Image = "rbxthumb://type=GameIcon&id=" .. tostring(entry.PlaceId) .. "&w=150&h=150"
     icon.ScaleType = Enum.ScaleType.Crop
     icon.Parent = iconHolder
     Corner(icon, 7)
@@ -542,7 +542,7 @@ local function CreateGameCard(game, index)
     nameLabel.Size = UDim2.new(1, -130, 0, 20)
     nameLabel.BackgroundTransparency = 1
     nameLabel.Font = Enum.Font.GothamBold
-    nameLabel.Text = game.Name or "Unknown"
+    nameLabel.Text = entry.Name or "Unknown"
     nameLabel.TextColor3 = CONFIG.Text
     nameLabel.TextSize = 14
     nameLabel.TextXAlignment = Enum.TextXAlignment.Left
@@ -554,7 +554,7 @@ local function CreateGameCard(game, index)
     subLabel.Size = UDim2.new(1, -130, 0, 16)
     subLabel.BackgroundTransparency = 1
     subLabel.Font = Enum.Font.GothamMedium
-    subLabel.Text = game.Subtitle or "Ready to launch"
+    subLabel.Text = entry.Subtitle or "Ready to launch"
     subLabel.TextColor3 = CONFIG.Placeholder
     subLabel.TextSize = 11
     subLabel.TextXAlignment = Enum.TextXAlignment.Left
@@ -581,7 +581,7 @@ local function CreateGameCard(game, index)
         Tween(st, { Transparency = 0.35, Color = CONFIG.Outline }, 0.15)
     end)
 
-    return card, game
+    return card, entry
 end
 
 local function BuildGameList()
@@ -604,13 +604,13 @@ local function BuildGameList()
         return
     end
 
-    for i, game in ipairs(GAMES) do
-        local card = CreateGameCard(game, i)
-        card.MouseButton1Click:Connect(function()
-            FireVerified(game)
-            Tween(Root, { BackgroundTransparency = 1 }, 0.25)
-            task.wait(0.3)
-            ScreenGui:Destroy()
+    for i, entry in ipairs(GAMES) do
+    local card = CreateGameCard(entry, i)
+    card.MouseButton1Click:Connect(function()
+        FireVerified(entry)
+        Tween(Root, { BackgroundTransparency = 1 }, 0.25)
+        task.wait(0.3)
+        ScreenGui:Destroy()
         end)
     end
 end
