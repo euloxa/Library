@@ -613,6 +613,7 @@ local function BuildGameList()
         ScreenGui:Destroy()
         end)
     end
+end
 
 BuildGameList()
 
