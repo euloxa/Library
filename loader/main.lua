@@ -3,22 +3,22 @@ local HttpService = game:GetService("HttpService")
 local LocalPlayer = Players.LocalPlayer
 
 local GAMES = {
-    [98049867659682] = {
+    {
         Name      = "The Morgue Shift",
+        Subtitle  = "Freemium Roblox Scripts",
+        PlaceId   = 126025038789852,
         ScriptURL = "https://raw.githubusercontent.com/euloxa/Library/refs/heads/main/loader/scripts/themorgueshift.lua",
     },
 }
 
-local FALLBACK_URL = nil
-
 local CONFIG = {
-    LoaderURL   = "https://raw.githubusercontent.com/euloxa/Library/refs/heads/main/loader/loader.lua",
+    LoaderURL   = "https://raw.githubusercontent.com/euloxa/Library/main/loader/loader.lua",
     VerifyKey   = "L2-HUB",
     NotifyTime  = 4,
     Verbose     = true,
     SecretSalt  = "L2HUB_v1_SECRET_CHANGE_ME",
     SessionTTL  = 600,
-    VerifyWait  = 120,
+    VerifyWait  = 180,
 }
 
 local function Log(msg)
@@ -107,23 +107,23 @@ local function LoadLoader()
     return true
 end
 
-local function WaitForVerification(timeout)
+local function WaitForGameSelection(timeout)
     timeout = timeout or CONFIG.VerifyWait
 
     local bindable = Instance.new("BindableEvent")
     getgenv().L2HUB_VERIFIED = bindable
 
-    local verified = false
+    local selectedGame = nil
     local conn = bindable.Event:Connect(function(result)
-        if result == true then
-            verified = true
+        if type(result) == "table" and result.ScriptURL then
+            selectedGame = result
         end
     end)
 
     local startTime = os.time()
-    while not verified do
+    while not selectedGame do
         if os.time() - startTime > timeout then
-            Log("Verification timeout.")
+            Log("Selection timeout.")
             break
         end
         task.wait(0.2)
@@ -133,95 +133,58 @@ local function WaitForVerification(timeout)
     bindable:Destroy()
     getgenv().L2HUB_VERIFIED = nil
 
-    return verified
+    return selectedGame
 end
 
-local function ExecuteScript(name, url)
-    Log("Loading: " .. name .. " (" .. url .. ")")
+local function ExecuteScript(gameEntry)
+    Log("Loading: " .. gameEntry.Name .. " (" .. gameEntry.ScriptURL .. ")")
 
-    local ok, source = pcall(game.HttpGet, game, url)
+    local ok, source = pcall(game.HttpGet, game, gameEntry.ScriptURL)
     if not ok or type(source) ~= "string" or #source < 50 then
-        Notify("L2-HUB", "Failed to download: " .. name, 5)
+        Notify("L2-HUB", "Failed to download: " .. gameEntry.Name, 5)
         return false
     end
 
     local chunk, err = loadstring(source)
     if not chunk then
-        Notify("L2-HUB", "Compile error in " .. name .. ": " .. tostring(err), 6)
+        Notify("L2-HUB", "Compile error: " .. tostring(err), 6)
         return false
     end
 
     local ok2, err2 = pcall(chunk)
     if not ok2 then
-        Notify("L2-HUB", "Runtime error in " .. name .. ": " .. tostring(err2), 6)
+        Notify("L2-HUB", "Runtime error: " .. tostring(err2), 6)
         return false
     end
 
-    Notify("L2-HUB", name .. " loaded successfully.", 4)
+    Notify("L2-HUB", gameEntry.Name .. " loaded.", 4)
     return true
 end
 
-local function GetGameInfo()
-    local placeId = game.PlaceId
-    local jobId   = game.JobId
-    local entry   = GAMES[placeId]
-
-    if entry then
-        return {
-            PlaceId = placeId,
-            JobId   = jobId,
-            Name    = entry.Name,
-            URL     = entry.ScriptURL,
-            Icon    = entry.Icon,
-            Known   = true,
-        }
-    end
-
-    if FALLBACK_URL then
-        return {
-            PlaceId = placeId,
-            JobId   = jobId,
-            Name    = "Unknown Game (fallback)",
-            URL     = FALLBACK_URL,
-            Known   = false,
-        }
-    end
-
-    return {
-        PlaceId = placeId,
-        JobId   = jobId,
-        Name    = "Unknown Game",
-        URL     = nil,
-        Known   = false,
-    }
-end
-
 local function Main()
-    local info = GetGameInfo()
+    Log("Starting L2-HUB...")
 
-    Log(string.format("PlaceId: %d | JobId: %s", info.PlaceId, info.JobId))
-    Log("Detected: " .. info.Name)
-
-    if not info.URL then
-        Notify("L2-HUB", "Game not supported: " .. info.Name, 6)
-        warn("[L2-HUB] No script URL for PlaceId " .. tostring(info.PlaceId))
+    if #GAMES == 0 then
+        Notify("L2-HUB", "No games configured in main.lua", 6)
         return
     end
+
+    getgenv().L2HUB_GAMES = GAMES
 
     if not LoadLoader() then
         return
     end
 
-    local verified = WaitForVerification(CONFIG.VerifyWait)
-    if not verified then
-        Log("Verification cancelled or timed out.")
+    local selectedGame = WaitForGameSelection(CONFIG.VerifyWait)
+    if not selectedGame then
+        Log("No game selected.")
         return
     end
 
     GenerateSession()
     task.wait(0.15)
 
-    ExecuteScript(info.Name, info.URL)
+    ExecuteScript(selectedGame)
 end
 
 task.spawn(function()

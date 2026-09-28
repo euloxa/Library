@@ -1,9 +1,7 @@
 local Players           = game:GetService("Players")
 local TweenService      = game:GetService("TweenService")
 local UserInputService  = game:GetService("UserInputService")
-local HttpService       = game:GetService("HttpService")
 local Camera            = workspace.CurrentCamera
-local LocalPlayer       = Players.LocalPlayer
 
 local CONFIG = {
     Key            = "L2-HUB",
@@ -15,6 +13,7 @@ local CONFIG = {
     WindowTitle    = "L2 HUB",
     WindowSubtitle = "Freemium Roblox Scripts",
     BaseSize       = Vector2.new(400, 315),
+    ExpandedSize   = Vector2.new(400, 420),
     Accent         = Color3.fromRGB(0, 255, 100),
     AccentDark     = Color3.fromRGB(0, 100, 40),
     DiscordBlurple = Color3.fromRGB(88, 101, 242),
@@ -33,6 +32,8 @@ local ICONS = {
     Website = "113512058469465",
     Key     = "10709791182",
     Verify  = "10709791760",
+    Play    = "10709791760",
+    Game    = "113512058469465",
 }
 
 local function GetCoreGui()
@@ -118,6 +119,8 @@ local function FireVerified(result)
     end
 end
 
+local GAMES = getgenv().L2HUB_GAMES or {}
+
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Name = "L2HubLoader"
 ScreenGui.ResetOnSpawn = false
@@ -142,7 +145,8 @@ local function ApplyResponsiveScale()
     local vp = Camera.ViewportSize
     local maxW = vp.X * 0.88
     local maxH = vp.Y * 0.88
-    local s = math.min(maxW / CONFIG.BaseSize.X, maxH / CONFIG.BaseSize.Y, 1)
+    local refH = math.max(CONFIG.BaseSize.Y, CONFIG.ExpandedSize.Y)
+    local s = math.min(maxW / CONFIG.BaseSize.X, maxH / refH, 1)
     s = math.clamp(s, 0.5, 1)
     UIScale.Scale = s
 end
@@ -306,14 +310,28 @@ local ContentArea = Instance.new("Frame")
 ContentArea.Position = UDim2.fromOffset(14, 110 + 48)
 ContentArea.Size = UDim2.new(1, -28, 1, -(110 + 48) - 14)
 ContentArea.BackgroundTransparency = 1
+ContentArea.ClipsDescendants = true
 ContentArea.Parent = Root
+
+local KeyPage = Instance.new("Frame")
+KeyPage.Name = "KeyPage"
+KeyPage.Size = UDim2.fromScale(1, 1)
+KeyPage.BackgroundTransparency = 1
+KeyPage.Parent = ContentArea
+
+local GamePage = Instance.new("Frame")
+GamePage.Name = "GamePage"
+GamePage.Size = UDim2.fromScale(1, 1)
+GamePage.BackgroundTransparency = 1
+GamePage.Visible = false
+GamePage.Parent = ContentArea
 
 local Divider = Instance.new("Frame")
 Divider.Size = UDim2.new(1, 0, 0, 1)
 Divider.BackgroundColor3 = CONFIG.Outline
 Divider.BackgroundTransparency = 0.35
 Divider.BorderSizePixel = 0
-Divider.Parent = ContentArea
+Divider.Parent = KeyPage
 
 local SectionLabel = Instance.new("TextLabel")
 SectionLabel.Position = UDim2.fromOffset(0, 12)
@@ -324,7 +342,7 @@ SectionLabel.Text = "AUTHENTICATION"
 SectionLabel.TextColor3 = CONFIG.Placeholder
 SectionLabel.TextSize = 11
 SectionLabel.TextXAlignment = Enum.TextXAlignment.Left
-SectionLabel.Parent = ContentArea
+SectionLabel.Parent = KeyPage
 
 local InputHolder = Instance.new("Frame")
 InputHolder.Position = UDim2.fromOffset(0, 36)
@@ -332,7 +350,7 @@ InputHolder.Size = UDim2.new(1, 0, 0, 38)
 InputHolder.BackgroundColor3 = CONFIG.Surface
 InputHolder.BackgroundTransparency = 0.15
 InputHolder.BorderSizePixel = 0
-InputHolder.Parent = ContentArea
+InputHolder.Parent = KeyPage
 Corner(InputHolder, 8)
 local InputStroke = Stroke(InputHolder, CONFIG.Outline, 1, 0.35)
 
@@ -372,7 +390,7 @@ local BtnRow = Instance.new("Frame")
 BtnRow.Position = UDim2.fromOffset(0, 86)
 BtnRow.Size = UDim2.new(1, 0, 0, 42)
 BtnRow.BackgroundTransparency = 1
-BtnRow.Parent = ContentArea
+BtnRow.Parent = KeyPage
 
 local VerifyBtn = Instance.new("TextButton")
 VerifyBtn.Size = UDim2.new(0.62, -3, 0, 42)
@@ -413,7 +431,7 @@ VerifyBtn.MouseLeave:Connect(function()
     Tween(VerifyBtn, { BackgroundTransparency = 0 }, 0.12)
 end)
 
-local function CreateIconButton(iconId, tint, offsetX, tooltip)
+local function CreateIconButton(iconId, tint, offsetX)
     local btn = Instance.new("TextButton")
     btn.Size = UDim2.fromOffset(40, 40)
     btn.AnchorPoint = Vector2.new(1, 0.5)
@@ -449,9 +467,164 @@ local function CreateIconButton(iconId, tint, offsetX, tooltip)
     return btn
 end
 
-local IconDiscord = CreateIconButton(ICONS.Discord, CONFIG.DiscordBlurple, 0, "Discord")
-local IconWebsite = CreateIconButton(ICONS.Website, Color3.fromRGB(220, 220, 230), -44, "Website")
-local IconGetKey  = CreateIconButton(ICONS.GetKey,  CONFIG.Accent,         -88, "Get Key")
+local IconDiscord = CreateIconButton(ICONS.Discord, CONFIG.DiscordBlurple, 0)
+local IconWebsite = CreateIconButton(ICONS.Website, Color3.fromRGB(220, 220, 230), -44)
+local IconGetKey  = CreateIconButton(ICONS.GetKey,  CONFIG.Accent,         -88)
+
+local GameDivider = Instance.new("Frame")
+GameDivider.Size = UDim2.new(1, 0, 0, 1)
+GameDivider.BackgroundColor3 = CONFIG.Outline
+GameDivider.BackgroundTransparency = 0.35
+GameDivider.BorderSizePixel = 0
+GameDivider.Parent = GamePage
+
+local GameSectionLabel = Instance.new("TextLabel")
+GameSectionLabel.Position = UDim2.fromOffset(0, 12)
+GameSectionLabel.Size = UDim2.new(1, 0, 0, 16)
+GameSectionLabel.BackgroundTransparency = 1
+GameSectionLabel.Font = Enum.Font.GothamBold
+GameSectionLabel.Text = "CHOOSE GAME"
+GameSectionLabel.TextColor3 = CONFIG.Placeholder
+GameSectionLabel.TextSize = 11
+GameSectionLabel.TextXAlignment = Enum.TextXAlignment.Left
+GameSectionLabel.Parent = GamePage
+
+local GameScroll = Instance.new("ScrollingFrame")
+GameScroll.Position = UDim2.fromOffset(0, 36)
+GameScroll.Size = UDim2.new(1, 0, 1, -36)
+GameScroll.BackgroundTransparency = 1
+GameScroll.BorderSizePixel = 0
+GameScroll.ScrollBarThickness = 3
+GameScroll.ScrollBarImageColor3 = CONFIG.Accent
+GameScroll.ScrollBarImageTransparency = 0.5
+GameScroll.CanvasSize = UDim2.new(0, 0, 0, 0)
+GameScroll.AutomaticCanvasSize = Enum.AutomaticSize.Y
+GameScroll.Parent = GamePage
+
+local GameLayout = Instance.new("UIListLayout")
+GameLayout.Padding = UDim.new(0, 8)
+GameLayout.SortOrder = Enum.SortOrder.LayoutOrder
+GameLayout.Parent = GameScroll
+
+local function CreateGameCard(game, index)
+    local card = Instance.new("TextButton")
+    card.Size = UDim2.new(1, -6, 0, 62)
+    card.BackgroundColor3 = CONFIG.Surface
+    card.BackgroundTransparency = 0.15
+    card.BorderSizePixel = 0
+    card.Text = ""
+    card.AutoButtonColor = false
+    card.LayoutOrder = index
+    card.Parent = GameScroll
+    Corner(card, 10)
+    local st = Stroke(card, CONFIG.Outline, 1, 0.35)
+
+    local iconHolder = Instance.new("Frame")
+    iconHolder.Size = UDim2.fromOffset(50, 50)
+    iconHolder.Position = UDim2.fromOffset(6, 6)
+    iconHolder.BackgroundColor3 = CONFIG.SurfaceLight
+    iconHolder.BorderSizePixel = 0
+    iconHolder.Parent = card
+    Corner(iconHolder, 8)
+
+    local icon = Instance.new("ImageLabel")
+    icon.AnchorPoint = Vector2.new(0.5, 0.5)
+    icon.Position = UDim2.fromScale(0.5, 0.5)
+    icon.Size = UDim2.fromScale(0.94, 0.94)
+    icon.BackgroundTransparency = 1
+    icon.Image = "rbxthumb://type=GameIcon&id=" .. tostring(game.PlaceId) .. "&w=150&h=150"
+    icon.ScaleType = Enum.ScaleType.Crop
+    icon.Parent = iconHolder
+    Corner(icon, 7)
+
+    local nameLabel = Instance.new("TextLabel")
+    nameLabel.Position = UDim2.fromOffset(66, 12)
+    nameLabel.Size = UDim2.new(1, -130, 0, 20)
+    nameLabel.BackgroundTransparency = 1
+    nameLabel.Font = Enum.Font.GothamBold
+    nameLabel.Text = game.Name or "Unknown"
+    nameLabel.TextColor3 = CONFIG.Text
+    nameLabel.TextSize = 14
+    nameLabel.TextXAlignment = Enum.TextXAlignment.Left
+    nameLabel.TextTruncate = Enum.TextTruncate.AtEnd
+    nameLabel.Parent = card
+
+    local subLabel = Instance.new("TextLabel")
+    subLabel.Position = UDim2.fromOffset(66, 33)
+    subLabel.Size = UDim2.new(1, -130, 0, 16)
+    subLabel.BackgroundTransparency = 1
+    subLabel.Font = Enum.Font.GothamMedium
+    subLabel.Text = game.Subtitle or "Ready to launch"
+    subLabel.TextColor3 = CONFIG.Placeholder
+    subLabel.TextSize = 11
+    subLabel.TextXAlignment = Enum.TextXAlignment.Left
+    subLabel.TextTruncate = Enum.TextTruncate.AtEnd
+    subLabel.Parent = card
+
+    local playIcon = Instance.new("ImageLabel")
+    playIcon.AnchorPoint = Vector2.new(1, 0.5)
+    playIcon.Position = UDim2.new(1, -14, 0.5, 0)
+    playIcon.Size = UDim2.fromOffset(22, 22)
+    playIcon.BackgroundTransparency = 1
+    playIcon.Image = "rbxassetid://" .. ICONS.Play
+    playIcon.ImageColor3 = CONFIG.Accent
+    playIcon.ImageTransparency = 0.2
+    playIcon.ScaleType = Enum.ScaleType.Fit
+    playIcon.Parent = card
+
+    card.MouseEnter:Connect(function()
+        Tween(card, { BackgroundTransparency = 0.35 }, 0.15)
+        Tween(st, { Transparency = 0.1, Color = CONFIG.Accent }, 0.15)
+    end)
+    card.MouseLeave:Connect(function()
+        Tween(card, { BackgroundTransparency = 0.15 }, 0.15)
+        Tween(st, { Transparency = 0.35, Color = CONFIG.Outline }, 0.15)
+    end)
+
+    return card, game
+end
+
+local function BuildGameList()
+    for _, child in ipairs(GameScroll:GetChildren()) do
+        if child:IsA("TextButton") then
+            child:Destroy()
+        end
+    end
+
+    if #GAMES == 0 then
+        local empty = Instance.new("TextLabel")
+        empty.Size = UDim2.new(1, 0, 0, 60)
+        empty.BackgroundTransparency = 1
+        empty.Font = Enum.Font.GothamMedium
+        empty.Text = "No games available."
+        empty.TextColor3 = CONFIG.Placeholder
+        empty.TextSize = 13
+        empty.LayoutOrder = 1
+        empty.Parent = GameScroll
+        return
+    end
+
+    for i, game in ipairs(GAMES) do
+        local card = CreateGameCard(game, i)
+        card.MouseButton1Click:Connect(function()
+            FireVerified(game)
+            Tween(Root, { BackgroundTransparency = 1 }, 0.25)
+            task.wait(0.3)
+            ScreenGui:Destroy()
+        end)
+    end
+end
+
+BuildGameList()
+
+local function ShowGamePage()
+    KeyPage.Visible = false
+    GamePage.Visible = true
+    GamePage.BackgroundTransparency = 1
+    Tween(UIScaleHolder, {
+        Size = UDim2.fromOffset(CONFIG.ExpandedSize.X, CONFIG.ExpandedSize.Y)
+    }, 0.4, Enum.EasingStyle.Quint)
+end
 
 local ToastHolder = Instance.new("Frame")
 ToastHolder.AnchorPoint = Vector2.new(0.5, 0)
@@ -520,13 +693,10 @@ VerifyBtn.MouseButton1Click:Connect(function()
     task.spawn(function()
         task.wait(0.9)
         if typed == NormalizeKey(CONFIG.Key) then
-            Toast("Access granted. Welcome to L2-HUB.", true)
+            Toast("Access granted.", true)
             VerifyLabel.Text = "Verified"
-            task.wait(0.6)
-            FireVerified(true)
-            Tween(Root, { BackgroundTransparency = 1 }, 0.25)
-            task.wait(0.3)
-            ScreenGui:Destroy()
+            task.wait(0.5)
+            ShowGamePage()
         else
             Toast("Invalid key. Please try again.", false)
             VerifyLabel.Text = "Verify Key"
